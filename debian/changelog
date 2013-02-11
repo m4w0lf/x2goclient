@@ -4,6 +4,10 @@ x2goclient (4.0.0.2-0~x2go1) UNRELEASED; urgency=low
   * New upstream version (4.0.0.2):
     - More icon updates needed. Discovered during Debian package update.
 
+  [ Orion Poplawski ]
+  * New upstream version (4.0.0.2):
+    - Fix .desktop file, fix FSF address. (Fixes: #88).
+
   [ Oleksandr Shneyder ]
   * New upstream version (4.0.0.2):
     - Fix support for RSA Keys in X2Go Broker code.
