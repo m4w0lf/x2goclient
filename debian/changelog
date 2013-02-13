@@ -1,8 +1,8 @@
-x2goclient (4.0.0.3-0~x2go1) UNRELEASED; urgency=low
+x2goclient (4.0.0.3-0~x2go1) unstable; urgency=low
 
   * Fix version in version.h, VERSION and x2goplugin.rc.
 
- -- Mike Gabriel <mike.gabriel@das-netzwerkteam.de>  Wed, 13 Feb 2013 14:35:58 +0100
+ -- Mike Gabriel <mike.gabriel@das-netzwerkteam.de>  Wed, 13 Feb 2013 14:37:24 +0100
 
 x2goclient (4.0.0.2-0~x2go1) unstable; urgency=low
 
