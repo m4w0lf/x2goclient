@@ -1,6 +1,8 @@
 x2goclient (4.0.1.4-0x2go1) UNRELEASED; urgency=low
 
-  * Continue development on current release / Baikal LTS branch...
+  [ Oleksandr Shneyder ]
+  * New upstream version (4.0.1.4):
+    - Increase timeout in ssh_select.
 
  -- Mike Gabriel <mike.gabriel@das-netzwerkteam.de>  Wed, 22 Jan 2014 09:17:39 +0100
 
