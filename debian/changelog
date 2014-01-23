@@ -3,6 +3,7 @@ x2goclient (4.0.1.4-0x2go1) UNRELEASED; urgency=low
   [ Oleksandr Shneyder ]
   * New upstream version (4.0.1.4):
     - Increase timeout in ssh_select.
+    - Set mod map from client to server on Mac, hide keyboard settings on Mac.
 
  -- Mike Gabriel <mike.gabriel@das-netzwerkteam.de>  Wed, 22 Jan 2014 09:17:39 +0100
 
