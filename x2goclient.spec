@@ -13,7 +13,7 @@ BuildRequires:  desktop-file-utils
 #BuildRequires:  libssh-devel >= 0.6.1
 BuildRequires:  libssh-devel
 BuildRequires:  libXpm-devel
-%if 0%{?fedora}
+%if 0%{?fedora} || 0%{?el7}
 BuildRequires:  man2html-core
 %else
 BuildRequires:  man

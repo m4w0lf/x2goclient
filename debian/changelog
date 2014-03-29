@@ -1,6 +1,7 @@
 x2goclient (4.0.1.6-0x2go1) UNRELEASED; urgency=low
 
-  * Continue development on LTS release branch...
+  * x2goclient.spec:
+    + B-R (epel-7): man2html-core (same as for Fedora builds).
 
  -- Mike Gabriel <mike.gabriel@das-netzwerkteam.de>  Wed, 07 May 2014 09:17:37 +0200
 
@@ -12,7 +13,7 @@ x2goclient (4.0.1.5-0x2go1) unstable; urgency=low
 
  -- Mike Gabriel <mike.gabriel@das-netzwerkteam.de>  Thu, 10 Apr 2014 17:47:27 +0200
 
-x2goclient (4.0.1.4-0x2go1) unstable; urgency=low
+x2goclient (4.0.1.4-0x2go1) UNRELEASED; urgency=low
 
   [ Oleksandr Shneyder ]
   * New upstream version (4.0.1.4):
