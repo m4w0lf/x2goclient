@@ -1,10 +1,10 @@
-x2goclient (4.0.1.4-0x2go2) UNRELEASED; urgency=low
+x2goclient (4.0.1.4-0x2go2) unstable; urgency=low
 
   * Build fix release (for 4.0.1.4):
     - Add x2goclient_nl.ts to x2goclient.pro, so that the
       .qm file gets generated during build.
 
- -- Mike Gabriel <mike.gabriel@das-netzwerkteam.de>  Thu, 10 Apr 2014 17:45:58 +0200
+ -- Mike Gabriel <mike.gabriel@das-netzwerkteam.de>  Thu, 10 Apr 2014 17:47:27 +0200
 
 x2goclient (4.0.1.4-0x2go1) unstable; urgency=low
 
