@@ -9,6 +9,11 @@ x2goclient (4.0.2.1-0x2go1) UNRELEASED; urgency=low
       we force X2Go client to only use the default "accelerated X" as
       system tray icon (and prohibit usage of the session's icon as
       tray icon). (Fixes: #365).
+    - Provide more meaningful messages on SSH errors (host pub key not
+      found, export pub key not found, authorized_keys file not found).
+      For SSHd startup failures provide different messages on Windows
+      and non-Windows machines. (Fixes: #235).
+      FIXME: add detection code to report SSH daemon startup failures.
   * debian/control:
     + Add dbg:package x2goplugin-dbg.
 
