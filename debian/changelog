@@ -6,7 +6,7 @@ x2goclient (4.0.3.1-20150119) UNRELEASED; urgency=medium
       fixes the CVEs announced on 2015-01-08.
     - Windows: Bundle new version of VcXsrv: 1.15.2.2-xp+vc2013+x2go1.
       The differences from 1.15.2.1-xp+vc2013+x2go1 are that its bundled
-      OpenSSL has been updated to 1.0.1j, and that xorg-server
+      OpenSSL has been updated to 1.0.1k, and that xorg-server
       CVE-2014-8091..8103 have been fixed.
     - Windows: Make builds easier, and updating bundled dependencies
       easier, by adding copy-deps-win32.bat. It copies the exact
