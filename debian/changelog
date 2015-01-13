@@ -12,6 +12,7 @@ x2goclient (4.0.3.1-20150119) UNRELEASED; urgency=medium
       Pageant support). This fixes CVE-2014-8132, which shouldn't
       affect x2goclient because x2goclient uses the SSH client
       functionality, not the SSH server functionality.
+      0.6.4 also added 4 features related to ECDSA keys.
     - Windows: Make builds easier, and updating bundled dependencies
       easier, by adding copy-deps-win32.bat. It copies the exact
       version of each dependency (DLL, executable, data, folder, etc)
