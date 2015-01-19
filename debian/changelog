@@ -1,3 +1,20 @@
+x2goclient (4.0.3.1-20150119) UNRELEASED; urgency=medium
+
+  [ Mike DePaulo ]
+  * New upstream release (4.0.3.1-20150119):
+    - Windows: Cygwin OpenSSL updated from 1.0.1j-1 to 1.0.1k-1, which
+      fixes the CVEs announced on 2015-01-08.
+    - Windows: Bundle new version of VcXsrv: 1.15.2.2-xp+vc2013+x2go1.
+      The differences from 1.15.2.1-xp+vc2013+x2go1 are that its bundled
+      OpenSSL has been updated to 1.0.1j, and that xorg-server
+      CVE-2014-8091..8103 have been fixed.
+    - Windows: Make builds easier, and updating bundled dependencies
+      easier, by adding copy-deps-win32.bat. It copies the exact
+      version of each dependency (DLL, executable, data, folder, etc)
+      from x2goclient-contrib.git.
+
+ -- Mike DePaulo <mikedep333@gmail.com>  Mon, 19 Jan 2015 07:26:54 -0500
+
 x2goclient (4.0.3.1-0x2go1) unstable; urgency=medium
 
   [ Mike Gabriel ]
