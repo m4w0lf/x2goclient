@@ -1,4 +1,4 @@
-x2goclient (4.0.3.1-20150119) UNRELEASED; urgency=medium
+x2goclient (4.0.3.1-20150119) unstable; urgency=medium
 
   [ Mike DePaulo ]
   * New upstream release (4.0.3.1-20150119):
@@ -20,7 +20,7 @@ x2goclient (4.0.3.1-20150119) UNRELEASED; urgency=medium
       version of each dependency (DLL, executable, data, folder, etc)
       from x2goclient-contrib.git.
 
- -- Mike DePaulo <mikedep333@gmail.com>  Mon, 19 Jan 2015 07:26:54 -0500
+ -- Mike DePaulo <mikedep333@gmail.com>  Mon, 19 Jan 2015 08:21:04 -0500
 
 x2goclient (4.0.3.1-0x2go1) unstable; urgency=medium
 
