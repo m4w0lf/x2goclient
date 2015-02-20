@@ -1,3 +1,10 @@
+x2goclient (4.0.3.2-20150220) UNRELEASED; urgency=medium
+  * New upstream release (4.0.4.0):
+    - Windows: Bundle new version of VcXsrv: 1.15.2.3-xp+vc2013+x2go1.
+      The difference from 1.15.2.2-xp+vc2013+x2go1 is that CVE-2015-0255
+      has been fixed.
+
+ -- Mike DePaulo <mikedep333@gmail.com>  Thu, 20 Feb 2015 08:01:00 -0500
 x2goclient (4.0.3.2-20150219) unstable; urgency=medium
 
   [ Mike DePaulo ]
