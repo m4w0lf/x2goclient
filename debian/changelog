@@ -1,5 +1,5 @@
-x2goclient (4.0.3.2-20150222) unstable; urgency=medium
-  * New upstream release (4.0.4.0):
+x2goclient (4.0.3.2-20150224) unstable; urgency=medium
+  * New upstream release (4.0.3.2-20150224):
     - Windows: Bundle new version of VcXsrv: 1.15.2.3-xp+vc2013+x2go1.
       The difference from 1.15.2.2-xp+vc2013+x2go1 is that CVE-2015-0255
       has been fixed.
@@ -18,7 +18,7 @@ x2goclient (4.0.3.2-20150222) unstable; urgency=medium
       that we are distributing the exact DLLs that the Cygwin project
       provides, which is desirable for security.
 
- -- Mike DePaulo <mikedep333@gmail.com>  Thu, 22 Feb 2015 13:50:00 -0500
+ -- Mike DePaulo <mikedep333@gmail.com>  Tue, 24 Feb 2015 8:00:00 -0500
 
 x2goclient (4.0.3.2-20150219) unstable; urgency=medium
 
