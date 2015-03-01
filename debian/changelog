@@ -1,4 +1,4 @@
-x2goclient (4.0.3.2-20150229) UNRELEASED; urgency=low
+x2goclient (4.0.3.2-20150229) unstable; urgency=medium
 
   [ Mike DePaulo ]
   * New upstream release (4.0.3.2-20150229):
@@ -8,7 +8,7 @@ x2goclient (4.0.3.2-20150229) UNRELEASED; urgency=low
       updated from 2.5.3 to 2.5.5.
       This freetype update fixes CVE-2014-9656 through CVE-2014-9675.
 
- -- Mike DePaulo <mikedep333@gmail.com>  Sat, 28 Feb 2015 20:37:00 -0500
+ -- Mike DePaulo <mikedep333@gmail.com>  Sat, 28 Feb 2015 21:45:00 -0500
 
 x2goclient (4.0.3.2-20150224) unstable; urgency=medium
 
