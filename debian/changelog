@@ -1,3 +1,15 @@
+x2goclient (4.0.3.2-20150229) UNRELEASED; urgency=low
+
+  [ Mike DePaulo ]
+  * New upstream release (4.0.3.2-20150229):
+    - Windows: Update bundled VcXsrv from 1.15.2.3-xp+vc2013+x2go1 to
+      1.15.2.4-xp+vc2013+x2go1.
+      The differences is that VcXsrv's bundled version of freetype was
+      updated from 2.5.3 to 2.5.5.
+      This freetype update fixes CVE-2014-9656 through CVE-2014-9675.
+
+ -- Mike DePaulo <mikedep333@gmail.com>  Sat, 28 Feb 2015 20:37:00 -0500
+
 x2goclient (4.0.3.2-20150224) unstable; urgency=medium
   * New upstream release (4.0.3.2-20150224):
     - Windows: Bundle new version of VcXsrv: 1.15.2.3-xp+vc2013+x2go1.
