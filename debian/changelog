@@ -1,3 +1,20 @@
+x2goclient (4.0.3.2-20150329) unstable; urgency=medium
+
+  [ Mike DePaulo ]
+  * New upstream release (4.0.3.2-20150329):
+    - Windows: Update bundled VcXsrv from 1.15.2.2-xp+vc2013+x2go1 to
+      1.15.2.5 (X2Go/Arctica Build)
+      The differences relevant to X2Go are:
+        + CVE-2015-0255 was fixed in VcXsrv itself
+        + VcXsrv's bundled version of openssl was updated from 1.0.1k
+          to 1.0.1m (fixes the multiple CVEs announced on 2015-03-19)
+        + VcXsrv's bundled version of libXfont was updated from 1.4.8
+          to 1.4.9 (Fixes CVE-2015-1802 through CVE-2015-1804)
+        + VcXsrv's bundled version of freetype was updated from 2.5.3
+          to 2.5.5 (fixes CVE-2014-9656 through CVE-2014-9675)
+
+ -- Mike DePaulo <mikedep333@gmail.com>  Sun, 29 Mar 2015 15:11:00 -0500
+
 x2goclient (4.0.3.2-20150301) unstable; urgency=medium
 
   [ Mike DePaulo ]
