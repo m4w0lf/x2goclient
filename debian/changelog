@@ -2,6 +2,12 @@ x2goclient (4.0.3.2-20150508) UNRELEASED; urgency=medium
 
   [ Mike DePaulo ]
   * New upstream release (4.0.3.2-20150508):
+    - Windows: Update bundled VcXsrv from 1.15.2.5 (X2Go/Arctica
+      Build) to 1.15.2.6 (X2Go/Arctica Build)
+      The differences relevant to X2Go are:
+        + CVE-2015-3418 was fixed in VcXsrv itself
+        + Font files no longer differ in each build due to timestamp
+          differences
 
  -- Mike DePaulo <mikedep333@gmail.com>  Fri, 08 May 2015 20:05:00 -0400
 
