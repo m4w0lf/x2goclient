@@ -1,3 +1,13 @@
+x2goclient (4.0.4.0-2015.05.27) unstable; urgency=low
+
+  [ Mike DePaulo ]
+  * New upstream release (4.0.4.0-2015.05.27):
+    - No Windows-specific changes in this Windows-specific release.
+      All of the Windows-specific changes from 4.0.3.2-20150508
+      are listed in the 4.0.4.0 changelog.
+
+ -- Mike DePaulo <mikedep333@gmail.com>  Wed, 27 May 2015 07:07:00 -0400
+
 x2goclient (4.0.4.0-0x2go1) unstable; urgency=low
 
   [ Mike DePaulo ]
