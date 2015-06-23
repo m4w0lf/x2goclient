@@ -1,5 +1,12 @@
-x2goclient (4.0.4.0-2015.06.23) unstable; urgency=low
+x2goclient (4.0.4.0-2015.06.23-bug883-test1) unstable; urgency=low
 
+  [ Mike DePaulo ]
+  * New upstream release (4.0.4.0-2015.06.23-bug883test1):
+    - Windows: Revert the fix for bug 594 as a test fix for bug 883.
+
+ -- Mike DePaulo <mikedep333@gmail.com>  Tue, 23 Jun 2015 9:35:00 -0400
+
+x2goclient (4.0.4.0-2015.06.23) unstable; urgency=low
   [ Mike DePaulo ]
   * New upstream release (4.0.4.0-2015.06.23):
     - Windows: Update bundled Win32 OpenSSL from 1.0.1m to 1.0.1o,
