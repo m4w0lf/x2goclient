@@ -6,6 +6,11 @@ x2goclient (4.0.4.0-2015.06.23) unstable; urgency=low
       which fixes the multiple CVEs announced on 2015-06-11.
     - Windows: Update bundled Cygwin OpenSSL from 1.0.2a-1 to 1.0.2c-1, which
       fixes the multiple CVEs announced on 2015-06-11.
+    - Windows: Update bundled VcXsrv from 1.17.0.0-1 (X2Go/Arctica Build)
+      to 1.17.0.0-2 (X2Go/Arctica Build)
+      The differences relevant to X2Go are:
+        + VcXsrv's bundled version of openssl was updated from 1.0.2a
+          to 1.0.2c (fixes the multiple CVEs announced on 2015-06-11)
 
  -- Mike DePaulo <mikedep333@gmail.com>  Tue, 23 Jun 2015 9:24:00 -0400
 
