@@ -1,3 +1,10 @@
+x2goclient (4.0.4.0-2015.06.23) unstable; urgency=low
+
+  [ Mike DePaulo ]
+  * New upstream release (4.0.4.0-2015.06.23):
+
+ -- Mike DePaulo <mikedep333@gmail.com>  Tue, 23 Jun 2015 9:24:00 -0400
+
 x2goclient (4.0.4.0-2015.05.27) unstable; urgency=low
 
   [ Mike DePaulo ]
