@@ -1,7 +1,7 @@
-x2goclient (4.0.4.0-2015.06.23) unstable; urgency=low
+x2goclient (4.0.4.0-2015.06.24) unstable; urgency=low
 
   [ Mike DePaulo ]
-  * New upstream release (4.0.4.0-2015.06.23):
+  * New upstream release (4.0.4.0-2015.06.24):
     - Windows: Update bundled Win32 OpenSSL from 1.0.1m to 1.0.1o,
       which fixes the multiple CVEs announced on 2015-06-11.
     - Windows: Update bundled Cygwin OpenSSL from 1.0.2a-1 to 1.0.2c-1, which
@@ -12,7 +12,7 @@ x2goclient (4.0.4.0-2015.06.23) unstable; urgency=low
         + VcXsrv's bundled version of openssl was updated from 1.0.2a
           to 1.0.2c (fixes the multiple CVEs announced on 2015-06-11)
 
- -- Mike DePaulo <mikedep333@gmail.com>  Tue, 23 Jun 2015 9:24:00 -0400
+ -- Mike DePaulo <mikedep333@gmail.com>  Tue, 23 Jun 2015 22:38:00 -0400
 
 x2goclient (4.0.4.0-2015.05.27) unstable; urgency=low
 
