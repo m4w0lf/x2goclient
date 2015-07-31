@@ -1,13 +1,13 @@
-x2goclient (4.0.5.0-2015.07.28) unstable; urgency=low
+x2goclient (4.0.5.0-2015.07.31) unstable; urgency=low
 
   [ Mike DePaulo ]
-  * New upstream release (4.0.5.0-2015.07.28):
+  * New upstream release (4.0.5.0-2015.07.31):
     - No changes in this release of X2Go Client for Windows.
       All of the changes from 4.0.4.0-2015.06.24 are listed in the
       4.0.5.0 changelog (although the changelog lists some changes
       that were included in 4.0.4.0-2015.06.24).
 
- -- Mike DePaulo <mikedep333@gmail.com>  Tue, 28 Jul 2015 00:03:14 -0400
+ -- Mike DePaulo <mikedep333@gmail.com>  Fri, 31 Jul 2015 00:11:19 -0400
 
 x2goclient (4.0.5.0-0x2go1) unstable; urgency=low
 
