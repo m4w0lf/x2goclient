@@ -1,3 +1,12 @@
+x2goclient (4.0.5.0-2016.01.23) unstable; urgency=low
+
+  [ Mike DePaulo ]
+  * New upstream release (4.0.5.1):
+    - Windows: Update bundled Win32 OpenSSL from 1.0.1p to 1.0.1q,
+      which fixes the multiple CVEs announced on 2015-12-03.
+
+ -- Mike DePaulo <mikedep333@gmail.com>  Sat, 23 Jan 2016 09:27:39 -0500
+
 x2goclient (4.0.5.0-2015.07.31) unstable; urgency=low
 
   [ Mike DePaulo ]
