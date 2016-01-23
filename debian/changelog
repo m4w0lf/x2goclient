@@ -18,6 +18,8 @@ x2goclient (4.0.5.0-2016.01.23) unstable; urgency=low
     - Windows: Update nxproxy from 3.5.0.31 to 3.5.0.32
     - Windows: Update Unicode NSIS from 2.46.5 to 2.50.0 Pre-release,
       which fixes the DLL hijacking security vuln (NSIS bug 1125.)
+    - Windows: Update PuTTY from 0.64 to 0.66, which fixes
+      CVE-2015-5309.
 
  -- Mike DePaulo <mikedep333@gmail.com>  Sat, 23 Jan 2016 09:27:39 -0500
 
