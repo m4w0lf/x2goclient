@@ -1,4 +1,4 @@
-x2goclient (4.0.5.0-2016.01.23) unstable; urgency=low
+x2goclient (4.0.5.0-2016.01.28) unstable; urgency=low
 
   [ Mike DePaulo ]
   * New upstream release (4.0.5.1):
@@ -22,7 +22,7 @@ x2goclient (4.0.5.0-2016.01.23) unstable; urgency=low
       CVE-2015-5309.
     - Windows: Remove libzip. libssh no longer uses it.
 
- -- Mike DePaulo <mikedep333@gmail.com>  Sat, 23 Jan 2016 09:27:39 -0500
+ -- Mike DePaulo <mikedep333@gmail.com>  Thu, 28 Jan 2016 09:08:37 -0500
 
 x2goclient (4.0.5.0-2015.07.31) unstable; urgency=low
 
