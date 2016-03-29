@@ -1,3 +1,11 @@
+x2goclient (4.0.5.1-2016.05.18) UNRELEASED; urgency=medium
+
+  [ Mike DePaulo ]
+  * New upstream release (4.0.5.2):
+    - Windows: add sshd logging when using the --debug flag.
+
+ -- Mike DePaulo <mikedep333@gmail.com>  Wed, 18 May 2016 15:09:33 -0400
+
 x2goclient (4.0.5.1-0x2go1) unstable; urgency=low
 
   [ Mihai Moldovan ]
