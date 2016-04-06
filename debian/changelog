@@ -1,3 +1,14 @@
+x2goclient (4.0.5.1-0x2go2) unstable; urgency=medium
+
+  [ Mihai Moldovan ]
+  * Hotfix release for OS X (4.0.5.1):
+    - src/onmainwindow.cpp: add (default) MacPorts prefix, /usr/local/bin and
+      /opt/X11/bin to x2goclient's environment and child environments before
+      starting xmodmap. Fixes: #1019. Requires a re-release of X2Go Client for
+      OS X.
+
+ -- Mihai Moldovan <ionic@ionic.de>  Wed, 06 Apr 2016 17:10:10 +0100
+
 x2goclient (4.0.5.1-0x2go1) unstable; urgency=low
 
   [ Mihai Moldovan ]
