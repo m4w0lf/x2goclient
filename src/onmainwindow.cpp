@@ -10234,6 +10234,9 @@ void ONMainWindow::generateEtcFiles()
          "UsePrivilegeSeparation no\n"<<
          "PidFile \"" + varDir + "/sshd.pid\"\n" <<
 #ifdef Q_OS_WIN
+         // Workaround for X2Go bug #1002 until we support keys
+         // stronger than DSA (X2Go bug #1003).
+         "PubkeyAcceptedKeyTypes=+ssh-dss\n"<<
          "Subsystem shell "<< wapiShortFileName ( appDir) +"/sh"+"\n"<<
          "Subsystem sftp "<< wapiShortFileName ( appDir) +"/sftp-server"+"\n"<<
          "AuthorizedKeysFile \""<<authKeyPath<<"\"";
