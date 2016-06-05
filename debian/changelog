@@ -1,7 +1,7 @@
-x2goclient (4.0.5.1-2016.05.18) UNRELEASED; urgency=medium
+x2goclient (4.0.5.1-2016.06.05) unstable; urgency=medium
 
   [ Mike DePaulo ]
-  * New upstream release (4.0.5.2):
+  * New upstream release (4.0.5.1-2016.06.05):
     - Windows: add sshd debug1 logging when using the --debug flag.
     - Windows: Revert back to Cygwin components that have not been
       "rebased"
@@ -9,7 +9,7 @@ x2goclient (4.0.5.1-2016.05.18) UNRELEASED; urgency=medium
       of Cygwin sshd (7.1) by re-enabling support for DSA host keys
       (Fixes: #1002)
 
- -- Mike DePaulo <mikedep333@gmail.com>  Wed, 18 May 2016 15:09:33 -0400
+ -- Mike DePaulo <mikedep333@gmail.com>  Sat, 04 Jun 2016 22:37:35 -0400
 
 x2goclient (4.0.5.1-0x2go1) unstable; urgency=low
 
