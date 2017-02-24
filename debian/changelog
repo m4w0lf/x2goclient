@@ -1,6 +1,8 @@
 x2goclient (4.1.0.1-0x2go1) UNRELEASED; urgency=medium
 
-  * Continue development
+  [ Oleksandr Shneyder ]
+  * New upstream version (4.1.0.1):
+    - Add "direct XDMCP" functionality.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Wed, 22 Feb 2017 07:13:10 +0100
 
