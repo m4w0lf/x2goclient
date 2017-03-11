@@ -6,6 +6,8 @@ x2goclient (4.1.0.0--2017.03.11) unstable; urgency=medium
       Fixes: #1152 Issues with audio when playing HTML5 videos
     - Windows: Remove uninstaller from start menu.
       It is still available in "Programs and Features".
+    - Windows: Upgrade Win32 OpenSSL from 1.0.1t to 1.0.2k
+      Fixes numerous CVEs
 
  -- Mike DePaulo <mikedep333@gmail.com>  Sat, 11 Mar 2017 13:24:19 -0500
 
