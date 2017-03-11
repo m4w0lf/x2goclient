@@ -1,3 +1,12 @@
+x2goclient (4.1.0.0--2017.03.11) unstable; urgency=medium
+
+  [ Mike DePaulo ]
+  * New upstream version (4.1.0.0-2017.03.11):
+    - Windows: Upgrade PulseAudio from 6.0 to 7.1
+      Fixes: #1152 Issues with audio when playing HTML5 videos
+
+ -- Mike DePaulo <mikedep333@gmail.com>  Sat, 11 Mar 2017 13:24:19 -0500
+
 x2goclient (4.1.0.0-0x2go1) unstable; urgency=medium
 
   [ Mihai Moldovan ]
