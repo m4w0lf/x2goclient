@@ -14,6 +14,12 @@ x2goclient (4.1.0.0--2017.03.11) unstable; urgency=medium
         + CVE-2016-0739 was fixed
         + improved id_ed25519 support
         + numerous bug fixes
+    - Windows: Update PuTTY from 0.67 to 0.68
+      The possibly relevant changes are:
+        + CVE-2016-6167 was fixed (did not affect X2Go Client by
+          default because the installation dir is not writeable by
+          users)
+        + CVE-2017-6542 was fixed
 
  -- Mike DePaulo <mikedep333@gmail.com>  Sat, 11 Mar 2017 13:24:19 -0500
 
