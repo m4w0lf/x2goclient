@@ -4,6 +4,8 @@ x2goclient (4.1.0.1-0x2go1) UNRELEASED; urgency=medium
   * New upstream version (4.1.0.1):
     - src/onmainwindow.cpp: unbreak Windows and OS X builds - directRDP is
       only available on Linux, so guard new section.
+    - src/sessionbutton.cpp: only append "XDM@" string to server text if a
+      direct XDMCP session was requested. Issue automatically found by GCC.
 
   [ Oleksandr Shneyder ]
   * New upstream version (4.1.0.1):
