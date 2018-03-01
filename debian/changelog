@@ -1,3 +1,9 @@
+x2goclient (4.1.1.1-2018.03.01) unstable; urgency=medium
+  [ Mike DePaulo ]
+  * New upstream version (4.1.1.1-2018.03.01):
+
+ -- Mike DePaulo <mikedep333@gmail.com>  Wed, 28 Feb 2018 20:53:41 -0500
+
 x2goclient (4.1.1.1-0x2go1) unstable; urgency=medium
 
   [ Mihai Moldovan ]
