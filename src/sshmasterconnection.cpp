@@ -1407,7 +1407,18 @@ bool SshMasterConnection::userAuthWithKey()
 #if LIBSSH_VERSION_INT >= SSH_VERSION_INT (0, 6, 0)
     ssh_key priv_key = { 0 };
 
-    int rc = ssh_pki_import_privkey_file (tmp_ba.data (), NULL, NULL, NULL, &priv_key);
+    /*
+     * Passing an empty string as a passphrase parameter is a workaround for inconsistent
+     * behavior in libssh:
+     *   - compiled with OpenSSL, libssh lets OpenSSL query the passphrase if the
+     *     application has a controlling terminal connected
+     *   - compiled with libgcrypt, this never happens
+     *
+     * We do not want to break user experience by having libssh/OpenSSL query for the
+     * passphrase on a terminal (and the client not reacting to any input while this
+     * happens), so work around this inconsistency by providing an empty passphrase.
+     */
+    int rc = ssh_pki_import_privkey_file (tmp_ba.data (), "", NULL, NULL, &priv_key);
 
     if (SSH_EOF == rc) {
         x2goDebug << "Failed to get private key from " << keyName << "; file does not exist.";
