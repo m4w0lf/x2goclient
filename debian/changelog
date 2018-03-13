@@ -30,6 +30,7 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
       LXQt. Fixes: #1263.
     - src/sshmasterconnection.cpp: stop libssh/OpenSSL from querying for a
       passphrase if started with a controlling terminal.
+    - x2goclient.pro: remove plugin references.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Thu, 15 Feb 2018 22:01:32 +0100
 

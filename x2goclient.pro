@@ -135,16 +135,10 @@ SOURCES += src/sharewidget.cpp \
 LIBS += -lssh -lssh_threads
 win32:LIBS += -lAdvAPI32 -lshell32 -lUser32
 
-plugin {
-  TARGET = x2goplugin
-}
-else {
-  RC_FILE = res/x2goclient.rc
-  SOURCES += src/x2goclient.cpp
-  TARGET = x2goclient
-  DEFINES += CFGCLIENT
-  message("if you want to build x2goplugin you should export X2GO_CLIENT_TARGET=plugin")
-}
+RC_FILE = res/x2goclient.rc
+SOURCES += src/x2goclient.cpp
+TARGET = x2goclient
+DEFINES += CFGCLIENT
 
 !isEmpty(TRANSLATIONS) {
   isEmpty(QMAKE_LRELEASE) {
@@ -250,19 +244,3 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += x11extras
 
 QMAKE_CXXFLAGS_DEBUG -= -g
 QMAKE_CXXFLAGS_DEBUG += -O2 -g3 -ggdb3 -gdwarf-4
-
-plugin {
-  DEFINES += CFGPLUGIN
-  linux-g++ {
-    include(x2gobrowserplugin-2.4_1/src/qtbrowserplugin.pri)
-  }
-  linux-g++-64 {
-    include(x2gobrowserplugin-2.4_1/src/qtbrowserplugin.pri)
-  }
-  win32-* {
-    DEFINES += QT_NODLL
-    CONFIG += qaxserver
-    include(x2gobrowserplugin-2.4_1/src/qtbrowserplugin.pri)
-  }
-  RC_FILE = x2gobrowserplugin-2.4_1/src/res/x2goplugin.rc
-}
