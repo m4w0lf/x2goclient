@@ -35,19 +35,11 @@ On Linux-based systems, run:
 
 make all
 
-to build both X2Go Client and X2Go Plugin
-
 or
 
 make build_client
 
-to build X2Go Client only
-
-or
-
-make build_plugin
-
-to build X2Go Plugin only.
+to build X2Go Client.
 
 
 Installing
@@ -57,13 +49,11 @@ On Linux-based systems, run:
 
 make install
 
-to install X2Go Client, X2Go Plugin, man pages and the plugin provider.
+to install X2Go Client.
 
 Alternatively, use one of the targets:
   - install_client: for X2Go Client only
-  - install_plugin: for X2Go Plugin only
   - install_man: for the man pages only
-  - install_pluginprovider: for the plugin provider only
 
 
 Uninstalling
