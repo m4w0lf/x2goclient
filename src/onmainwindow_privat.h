@@ -160,12 +160,5 @@
 #include <X11/Xutil.h>
 #endif
 
-#ifdef CFGPLUGIN
-#ifdef Q_OS_LINUX
-#include <dlfcn.h>
-#include <QX11EmbedContainer>
-#endif
-#endif
-
 
 #endif //ONMAINWINDOWPRIVAT_H

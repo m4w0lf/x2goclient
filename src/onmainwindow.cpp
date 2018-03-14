@@ -166,16 +166,6 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
 
     appDir=QApplication::applicationDirPath();
 
-#if defined Q_OS_WIN && defined CFGPLUGIN
-    wchar_t pluginpath[1024];
-    HMODULE module;
-    module=GetModuleHandleW ( L"npx2goplugin.dll" );
-    GetModuleFileNameW ( module,pluginpath, 1024 );
-    QString ppstr=QString::fromUtf16 ( ( const ushort* ) pluginpath );
-    ppstr.replace ( "\\npx2goplugin.dll","" );
-    appDir=wapiShortFileName ( ppstr );
-    QDir::setCurrent ( appDir );
-#endif
     homeDir=QDir::homePath();
 
 #ifdef Q_OS_WIN
@@ -260,11 +250,6 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
         }
     }
 #endif
-
-#ifdef CFGPLUGIN
-    embedMode=true;
-#endif
-
 
 
 //set homedir as portable,etc
@@ -476,12 +461,6 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
     connect(interDlg, SIGNAL(closeInterractionDialog()), this, SLOT(slotCloseInteractionDialog()));
     username->addWidget ( interDlg );
 
-#if defined(CFGPLUGIN) && defined(Q_OS_LINUX)
-
-    x2goDebug<<"Creating embedded container.";
-    embedContainer=new QX11EmbedContainer ( fr );
-
-#endif
     if ( !embedMode )
     {
         initWidgetsNormal();
@@ -740,141 +719,6 @@ void ONMainWindow::installTranslator () {
 
 void ONMainWindow::initWidgetsEmbed()
 {
-#ifdef	CFGPLUGIN
-    doPluginInit();
-    stb=new QToolBar ( this );
-    addToolBar ( stb );
-    stb->toggleViewAction()->setEnabled ( false );
-    stb->toggleViewAction()->setVisible ( false );
-    stb->setFloatable ( false );
-    stb->setMovable ( false );
-    statusBar()->setSizeGripEnabled ( false );
-#ifndef Q_OS_WIN
-    statusBar()->hide();
-#endif
-
-
-    act_shareFolder=new QAction ( QIcon ( ":/img/icons/32x32/file-open.png" ),
-                                  tr ( "Share folder..." ),this );
-
-    act_showApps=new QAction ( QIcon ( ":/img/icons/32x32/apps.png" ),
-                               tr ( "Applications..." ),this );
-
-    act_suspend=new QAction ( QIcon ( ":/img/icons/32x32/suspend.png" ),
-                              tr ( "Suspend" ),this );
-
-    act_terminate=new QAction ( QIcon ( ":/img/icons/32x32/stop.png" ),
-                                tr ( "Terminate" ),this );
-    act_reconnect=new QAction ( QIcon ( ":/img/icons/32x32/reconnect.png" ),
-                                tr ( "Reconnect" ),this );
-    act_reconnect->setEnabled ( false );
-
-    act_embedContol=new QAction ( QIcon ( ":/img/icons/32x32/detach.png" ),
-                                  tr ( "Detach X2Go window" ),this );
-
-    act_embedToolBar=new QAction ( QIcon ( ":/img/icons/32x32/tbhide.png" ),
-                                   tr ( "Minimize toolbar" ),this );
-
-
-    setEmbedSessionActionsEnabled ( false );
-
-    connect ( act_shareFolder,SIGNAL ( triggered ( bool ) ),this,
-              SLOT ( slotExportDirectory() ) );
-
-    connect ( act_showApps,SIGNAL ( triggered ( bool ) ),this,
-              SLOT ( slotAppDialog() ) );
-
-    connect ( act_suspend,SIGNAL ( triggered ( bool ) ),this,
-              SLOT ( slotSuspendSessFromSt() ) );
-
-    connect ( act_terminate,SIGNAL ( triggered ( bool ) ),this,
-              SLOT ( slotTermSessFromSt() ) );
-
-    connect ( act_reconnect,SIGNAL ( triggered ( bool ) ),this,
-              SLOT ( slotReconnectSession() ) );
-
-    connect ( act_embedContol,SIGNAL ( triggered ( bool ) ),this,
-              SLOT ( slotEmbedControlAction() ) );
-
-    connect ( act_embedToolBar,SIGNAL ( triggered ( bool ) ),this,
-              SLOT ( slotEmbedToolBar() ) );
-
-
-
-    processSessionConfig();
-
-////embed container////////
-#ifndef Q_OS_DARWIN
-
-    oldParentSize=QSize ( 0,0 );
-
-#ifdef Q_OS_WIN
-    oldParentPos=QPoint ( 0,0 );
-#endif
-    childId=0l;
-#ifdef Q_OS_LINUX
-
-    connect ( embedContainer, SIGNAL ( clientClosed() ), this,
-              SLOT ( slotDetachProxyWindow() ) );
-
-
-    embedContainer->connect ( embedContainer,  SIGNAL ( clientClosed() ),
-                              embedContainer,   SLOT ( hide() ) );
-#endif
-#ifdef Q_OS_WIN
-    embedContainer=new QWidget ( mainWidget() );
-
-    updateTimer = new QTimer ( this );
-    connect ( updateTimer,  SIGNAL ( timeout() ), this,
-              SLOT ( slotUpdateEmbedWindow() ) );
-#endif
-    embedContainer->hide();
-    mainLayout()->addWidget ( embedContainer );
-#endif
-//end of embed container
-
-    X2goSettings st ( "sessions" );
-
-    embedTbVisible=!st.setting()->value (
-                       "embedded/tbvisible", true ).toBool();
-
-    slotEmbedToolBar();
-
-
-    showTbTooltip=false;
-    if ( !embedTbVisible )
-    {
-        showTbTooltip=true;
-        QTimer::singleShot ( 500, this,
-                             SLOT ( slotEmbedToolBarToolTip() ) );
-        QTimer::singleShot ( 3000, this,
-                             SLOT ( slotHideEmbedToolBarToolTip() ) );
-    }
-    if ( !config.showtoolbar )
-    {
-        stb->hide();
-    }
-    if ( config.confFS&& ( !config.useFs ) )
-    {
-        x2goDebug<<"hide share";
-
-        act_shareFolder->setVisible ( false );
-    }
-
-    act_showApps->setVisible(false);
-
-
-    if ( !managedMode )
-    {
-
-#ifdef Q_OS_LINUX
-        QTimer::singleShot ( 500, this,
-                             SLOT ( slotActivateWindow() ) );
-#endif
-
-    }
-#endif//CFGPLUGIN
-
 }
 
 void ONMainWindow::initWidgetsNormal()
@@ -1215,8 +1059,6 @@ void ONMainWindow::slotGetBrokerAuth()
 
 void ONMainWindow::trayIconInit()
 {
-
-#ifndef CFGPLUGIN
     X2goSettings st ( "settings" );
     trayEnabled=st.setting()->value ( "trayicon/enabled", false ).toBool();
     trayMinCon=st.setting()->value ( "trayicon/mincon", false ).toBool();
@@ -1317,7 +1159,6 @@ void ONMainWindow::trayIconInit()
             plugAppsInTray();
         }
     }
-#endif
 }
 
 QMenu* ONMainWindow::initTrayAppMenu(QString text, QPixmap icon)
@@ -6258,12 +6099,6 @@ void ONMainWindow::slotProxyFinished ( int,QProcess::ExitStatus )
 
     if ( embedMode )
     {
-        if ( proxyWinEmbedded )
-        {
-#ifdef CFGPLUGIN
-            detachClient();
-#endif
-        }
         proxyWinTimer->stop();
         setEmbedSessionActionsEnabled ( false );
     }
@@ -6301,7 +6136,6 @@ void ONMainWindow::slotProxyFinished ( int,QProcess::ExitStatus )
     disconnect ( nxproxy,SIGNAL ( readyReadStandardOutput() ),this,
                  SLOT ( slotProxyStdout() ) );
     proxyRunning=false;
-#ifndef CFGPLUGIN
     if (trayEnabled)
     {
         trayIconActiveConnectionMenu->setTitle(tr("Not connected"));
@@ -6310,7 +6144,6 @@ void ONMainWindow::slotProxyFinished ( int,QProcess::ExitStatus )
             showNormal();
     }
     trayAutoHidden=false;
-#endif
     bool emergencyExit=false;
 
     if(proxyErrString.indexOf("No data received from remote proxy")!=-1)
@@ -6319,7 +6152,6 @@ void ONMainWindow::slotProxyFinished ( int,QProcess::ExitStatus )
         x2goWarningf(4)<< tr( "Emergency exit." );
     }
 
-#if ! (defined (CFGPLUGIN))
     if ( nxproxy )
     {
         if ( nxproxy->state() ==QProcess::Running )
@@ -6338,7 +6170,6 @@ void ONMainWindow::slotProxyFinished ( int,QProcess::ExitStatus )
             nxproxy=0;
 #endif
     }
-#endif
     x2goDebug<<"Waiting for proxy to exit.";
 
     spoolTimer=0l;
@@ -6473,7 +6304,6 @@ void ONMainWindow::slotProxyStderr()
                 "Established X server connection" ) !=-1 )
     {
         setStatStatus ( tr ( "running" ) );
-#ifndef CFGPLUGIN
         if (trayEnabled)
         {
             if (!useLdap)
@@ -6487,7 +6317,6 @@ void ONMainWindow::slotProxyStderr()
                 hide();
             }
         }
-#endif
         if ( embedMode )
             setEmbedSessionActionsEnabled ( true );
         disconnect ( sbSusp,SIGNAL ( clicked() ),this,
@@ -6539,17 +6368,6 @@ void ONMainWindow::slotProxyStderr()
     if ( stInfo->toPlainText().indexOf (
                 tr ( "Connection timeout, aborting" ) ) !=-1 )
         setStatStatus ( tr ( "aborting" ) );
-#if defined( Q_OS_WIN ) && defined (CFGPLUGIN)
-    if ( reserr.indexOf ( "Session terminated at" ) !=-1 )
-    {
-
-        x2goDebug<<"Proxy finished.";
-
-        slotProxyFinished ( 0, QProcess::NormalExit );
-    }
-#endif
-
-
 }
 
 
@@ -6783,9 +6601,7 @@ void ONMainWindow::setStatStatus ( QString status )
     if ( !embedMode || !proxyWinEmbedded )
     {
         statusBar()->showMessage ( "");
-#if ! (defined Q_OS_WIN && defined CFGPLUGIN)
         statusBar()->hide();
-#endif
         QString srv;
         if ( brokerMode )
         {
@@ -6831,13 +6647,11 @@ void ONMainWindow::setStatStatus ( QString status )
                         tr ( "Display" ) +": "+
                         resumingSession.display+", "+
                         tr ( "Creation time" ) +": "+tstr;
-#if ! (defined Q_OS_WIN && defined CFGPLUGIN)
         if ( statusLabel )
         {
             statusLabel->setText ( "   "+message );
         }
         else
-#endif
         {
             if ( config.showstatusbar )
             {
@@ -8890,10 +8704,6 @@ void ONMainWindow::slotAbout()
 {
     QString aboutStr=tr ("<br>(C) 2005-2017 by <b>obviously nice</b>: "
                          "Oleksandr Shneyder, Heinz-Markus Graesing<br>" );
-    if ( embedMode )
-        aboutStr+=tr ( "<br>X2Go Plugin mode was sponsored by "
-                       "<a href=\"http://www.foss-group.de/\">"
-                       "FOSS-Group GmbH (Freiburg)</a><br>" );
     aboutStr+=
         tr (
             "<br>This is a client to access the X2Go network-based "
@@ -11433,9 +11243,6 @@ void ONMainWindow::slotAttachProxyWindow()
 void ONMainWindow::slotEmbedWindow()
 {
 #ifndef Q_OS_DARWIN
-#ifdef CFGPLUGIN
-    embedWindow ( proxyWinId );
-#endif
     QTimer::singleShot ( 1000, this,
                          SLOT ( slotActivateWindow() ) );
 
@@ -11457,14 +11264,10 @@ void ONMainWindow::slotEmbedControlAction()
 {
 #ifndef Q_OS_DARWIN
     embedControlChanged=true;
-    if ( proxyWinEmbedded )
+    if ( !proxyWinEmbedded )
     {
-#ifdef CFGPLUGIN
-        detachClient();
-#endif
-    }
-    else
         slotAttachProxyWindow();
+    }
 #endif
 }
 
@@ -12905,213 +12708,3 @@ void ONMainWindow::slotInitLibssh () {
       trayQuit ();
   }
 }
-
-//////////////////////////plugin stuff//////////////
-
-#ifdef CFGPLUGIN
-void ONMainWindow::setX2goconfig ( const QString& text )
-{
-    m_x2goconfig=text;
-
-    x2goDebug<<"Having a session config.";
-
-    initWidgetsEmbed();
-}
-
-void ONMainWindow::doPluginInit()
-{
-#ifdef Q_OS_LINUX
-    Dl_info info;
-    dladdr ( ( void* ) & ( ONMainWindow::getPortable ),&info );
-    QString fname=info.dli_fname;
-
-    x2goDebug<<"Application name:" <<fname;
-
-    QString clientDir;
-    QString pluginDir;
-    int pos=fname.lastIndexOf ( "/" );
-    pluginDir=fname.left ( pos );
-
-    x2goDebug<<"Plugin directory: " <<pluginDir;
-
-    QDir dr ( pluginDir );
-    if ( dr.exists ( "x2goclient/x2goclient" ) )
-    {
-        clientDir=pluginDir+"/x2goclient";
-    }
-    else if ( dr.exists ( "x2goclient" ) )
-    {
-        clientDir=pluginDir;
-    }
-    else
-    {
-        dr.cdUp();
-        if ( dr.exists ( "x2goclient/x2goclient" ) )
-        {
-            clientDir=dr.absolutePath() +"/x2goclient";
-        }
-        else if ( dr.exists ( "x2goclient" ) )
-        {
-            clientDir=dr.absolutePath();
-        }
-        else
-        {
-            clientDir=pluginDir;
-        }
-    }
-
-    x2goDebug<<"Client directory: "<<clientDir;
-
-    QString path=getenv ( "PATH" );
-    path=clientDir+":"+pluginDir+":"+path;
-    setenv ( "PATH",path.toLatin1 (),1 );
-
-    path=getenv ( "LD_LIBRARY_PATH" );
-    path=clientDir+":"+pluginDir+":"+path;
-    setenv ( "LD_LIBRARY_PATH",path.toLatin1 () ,1 );
-
-    setenv ( "X2GO_LIB",clientDir.toLatin1 () ,1 );
-
-    QFile::setPermissions (
-        clientDir+"/x2goclient",
-        QFile::ReadOwner|QFile::WriteOwner|QFile::ExeOwner|
-        QFile::ReadGroup|QFile::WriteGroup|QFile::ExeGroup|
-        QFile::ReadOther|QFile::WriteOther|QFile::ExeOther );
-    QFile::setPermissions (
-        clientDir+"/nxproxy",
-        QFile::ReadOwner|QFile::WriteOwner|QFile::ExeOwner|
-        QFile::ReadGroup|QFile::WriteGroup|QFile::ExeGroup|
-        QFile::ReadOther|QFile::WriteOther|QFile::ExeOther );
-    QFile::setPermissions (
-        clientDir+"/sshd",
-        QFile::ReadOwner|QFile::WriteOwner|QFile::ExeOwner|
-        QFile::ReadGroup|QFile::WriteGroup|QFile::ExeGroup|
-        QFile::ReadOther|QFile::WriteOther|QFile::ExeOther );
-    QFile::setPermissions (
-        clientDir+"/sftp-server",
-        QFile::ReadOwner|QFile::WriteOwner|QFile::ExeOwner|
-        QFile::ReadGroup|QFile::WriteGroup|QFile::ExeGroup|
-        QFile::ReadOther|QFile::WriteOther|QFile::ExeOther );
-
-#endif
-}
-
-
-#ifndef Q_OS_DARWIN
-
-
-QSize ONMainWindow::getWindowSize ( long winId )
-{
-
-#ifdef Q_OS_LINUX
-    XWindowAttributes atr;
-    if ( XGetWindowAttributes ( QX11Info::display(),winId,&atr ) )
-        return QSize ( atr.width,atr.height );
-    return QSize ( 0,0 );
-#endif
-#ifdef Q_OS_WIN
-    QRect rec;
-    if ( wapiClientRect ( ( HWND ) winId,rec ) )
-        return rec.size();
-    else
-        return QSize ( 0,0 );
-#endif
-}
-
-#ifdef Q_OS_WIN
-void ONMainWindow::slotUpdateEmbedWindow()
-{
-    if ( oldContainerSize!=embedContainer->size() ||
-            oldChildPos!= mapToGlobal (
-                QPoint ( 0,0 ) ) )
-    {
-        QRect geom=embedContainer->geometry();
-        if ( gcor==1 )
-            gcor=0;
-        else
-            gcor=1;
-        geom.setWidth ( geom.width()-gcor );
-        wapiSetFSWindow ( ( HWND ) childId,
-                          geom );
-        wapiUpdateWindow ( ( HWND ) childId );
-        oldContainerSize=embedContainer->size();
-        oldChildPos= mapToGlobal (
-                         QPoint ( 0,0 ) );
-
-        x2goDebug<<"Updating embedded window.";
-
-    }
-}
-
-#endif
-
-
-
-void ONMainWindow::embedWindow ( long wndId )
-{
-    childId=wndId;
-    embedContainer->show();
-#ifdef Q_OS_LINUX
-
-    x2goDebug<<"Embedding window with ID "<<wndId<<" in container.";
-
-    embedContainer->embedClient ( wndId );
-#endif
-#ifdef Q_OS_WIN
-    wapiSetParent ( ( HWND ) childId,
-                    ( HWND ) ( embedContainer->winId() ) );
-    oldContainerSize=embedContainer->size();
-    oldChildPos= ( mapToGlobal ( QPoint ( 0,0 ) ));
-    winFlags=wapiSetFSWindow ( ( HWND ) childId,
-                               embedContainer->geometry() );
-    updateTimer->start ( 500 );
-
-#endif
-}
-
-
-void ONMainWindow::detachClient()
-{
-    if ( !childId )
-        return;
-#ifdef Q_OS_LINUX
-    if ( embedContainer )
-    {
-        embedContainer->discardClient();
-    }
-#endif
-#ifdef Q_OS_WIN
-    wapiSetParent ( ( HWND ) childId, ( HWND ) 0 );
-    slotDetachProxyWindow();
-    updateTimer->stop();
-    if ( childId )
-    {
-        wapiRestoreWindow ( ( HWND ) childId, winFlags,
-                            embedContainer->geometry() );
-        wapiMoveWindow ( ( HWND ) childId,0,0,
-                         oldContainerSize.width(),
-                         oldContainerSize.height(),true );
-
-    }
-#endif
-    childId=0;
-}
-
-#endif //(Q_OS_DARWIN)
-
-
-
-
-
-QTNPFACTORY_BEGIN ( "X2Go Client Plug-in "VERSION,
-                    "Allows you to start X2Go sessions in a web browser." )
-QTNPCLASS ( ONMainWindow )
-QTNPFACTORY_END()
-
-#ifdef QAXSERVER
-#include <ActiveQt/QAxFactory>
-QAXFACTORY_BEGIN ( "{aa3216bf-7e20-482c-84c6-06167bacb616}", "{08538ca5-eb7a-4f24-a3c4-a120c6e04dc4}" )
-QAXCLASS ( ONMainWindow )
-QAXFACTORY_END()
-#endif
-#endif

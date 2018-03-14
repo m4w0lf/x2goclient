@@ -62,9 +62,6 @@ ConfigDialog::ConfigDialog ( QWidget * parent,  Qt::WindowFlags f )
 
     X2goSettings st ( "settings" );
 
-
-#ifndef CFGPLUGIN
-
     gbTrayIcon=new QGroupBox(tr("Display icon in system tray"),fr);
     frLay->addWidget(gbTrayIcon);
     gbTrayIcon->setCheckable(true);
@@ -86,7 +83,6 @@ ConfigDialog::ConfigDialog ( QWidget * parent,  Qt::WindowFlags f )
     cbMaxmizeTray->setChecked ( st.setting()->value ( "trayicon/maxdiscon", false ).toBool() );
     cbNoClose->setChecked ( st.setting()->value ( "trayicon/noclose", false ).toBool() );
     cbMinToTray->setChecked ( st.setting()->value ( "trayicon/mintotray", false ).toBool() );
-#endif
 
 #ifdef USELDAP
     if ( !embedMode )
@@ -373,13 +369,11 @@ ConfigDialog::~ConfigDialog()
 void ConfigDialog::slot_accepted()
 {
     X2goSettings st ( "settings" );
-#ifndef CFGPLUGIN
     st.setting()->setValue ( "trayicon/enabled", gbTrayIcon->isChecked() );
     st.setting()->setValue ( "trayicon/mintotray", cbMinToTray->isChecked() );
     st.setting()->setValue ( "trayicon/noclose", cbNoClose->isChecked() );
     st.setting()->setValue ( "trayicon/mincon", cbMinimizeTray->isChecked() );
     st.setting()->setValue ( "trayicon/maxdiscon", cbMaxmizeTray->isChecked() );
-#endif
 #if defined (Q_OS_WIN) || defined (Q_OS_DARWIN)
     if(!systemDisablePARecord)
         st.setting()->setValue ( "pulse/norecord", cbNoRecord->isChecked() );
@@ -684,13 +678,11 @@ void ConfigDialog::slotDefaults()
         cbNoRecord->setChecked (false);
         cbDisablePA->setChecked (false);
 #endif /* defined (Q_OS_DARWIN) */
-#ifndef CFGPLUGIN
         gbTrayIcon->setChecked (false);
         cbMinimizeTray->setChecked (false);
         cbMaxmizeTray->setChecked ( false);
         cbNoClose->setChecked (false);
         cbMinToTray->setChecked (false);
-#endif
     }
     break;
 #if defined (Q_OS_WIN) && defined (CFGCLIENT)

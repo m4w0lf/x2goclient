@@ -18,18 +18,6 @@
 #ifndef ONMAINWINDOW_H
 #define ONMAINWINDOW_H
 
-#ifdef CFGPLUGIN
-#include <QMetaClassInfo>
-#include <qtbrowserplugin.h>
-
-#ifdef QAXSERVER
-#include <ActiveQt/QAxBindable>
-#include <ActiveQt/QAxFactory>
-#include <qt_windows.h>
-#endif
-
-#endif
-
 #include "x2goclientconfig.h"
 //#include "CallbackInterface.h"
 #include <QMainWindow>
@@ -65,9 +53,6 @@
 @author Oleksandr Shneyder
 */
 
-#if defined(CFGPLUGIN) && defined(Q_OS_LINUX)
-class QX11EmbedContainer;
-#endif
 class QToolButton;
 class QTemporaryFile;
 class QLineEdit;
@@ -266,27 +251,9 @@ Q_SIGNALS:
 
 class ClickLineEdit;
 class ONMainWindow : public QMainWindow
-#ifdef CFGPLUGIN
-    , public QtNPBindable
-
-#ifdef QAXSERVER
-    , public QAxBindable
-#endif
-#endif
 {
     friend class HttpBrokerClient;
     friend class SessionButton;
-#ifdef CFGPLUGIN
-    Q_PROPERTY ( QString x2goconfig READ x2goconfig WRITE setX2goconfig )
-    Q_CLASSINFO ( "ClassID", "{5a20006d-118f-4185-9653-9f98958a0008}" )
-    Q_CLASSINFO ( "InterfaceID", "{2df000ba-da4f-4fb7-8f35-b8dfbf80009a}" )
-    Q_CLASSINFO ( "EventsID", "{44900013-f8bd-4d2e-a2cf-eab407c03005}" )
-    Q_CLASSINFO ( "MIME",
-                  "application/x2go:x2go:Configuration File "
-                  "for X2Go Sessions" )
-    Q_CLASSINFO ( "ToSuperClass", "ONMainWindow" )
-    Q_CLASSINFO ( "DefaultProperty","x2goconfig" )
-#endif
     Q_OBJECT
 public:
     enum
@@ -1228,50 +1195,6 @@ private:
     std::size_t default_size_for_key_type (key_types key_type);
     QString generateKey (key_types key_type, bool host_key = false);
     QString createKeyBundle (key_types key_type = RSA_KEY_TYPE);
-
-////////////////plugin stuff////////////////////
-#ifdef CFGPLUGIN
-public slots:
-    void setX2goconfig ( const QString& text );
-public:
-    QString x2goconfig() const
-    {
-        return m_x2goconfig;
-    }
-
-#ifndef Q_OS_DARWIN
-public:
-    void embedWindow ( long wndId );
-    void detachClient();
-private:
-    long parentId;
-    long childId;
-    QSize oldParentSize;
-
-#ifdef Q_OS_LINUX
-    QX11EmbedContainer* embedContainer;
-#endif
-#ifdef Q_OS_WIN
-    QWidget* embedContainer;
-    QPoint oldParentPos;
-    QPoint oldChildPos;
-    QSize oldContainerSize;
-    QTimer *updateTimer;
-    int gcor;
-    long winFlags;
-#endif
-private:
-    QSize getWindowSize ( long winId );
-    void doPluginInit();
-
-#ifdef Q_OS_WIN
-private slots:
-    void slotUpdateEmbedWindow();
-#endif
-
-#endif //(Q_OS_DARWIN)
-#endif
-////////////////end of plugin stuff////////////////////
 };
 
 #ifdef Q_OS_WIN
