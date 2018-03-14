@@ -40,6 +40,7 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
     - INSTALL: remove plugin references.
     - {{build,config}_win_plugin.bat,config_linux_{,static_}plugin.sh}:
       remove.
+    - config_win.bat: remove plugin references.
   * x2goclient.spec:
     - Remove plugin references.
   * debian/rules:

@@ -1,5 +1,4 @@
 rmdir /s /q client_build
-rmdir /s /q plugin_build
 
 mingw32-make clean
 
