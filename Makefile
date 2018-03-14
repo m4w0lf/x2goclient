@@ -78,6 +78,7 @@ clean: clean_client clean_man
 	find . -maxdepth 3 -name 'moc_*.cpp' -exec rm -vf {} + -type f
 	find . -maxdepth 3 -name 'ui_*.h' -exec rm -vf {} + -type f
 	find . -maxdepth 3 -name 'qrc_*.cpp' -exec rm -vf {} + -type f
+	find . -maxdepth 3 -name 'x2goclient_*.qm' -exec rm -vf {} + -type f
 	rm -f x2goclient
 	rm -f x2goclient.tag
 	rm -f res/txt/changelog
