@@ -35,6 +35,7 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
       and translation files for now.
     - Makefile: remove plugin references.
     - Makefile: remove x2goclient_*.qm files in clean rule.
+    - x2gobrowserplugin-2.4_1/: remove.
   * x2goclient.spec:
     - Remove plugin references.
   * debian/rules:
