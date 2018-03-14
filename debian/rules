@@ -6,7 +6,7 @@ export CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS)
 export LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
 
 %:
-	dh $@ --parallel --with apache2 || dh $@ --parallel
+	dh $@ --parallel
 
 override_dh_auto_configure:
 	cp debian/changelog res/txt/changelog
@@ -21,7 +21,3 @@ override_dh_auto_clean:
 
 override_dh_strip:
 	dh_strip -p x2goclient --dbg-package=x2goclient-dbg
-	dh_strip -p x2goplugin --dbg-package=x2goplugin-dbg
-
-override_dh_apache2:
-	dh_apache2 --noscripts
