@@ -53,6 +53,8 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
     - x2goplugin{,-provider}.install: clear out.
     - {x2goplugin.dirs,x2goplugin-provider.dirs,x2goplugin-provider.links,
        x2goplugin-provider.post*}: remove.
+  * debian/copyright:
+    - Remove plugin references.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Thu, 15 Feb 2018 22:01:32 +0100
 
