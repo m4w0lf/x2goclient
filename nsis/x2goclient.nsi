@@ -61,7 +61,7 @@ SectionEnd
   !define  UNINSTALL_DISPLAYNAME "X2Go Client for Windows"
   !define  UNINSTALL_PUBLISHER "X2Go Project"
   !define  UNINSTALL_DISPLAYVERSION ${VERSION}
-  !define  UNINSTALL_URL "http://www.x2go.org"
+  !define  UNINSTALL_URL "https://www.x2go.org"
 
 ;--------------------------------
 ;Pages
@@ -148,7 +148,7 @@ Section "X2Go Client (required)" base
   !insertmacro MUI_STARTMENU_WRITE_END
 
   ;Add uninstall information to Add/Remove Programs
-  ;http://nsis.sourceforge.net/Add_uninstall_information_to_Add/Remove_Programs
+  ;https://nsis.sourceforge.net/Add_uninstall_information_to_Add/Remove_Programs
   WriteRegStr HKLM ${UNINSTALL_REGKEY} "InstallLocation"  "$INSTDIR"
   WriteRegStr HKLM ${UNINSTALL_REGKEY} "UninstallString"  "$\"$INSTDIR\Uninstall.exe$\""
   WriteRegStr HKLM ${UNINSTALL_REGKEY} "DisplayIcon"      "$INSTDIR\x2goclient.exe"

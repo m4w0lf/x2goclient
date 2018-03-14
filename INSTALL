@@ -4,13 +4,13 @@ Requirements
 Before use this program you need to install:
 
 Qt4:
-http://download.qt.io/archive/qt/
+https://download.qt.io/archive/qt/
 
 nxcomp + nxproxy:
-http://code.x2go.org/releases/source/nx-libs/
+https://code.x2go.org/releases/source/nx-libs/
 
 You may want also install the PulseAudio sound server and client to enable sound support
-http://www.freedesktop.org/wiki/Software/PulseAudio/Download/
+https://www.freedesktop.org/wiki/Software/PulseAudio/Download/
 
 
 Building

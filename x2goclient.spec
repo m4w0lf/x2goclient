@@ -11,8 +11,8 @@ Group:          Applications/Communications
 License:        GPLv2+
 %endif
 
-URL:            http://www.x2go.org
-Source0:        http://code.x2go.org/releases/source/%{name}/%{name}-%{version}.tar.gz
+URL:            https://www.x2go.org
+Source0:        https://code.x2go.org/releases/source/%{name}/%{name}-%{version}.tar.gz
 Source1:        x2goclient-rpmlintrc
 
 BuildRequires:  cups-devel

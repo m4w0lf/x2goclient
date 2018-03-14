@@ -1,12 +1,12 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: x2goclient
 Upstream-Contact: Oleksandr Shneyder <oleksandr.shneyder@obviously-nice.de>
-Source: http://wiki.x2go.org
+Source: https://wiki.x2go.org
 
 Files: *
 Copyright: 2005-2017, Oleksandr Shneyder <oleksandr.shneyder@obviously-nice.de>
            2005-2017, Heinz-Markus Graesing <heinz-m.graesing@obviously-nice.de>
-           2005-2017, obviously nice - http://www.obviously-nice.de
+           2005-2017, obviously nice - https://www.obviously-nice.de
 License: GPL-2+
  This program is free software; you can redistribute it
  and/or modify it under the terms of the GNU General Public
@@ -92,7 +92,7 @@ License: GPL-3
  GNU General Public License for more details.
  .
  You should have received a copy of the GNU General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ along with this program.  If not, see <https://www.gnu.org/licenses/>.
  .
  On Debian systems, the full text of the GNU General Public
  License version 3 can be found in the file
