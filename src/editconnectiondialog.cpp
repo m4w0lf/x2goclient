@@ -85,11 +85,13 @@ EditConnectionDialog::EditConnectionDialog ( bool newSession, QString id, QWidge
     connect ( sessSet,SIGNAL ( nameChanged ( const QString & ) ),this,
               SLOT ( slot_changeCaption ( const QString& ) ) );
     connect ( this,SIGNAL ( accepted() ),this,SLOT ( slot_accepted() ) );
+#ifdef Q_OS_LINUX
     connect (sessSet, SIGNAL(directRDP(bool,bool)), this, SLOT(slot_directRDP(bool,bool)));
 
     connect (sessSet,
-	     SIGNAL(settingsChanged(QString,QString,QString)), otherSet,
- 	     SLOT(setServerSettings(QString,QString,QString)));
+             SIGNAL(settingsChanged(QString,QString,QString)), otherSet,
+             SLOT(setServerSettings(QString,QString,QString)));
+#endif
 
     ok->setDefault ( true );
 #ifdef Q_WS_HILDON
