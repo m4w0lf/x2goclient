@@ -554,7 +554,7 @@ public:
     QSize getEmbedAreaSize();
 #ifdef Q_OS_WIN
     static QString cygwinPath ( const QString& winPath );
-    void startXOrg();
+    void startXOrg(std::size_t start_offset = 0);
     static bool haveCygwinEntry();
     static void removeCygwinEntry();
     static QString U3DevicePath()
@@ -876,6 +876,7 @@ private:
     QString xorgWidth;
     QString xorgHeight;
     int waitingForX;
+    std::size_t x_start_tries_;
     QRect dispGeometry;
 #endif
 

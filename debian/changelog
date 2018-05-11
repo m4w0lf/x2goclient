@@ -50,6 +50,13 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
       all addresses.
     - src/onmainwindow.cpp: print out current DISPLAY value in debug log while
       starting X.Org Server on Windows.
+    - src/onmainwindow.{cpp,h}: don't error out directly if starting the X.Org
+      Server failed on Windows. Instead, try starting it three times, each
+      time with a higher DISPLAY offset. On busy client machines, several
+      clients raced for the sockets previously and often failed to start. Also
+      check if the server binary actually is still alive before doing the TCP
+      connection checks. A dead server won't be able to listen on a socket in
+      the first place.
   * x2goclient.spec:
     - Remove plugin references.
   * debian/rules:

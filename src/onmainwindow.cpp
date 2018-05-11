@@ -171,6 +171,7 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
 #ifdef Q_OS_WIN
     xorg=0l;
     xDisplay=0;
+    x_start_tries_ = 0;
 #endif
 
     if(X2goSettings::centralSettings())
@@ -9945,8 +9946,10 @@ void ONMainWindow::slotCheckXOrgLog()
     xorgLogMutex.unlock();
 }
 
-void ONMainWindow::startXOrg ()
+void ONMainWindow::startXOrg (std::size_t start_offset)
 {
+    xDisplay += start_offset;
+
     while ( isServerRunning ( 6000+xDisplay ) )
         ++xDisplay;
     QString dispString;
@@ -10058,6 +10061,7 @@ void ONMainWindow::startXOrg ()
     {
         //check connection in slot and launch setWinServerReady
         waitingForX=0;
+        x_start_tries_ += 1;
         QTimer::singleShot(1000, this, SLOT(slotCheckXOrgConnection()));
     }
 // #endif
@@ -10066,6 +10070,35 @@ void ONMainWindow::startXOrg ()
 void ONMainWindow::slotCheckXOrgConnection()
 {
     ++waitingForX;
+
+    /* Before we try to connect to the socket, let's check if the server actually is still running. */
+    if (xorg->state () != QProcess::Running) {
+        /*
+         * Process died (crashed, terminated, whatever). We need to restart it, unless we already tried
+         * to do so multiple times unsuccessfully.
+         */
+        if (3 < x_start_tries_) {
+            x2goDebug << "Unable to start X.Org Server for three times, terminating.";
+
+            QMessageBox::critical (NULL, QString::null,
+                                   tr ("X.Org Server did not launch correctly after three tries.\n"
+                                       "Please check your installation."));
+
+            close ();
+
+            return;
+        }
+
+        x2goDebug << "Trying to re-start X.Org Server. Try count: " << x_start_tries_;
+
+        delete xorg;
+        xorg = NULL;
+
+        startXOrg (1);
+
+        return;
+    }
+
     if (isServerRunning(6000+xDisplay))
     {
         x2goDebug<<"X.Org Server started on DISPLAY " << xDisplay << ".";
@@ -10076,11 +10109,35 @@ void ONMainWindow::slotCheckXOrgConnection()
     {
         if (waitingForX > 10)
         {
-            QMessageBox::critical (
-                0,QString::null,
-                tr ( "Can't start X.Org Server.\n"
-                     "Please check your installation." ) );
-            close();
+            /*
+             * Timeout reached. If we tried starting the X.Org Server less than three times,
+             * continue doing so (with a higher DISPLAY value).
+             * Otherwise error out.
+             */
+            if (3 >= x_start_tries_) {
+                /*
+                 * Server might still be running here, but deleting the QProcess object
+                 * should kill it.
+                 */
+                x2goDebug << "Timeout reached waiting for the X.Org Server to open a listening TCP socket." << endl
+                          << "Restarting on higher DISPLAY port. Try count: " << x_start_Tries;
+
+                xorg->terminate ();
+                delete xorg;
+                xorg = NULL;
+
+                startXOrg (1);
+
+                return;
+            {
+            else {
+                QMessageBox::critical (NULL, QString::null,
+                                       tr ("Can't start X.Org Server.\n"
+                                           "Please check your installation."));
+                close();
+
+                return;
+            }
         }
         else
         {
