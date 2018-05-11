@@ -172,6 +172,7 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
     xorg=0l;
     xDisplay=0;
     x_start_tries_ = 0;
+    x_start_limit_ = 3;
 #endif
 
     if(X2goSettings::centralSettings())
@@ -7667,6 +7668,30 @@ bool ONMainWindow::parseParameter ( QString param )
         OnFile=value;
         return true;
     }
+#if defined(Q_OS_WIN)
+    if ("--xserver-start-limit" == setting) {
+        bool conv_ret = false;
+        signed long long conv = value.toLongLong (&conv_ret);
+
+        if (conv_ret) {
+            if (0 >= conv) {
+                x2goDebug << "Not limiting X.Org Server starts.";
+
+                x_start_limit_ = -1;
+            {
+            else {
+                x_start_limit = conv;
+
+                x2goDebug << "Limiting X.Org Server starts to " << x_start_limit << " tries.";
+            }
+        }
+        else {
+            x2goDebug << "Conversion for --xserver-start-limit value " << value << " failed; assuming default of 3.";
+
+            x_start_limit = 3;
+        }
+    }
+#endif /* defined(Q_OS_WIN) */
 
     printError ( param );
     return false;
@@ -10062,6 +10087,11 @@ void ONMainWindow::startXOrg (std::size_t start_offset)
         //check connection in slot and launch setWinServerReady
         waitingForX=0;
         x_start_tries_ += 1;
+
+        if (0 == x_start_limit_) {
+            x2goWarningf(9) << "X.Org Server start limit set to invalid value zero!";
+        }
+
         QTimer::singleShot(1000, this, SLOT(slotCheckXOrgConnection()));
     }
 // #endif
@@ -10077,8 +10107,8 @@ void ONMainWindow::slotCheckXOrgConnection()
          * Process died (crashed, terminated, whatever). We need to restart it, unless we already tried
          * to do so multiple times unsuccessfully.
          */
-        if (3 < x_start_tries_) {
-            x2goDebug << "Unable to start X.Org Server for three times, terminating.";
+        if (x_start_limit_ < x_start_tries_) {
+            x2goDebug << "Unable to start X.Org Server for " << x_start_limit_ << " times, terminating.";
 
             QMessageBox::critical (NULL, QString::null,
                                    tr ("X.Org Server did not launch correctly after three tries.\n"
@@ -10110,11 +10140,11 @@ void ONMainWindow::slotCheckXOrgConnection()
         if (waitingForX > 10)
         {
             /*
-             * Timeout reached. If we tried starting the X.Org Server less than three times,
+             * Timeout reached. If we tried starting the X.Org Server less times than the limit,
              * continue doing so (with a higher DISPLAY value).
              * Otherwise error out.
              */
-            if (3 >= x_start_tries_) {
+            if (x_start_limit_ >= x_start_tries_) {
                 /*
                  * Server might still be running here, but deleting the QProcess object
                  * should kill it.

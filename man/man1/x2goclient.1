@@ -102,6 +102,14 @@ If a directory is given, will randomly pick an SVG file inside of it.
 \*(T<\fB\-\-branding=<svg\-file>\fR\*(T>
 Use a custom icon (SVG format) for additional branding to replace the default in the lower left corner of X2Go Client's main window.
 
+.SH MISCELLANEOUS OPTIONS
+These options change X2Go Client's behavior globally. Some might not be available on all platforms.
+.TP
+\*(T<\fB\-\-xserver-start-limit=<num>\fR\*(T> (Windows-only)
+Limit the X.Org Server start count to at most <num> tries. Default: \fB3\fR.
+If \fB<num>\fR is zero or a negative number, no limit is imposed.
+The limits for \fB<num>\fR are platform dependent. If the passed value is out of bounds, X2Go Client falls back to the default value.
+
 .SH SESSION PROFILE DEFAULTS
 You can set certain defaults for session profiles via command line switches using the following options:
 .TP
