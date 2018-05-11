@@ -10001,6 +10001,17 @@ void ONMainWindow::startXOrg ()
         {
             args<< option;
         }
+
+        if (useInternalX) {
+            /*
+             * -nopn lets the server terminate if it couldn't bind on all interfaces.
+             * Only VcXsrv supports this option, though, and we don't want have external
+             * X servers fail to start due to unknown options, so only add the option
+             * if using the internal X server and the internal copy is VcXsrv-based.
+             */
+            args << "-nopn";
+        }
+
         args<<dispString;
     }
 //#endif
