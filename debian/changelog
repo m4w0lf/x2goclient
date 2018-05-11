@@ -48,6 +48,8 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
     - src/onmainwindow.cpp: add -nopn parameter to VcXsrv startup options,
       making the binary fail if it wasn't able to bind the requested port on
       all addresses.
+    - src/onmainwindow.cpp: print out current DISPLAY value in debug log while
+      starting X.Org Server on Windows.
   * x2goclient.spec:
     - Remove plugin references.
   * debian/rules:

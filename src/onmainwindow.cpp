@@ -10040,6 +10040,7 @@ void ONMainWindow::startXOrg ()
 
 
     x2goDebug<<"Running "<<exec<<" "<<args.join(" ");
+    x2goDebug << "Trying to start X.Org Server on DISPLAY: " << xDisplay;
 
     xorg->start ( exec, args );
 
@@ -10067,8 +10068,7 @@ void ONMainWindow::slotCheckXOrgConnection()
     ++waitingForX;
     if (isServerRunning(6000+xDisplay))
     {
-
-        x2goDebug<<"X.Org Server started.";
+        x2goDebug<<"X.Org Server started on DISPLAY " << xDisplay << ".";
 
         slotSetWinServersReady();
     }
