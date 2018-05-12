@@ -7677,10 +7677,16 @@ bool ONMainWindow::parseParameter ( QString param )
             if (0 >= conv) {
                 x2goDebug << "Not limiting X.Org Server starts.";
 
-                x_start_limit_ = -1;
+                x_start_limit_ = 0;
             {
             else {
-                x_start_limit = conv;
+                if (SIZE_MAX < conv) {
+                    conv = SIZE_MAX;
+
+                    x2goDebug << "Clamped X.Org Server start limit to SIZE_MAX.";
+                }
+
+                x_start_limit_ = conv;
 
                 x2goDebug << "Limiting X.Org Server starts to " << x_start_limit << " tries.";
             }
@@ -7688,7 +7694,7 @@ bool ONMainWindow::parseParameter ( QString param )
         else {
             x2goDebug << "Conversion for --xserver-start-limit value " << value << " failed; assuming default of 3.";
 
-            x_start_limit = 3;
+            x_start_limit_ = 3;
         }
     }
 #endif /* defined(Q_OS_WIN) */

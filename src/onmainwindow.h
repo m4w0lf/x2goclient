@@ -877,7 +877,7 @@ private:
     QString xorgHeight;
     int waitingForX;
     std::size_t x_start_tries_;
-    std::ssize_t x_start_limit_;
+    std::size_t x_start_limit_;
     QRect dispGeometry;
 #endif
 
