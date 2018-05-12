@@ -10094,10 +10094,6 @@ void ONMainWindow::startXOrg (std::size_t start_offset)
         waitingForX=0;
         x_start_tries_ += 1;
 
-        if (0 == x_start_limit_) {
-            x2goWarningf(9) << "X.Org Server start limit set to invalid value zero!";
-        }
-
         QTimer::singleShot(1000, this, SLOT(slotCheckXOrgConnection()));
     }
 // #endif
@@ -10113,7 +10109,7 @@ void ONMainWindow::slotCheckXOrgConnection()
          * Process died (crashed, terminated, whatever). We need to restart it, unless we already tried
          * to do so multiple times unsuccessfully.
          */
-        if (x_start_limit_ < x_start_tries_) {
+        if ((x_start_limit_) && (x_start_limit_ < x_start_tries_)) {
             x2goDebug << "Unable to start X.Org Server for " << x_start_limit_ << " times, terminating.";
 
             QMessageBox::critical (NULL, QString::null,
@@ -10150,7 +10146,7 @@ void ONMainWindow::slotCheckXOrgConnection()
              * continue doing so (with a higher DISPLAY value).
              * Otherwise error out.
              */
-            if (x_start_limit_ >= x_start_tries_) {
+            if ((!(x_start_limit_)) || (x_start_limit_ >= x_start_tries_)) {
                 /*
                  * Server might still be running here, but deleting the QProcess object
                  * should kill it.
