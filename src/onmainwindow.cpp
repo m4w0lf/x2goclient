@@ -10152,7 +10152,7 @@ void ONMainWindow::slotCheckXOrgConnection()
                  * should kill it.
                  */
                 x2goDebug << "Timeout reached waiting for the X.Org Server to open a listening TCP socket." << endl
-                          << "Restarting on higher DISPLAY port. Try count: " << x_start_tries;
+                          << "Restarting on higher DISPLAY port. Try count: " << x_start_tries_;
 
                 xorg->terminate ();
                 delete xorg;
