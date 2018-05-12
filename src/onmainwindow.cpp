@@ -7678,7 +7678,7 @@ bool ONMainWindow::parseParameter ( QString param )
                 x2goDebug << "Not limiting X.Org Server starts.";
 
                 x_start_limit_ = 0;
-            {
+            }
             else {
                 if (SIZE_MAX < conv) {
                     conv = SIZE_MAX;
@@ -7688,7 +7688,7 @@ bool ONMainWindow::parseParameter ( QString param )
 
                 x_start_limit_ = conv;
 
-                x2goDebug << "Limiting X.Org Server starts to " << x_start_limit << " tries.";
+                x2goDebug << "Limiting X.Org Server starts to " << x_start_limit_ << " tries.";
             }
         }
         else {
@@ -10152,7 +10152,7 @@ void ONMainWindow::slotCheckXOrgConnection()
                  * should kill it.
                  */
                 x2goDebug << "Timeout reached waiting for the X.Org Server to open a listening TCP socket." << endl
-                          << "Restarting on higher DISPLAY port. Try count: " << x_start_Tries;
+                          << "Restarting on higher DISPLAY port. Try count: " << x_start_tries;
 
                 xorg->terminate ();
                 delete xorg;
@@ -10161,7 +10161,7 @@ void ONMainWindow::slotCheckXOrgConnection()
                 startXOrg (1);
 
                 return;
-            {
+            }
             else {
                 QMessageBox::critical (NULL, QString::null,
                                        tr ("Can't start X.Org Server.\n"

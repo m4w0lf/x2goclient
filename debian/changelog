@@ -65,6 +65,7 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
       option value.
     - src/onmainwindow.cpp: handle a disabled X.Org Server start limit
       correctly.
+    - src/onmainwindow.cpp: fix other compile errors/typos.
   * x2goclient.spec:
     - Remove plugin references.
   * debian/rules:
