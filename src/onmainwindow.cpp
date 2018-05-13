@@ -7696,6 +7696,8 @@ bool ONMainWindow::parseParameter ( QString param )
 
             x_start_limit_ = 3;
         }
+
+        return (true);
     }
 #endif /* defined(Q_OS_WIN) */
 
