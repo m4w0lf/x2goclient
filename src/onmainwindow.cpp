@@ -10046,6 +10046,33 @@ void ONMainWindow::startXOrg (std::size_t start_offset)
              * if using the internal X server and the internal copy is VcXsrv-based.
              */
             args << "-nopn";
+
+            /*
+             * -silent-dup-error makes VcXsrv and Cygwin/X error out silently if either:
+             *   - the global(!) MUTEX for the X display number is already taken by another
+             *     process
+             *   - binding to the socket (mostly TCP, though maybe increasingly UNIX since
+             *     newer Windows version [10 with the April 2018 update] started supporting
+             *     this natively) failed.
+             *
+             * The latter also triggers if some other process is listening on the selected
+             * end point, which also covers other applications.
+             *
+             * The key part here is "silently": without this option, the process keeps
+             * running - showing a dialog to the user. For X2Go Client, it looks as though
+             * the server was started successfully and if connecting to the socket end
+             * point also worked out, we get a false-positive in X.Org Server startup
+             * detection.
+             *
+             * With this option, no dialog pops up and the X.Org Server terminates
+             * immediately.
+             *
+             * FIXME: we currently only use this option when the internal X.Org Server
+             * option is used (the default) and the variant is VcXsrv. Given that Cygwin/X
+             * also supports the option, it would be nice to use it for external X.Org
+             * Server settings as well - but we don't know their type.
+             */
+            args << "-silent-dup-error";
         }
 
         args<<dispString;

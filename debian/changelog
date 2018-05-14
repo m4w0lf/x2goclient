@@ -69,6 +69,9 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
     - src/onmainwindow.cpp: another compile error/typo fix.
     - src/onmainwindow.cpp: let client recognize new --xserver-start-limit
       param correctly.
+    - src/onmainwindow.cpp: add -silent-dup-error parameter to VcXsrv startup
+      options, forcing it to silently fail without showing a dialog and thus
+      keeping the process running.
   * x2goclient.spec:
     - Remove plugin references.
   * debian/rules:
