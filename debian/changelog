@@ -74,6 +74,7 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
       keeping the process running.
     - src/onmainwindow.cpp: re-add periodic xmodmap keyboard sync for OS
       X/macOS platforms. Was dropped some time ago by accident.
+    - src/onmainwindow.cpp: fix compile error on OS X/macOS.
   * x2goclient.spec:
     - Remove plugin references.
   * debian/rules:

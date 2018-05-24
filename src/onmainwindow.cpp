@@ -5990,7 +5990,7 @@ void ONMainWindow::slotSetModMap()
         }
     }
 
-    if (kbMap.empty ()) {
+    if (kbMap.isEmpty ()) {
         x2goWarningf (9) << "Could not fetch keyboard map via xmodmap. Internal error. Not synchronizing with remote side.";
     }
     else {
