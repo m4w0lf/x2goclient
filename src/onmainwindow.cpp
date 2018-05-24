@@ -5986,12 +5986,17 @@ void ONMainWindow::slotSetModMap()
                         }
                     }
                 }
-
-                /* Send modified map to server. */
-                QString cmd = "export DISPLAY=\":" + resumingSession.display + "\"; echo \"" + kbMap + "\" | xmodmap -";
-                sshConnection->executeCommand (cmd);
             }
         }
+    }
+
+    if (kbMap.empty ()) {
+        x2goWarningf (9) << "Could not fetch keyboard map via xmodmap. Internal error. Not synchronizing with remote side.";
+    }
+    else {
+        /* Send modified map to server. */
+        QString cmd = "export DISPLAY=\":" + resumingSession.display + "\"; echo \"" + kbMap + "\" | xmodmap -";
+        sshConnection->executeCommand (cmd);
     }
 }
 
