@@ -13,6 +13,11 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
       x2goclient was copied/extracted to a folder where users could write.
     - Windows: Update Win32 OpenSSL from 1.0.2k to 1.0.2n
       Fixes several CVEs
+    - Windows: Upgrade bundled VcXsrv from 1.17.0.0-3 (X2Go/Arctica Build)
+      to 1.20.0.0 (upstream build)
+        + Fixes https://github.com/ArcticaProject/nx-libs/issues/600
+        + Incompatible with XP & Vista
+        + Unmodified except for strip-nondeterminism being run on .gz files
 
   [ Oleksandr Shneyder ]
   * New upstream version (4.1.2.0):
