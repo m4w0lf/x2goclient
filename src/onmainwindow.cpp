@@ -10117,8 +10117,9 @@ void ONMainWindow::startXOrg (std::size_t start_offset)
     {
         QMessageBox::critical (
             0,QString::null,
-            tr ( "Can't start X.Org Server.\n"
-                 "Please check your installation." ) );
+            tr ( "Can't start X.Org Server." )
+            + "\n"
+            + tr ( "Please check your installation." ) );
         close();
     }
 // #ifdef CFGCLIENT
@@ -10147,8 +10148,9 @@ void ONMainWindow::slotCheckXOrgConnection()
             x2goDebug << "Unable to start X.Org Server for " << x_start_limit_ << " times, terminating.";
 
             QMessageBox::critical (NULL, QString::null,
-                                   tr ("X.Org Server did not launch correctly after three tries.\n"
-                                       "Please check your installation."));
+                                   tr ("X.Org Server did not launch correctly after %n tries.", "%n will be substituted with the current number of tries", x_start_tries_)
+                                   + "\n"
+                                   + tr ("Please check your installation."));
 
             close ();
 
@@ -10198,8 +10200,9 @@ void ONMainWindow::slotCheckXOrgConnection()
             }
             else {
                 QMessageBox::critical (NULL, QString::null,
-                                       tr ("Can't start X.Org Server.\n"
-                                           "Please check your installation."));
+                                       tr ("Can't start X.Org Server.")
+                                       + "\n"
+                                       + tr ("Please check your installation."));
                 close();
 
                 return;
