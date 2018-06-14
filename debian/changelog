@@ -86,6 +86,8 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
       Server startup functions.
     - src/pulsemanager.cpp: use QByteArray's constData () instead of data (),
       since we'll never modify the data anyway.
+    - src/onmainwindow.cpp: hook-in chgrp for ~/.x2go/etc on Windows platforms
+      to work around a Cygwin permissions bug. Fixes: #1156.
   * x2goclient.spec:
     - Remove plugin references.
   * debian/rules:

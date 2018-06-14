@@ -10397,6 +10397,118 @@ void ONMainWindow::slotSetWinServersReady()
     restoreCygnusSettings();
 }
 
+void ONMainWindow::workaround_cygwin_permissions_issue () {
+    /*
+     * Traditionally, user home directories were owned by a group called "None"
+     * (or usually also translated into the system locale, because it's
+     * Windows...).
+     *
+     * Newer versions, at least Windows 10 and higher, set the group to the
+     * user's group, quite like on Linux.
+     *
+     * This has interesting consequences for older Cygwin versions (up to
+     * 1.7.34 probably - we currently use 1.7.33).
+     * Windows has a general concept of users and groups, but keeps a database
+     * of both in a combined way, with actually unique IDs. Hence, if a
+     * directory is owned by an ID that corresponds to the user both in the
+     * owner and group ACLs, then Cygwin gets confused with owner and group
+     * permissions.
+     * Even though the effective group permissions might be "---", it somehow
+     * manages to map the effective owner permissions, that typically are
+     * "rwx", to the UNIX group permissions as well.
+     * Consequently, OpenSSH will error out complaining about the permissions
+     * of the host keys being too open, even though they really are not.
+     *
+     * To work around this problem, we will reset the group ID of
+     * ~/.x2go/etc to the None group ID, which conveniently has a reserved and
+     * fixed value of 513 (RID) or 197121 (Cygwin) across all systems.
+     *
+     * Note that we don't have to do that for ~/x2go/ssh/gen, since we disable
+     * file permission checks for user keys.
+     */
+    QString etc_dir = cygwinPath (wapiShortFileName (homeDir + "/.x2go/etc"));
+
+    QStringList args;
+    args << "-R" << "-v" << etc_dir;
+
+    QProcess chgrp;
+    chgrp.setStandardInputFile (nullDevice ());
+    chgrp.start ("chgrp", args);
+
+    bool fail = false;
+    while (!(chgrp.waitForStarted (10))) {
+        /*
+         * If the process state is still "Starting", it means that the timer in
+         * waitForStarted () ran out. Continue normal execution, otherwise
+         * handle the startup error.
+         */
+        if (QProcess::Starting != chgrp.state ()) {
+            fail = true;
+
+            break;
+        }
+
+        QCoreApplication::processEvents (QEventLoop::AllEvents, 10);
+    }
+
+    if (fail) {
+        show_RichText_WarningMsgBox (tr ("Unable to start chgrp helper."),
+                                     tr ("Changing the group permissions of the X2Go Client-specific "
+                                         "OpenSSH server configuration will not take place.")
+                                     + "\n"
+                                     + tr ("The OpenSSH server might fail to start on newer Windows "
+                                           "versions (10 and higher)."),
+                                     false);
+
+        x2goDebug << "Failed to start chgrp: " << chgrp.error ()
+                  << " with exit status " << chgrp.exitStatus ()
+                  << " and exit code " << chgrp.exitCode ()
+                  << " (invalid unless exit status was QProcess::NormalExit)"
+                  << "; continuing without directory regrouping. sshd might "
+                  << "fail to start up.";
+
+        return;
+    }
+
+    fail = false;
+    while (!(chgrp.waitForFinished (10))) {
+        /*
+         * Pretty much the same logic as above, only slightly adaptated:
+         * a timeout only makes sense if the process is still "Running".
+         * Otherwise it must have died.
+         */
+        if (QProcess::Running != chgrp.state ()) {
+            fail = true;
+
+            break;
+        }
+
+        QCoreApplication::processEvents (QEventLoop::AllEvents, 10);
+    }
+
+    fail = ((fail) || (QProcess::NormalExit != chgrp.exitStatus ()));
+
+    if (fail) {
+        show_RichText_WarningMsgBox (tr ("Execution failure of chgrp helper."),
+                                     tr ("Changing the group permissions of the X2Go Client-specific "
+                                         "OpenSSH server configuration will not take place.")
+                                     + "\n"
+                                     + tr ("The OpenSSH server might fail to start on newer Windows "
+                                           "versions (10 and higher)."),
+                                     false);
+
+        x2goDebug << "chgrp failed during execution: " << chgrp.error ()
+                  << " with exit status " << chgrp.exitStatus ()
+                  << " and exit code " << chgrp.exitCode ()
+                  << " (invalid unless exit status was QProcess::NormalExit)"
+                  << "; continuing without directory regrouping. sshd might "
+                  << "fail to start up.";
+    }
+
+    x2goDebug << "chgrp stdout: " << chgrp.readAllStandardOutput ()
+              << endl << "chgrp stderr: " << chgrp.readAllStandardError ();
+}
+
 #include <windows.h>
 #include<sstream>
 #endif
@@ -10822,8 +10934,13 @@ bool ONMainWindow::startSshd(ONMainWindow::key_types key_type)
      */
     generateEtcFiles ();
 
+#ifdef Q_OS_WIN
+    workaround_cygwin_permissions_issue ();
+#endif
+
     clientSshPort = "7022";
     QString etcDir=homeDir+"/.x2go/etc";
+
     int port=clientSshPort.toInt();
     //clientSshPort have initvalue
     while ( isServerRunning ( port ) )
