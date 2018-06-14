@@ -10432,7 +10432,13 @@ void ONMainWindow::workaround_cygwin_permissions_issue () {
     args << "-R" << "-v" << etc_dir;
 
     QProcess chgrp;
-    chgrp.setStandardInputFile (nullDevice ());
+    chgrp.setStandardInputFile (
+#if QT_VERSION >= 0x050200
+                                QProcess::nullDevice ()
+#else
+                                "\\\\.\\NUL"
+#endif
+    );
     chgrp.start ("chgrp", args);
 
     bool fail = false;

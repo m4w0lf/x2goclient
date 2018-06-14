@@ -88,6 +88,8 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
       since we'll never modify the data anyway.
     - src/onmainwindow.cpp: hook-in chgrp for ~/.x2go/etc on Windows platforms
       to work around a Cygwin permissions bug. Fixes: #1156.
+    - src/onmainwindow.cpp: QProcess:nullDevice () is only available on Qt
+      5.2+, so use a workaround for older versions.
   * x2goclient.spec:
     - Remove plugin references.
   * debian/rules:
