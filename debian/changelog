@@ -84,6 +84,8 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
       chgrp.
     - src/onmainwindow.cpp: fix user-facing error messages in Windows X.Org
       Server startup functions.
+    - src/pulsemanager.cpp: use QByteArray's constData () instead of data (),
+      since we'll never modify the data anyway.
   * x2goclient.spec:
     - Remove plugin references.
   * debian/rules:

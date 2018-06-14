@@ -363,7 +363,7 @@ void PulseManager::fetch_pulseaudio_version () {
   if (tmp_server.waitForFinished ()) {
     /* Read stdout and split it up on newlines. */
     QByteArray ba (tmp_server.readAllStandardOutput ());
-    QString stdout_data (ba.data ());
+    QString stdout_data (ba.constData ());
     QStringList stdout_list (stdout_data.split ("\n"));
 
     x2goDebug << "pulseaudio --version returned:" << stdout_data << endl;
@@ -784,10 +784,10 @@ void PulseManager::slot_on_pulse_finished (int exit_code) {
   shutdown_state_ = false;
   x2goDebug << "Pulseaudio finished with code:"<<exit_code;
   QByteArray ba (pulse_server_->readAllStandardOutput ());
-  char *data = ba.data ();
+  const char *data = ba.constData ();
   x2goDebug << data;
   ba = pulse_server_->readAllStandardError ();
-  data = ba.data ();
+  data = ba.constData ();
   x2goDebug << data;
 
   // Clean up
