@@ -10429,7 +10429,7 @@ void ONMainWindow::workaround_cygwin_permissions_issue () {
     QString etc_dir = cygwinPath (wapiShortFileName (homeDir + "/.x2go/etc"));
 
     QStringList args;
-    args << "-R" << "-v" << etc_dir;
+    args << "-R" << "-v" << "197121" << etc_dir;
 
     QProcess chgrp;
     chgrp.setStandardInputFile (
@@ -10492,7 +10492,8 @@ void ONMainWindow::workaround_cygwin_permissions_issue () {
         QCoreApplication::processEvents (QEventLoop::AllEvents, 10);
     }
 
-    fail = ((fail) || (QProcess::NormalExit != chgrp.exitStatus ()));
+    fail = ((fail) || (QProcess::NormalExit != chgrp.exitStatus ())
+            || ((QProcess::NormalExit == chgrp.exitStatus ()) && (chgrp.exitCode ())));
 
     if (fail) {
         show_RichText_WarningMsgBox (tr ("Execution failure of chgrp helper."),

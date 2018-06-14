@@ -90,6 +90,9 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
       to work around a Cygwin permissions bug. Fixes: #1156.
     - src/onmainwindow.cpp: QProcess:nullDevice () is only available on Qt
       5.2+, so use a workaround for older versions.
+    - src/onmainwindow.cpp: actually pass the correct group ID to the chgrp
+      call and make sure that the warning dialog box also appears whenever the
+      exit code indicates a failure.
   * x2goclient.spec:
     - Remove plugin references.
   * debian/rules:
