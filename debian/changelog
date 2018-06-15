@@ -98,6 +98,8 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
     - copy-deps-win32.bat: update to 20180615-1 Cygwin bundle, shipping with
       a further modified OpenSSH Server version at 7.7p1-1-x2go1 and without
       chgrp.
+    - src/onmainwindow.cpp: disable private host key permissions check in
+      OpenSSH Server on Windows. Fixes: #1156.
   * x2goclient.spec:
     - Remove plugin references.
   * debian/rules:
