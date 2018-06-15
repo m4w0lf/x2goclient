@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="fr">
+<TS version="2.1" language="fr">
 <context>
     <name>AppDialog</name>
     <message>
@@ -852,6 +852,10 @@ Vous la trouverez peut-être dans l&apos;un de ces emplacements standards :
         <source>Use a custom icon (SVG format) for additional branding to replace the default in the lower left corner of X2Go Client&apos;s main window.</source>
         <translation>Utilise un icône personnalité (au format SVG) pour marquage additionnel pour remplacer l&apos;original dans le coin inférieur gauche de la fenêtre principale de X2Go Client.</translation>
     </message>
+    <message>
+        <source>Enables broker logout button.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HelpDialog</name>
@@ -1017,6 +1021,10 @@ Public key hash: </source>
         <source>Secure connection failed.</source>
         <translation>Echec de la connection sécurisée.</translation>
     </message>
+    <message>
+        <source>Enter user account password:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>InteractionDialog</name>
@@ -1138,7 +1146,7 @@ Veuillez passer à PulseAudio.</translation>
     </message>
     <message>
         <source>Share folder...</source>
-        <translation>Partager le dossier...</translation>
+        <translation type="vanished">Partager le dossier...</translation>
     </message>
     <message>
         <source>Suspend</source>
@@ -1150,7 +1158,7 @@ Veuillez passer à PulseAudio.</translation>
     </message>
     <message>
         <source>Reconnect</source>
-        <translation>Reconnecter</translation>
+        <translation type="vanished">Reconnecter</translation>
     </message>
     <message>
         <source>Detach X2Go window</source>
@@ -1558,7 +1566,7 @@ Hash de la clef publique : </translation>
     </message>
     <message>
         <source>Unable to create file: </source>
-        <translation>Impossible de créer le fichier : </translation>
+        <translation type="vanished">Impossible de créer le fichier : </translation>
     </message>
     <message>
         <source>Unable to execute: </source>
@@ -1590,7 +1598,7 @@ Hash de la clef publique : </translation>
     </message>
     <message>
         <source>Applications...</source>
-        <translation>Applications...</translation>
+        <translation type="vanished">Applications...</translation>
     </message>
     <message>
         <source>Abort</source>
@@ -1686,7 +1694,7 @@ Hash de la clef publique : </translation>
     </message>
     <message>
         <source> to </source>
-        <translation> vers </translation>
+        <translation type="vanished"> vers </translation>
     </message>
     <message>
         <source>Authentication failed: </source>
@@ -2072,7 +2080,7 @@ Les documents qui n&apos;ont pas été sauvegardés seront perdus.</translation>
     </message>
     <message>
         <source>&lt;br&gt;X2Go Plugin mode was sponsored by &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</source>
-        <translation>&lt;br&gt;le mode X2Go Plugin a été sponsorisé par &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
+        <translation type="vanished">&lt;br&gt;le mode X2Go Plugin a été sponsorisé par &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>&lt;br&gt;This is a client to access the X2Go network-based computing environment. This client will be able to connect to X2Go Server(s) and start, stop, resume and terminate (running) desktop sessions. X2Go Client stores different server connections and may automatically request authentication data from LDAP directories. Furthermore, it can be used as a fullscreen login screen (replacement for login managers like XDM). Please visit &lt;a href=&quot;http://www.x2go.org&quot;&gt;the project home page at x2go.org&lt;/a&gt; for further information.</source>
@@ -2089,7 +2097,7 @@ Les documents qui n&apos;ont pas été sauvegardés seront perdus.</translation>
     <message>
         <source>Check whether the package providing &quot;scdaemon&quot; is installed.
 The current search path is: </source>
-        <translation>Vérifiez si le paquet qui fournit &quot;scdaemon&quot; est installé.
+        <translation type="vanished">Vérifiez si le paquet qui fournit &quot;scdaemon&quot; est installé.
 Le chemin de recherche en vigueur est : </translation>
     </message>
     <message>
@@ -2510,6 +2518,31 @@ Veuillez rapporter le bug sur :
     <message>
         <source>Unable to initialize libssh.</source>
         <translation>Impossible d&apos;initialiser libssh.</translation>
+    </message>
+    <message>
+        <source>Enter user account password:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Check whether the package providing &quot;pcsc_scan&quot; is installed.
+The current search path is: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Can&apos;t start X.Org Server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please check your installation.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>X.Org Server did not launch correctly after %n tries.</source>
+        <comment>%n will be substituted with the current number of tries</comment>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>

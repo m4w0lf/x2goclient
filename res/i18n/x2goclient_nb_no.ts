@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="nb_NO">
+<TS version="2.1" language="nb_NO">
 <context>
     <name>AppDialog</name>
     <message>
@@ -867,6 +867,10 @@ Noen vanlige lokasjoner er:
         <source>Use a custom icon (SVG format) for additional branding to replace the default in the lower left corner of X2Go Client&apos;s main window.</source>
         <translation>Bruk et eget ikon (SVG format) for egenreklame, bytter ut ikonet som er nede i venstre hjørne i X2Go klienten sitt hovedvindu.</translation>
     </message>
+    <message>
+        <source>Enables broker logout button.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HelpDialog</name>
@@ -1048,6 +1052,10 @@ Offentlig nøkkel: </translation>
     <message>
         <source>Secure connection failed.</source>
         <translation>Sikker tilkobling feilet.</translation>
+    </message>
+    <message>
+        <source>Enter user account password:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1303,7 +1311,7 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>Applications...</source>
-        <translation>Applikasjoner...</translation>
+        <translation type="vanished">Applikasjoner...</translation>
     </message>
     <message>
         <source>Invalid reply from broker</source>
@@ -1597,7 +1605,7 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>Unable to create file: </source>
-        <translation>Klarer ikke å opprette filen: </translation>
+        <translation type="vanished">Klarer ikke å opprette filen: </translation>
     </message>
     <message>
         <source>No valid card found</source>
@@ -1785,7 +1793,7 @@ Vennligst sjekk instillingene dine</translation>
     </message>
     <message>
         <source> to </source>
-        <translation> til </translation>
+        <translation type="vanished"> til </translation>
     </message>
     <message>
         <source>Connection Error(</source>
@@ -1863,7 +1871,7 @@ Offentlig nøkkel: </translation>
     </message>
     <message>
         <source>Share folder...</source>
-        <translation>Del mappe...</translation>
+        <translation type="vanished">Del mappe...</translation>
     </message>
     <message>
         <source>Show details</source>
@@ -2123,7 +2131,7 @@ Du kan installere sshd med:
     </message>
     <message>
         <source>Reconnect</source>
-        <translation>Gjenoppkoble</translation>
+        <translation type="vanished">Gjenoppkoble</translation>
     </message>
     <message>
         <source>Connecting to broker</source>
@@ -2533,7 +2541,7 @@ Ulagrede data vil gå tapt.</translation>
     </message>
     <message>
         <source>&lt;br&gt;X2Go Plugin mode was sponsored by &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</source>
-        <translation>&lt;br&gt;X2Go plugin modusen ble sponset av &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
+        <translation type="vanished">&lt;br&gt;X2Go plugin modusen ble sponset av &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>&lt;br&gt;This is a client to access the X2Go network-based computing environment. This client will be able to connect to X2Go Server(s) and start, stop, resume and terminate (running) desktop sessions. X2Go Client stores different server connections and may automatically request authentication data from LDAP directories. Furthermore, it can be used as a fullscreen login screen (replacement for login managers like XDM). Please visit &lt;a href=&quot;http://www.x2go.org&quot;&gt;the project home page at x2go.org&lt;/a&gt; for further information.</source>
@@ -2550,7 +2558,7 @@ Ulagrede data vil gå tapt.</translation>
     <message>
         <source>Check whether the package providing &quot;scdaemon&quot; is installed.
 The current search path is: </source>
-        <translation>Sjekk om pakken som tilbyr &quot;scdaemon&quot; er installert.
+        <translation type="vanished">Sjekk om pakken som tilbyr &quot;scdaemon&quot; er installert.
 Søkebanen som er i bruk er: </translation>
     </message>
     <message>
@@ -2982,6 +2990,31 @@ Rapporter dette som en feil på:
     <message>
         <source>Unable to initialize libssh.</source>
         <translation>Kunne ikke starte libssh.</translation>
+    </message>
+    <message>
+        <source>Enter user account password:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Check whether the package providing &quot;pcsc_scan&quot; is installed.
+The current search path is: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Can&apos;t start X.Org Server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please check your installation.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>X.Org Server did not launch correctly after %n tries.</source>
+        <comment>%n will be substituted with the current number of tries</comment>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
 </context>
 <context>
