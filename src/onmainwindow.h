@@ -1187,7 +1187,6 @@ private:
 #ifdef Q_OS_WIN
     void saveCygnusSettings();
     void restoreCygnusSettings();
-    void workaround_cygwin_permissions_issue ();
 #endif
 #if defined  (Q_OS_WIN) || defined (Q_OS_DARWIN)
     QString getXDisplay();

@@ -93,6 +93,8 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
     - src/onmainwindow.cpp: actually pass the correct group ID to the chgrp
       call and make sure that the warning dialog box also appears whenever the
       exit code indicates a failure.
+    - src/onmainwindow.{cpp,h}: remove Cygwin permissions workaround via
+      chgrp.
   * x2goclient.spec:
     - Remove plugin references.
   * debian/rules:
