@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="fi_FI">
+<TS version="2.0" language="fi_FI">
 <context>
     <name>AppDialog</name>
     <message>
@@ -1040,7 +1040,7 @@ Muutama standardiasennuksia löytyy täältä:
     <message>
         <location filename="../../src/help.cpp" line="162"/>
         <source>Enables broker logout button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktivoi brokerin uloskirjautuminen.</translation>
     </message>
     <message>
         <location filename="../../src/help.cpp" line="163"/>
@@ -1170,7 +1170,7 @@ Julkinen avain: </translation>
     <message>
         <location filename="../../src/httpbrokerclient.cpp" line="229"/>
         <source>Enter user account password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Käyttäjätilin salasana:</translation>
     </message>
     <message>
         <location filename="../../src/httpbrokerclient.cpp" line="266"/>
@@ -1445,11 +1445,11 @@ Päivitä PulseAudioon.</translation>
     </message>
     <message>
         <source>Share folder...</source>
-        <translation type="vanished">Jaa kansio...</translation>
+        <translation>Jaa kansio...</translation>
     </message>
     <message>
         <source>Applications...</source>
-        <translation type="vanished">Sovellukset...</translation>
+        <translation>Sovellukset...</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="1120"/>
@@ -1467,7 +1467,7 @@ Päivitä PulseAudioon.</translation>
     </message>
     <message>
         <source>Reconnect</source>
-        <translation type="vanished">Uusi yhteys</translation>
+        <translation>Uusi yhteys</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="11367"/>
@@ -1819,7 +1819,7 @@ Päivitä PulseAudioon.</translation>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="3057"/>
         <source>Enter user account password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Anna käyttäjän salasana:</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="3124"/>
@@ -2155,7 +2155,8 @@ Suomenkielinen versio: Martti Pitkänen, martti@aplcomp.fi&lt;br&gt;</translatio
         <location filename="../../src/onmainwindow.cpp" line="9026"/>
         <source>Check whether the package providing &quot;pcsc_scan&quot; is installed.
 The current search path is: </source>
-        <translation type="unfinished"></translation>
+        <translation>Tarkista onko &quot;pcsc_scan&quot;in sisältävä paketti asennettu.
+Hakupolku on:</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="9642"/>
@@ -2186,21 +2187,21 @@ The current search path is: </source>
         <location filename="../../src/onmainwindow.cpp" line="10120"/>
         <location filename="../../src/onmainwindow.cpp" line="10203"/>
         <source>Can&apos;t start X.Org Server.</source>
-        <translation type="unfinished"></translation>
+        <translation>X.Org -palvelin ei käynnisty.</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="10122"/>
         <location filename="../../src/onmainwindow.cpp" line="10153"/>
         <location filename="../../src/onmainwindow.cpp" line="10205"/>
         <source>Please check your installation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tarkista asennus.</translation>
     </message>
     <message numerus="yes">
         <location filename="../../src/onmainwindow.cpp" line="10151"/>
         <source>X.Org Server did not launch correctly after %n tries.</source>
         <comment>%n will be substituted with the current number of tries</comment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>X.Org palvelin ei käynnistynyt oikein %n yrityksen jälkeen.</numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -2465,7 +2466,7 @@ Käytätkö x2go-asiakasohjelmaa piilotettuna?</translation>
     </message>
     <message>
         <source> to </source>
-        <translation type="vanished"> kohteeseen </translation>
+        <translation> kohteeseen </translation>
     </message>
     <message>
         <source>Connection Error(</source>
@@ -2915,7 +2916,7 @@ Suomenkielinen versio: Martti Pitkänen, martti@aplcomp.fi&lt;br&gt;</translatio
     </message>
     <message>
         <source>&lt;br&gt;X2Go Plugin mode was sponsored by &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</source>
-        <translation type="vanished">&lt;br&gt;X2Go Plugin moodin sponsori &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
+        <translation>&lt;br&gt;X2Go Plugin moodin sponsori &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="8747"/>
@@ -2935,7 +2936,7 @@ Suomenkielinen versio: Martti Pitkänen, martti@aplcomp.fi&lt;br&gt;</translatio
     <message>
         <source>Check whether the package providing &quot;scdaemon&quot; is installed.
 The current search path is: </source>
-        <translation type="vanished">Tarkista onko paketti joka sisältää ohjelman &quot;scdaemon&quot; asennettu.
+        <translation>Tarkista onko paketti joka sisältää ohjelman &quot;scdaemon&quot; asennettu.
 Hakupolku on: </translation>
     </message>
     <message>
@@ -3304,7 +3305,7 @@ authoized_keys -tiedostoa.</translation>
     </message>
     <message>
         <source>Unable to create file: </source>
-        <translation type="vanished">Tiedoston luonti epäonnistui: </translation>
+        <translation>Tiedoston luonti epäonnistui: </translation>
     </message>
     <message>
         <source>Can&apos;t connect to X server
