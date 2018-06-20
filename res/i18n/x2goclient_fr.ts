@@ -204,7 +204,7 @@
     </message>
     <message>
         <source>Failed: </source>
-        <translation>Échec :</translation>
+        <translation>Échec : </translation>
     </message>
     <message>
         <source>Socket operation timed out.</source>
@@ -854,7 +854,7 @@ Vous la trouverez peut-être dans l&apos;un de ces emplacements standards :
     </message>
     <message>
         <source>Enables broker logout button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Active le bouton de déconnexion du broker.</translation>
     </message>
 </context>
 <context>
@@ -895,7 +895,8 @@ C&apos;est maintenant : </translation>
     <message>
         <source>The server is unknown. Do you trust the host key?
 Public key hash: </source>
-        <translation>Le serveur n&apos;est pas connu. Avez-vous confiance en cette clef ? Hash de la clef publique : </translation>
+        <translation>Le serveur n&apos;est pas connu. Avez-vous confiance en cette clef ?
+Hash de la clef publique : </translation>
     </message>
     <message>
         <source>Host key verification failed</source>
@@ -932,54 +933,58 @@ Public key hash: </source>
     <message>
         <source>Issued to:
 </source>
-        <translation>Accordé à :</translation>
+        <translation>Accordé à :
+</translation>
     </message>
     <message>
         <source>Common Name(CN)	</source>
-        <translation>Common Name(CN)</translation>
+        <translation>Common Name(CN)	</translation>
     </message>
     <message>
         <source>Organization(O)	</source>
-        <translation>Organization(O)</translation>
+        <translation>Organization(O)	</translation>
     </message>
     <message>
         <source>Organizational Unit(OU)	</source>
-        <translation>Organizational Unit(OU)</translation>
+        <translation>Organizational Unit(OU)	</translation>
     </message>
     <message>
         <source>Serial Number	</source>
-        <translation>Numéro de série</translation>
+        <translation>Numéro de série	</translation>
     </message>
     <message>
         <source>Issued by:
 </source>
-        <translation>Accordé par :</translation>
+        <translation>Accordé par :
+</translation>
     </message>
     <message>
         <source>Validity:
 </source>
-        <translation>Validité :</translation>
+        <translation>Validité :
+</translation>
     </message>
     <message>
         <source>Issued on	</source>
-        <translation>Accordé sur</translation>
+        <translation>Accordé le	</translation>
     </message>
     <message>
         <source>expires on	</source>
-        <translation>expire le</translation>
+        <translation>expire le	</translation>
     </message>
     <message>
         <source>Fingerprints:
 </source>
-        <translation>Fingerprints :</translation>
+        <translation>Fingerprints :
+</translation>
     </message>
     <message>
         <source>SHA1	</source>
-        <translation>SHA1</translation>
+        <translation>SHA1	</translation>
     </message>
     <message>
         <source>MD5	</source>
-        <translation>MD5</translation>
+        <translation>MD5	</translation>
     </message>
     <message>
         <source>Exit X2Go Client</source>
@@ -1023,7 +1028,7 @@ Public key hash: </source>
     </message>
     <message>
         <source>Enter user account password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrez le mot de passe du compte utilisateur :</translation>
     </message>
 </context>
 <context>
@@ -1449,8 +1454,8 @@ Utiliser le mode caché de X2Go Client ?</translation>
     <message>
         <source>Host key for server changed.
 It is now: </source>
-        <translation>La clef d&apos;hôte du serveur a changée.
-La nouvelle clef est :</translation>
+        <translation>La clef d&apos;hôte du serveur a changé.
+La nouvelle clef est : </translation>
     </message>
     <message>
         <source>For security reasons, connection will be stopped</source>
@@ -1895,7 +1900,8 @@ Voulez-vous mettre fin à la connexion ?
     <message>
         <source>&lt;b&gt;Connection failed.&lt;/b&gt;
 </source>
-        <translation>&lt;b&gt;Échec de la connexion&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Échec de la connexion&lt;/b&gt;
+</translation>
     </message>
     <message>
         <source>No server available.</source>
@@ -2072,7 +2078,7 @@ Les documents qui n&apos;ont pas été sauvegardés seront perdus.</translation>
     </message>
     <message>
         <source>Cannot open key: </source>
-        <translation>Ne peut pas ouvrir la clé :</translation>
+        <translation>Ne peut pas ouvrir la clé : </translation>
     </message>
     <message>
         <source>&lt;br&gt;(C) 2005-2016 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</source>
@@ -2521,27 +2527,28 @@ Veuillez rapporter le bug sur :
     </message>
     <message>
         <source>Enter user account password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrez le mot de passe du compte utilisateur :</translation>
     </message>
     <message>
         <source>Check whether the package providing &quot;pcsc_scan&quot; is installed.
 The current search path is: </source>
-        <translation type="unfinished"></translation>
+        <translation>Vérifiez si le paquet qui fournit &quot;pcsc_scan&quot; est installé.
+Le chemin de recherche en vigueur est : </translation>
     </message>
     <message>
         <source>Can&apos;t start X.Org Server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de démarrer le serveur X.Org.</translation>
     </message>
     <message>
         <source>Please check your installation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Veuillez vérifier votre installation.</translation>
     </message>
     <message numerus="yes">
         <source>X.Org Server did not launch correctly after %n tries.</source>
         <comment>%n will be substituted with the current number of tries</comment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Le serveur X.Org n&apos;a pas démarré correctement après %n essai.</numerusform>
+            <numerusform>Le serveur X.Org n&apos;a pas démarré correctement malgré %n essais.</numerusform>
         </translation>
     </message>
 </context>
@@ -3437,7 +3444,7 @@ Utiliser le mode caché de X2Go Client ?</translation>
     <name>SshMasterConnection</name>
     <message>
         <source>SSH proxy connection error: </source>
-        <translation>Erreur de connexion au mandataire SSH :</translation>
+        <translation>Erreur de connexion au mandataire SSH : </translation>
     </message>
     <message>
         <source>Cannot connect to </source>

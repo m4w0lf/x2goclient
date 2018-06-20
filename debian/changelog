@@ -128,6 +128,10 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
   * New upstream release (4.1.2.0):
     - res/i18n/x2goclient_de.ts: update German translation file.
 
+  [ Sébastien Ducoulombier ]
+  * New upstream version (4.1.2.0):
+    - res/i18n/x2goclient_fr.ts: update French translation file.
+
  -- X2Go Release Manager <git-admin@x2go.org>  Thu, 15 Feb 2018 22:01:32 +0100
 
 x2goclient (4.1.1.1-0x2go1) unstable; urgency=medium
