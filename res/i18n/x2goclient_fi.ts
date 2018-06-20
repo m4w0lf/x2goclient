@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="fi_FI">
+<TS version="2.1" language="fi_FI">
 <context>
     <name>AppDialog</name>
     <message>
@@ -1170,7 +1170,7 @@ Julkinen avain: </translation>
     <message>
         <location filename="../../src/httpbrokerclient.cpp" line="229"/>
         <source>Enter user account password:</source>
-        <translation>Käyttäjätilin salasana:</translation>
+        <translation>Anna käyttäjän salasana:</translation>
     </message>
     <message>
         <location filename="../../src/httpbrokerclient.cpp" line="266"/>
@@ -2155,8 +2155,8 @@ Suomenkielinen versio: Martti Pitkänen, martti@aplcomp.fi&lt;br&gt;</translatio
         <location filename="../../src/onmainwindow.cpp" line="9026"/>
         <source>Check whether the package providing &quot;pcsc_scan&quot; is installed.
 The current search path is: </source>
-        <translation>Tarkista onko &quot;pcsc_scan&quot;in sisältävä paketti asennettu.
-Hakupolku on:</translation>
+        <translation>Tarkista onko paketti joka sisältää ohjelman &quot;pcsc_scan&quot; asennettu.
+Hakupolku on: </translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="9642"/>
@@ -2187,7 +2187,7 @@ Hakupolku on:</translation>
         <location filename="../../src/onmainwindow.cpp" line="10120"/>
         <location filename="../../src/onmainwindow.cpp" line="10203"/>
         <source>Can&apos;t start X.Org Server.</source>
-        <translation>X.Org -palvelin ei käynnisty.</translation>
+        <translation>X.Org-palvelin ei käynnisty.</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="10122"/>
@@ -2201,8 +2201,8 @@ Hakupolku on:</translation>
         <source>X.Org Server did not launch correctly after %n tries.</source>
         <comment>%n will be substituted with the current number of tries</comment>
         <translation>
-            <numerusform>X.Org palvelin ei käynnistynyt oikein %n yrityksen jälkeen.</numerusform>
-            <numerusform></numerusform>
+            <numerusform>X.Org-palvelin ei käynnistynyt oikein %n yrityksen jälkeen.</numerusform>
+            <numerusform>X.Org-palvelin ei käynnistynyt oikein %n yrityksen jälkeen.</numerusform>
         </translation>
     </message>
     <message>
@@ -2963,7 +2963,7 @@ Hakupolku on: </translation>
         <location filename="../../src/onmainwindow.cpp" line="9364"/>
         <source>Can&apos;t start X.Org Server.
 Please check your installation.</source>
-        <translation>X.Org-ohjelma ei käynnisty.
+        <translation>X.Org-palvelin ei käynnisty.
 Tarkista installointi.</translation>
     </message>
     <message>
