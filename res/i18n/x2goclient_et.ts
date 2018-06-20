@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="et_EE">
+<TS version="2.0" language="et_EE">
 <context>
     <name>AppDialog</name>
     <message>
@@ -1024,7 +1024,7 @@ Mõned standardsed asukohad oleks:
     <message>
         <location filename="../../src/help.cpp" line="162"/>
         <source>Enables broker logout button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lubab brokeri väljalogimise nupu.</translation>
     </message>
     <message>
         <location filename="../../src/help.cpp" line="163"/>
@@ -1153,7 +1153,7 @@ Tema avaliku võtme &apos;hash&apos; on: </translation>
     <message>
         <location filename="../../src/httpbrokerclient.cpp" line="229"/>
         <source>Enter user account password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Anna kasutajakonto parool:</translation>
     </message>
     <message>
         <location filename="../../src/httpbrokerclient.cpp" line="266"/>
@@ -1427,11 +1427,11 @@ Palun uuenda kasutamaks PulseAudio-t.</translation>
     </message>
     <message>
         <source>Share folder...</source>
-        <translation type="vanished">Jaga kataloogi...</translation>
+        <translation>Jaga kataloogi...</translation>
     </message>
     <message>
         <source>Applications...</source>
-        <translation type="vanished">Rakendused...</translation>
+        <translation>Rakendused...</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="1120"/>
@@ -1449,7 +1449,7 @@ Palun uuenda kasutamaks PulseAudio-t.</translation>
     </message>
     <message>
         <source>Reconnect</source>
-        <translation type="vanished">Ühenda uuesti</translation>
+        <translation>Ühenda uuesti</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="11367"/>
@@ -2141,7 +2141,8 @@ Avatud failid ei salvestu.</translation>
         <location filename="../../src/onmainwindow.cpp" line="9026"/>
         <source>Check whether the package providing &quot;pcsc_scan&quot; is installed.
 The current search path is: </source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrolli kas &quot;pcsc_scan&quot; toetav lisamoodul on paigaldatud.
+Otsimistee on: </translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="9642"/>
@@ -2172,22 +2173,22 @@ The current search path is: </source>
         <location filename="../../src/onmainwindow.cpp" line="10120"/>
         <location filename="../../src/onmainwindow.cpp" line="10203"/>
         <source>Can&apos;t start X.Org Server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ei suuda käivitada X.Org Serverit.</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="10122"/>
         <location filename="../../src/onmainwindow.cpp" line="10153"/>
         <location filename="../../src/onmainwindow.cpp" line="10205"/>
         <source>Please check your installation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Palun kontrolli on+ma installi.</translation>
     </message>
     <message numerus="yes">
         <location filename="../../src/onmainwindow.cpp" line="10151"/>
         <source>X.Org Server did not launch correctly after %n tries.</source>
         <comment>%n will be substituted with the current number of tries</comment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>X.Org Server ei käivitunud korralikult isegi mitte pärast %n kordset proovimist.</numerusform>
+            <numerusform>X.Org Server ei käivitunud korralikult isegi mitte pärast %n kordset proovimist.</numerusform>
         </translation>
     </message>
     <message>
@@ -2451,7 +2452,7 @@ Kasuta x2goclient programmi peidetuna? </translation>
     </message>
     <message>
         <source> to </source>
-        <translation type="vanished"> =&gt; </translation>
+        <translation> =&gt; </translation>
     </message>
     <message>
         <source>Connection Error(</source>
@@ -2469,7 +2470,7 @@ Kasuta x2goclient programmi peidetuna? </translation>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="3057"/>
         <source>Enter user account password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Anna kasutajakonto parool:</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="3123"/>
@@ -2515,7 +2516,7 @@ See on nüüd:</translation>
     </message>
     <message>
         <source>&lt;br&gt;X2Go Plugin mode was sponsored by &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</source>
-        <translation type="vanished">&lt;br&gt;X2Go Plugin mode sai sponsoreeeritud &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt; poolt&lt;br&gt;</translation>
+        <translation>&lt;br&gt;X2Go Plugin mode sai sponsoreeeritud &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt; poolt&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="8761"/>
@@ -2530,8 +2531,8 @@ See on nüüd:</translation>
     <message>
         <source>Check whether the package providing &quot;scdaemon&quot; is installed.
 The current search path is: </source>
-        <translation type="vanished">Kontrolli kas &quot;scdaemon&quot; toetav lisamoodul on paigaldatud.
-Otsimiste on: </translation>
+        <translation>Kontrolli kas &quot;scdaemon&quot; toetav lisamoodul on paigaldatud.
+Otsimistee on: </translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="9038"/>
@@ -3138,7 +3139,7 @@ Avatud failid ei salvestu</translation>
     </message>
     <message>
         <source>Unable to create file: </source>
-        <translation type="vanished">Ei suuda luua faili:</translation>
+        <translation>Ei suuda luua faili:</translation>
     </message>
     <message>
         <source>Can&apos;t connect to X server
