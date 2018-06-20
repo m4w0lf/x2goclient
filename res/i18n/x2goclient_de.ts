@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="de">
+<TS version="2.1" language="de">
 <context>
     <name>AppDialog</name>
     <message>
@@ -2537,8 +2537,8 @@ Der aktuelle Suchpfad lautet: </translation>
         <source>X.Org Server did not launch correctly after %n tries.</source>
         <comment>%n will be substituted with the current number of tries</comment>
         <translation>
+            <numerusform>Der X.Org-Server ist trotz eines Versuches nicht erfolgreich gestartet.</numerusform>
             <numerusform>Der X.Org-Server ist trotz %n Versuchen nicht erfolgreich gestartet.</numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
     <message>
