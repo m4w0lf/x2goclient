@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de">
+<TS version="2.0" language="de">
 <context>
     <name>AppDialog</name>
     <message>
@@ -1410,7 +1410,7 @@ sound system connections through firewalls</source>
     <message>
         <location filename="../../src/help.cpp" line="162"/>
         <source>Enables broker logout button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Broker-Logout-Knopf darstellen.</translation>
     </message>
     <message>
         <location filename="../../src/help.cpp" line="163"/>
@@ -1551,7 +1551,7 @@ Public key hash: </source>
     <message>
         <location filename="../../src/httpbrokerclient.cpp" line="229"/>
         <source>Enter user account password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Passwort des Benutzerkontos eingeben:</translation>
     </message>
     <message>
         <location filename="../../src/httpbrokerclient.cpp" line="266"/>
@@ -1990,7 +1990,7 @@ Möchten Sie die Verbindung abbrechen?</translation>
     </message>
     <message>
         <source>Applications...</source>
-        <translation type="vanished">Anwendungen...</translation>
+        <translation>Anwendungen...</translation>
     </message>
     <message>
         <source>Invalid reply from broker</source>
@@ -2491,7 +2491,8 @@ Bitte melden Sie den Fehler wie auf der &lt;a href=&quot;http://wiki.x2go.org/do
         <location filename="../../src/onmainwindow.cpp" line="9026"/>
         <source>Check whether the package providing &quot;pcsc_scan&quot; is installed.
 The current search path is: </source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte überprüfen Sie, ob das Paket, das &quot;pcsc_scan&quot; bereitstellt, installiert ist.
+Der aktuelle Suchpfad lautet: </translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="9642"/>
@@ -2522,21 +2523,21 @@ The current search path is: </source>
         <location filename="../../src/onmainwindow.cpp" line="10120"/>
         <location filename="../../src/onmainwindow.cpp" line="10203"/>
         <source>Can&apos;t start X.Org Server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kann X.Org-Server nicht starten.</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="10122"/>
         <location filename="../../src/onmainwindow.cpp" line="10153"/>
         <location filename="../../src/onmainwindow.cpp" line="10205"/>
         <source>Please check your installation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte überprüfen Sie Ihre Installation.</translation>
     </message>
     <message numerus="yes">
         <location filename="../../src/onmainwindow.cpp" line="10151"/>
         <source>X.Org Server did not launch correctly after %n tries.</source>
         <comment>%n will be substituted with the current number of tries</comment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>Der X.Org-Server ist trotz %n Versuchen nicht erfolgreich gestartet.</numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -2909,7 +2910,7 @@ der Anwendung nicht öffnen.</translation>
     </message>
     <message>
         <source>Unable to create file: </source>
-        <translation type="vanished">Datei konnte nicht erzeugt werden: </translation>
+        <translation>Datei konnte nicht erzeugt werden: </translation>
     </message>
     <message>
         <source>No valid card found</source>
@@ -3139,7 +3140,7 @@ Please check your settings</source>
     </message>
     <message>
         <source> to </source>
-        <translation type="vanished"> auf </translation>
+        <translation> auf </translation>
     </message>
     <message>
         <source>Connection Error(</source>
@@ -3230,7 +3231,7 @@ Hash des öffentlichen Schlüssels: </translation>
     </message>
     <message>
         <source>Share folder...</source>
-        <translation type="vanished">Ordner freigeben...</translation>
+        <translation>Ordner freigeben...</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="12026"/>
@@ -3683,7 +3684,7 @@ Sie können SSHD über folgenden Befehl installieren:
     <message>
         <location filename="../../src/onmainwindow.cpp" line="3057"/>
         <source>Enter user account password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Passwort des Benutzerkontos eingeben:</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="3537"/>
@@ -3848,7 +3849,7 @@ Ungespeicherte Dokumente gehen verloren.</translation>
     </message>
     <message>
         <source>&lt;br&gt;X2Go Plugin mode was sponsored by &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</source>
-        <translation type="vanished">&lt;br&gt;X2GoPlugin-Modus wurde gefördert durch &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH(Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
+        <translation>&lt;br&gt;X2GoPlugin-Modus wurde gefördert durch &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH(Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="8747"/>
@@ -3868,7 +3869,7 @@ Ungespeicherte Dokumente gehen verloren.</translation>
     <message>
         <source>Check whether the package providing &quot;scdaemon&quot; is installed.
 The current search path is: </source>
-        <translation type="vanished">Bitte überprüfen Sie, ob das Paket, das &quot;scdaemon&quot; bereitstellt, installiert ist.
+        <translation>Bitte überprüfen Sie, ob das Paket, das &quot;scdaemon&quot; bereitstellt, installiert ist.
 Der aktuelle Suchpfad lautet: </translation>
     </message>
     <message>
@@ -3971,7 +3972,7 @@ Bitte installieren Sie dort eine neuere Version des X2GoServer-Pakets.</translat
     </message>
     <message>
         <source>Reconnect</source>
-        <translation type="vanished">Neu verbinden</translation>
+        <translation>Neu verbinden</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="991"/>
