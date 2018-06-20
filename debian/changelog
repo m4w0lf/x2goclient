@@ -105,6 +105,7 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
     - res/i18n/x2goclient_fi.ts: add missing numerus form translation and
       other fixups.
     - res/i18n/x2goclient_de.ts: another fixup I previously forgot about.
+    - res/i18n/x2goclient_et.ts: whitespace and meta data fixup.
   * x2goclient.spec:
     - Remove plugin references.
   * debian/rules:

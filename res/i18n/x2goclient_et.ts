@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="et_EE">
+<TS version="2.1" language="et_EE">
 <context>
     <name>AppDialog</name>
     <message>
@@ -3139,7 +3139,7 @@ Avatud failid ei salvestu</translation>
     </message>
     <message>
         <source>Unable to create file: </source>
-        <translation>Ei suuda luua faili:</translation>
+        <translation>Ei suuda luua faili: </translation>
     </message>
     <message>
         <source>Can&apos;t connect to X server
