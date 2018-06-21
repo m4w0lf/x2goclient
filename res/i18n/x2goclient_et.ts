@@ -2180,7 +2180,7 @@ Otsimistee on: </translation>
         <location filename="../../src/onmainwindow.cpp" line="10153"/>
         <location filename="../../src/onmainwindow.cpp" line="10205"/>
         <source>Please check your installation.</source>
-        <translation>Palun kontrolli on+ma installi.</translation>
+        <translation>Palun kontrolli oma installi.</translation>
     </message>
     <message numerus="yes">
         <location filename="../../src/onmainwindow.cpp" line="10151"/>
