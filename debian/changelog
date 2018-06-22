@@ -1,4 +1,4 @@
-x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
+x2goclient (4.1.2.0-0x2go1) unstable; urgency=medium
 
   [ Mike DePaulo ]
   * New upstream version (4.1.2.0):
@@ -138,7 +138,7 @@ x2goclient (4.1.2.0-0x2go1) UNRELEASED; urgency=medium
   * New upstream version (4.1.2.0):
     - res/i18n/x2goclient_et.ts: update Estonian translation file.
 
- -- X2Go Release Manager <git-admin@x2go.org>  Thu, 15 Feb 2018 22:01:32 +0100
+ -- X2Go Release Manager <git-admin@x2go.org>  Fri, 22 Jun 2018 22:30:29 +0200
 
 x2goclient (4.1.1.1-0x2go1) unstable; urgency=medium
 
