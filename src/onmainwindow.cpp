@@ -10420,7 +10420,9 @@ void ONMainWindow::generateEtcFiles()
 #endif /* defined (Q_OS_WIN) */
     QTextStream out ( &file );
     out<<"StrictModes no\n"<<
+#ifdef Q_OS_WIN
          "StrictKeyModes no\n" <<
+#endif
          "UsePrivilegeSeparation no\n"<<
          "PidFile \"" + varDir + "/sshd.pid\"\n" <<
          "AuthorizedKeysFile \"" << authKeyPath << "\"\n";
