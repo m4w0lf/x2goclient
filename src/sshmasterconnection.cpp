@@ -1040,6 +1040,7 @@ bool SshMasterConnection::userAuthKeyboardInteractive(QString prompt)
     int rez=SSH_AUTH_INFO;
     bool firstLoop=true;
     int prompts=1;
+    QString instruction;
     while (rez==SSH_AUTH_INFO)
     {
 
@@ -1054,7 +1055,7 @@ bool SshMasterConnection::userAuthKeyboardInteractive(QString prompt)
                 emit updateInteraction(this, ssh_userauth_kbdint_getprompt(my_ssh_session,0,NULL));
 
             QString name= ssh_userauth_kbdint_getname(my_ssh_session);
-            QString instruction = ssh_userauth_kbdint_getinstruction(my_ssh_session);
+            instruction = ssh_userauth_kbdint_getinstruction(my_ssh_session);
 #ifdef DEBUG
             x2goDebug<<"Have prompts: "<<prompts<<endl;
             x2goDebug<<"Name: "<<name<<endl;
@@ -1104,6 +1105,10 @@ bool SshMasterConnection::userAuthKeyboardInteractive(QString prompt)
     {
         x2goDebug<<"Keyboard authentication failed";
         QString err=ssh_get_error ( my_ssh_session );
+        if(instruction.length()>0)
+        {
+            authErrors<<instruction;
+        }
         authErrors<<err;
         emit finishInteraction(this);
 
