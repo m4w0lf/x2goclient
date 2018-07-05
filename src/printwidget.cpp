@@ -23,6 +23,7 @@
 #include "x2gosettings.h"
 #include "x2gologdebug.h"
 #include <QDir>
+#include <QButtonGroup>
 #ifdef Q_OS_WIN
 #include "wapi.h"
 #endif

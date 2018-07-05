@@ -1,11 +1,13 @@
 x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
 
-  [ X2Go Release Manager ]
-  * Continue development
-
   [ Oleksandr Shneyder ]
   * New upstream version (4.1.2.2):
     - Add SSH instruction to list of errors if keyboard-interactive auth has failed.
+
+  [ Mihai Moldovan ]
+  * New upstream version (4.1.2.2):
+    - src/printwidget.cpp: add QButtonGroup include, fixes compile errors with
+      Qt 5.11+.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Tue, 26 Jun 2018 00:39:28 +0200
 
