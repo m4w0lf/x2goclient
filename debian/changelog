@@ -7,7 +7,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
   [ Mihai Moldovan ]
   * New upstream version (4.1.2.2):
     - src/printwidget.cpp: add QButtonGroup include, fixes compile errors with
-      Qt 5.11+.
+      Qt 5.11+. Fixes: #1307.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Tue, 26 Jun 2018 00:39:28 +0200
 
