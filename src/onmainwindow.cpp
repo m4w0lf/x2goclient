@@ -3548,6 +3548,12 @@ void ONMainWindow::startDirectRDP()
     resumingSession.sessionId=sessionExplorer->getLastSession()->name();
     resumingSession.crTime=QDateTime::currentDateTime().toString("dd.MM.yy HH:mm:ss");
     showSessionStatus();
+    if(brokerMode)
+    {
+        sendEventToBroker(CONNECTING,resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
+                          resumingSession.command, resumingSession.display, resumingSession.crTime);
+    }
+
 //     QTimer::singleShot ( 30000,this,SLOT ( slotRestartProxy() ) );
     proxyRunning=true;
     delete st;
@@ -3988,6 +3994,31 @@ x2goSession ONMainWindow::getSessionFromString ( const QString& string )
             s.command=command;
     }
     return s;
+}
+
+
+void ONMainWindow::sendEventToBroker(ONMainWindow::client_events ev, const QString& id, const QString& server, const QString& client, const QString& login, const QString& cmd, const QString& display, const QString& start)
+{
+    if(!config.brokerEvents)
+    {
+        return;
+    }
+    if(ev <= lastBrokerEvent && id == lastBrokerEventSession )
+    {
+        return;
+    }
+    lastBrokerEvent=ev;
+    lastBrokerEventSession=id;
+    QString event;
+    switch(ev)
+    {
+        case CONNECTING: event="CONNECTING";break;
+        case CONNECTED: event="CONNECTED";break;
+        case SUSPENDING: event="SUSPENDING";break;
+        case TERMINATING: event="TERMINATING";break;
+        case FINISHED: event="FINISHED";break;
+    }
+    broker->sendEvent(event, id, server, client, login, cmd, display, start);
 }
 
 
@@ -5025,6 +5056,11 @@ void ONMainWindow::slotSuspendSess()
 void ONMainWindow::slotSuspendSessFromSt()
 {
 
+    if(brokerMode)
+    {
+        sendEventToBroker(SUSPENDING,resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
+                          resumingSession.command, resumingSession.display, resumingSession.crTime);
+    }
 #ifdef Q_OS_LINUX
     if (directRDP)
     {
@@ -5053,6 +5089,11 @@ void ONMainWindow::slotTermSessFromSt()
     if (directRDP)
     {
 
+        if(brokerMode)
+        {
+            sendEventToBroker(TERMINATING,resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
+                              resumingSession.command, resumingSession.display, resumingSession.crTime);
+        }
         x2goDebug<<"Terminating direct RDP session.";
 
         nxproxy->terminate();
@@ -5061,20 +5102,30 @@ void ONMainWindow::slotTermSessFromSt()
     }
 #endif
 
-    x2goDebug<<"Disconnect export.";
-
-    /*
-    	disconnect ( sbExp,SIGNAL ( clicked() ),this,
-    	             SLOT ( slot_exportDirectory() ) );*/
-    sbExp->setEnabled ( false );
 
     if ( !shadowSession )
     {
         if ( termSession ( resumingSession.sessionId ) )
+        {
+            sbExp->setEnabled ( false );
+            if(brokerMode)
+            {
+                sendEventToBroker(TERMINATING,resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
+                                  resumingSession.command, resumingSession.display, resumingSession.crTime);
+            }
             setStatStatus ( tr ( "terminating" ) );
+        }
     }
     else
+    {
+        sbExp->setEnabled ( false );
+        if(brokerMode)
+        {
+            sendEventToBroker(TERMINATING,resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
+                              resumingSession.command, resumingSession.display, resumingSession.crTime);
+        }
         termSession ( resumingSession.sessionId,false );
+    }
 }
 
 
@@ -5812,6 +5863,12 @@ void ONMainWindow::slotTunnelOk(int)
 
     nxproxy->start ( proxyCmd );
     proxyRunning=true;
+    if(brokerMode)
+    {
+        sendEventToBroker(CONNECTING,resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
+                          resumingSession.command, resumingSession.display, resumingSession.crTime);
+    }
+
 // always search for proxy window on linux. On Windows only in window mode
 #ifdef Q_OS_WIN
     if (xorgMode==WIN) {
@@ -6087,7 +6144,11 @@ void ONMainWindow::slotProxyError ( QProcess::ProcessError err )
 
 void ONMainWindow::slotProxyFinished ( int,QProcess::ExitStatus )
 {
-
+    if(brokerMode)
+    {
+        sendEventToBroker(FINISHED,resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
+                          resumingSession.command, resumingSession.display, resumingSession.crTime);
+    }
 #ifdef Q_OS_DARWIN
     if (modMapTimer) {
       disconnect (modMapTimer, SIGNAL (timeout ()), this, SLOT (slotSetModMap ()));
@@ -6288,9 +6349,11 @@ void ONMainWindow::slotProxyStderr()
     stInfo->insertPlainText ( reserr );
     stInfo->ensureCursorVisible();
     if ( stInfo->toPlainText().indexOf (
-                "Connecting to remote host 'localhost:"+
-                /*resumingSession.grPort*/ localGraphicPort ) !=-1 )
+        "Connecting to remote host 'localhost:"+
+        /*resumingSession.grPort*/ localGraphicPort ) !=-1 )
+    {
         setStatStatus ( tr ( "connecting" ) );
+    }
 
     if ( stInfo->toPlainText().indexOf (
                 "Connection to remote proxy 'localhost:"+
@@ -6310,6 +6373,11 @@ void ONMainWindow::slotProxyStderr()
     if ( stInfo->toPlainText().indexOf (
                 "Established X server connection" ) !=-1 )
     {
+        if(brokerMode)
+        {
+            sendEventToBroker(CONNECTED,resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
+                              resumingSession.command, resumingSession.display, resumingSession.crTime);
+        }
         setStatStatus ( tr ( "running" ) );
         if (trayEnabled)
         {

@@ -3,6 +3,11 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
   [ Oleksandr Shneyder ]
   * New upstream version (4.1.2.2):
     - Add SSH instruction to list of errors if keyboard-interactive auth has failed.
+    - Add new brocker feature. Broker can send to client some configuration in
+      the section START_CLIENT_CONFIG - END_CLIENT_CONFIG. For the moment is supported
+      option events=bool. If true, client sending to broker events: CONNECTING,
+      CONNECTED, SUSPENDING, TERMINATING, FINISHED. It's not a real session state,
+      but rather the state of X2Go Client.
 
   [ Mihai Moldovan ]
   * New upstream version (4.1.2.2):

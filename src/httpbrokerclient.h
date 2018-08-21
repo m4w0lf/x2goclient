@@ -45,6 +45,8 @@ public:
     void changePassword(QString newPass);
     void testConnection();
     void closeSSHInteractionDialog();
+    void sendEvent(const QString& ev, const QString& id, const QString& server, const QString& client,
+                   const QString& login, const QString& cmd, const QString& display, const QString& start);
 private:
     QNetworkAccessManager* http;
     QNetworkRequest* netRequest;
@@ -53,6 +55,7 @@ private:
     QNetworkReply* selSessRequest;
     QNetworkReply* chPassRequest;
     QNetworkReply* testConRequest;
+    QNetworkReply* eventRequest;
     QString nextAuthId;
     QString newBrokerPass;
     ConfigFile* config;
@@ -62,6 +65,7 @@ private:
     SshMasterConnection* sshConnection;
 private:
     void createIniFile(const QString& raw_content);
+    void processClientConfig(const QString& raw_content);
     void parseSession(QString sInfo);
     void createSshConnection();
     bool checkAccess(QString answer);
@@ -78,6 +82,7 @@ private slots:
     void slotListSessions ( bool success, QString answer, int pid);
     void slotSelectSession ( bool success, QString answer, int pid);
     void slotPassChanged ( bool success, QString answer, int pid);
+    void slotEventSent ( bool success, QString answer, int pid);
     void slotConnectionTest( bool success, QString answer, int pid);
     void slotSshIoErr(SshProcess* caller, QString error, QString lastSessionError);
 

@@ -169,6 +169,7 @@ struct ConfigFile
     bool brokerAutologin;
     bool brokerAutologoff;
     bool brokerKrbLogin;
+    bool brokerEvents; //Send events to broker and get control commands
     QString brokerSshKey;
     QString brokerCaCertFile;
     QString iniFile;
@@ -298,6 +299,14 @@ public:
         ECDSA_KEY_TYPE,
         ED25519_KEY_TYPE,
         UNKNOWN_KEY_TYPE
+    };
+
+    enum client_events {
+        CONNECTING,
+        CONNECTED,
+        SUSPENDING,
+        TERMINATING,
+        FINISHED
     };
 
     static bool debugging;
@@ -859,6 +868,8 @@ private:
     int lastUid;
     bool cardReady;
     HttpBrokerClient* broker;
+    client_events lastBrokerEvent;
+    QString lastBrokerEventSession;
 
 
 #if defined ( Q_OS_WIN) //&& defined (CFGCLIENT )
@@ -899,7 +910,9 @@ private:
     bool trayMinCon;
     bool trayMaxDiscon;
     bool trayAutoHidden;
-
+    void sendEventToBroker(client_events ev, const QString& id, const QString& server, const QString& client,
+                           const QString& login, const QString& cmd,
+                           const QString& display, const QString& start);
     QString findSshKeyForServer(QString user, QString server, QString port);
     void loadSettings();
     void showPass ( UserButton* user );

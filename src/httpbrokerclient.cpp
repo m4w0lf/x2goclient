@@ -270,6 +270,7 @@ void HttpBrokerClient::slotSshUserAuthError(QString error)
     return;
 }
 
+
 void HttpBrokerClient::getUserSessions()
 {
     QString brokerUser=config->brokerUser;
@@ -347,6 +348,66 @@ void HttpBrokerClient::selectUserSession(const QString& session)
 
 }
 
+void HttpBrokerClient::sendEvent(const QString& ev, const QString& id, const QString& server, const QString& client, const QString& login, const QString& cmd, const QString& display, const QString& start)
+{
+    x2goDebug<<"Called sendEvent.";
+    QString brokerUser=config->brokerUser;
+    if(mainWindow->getUsePGPCard())
+        brokerUser=mainWindow->getCardLogin();
+
+    if(!sshBroker)
+    {
+        QString req;
+        QTextStream ( &req ) <<
+                             "task=clientevent&"<<
+                             "user="<<QUrl::toPercentEncoding(brokerUser)<<"&"<<
+                             "sid="<<id<<"&"<<
+                             "event="<<ev<<"&"<<
+                             "server="<<QUrl::toPercentEncoding(server)<<"&"<<
+                             "client="<<QUrl::toPercentEncoding(client)<<"&"<<
+                             "login="<<QUrl::toPercentEncoding(login)<<"&"<<
+                             "cmd="<<QUrl::toPercentEncoding(cmd)<<"&"<<
+                             "display="<<QUrl::toPercentEncoding(display)<<"&"<<
+                             "start="<<QUrl::toPercentEncoding(start)<<"&"<<
+                             "authid="<<nextAuthId;
+        x2goDebug << "Sending request: "<< req.toUtf8();
+        QNetworkRequest request(QUrl(config->brokerurl));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+        eventRequest=http->post (request, req.toUtf8() );
+
+    }
+    else
+    {
+        if (nextAuthId.length() > 0) {
+            sshConnection->executeCommand ( config->sshBrokerBin+" --user "+ brokerUser +" --authid "+nextAuthId+
+            " --task clientevent --sid \""+id+"\" --event "+ev+" --server \""+server+"\" --client \""+client+"\" --login "+"\""+
+            login+"\" --cmd \""+cmd+"\" --display \""+display+"\" --start \""+start+"\"",
+            this,SLOT ( slotEventSent(bool,QString,int)));
+        } else {
+            sshConnection->executeCommand ( config->sshBrokerBin+" --user "+ brokerUser +
+            " --task clientevent --sid \""+id+"\" --event "+ev+" --server \""+server+"\" --client \""+client+"\" --login "+"\""+
+            login+"\" --cmd \""+cmd+"\" --display\" "+display+" \" --start \""+start+"\"",
+            this,SLOT ( slotEventSent(bool,QString,int)));
+        }
+    }
+}
+
+
+void HttpBrokerClient::slotEventSent(bool success, QString answer, int)
+{
+    if(!success)
+    {
+        x2goDebug<<answer;
+        QMessageBox::critical(0,tr("Error"),answer);
+        emit fatalHttpError();
+        return;
+    }
+    if(!checkAccess(answer))
+        return;
+    x2goDebug<<"event sent:"<<answer;
+}
+
+
 void HttpBrokerClient::changePassword(QString newPass)
 {
     newBrokerPass=newPass;
@@ -405,6 +466,16 @@ void HttpBrokerClient::testConnection()
     }
 }
 
+void HttpBrokerClient::processClientConfig(const QString& raw_content)
+{
+    X2goSettings st(raw_content, QSettings::IniFormat);
+    mainWindow->config.brokerEvents=st.setting()->value("events",false).toBool();
+    if(mainWindow->config.brokerEvents)
+    {
+        x2goDebug<<"sending client events to broker";
+    }
+}
+
 
 void HttpBrokerClient::createIniFile(const QString& raw_content)
 {
@@ -420,6 +491,17 @@ void HttpBrokerClient::createIniFile(const QString& raw_content)
         cont=cont.split("END_USER_SESSIONS\n")[0];
     }
     mainWindow->config.iniFile=cont;
+    lines=content.split("START_CLIENT_CONFIG\n");
+    if (lines.count()>1)
+    {
+        cont=lines[1];
+        cont=cont.split("END_CLIENT_CONFIG\n")[0];
+        processClientConfig(cont);
+    }
+    else
+    {
+        x2goDebug<<"no client config from broker";
+    }
 }
 
 
@@ -539,6 +621,10 @@ void HttpBrokerClient::slotRequestFinished ( QNetworkReply*  reply )
     if (reply == chPassRequest)
     {
         slotPassChanged(true,answer,0);
+    }
+    if (reply == eventRequest)
+    {
+        slotEventSent(true,answer,0);
     }
 
     // We receive ownership of the reply object
