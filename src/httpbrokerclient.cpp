@@ -473,9 +473,14 @@ void HttpBrokerClient::processClientConfig(const QString& raw_content)
 {
     X2goSettings st(raw_content, QSettings::IniFormat);
     mainWindow->config.brokerEvents=st.setting()->value("events",false).toBool();
+    mainWindow->config.brokerLiveEventsTimeout=st.setting()->value("liveevent",false).toUInt();
     if(mainWindow->config.brokerEvents)
     {
         x2goDebug<<"sending client events to broker";
+        if(mainWindow->config.brokerLiveEventsTimeout)
+        {
+            x2goDebug<<"sending alive events to broker every "<<mainWindow->config.brokerLiveEventsTimeout<<" seconds";
+        }
     }
 }
 

@@ -197,6 +197,7 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
     isPassShown=true;
     readExportsFrom=QString::null;
     spoolTimer=0l;
+    brokerAliveTimer=0l;
 #ifdef Q_OS_DARWIN
     modMapTimer = NULL;
     kbMap = QString ();
@@ -549,6 +550,9 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
         connect ( broker, SIGNAL ( sessionSelected()), this, SLOT (slotGetBrokerSession()));
         connect ( broker, SIGNAL ( passwordChanged(QString)), this, SLOT ( slotPassChanged(QString)));
         connect (broker, SIGNAL (enableBrokerLogoutButton ()), this, SLOT (slotEnableBrokerLogoutButton ()));
+        brokerAliveTimer=new QTimer(this);
+        connect ( brokerAliveTimer, SIGNAL ( timeout() ), this,
+                  SLOT ( slotSendBrokerAlive() ) );
     }
 
     proxyWinTimer=new QTimer ( this );
@@ -605,6 +609,12 @@ void ONMainWindow::slotBrokerLogoutButton () {
     x2goDebug << "Logging off from broker via logout button.";
     QTimer::singleShot (1, this, SLOT (slotGetBrokerAuth ()));
   }
+}
+
+
+void ONMainWindow::slotSendBrokerAlive()
+{
+    sendEventToBroker(ALIVE);
 }
 
 
@@ -4002,11 +4012,12 @@ void ONMainWindow::sendEventToBroker(ONMainWindow::client_events ev)
     {
         return;
     }
-    if(ev <= lastBrokerEvent && resumingSession.sessionId == lastBrokerEventSession )
+    if(ev <= lastBrokerEvent && resumingSession.sessionId == lastBrokerEventSession && ev != ALIVE)
     {
         return;
     }
-    lastBrokerEvent=ev;
+    if(ev!=ALIVE)
+        lastBrokerEvent=ev;
     lastBrokerEventSession=resumingSession.sessionId;
     QString event;
     switch(ev)
@@ -4021,6 +4032,8 @@ void ONMainWindow::sendEventToBroker(ONMainWindow::client_events ev)
         {
             event="CONNECTED";
             resumingSession.connectedSince=QDateTime::currentDateTime().toTime_t();
+            if(config.brokerLiveEventsTimeout)
+                brokerAliveTimer->start(config.brokerLiveEventsTimeout*1000);
             break;
         }
         case SUSPENDING:
@@ -4036,12 +4049,18 @@ void ONMainWindow::sendEventToBroker(ONMainWindow::client_events ev)
         case FINISHED:
         {
             event="FINISHED";
+            brokerAliveTimer->stop();
+            break;
+        }
+        case ALIVE:
+        {
+            event="ALIVE";
             break;
         }
     }
     broker->sendEvent(event, resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
-                    resumingSession.command, resumingSession.display, resumingSession.crTime, 
-                    QDateTime::currentDateTime().toTime_t()-resumingSession.connectedSince);
+                      resumingSession.command, resumingSession.display, resumingSession.crTime,
+                      QDateTime::currentDateTime().toTime_t()-resumingSession.connectedSince);
 }
 
 

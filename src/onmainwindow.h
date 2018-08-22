@@ -170,6 +170,7 @@ struct ConfigFile
     bool brokerAutologoff;
     bool brokerKrbLogin;
     bool brokerEvents; //Send events to broker and get control commands
+    uint brokerLiveEventsTimeout; //(seconds)How often send alive events, 0 - do not send
     QString brokerSshKey;
     QString brokerCaCertFile;
     QString iniFile;
@@ -306,7 +307,8 @@ public:
         CONNECTED,
         SUSPENDING,
         TERMINATING,
-        FINISHED
+        FINISHED,
+        ALIVE
     };
 
     static bool debugging;
@@ -724,6 +726,7 @@ private:
     QTimer *spoolTimer;
     QTimer *proxyWinTimer;
     QTimer *xineramaTimer;
+    QTimer *brokerAliveTimer;
     short xinSizeInc;
     QRect lastDisplayGeometry;
     QList <QRect> xineramaScreens;
@@ -1051,6 +1054,7 @@ public slots:
     void slotEnableBrokerLogoutButton ();
 
 private slots:
+    void slotSendBrokerAlive();
     void slotShowPAMSGDialog(bool error, const QString& main_text, const QString& info_text, bool modal);
     void slotSnameChanged ( const QString& );
     void slotSelectedFromList ( SessionButton* session );

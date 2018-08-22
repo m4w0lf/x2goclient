@@ -10,6 +10,10 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       but rather the state of X2Go Client.
     - Save session command in resumingSession.command.
     - Send in broker event the duration of session on client.
+    - If client is configured to send events, the broker can ask client to send
+      ALIVE events. To do this, broker should send config option "liveevent" (int).
+      It means, if liveevent=10, client will send ALIVE event to broker every 10
+      seconds when the client connected to X2Go Session.
 
   [ Mihai Moldovan ]
   * New upstream version (4.1.2.2):
