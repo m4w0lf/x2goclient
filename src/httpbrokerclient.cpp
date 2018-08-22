@@ -386,7 +386,7 @@ void HttpBrokerClient::sendEvent(const QString& ev, const QString& id, const QSt
         } else {
             sshConnection->executeCommand ( config->sshBrokerBin+" --user "+ brokerUser +
             " --task clientevent --sid \""+id+"\" --event "+ev+" --server \""+server+"\" --client \""+client+"\" --login "+"\""+
-            login+"\" --cmd \""+cmd+"\" --display\" "+display+" \" --start \""+start+"\"",
+            login+"\" --cmd \""+cmd+"\" --display \""+display+"\" --start \""+start+"\"",
             this,SLOT ( slotEventSent(bool,QString,int)));
         }
     }

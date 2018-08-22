@@ -4230,6 +4230,7 @@ void ONMainWindow::startNewSession()
                 usekbd=true;
             }
         }
+        resumingSession.command=command;
         if ( command=="RDP" )
         {
             if (fullscreen) {
@@ -6938,6 +6939,9 @@ void ONMainWindow::SlotRunCommand(bool, QString output, int)
         rootless=config.rootless;
         resumingSession.published=config.published;
     }
+
+    resumingSession.command=command;
+
     if ( rootless )
         sessionType="R";
     if ( resumingSession.published )
