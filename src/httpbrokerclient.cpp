@@ -408,6 +408,18 @@ void HttpBrokerClient::slotEventSent(bool success, QString answer, int)
     if(!checkAccess(answer))
         return;
     x2goDebug<<"event sent:"<<answer;
+    if(answer.indexOf("SUSPEND")!=-1)
+    {
+        QString sid=answer.split("SUSPEND ")[1].simplified();
+        x2goDebug<<"broker asks to suspend "<<sid;
+        mainWindow->suspendFromBroker(sid);
+    }
+    if(answer.indexOf("TERMINATE")!=-1)
+    {
+        QString sid=answer.split("TERMINATE ")[1].simplified();
+        x2goDebug<<"broker asks to terminate "<<sid;
+        mainWindow->terminateFromBroker(sid);
+    }
 }
 
 

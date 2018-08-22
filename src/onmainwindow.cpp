@@ -5028,6 +5028,27 @@ void ONMainWindow::slotResumeSess()
 
 }
 
+void ONMainWindow::suspendFromBroker(const QString& sid)
+{
+    if(proxyRunning && sid ==resumingSession.sessionId)
+    {
+        x2goDebug<<"Suspending session from broker";
+        sendEventToBroker(SUSPENDING);
+        suspendSession(sid);
+    }
+}
+
+
+void ONMainWindow::terminateFromBroker(const QString& sid)
+{
+    if(proxyRunning && sid ==resumingSession.sessionId)
+    {
+        x2goDebug<<"Suspending session from broker";
+        sendEventToBroker(TERMINATING);
+        termSession(sid,false);
+    }
+}
+
 
 void ONMainWindow::slotSuspendSess()
 {

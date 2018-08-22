@@ -914,6 +914,8 @@ private:
     bool trayMaxDiscon;
     bool trayAutoHidden;
     void sendEventToBroker(client_events ev);
+    void suspendFromBroker(const QString& sid);
+    void terminateFromBroker(const QString& sid);
     QString findSshKeyForServer(QString user, QString server, QString port);
     void loadSettings();
     void showPass ( UserButton* user );
