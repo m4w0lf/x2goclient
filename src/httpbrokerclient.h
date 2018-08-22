@@ -46,7 +46,7 @@ public:
     void testConnection();
     void closeSSHInteractionDialog();
     void sendEvent(const QString& ev, const QString& id, const QString& server, const QString& client,
-                   const QString& login, const QString& cmd, const QString& display, const QString& start);
+                   const QString& login, const QString& cmd, const QString& display, const QString& start, uint connectionTime);
 private:
     QNetworkAccessManager* http;
     QNetworkRequest* netRequest;

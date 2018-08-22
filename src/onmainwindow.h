@@ -52,7 +52,6 @@
 /**
 @author Oleksandr Shneyder
 */
-
 class QToolButton;
 class QTemporaryFile;
 class QLineEdit;
@@ -147,6 +146,7 @@ struct x2goSession
     QString grPort;
     QString sndPort;
     QString fsPort;
+    uint connectedSince;
     bool published;
     int colorDepth;
     bool fullscreen;
@@ -910,9 +910,7 @@ private:
     bool trayMinCon;
     bool trayMaxDiscon;
     bool trayAutoHidden;
-    void sendEventToBroker(client_events ev, const QString& id, const QString& server, const QString& client,
-                           const QString& login, const QString& cmd,
-                           const QString& display, const QString& start);
+    void sendEventToBroker(client_events ev);
     QString findSshKeyForServer(QString user, QString server, QString port);
     void loadSettings();
     void showPass ( UserButton* user );

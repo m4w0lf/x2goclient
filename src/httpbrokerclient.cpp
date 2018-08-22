@@ -348,7 +348,9 @@ void HttpBrokerClient::selectUserSession(const QString& session)
 
 }
 
-void HttpBrokerClient::sendEvent(const QString& ev, const QString& id, const QString& server, const QString& client, const QString& login, const QString& cmd, const QString& display, const QString& start)
+void HttpBrokerClient::sendEvent(const QString& ev, const QString& id, const QString& server, const QString& client,
+                                 const QString& login, const QString& cmd,
+                                 const QString& display, const QString& start, uint connectionTime)
 {
     x2goDebug<<"Called sendEvent.";
     QString brokerUser=config->brokerUser;
@@ -369,6 +371,7 @@ void HttpBrokerClient::sendEvent(const QString& ev, const QString& id, const QSt
                              "cmd="<<QUrl::toPercentEncoding(cmd)<<"&"<<
                              "display="<<QUrl::toPercentEncoding(display)<<"&"<<
                              "start="<<QUrl::toPercentEncoding(start)<<"&"<<
+                             "elapsed="<<QString::number(connectionTime)<<"&"<<
                              "authid="<<nextAuthId;
         x2goDebug << "Sending request: "<< req.toUtf8();
         QNetworkRequest request(QUrl(config->brokerurl));
@@ -381,12 +384,12 @@ void HttpBrokerClient::sendEvent(const QString& ev, const QString& id, const QSt
         if (nextAuthId.length() > 0) {
             sshConnection->executeCommand ( config->sshBrokerBin+" --user "+ brokerUser +" --authid "+nextAuthId+
             " --task clientevent --sid \""+id+"\" --event "+ev+" --server \""+server+"\" --client \""+client+"\" --login "+"\""+
-            login+"\" --cmd \""+cmd+"\" --display \""+display+"\" --start \""+start+"\"",
+            login+"\" --cmd \""+cmd+"\" --display \""+display+"\" --start \""+start+"\" --elapsed "+QString::number(connectionTime),
             this,SLOT ( slotEventSent(bool,QString,int)));
         } else {
             sshConnection->executeCommand ( config->sshBrokerBin+" --user "+ brokerUser +
             " --task clientevent --sid \""+id+"\" --event "+ev+" --server \""+server+"\" --client \""+client+"\" --login "+"\""+
-            login+"\" --cmd \""+cmd+"\" --display \""+display+"\" --start \""+start+"\"",
+            login+"\" --cmd \""+cmd+"\" --display \""+display+"\" --start \""+start+"\" --elapsed "+QString::number(connectionTime),
             this,SLOT ( slotEventSent(bool,QString,int)));
         }
     }

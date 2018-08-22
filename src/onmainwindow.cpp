@@ -3550,8 +3550,7 @@ void ONMainWindow::startDirectRDP()
     showSessionStatus();
     if(brokerMode)
     {
-        sendEventToBroker(CONNECTING,resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
-                          resumingSession.command, resumingSession.display, resumingSession.crTime);
+        sendEventToBroker(CONNECTING);
     }
 
 //     QTimer::singleShot ( 30000,this,SLOT ( slotRestartProxy() ) );
@@ -3997,28 +3996,52 @@ x2goSession ONMainWindow::getSessionFromString ( const QString& string )
 }
 
 
-void ONMainWindow::sendEventToBroker(ONMainWindow::client_events ev, const QString& id, const QString& server, const QString& client, const QString& login, const QString& cmd, const QString& display, const QString& start)
+void ONMainWindow::sendEventToBroker(ONMainWindow::client_events ev)
 {
     if(!config.brokerEvents)
     {
         return;
     }
-    if(ev <= lastBrokerEvent && id == lastBrokerEventSession )
+    if(ev <= lastBrokerEvent && resumingSession.sessionId == lastBrokerEventSession )
     {
         return;
     }
     lastBrokerEvent=ev;
-    lastBrokerEventSession=id;
+    lastBrokerEventSession=resumingSession.sessionId;
     QString event;
     switch(ev)
     {
-        case CONNECTING: event="CONNECTING";break;
-        case CONNECTED: event="CONNECTED";break;
-        case SUSPENDING: event="SUSPENDING";break;
-        case TERMINATING: event="TERMINATING";break;
-        case FINISHED: event="FINISHED";break;
+        case CONNECTING:
+        {
+            event="CONNECTING";
+            resumingSession.connectedSince=QDateTime::currentDateTime().toTime_t();
+            break;
+        }
+        case CONNECTED:
+        {
+            event="CONNECTED";
+            resumingSession.connectedSince=QDateTime::currentDateTime().toTime_t();
+            break;
+        }
+        case SUSPENDING:
+        {
+            event="SUSPENDING";
+            break;
+        }
+        case TERMINATING:
+        {
+            event="TERMINATING";
+            break;
+        }
+        case FINISHED:
+        {
+            event="FINISHED";
+            break;
+        }
     }
-    broker->sendEvent(event, id, server, client, login, cmd, display, start);
+    broker->sendEvent(event, resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
+                    resumingSession.command, resumingSession.display, resumingSession.crTime, 
+                    QDateTime::currentDateTime().toTime_t()-resumingSession.connectedSince);
 }
 
 
@@ -5059,8 +5082,7 @@ void ONMainWindow::slotSuspendSessFromSt()
 
     if(brokerMode)
     {
-        sendEventToBroker(SUSPENDING,resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
-                          resumingSession.command, resumingSession.display, resumingSession.crTime);
+        sendEventToBroker(SUSPENDING);
     }
 #ifdef Q_OS_LINUX
     if (directRDP)
@@ -5092,8 +5114,7 @@ void ONMainWindow::slotTermSessFromSt()
 
         if(brokerMode)
         {
-            sendEventToBroker(TERMINATING,resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
-                              resumingSession.command, resumingSession.display, resumingSession.crTime);
+            sendEventToBroker(TERMINATING);
         }
         x2goDebug<<"Terminating direct RDP session.";
 
@@ -5111,8 +5132,7 @@ void ONMainWindow::slotTermSessFromSt()
             sbExp->setEnabled ( false );
             if(brokerMode)
             {
-                sendEventToBroker(TERMINATING,resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
-                                  resumingSession.command, resumingSession.display, resumingSession.crTime);
+                sendEventToBroker(TERMINATING);
             }
             setStatStatus ( tr ( "terminating" ) );
         }
@@ -5122,8 +5142,7 @@ void ONMainWindow::slotTermSessFromSt()
         sbExp->setEnabled ( false );
         if(brokerMode)
         {
-            sendEventToBroker(TERMINATING,resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
-                              resumingSession.command, resumingSession.display, resumingSession.crTime);
+            sendEventToBroker(TERMINATING);
         }
         termSession ( resumingSession.sessionId,false );
     }
@@ -5866,8 +5885,7 @@ void ONMainWindow::slotTunnelOk(int)
     proxyRunning=true;
     if(brokerMode)
     {
-        sendEventToBroker(CONNECTING,resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
-                          resumingSession.command, resumingSession.display, resumingSession.crTime);
+        sendEventToBroker(CONNECTING);
     }
 
 // always search for proxy window on linux. On Windows only in window mode
@@ -6147,8 +6165,7 @@ void ONMainWindow::slotProxyFinished ( int,QProcess::ExitStatus )
 {
     if(brokerMode)
     {
-        sendEventToBroker(FINISHED,resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
-                          resumingSession.command, resumingSession.display, resumingSession.crTime);
+        sendEventToBroker(FINISHED);
     }
 #ifdef Q_OS_DARWIN
     if (modMapTimer) {
@@ -6376,8 +6393,7 @@ void ONMainWindow::slotProxyStderr()
     {
         if(brokerMode)
         {
-            sendEventToBroker(CONNECTED,resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
-                              resumingSession.command, resumingSession.display, resumingSession.crTime);
+            sendEventToBroker(CONNECTED);
         }
         setStatStatus ( tr ( "running" ) );
         if (trayEnabled)
