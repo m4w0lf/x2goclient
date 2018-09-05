@@ -3325,7 +3325,7 @@ void ONMainWindow::slotSessEnter()
             return;
         }
 #endif
-        broker->selectUserSession(sessionExplorer->getLastSession()->id());
+        broker->selectUserSession(sessionExplorer->getLastSession()->id(),login->text());
         config.session=sessionExplorer->getLastSession()->id();
         setStatStatus ( tr ( "Connecting to broker" ) );
         stInfo->insertPlainText ( "broker url: "+config.brokerurl );

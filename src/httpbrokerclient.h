@@ -41,7 +41,7 @@ class HttpBrokerClient: public QObject
 public:
     HttpBrokerClient ( ONMainWindow* wnd, ConfigFile* cfg );
     ~HttpBrokerClient();
-    void selectUserSession(const QString& session );
+    void selectUserSession(const QString& session, const QString& loginName);
     void changePassword(QString newPass);
     void testConnection();
     void closeSSHInteractionDialog();

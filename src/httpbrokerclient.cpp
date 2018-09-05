@@ -313,9 +313,9 @@ void HttpBrokerClient::getUserSessions()
     }
 }
 
-void HttpBrokerClient::selectUserSession(const QString& session)
+void HttpBrokerClient::selectUserSession(const QString& session, const QString& loginName)
 {
-    x2goDebug<<"Called selectUserSession for session "<<session<<".";
+    x2goDebug<<"Called selectUserSession for session "<<session<<", "<<"loginName "<<loginName;
     QString brokerUser=config->brokerUser;
     if(mainWindow->getUsePGPCard())
         brokerUser=mainWindow->getCardLogin();
@@ -329,6 +329,10 @@ void HttpBrokerClient::selectUserSession(const QString& session)
                              "user="<<QUrl::toPercentEncoding(brokerUser)<<"&"<<
                              "password="<<QUrl::toPercentEncoding(config->brokerPass)<<"&"<<
                              "authid="<<nextAuthId;
+        if(loginName.length()>0)
+        {
+            QTextStream ( &req ) <<"&login="<<QUrl::toPercentEncoding(loginName);
+        }
         x2goDebug << "Sending request: "<< req.toUtf8();
         QNetworkRequest request(QUrl(config->brokerurl));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
@@ -337,13 +341,16 @@ void HttpBrokerClient::selectUserSession(const QString& session)
     }
     else
     {
-        if (nextAuthId.length() > 0) {
-            sshConnection->executeCommand ( config->sshBrokerBin+" --user "+ brokerUser +" --authid "+nextAuthId+ " --task selectsession --sid \""+session+"\"",
-                                            this,SLOT ( slotSelectSession(bool,QString,int)));
-        } else {
-            sshConnection->executeCommand ( config->sshBrokerBin+" --user "+ brokerUser +" --task selectsession --sid \""+session+"\"",
-                                            this,SLOT ( slotSelectSession(bool,QString,int)));
+        QString sshCmd=config->sshBrokerBin+" --user "+ brokerUser + " --task selectsession --sid \""+session+"\"";
+        if(nextAuthId.length() > 0)
+        {
+            sshCmd+=" --authid "+nextAuthId;
         }
+        if(loginName.length() > 0)
+        {
+            sshCmd+=" --login " + loginName;
+        }
+        sshConnection->executeCommand (sshCmd, this,SLOT ( slotSelectSession(bool,QString,int)));
     }
 
 }

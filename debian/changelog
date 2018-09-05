@@ -17,6 +17,11 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - Broker can send to client command to suspend or terminate the session as an
       answer to the client event message. For this broker should send to client
       SUSPEND ID or TERMINATE ID.
+    - Client now sends "login" parameter to the broker when executing task
+      "selectsession". Before client just sent a username on the broker and it was
+      imposiible to find out user name on X2Go server, which is not always the
+      same as broker username. This won't break a compatibility with previous
+      broker as they just will ignore this parameter.
 
   [ Mihai Moldovan ]
   * New upstream version (4.1.2.2):
