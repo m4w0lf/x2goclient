@@ -6,6 +6,7 @@ include (x2goclientconfig.pri)
 
 CONFIG += $$(X2GO_CLIENT_TARGET)
 CONFIG += $$(X2GO_LINUX_STATIC)
+CONFIG += link_pkgconfig
 #CONFIG += console
 
 VERSION = "$$cat($${PWD}/VERSION)"
@@ -132,7 +133,26 @@ SOURCES += src/sharewidget.cpp \
            src/compat.cpp \
            src/pulsemanager.cpp
 
-LIBS += -lssh -lssh_threads
+unix {
+  isEmpty(PKG_CONFIG):PKG_CONFIG = pkg-config
+
+  PKGCONFIG += libssh
+
+  # Failure to find libssh_threads is non-fatal, since newer libssh versions
+  # don't ship a separate library any longer.
+  $$system($$PKG_CONFIG --exists "libssh < 0.8.0"):PKGCONFIG += libssh_threads
+}
+win32 {
+  # pkgconfig is... tricky on Windows.
+  # We'll hardcode stuff here. Make sure that it's consistent with the
+  # libraries we use on Windows.
+  LIBS += -lssh -lssh_threads
+}
+else {
+  # For backwards-compatibility.
+  LIBS += -lssh -lssh_threads
+}
+
 win32:LIBS += -lAdvAPI32 -lshell32 -lUser32
 
 RC_FILE = res/x2goclient.rc

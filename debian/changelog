@@ -29,6 +29,9 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       Qt 5.11+. Fixes: #1307.
     - macbuild.sh: switch to bundling PulseAudio 12.1 since it's now available
       in MacPorts.
+    - x2goclient.pro: detect libssh and libssh_threads via pkgconfig on
+      UNIX-based platforms. libssh_threads is optional if the libssh version
+      is high enough.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Tue, 26 Jun 2018 00:39:28 +0200
 
