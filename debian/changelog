@@ -35,6 +35,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - x2goclient.pro: let static Linux configuration override the new
       pkgconfig-based libssh usage.
     - x2goclient.pro: make system a non-variable call.
+    - x2goclient.spec: build-depend on pkg-config.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Tue, 26 Jun 2018 00:39:28 +0200
 

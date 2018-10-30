@@ -43,6 +43,8 @@ BuildRequires:  libssh-devel >= 0.5.5-2.1x2go1
 BuildRequires:  libXpm-devel, libX11-devel
 %endif
 
+BuildRequires:  pkg-config
+
 %if "%{?_vendor}" == "suse"
 BuildRequires:  fdupes update-desktop-files
 %if 0%{?suse_version} >= 1130
