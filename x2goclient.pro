@@ -136,11 +136,21 @@ SOURCES += src/sharewidget.cpp \
 unix {
   isEmpty(PKG_CONFIG):PKG_CONFIG = pkg-config
 
-  PKGCONFIG += libssh
+  !x2go_linux_static {
+    PKGCONFIG += libssh
 
-  # Failure to find libssh_threads is non-fatal, since newer libssh versions
-  # don't ship a separate library any longer.
-  $$system($$PKG_CONFIG --exists "libssh < 0.8.0"):PKGCONFIG += libssh_threads
+    # Failure to find libssh_threads is non-fatal, since newer libssh versions
+    # don't ship a separate library any longer.
+    $$system($$PKG_CONFIG --exists "libssh < 0.8.0"):PKGCONFIG += libssh_threads
+  }
+  else {
+    # No pkgconfig stuff, because... for some reason we wanted to call the
+    # library libssh_static. This doesn't sound like a standard name a Linux
+    # distro would ship, but at the same time I doubt anyone is building this
+    # package statically anyway. And even if they do, they shouldn't.
+    # It's also unclear how libssh_threads is called in this scheme.
+    LIBS += -lssh_static
+  }
 }
 win32 {
   # pkgconfig is... tricky on Windows.
@@ -214,8 +224,7 @@ linux-g++-64 {
 x2go_linux_static {
   message("linking all libs statically")
   DEFINES += __linux__
-  LIBS -= -lssh
-  LIBS += -lssh_static -lssl -lXpm
+  LIBS += -lssl -lXpm
   QMAKE_LFLAGS = -Bstatic $$QMAKE_LFLAGS
 }
 
