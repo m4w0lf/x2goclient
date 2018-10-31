@@ -35,7 +35,6 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - x2goclient.pro: let static Linux configuration override the new
       pkgconfig-based libssh usage.
     - x2goclient.pro: make system a non-variable call.
-    - x2goclient.spec: build-depend on pkg-config.
     - x2goclient.pro: fix qmake control flow for libssh logic, we really
       wanted to use else if for the Windows section and have the general else
       section being the general fallback.
@@ -43,6 +42,8 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       rules are really weird.
   * debian/control:
     - Add build-depend on pkg-config.
+  * x2goclient.spec:
+    - Build-depend on pkg-config.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Tue, 26 Jun 2018 00:39:28 +0200
 
