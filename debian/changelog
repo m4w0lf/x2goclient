@@ -47,6 +47,8 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - EPEL packages need to depend upon pkgconfig for now, not pkg-config.
     - Pull in redhat-rpm-config manually. This should probably be done by
       something else, like... gcc or qmake or qt(4)-dev, but it isn't.
+    - Try to ignore gettext-tools-mini on *SuSE to force installation of the
+      new/renamed gettext-runtime-mini package.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Tue, 26 Jun 2018 00:39:28 +0200
 

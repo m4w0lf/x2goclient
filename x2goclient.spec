@@ -58,6 +58,12 @@ BuildRequires:  pkg-config
 BuildRequires:  redhat-rpm-config
 %endif
 
+%if 0%{?suse_version}
+# gettext-tools-mini were renammed to gettext-runtime-mini, but something
+# wants to still pull in the older package, so ignore it.
+#!BuildIgnore:  gettext-tools-mini
+%endif
+
 %if "%{?_vendor}" == "suse"
 BuildRequires:  fdupes update-desktop-files
 %if 0%{?suse_version} >= 1130
