@@ -152,7 +152,7 @@ unix {
     LIBS += -lssh_static
   }
 }
-win32 {
+else:win32 {
   # pkgconfig is... tricky on Windows.
   # We'll hardcode stuff here. Make sure that it's consistent with the
   # libraries we use on Windows.
