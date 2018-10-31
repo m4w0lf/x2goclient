@@ -50,6 +50,14 @@ BuildRequires:  pkgconfig
 BuildRequires:  pkg-config
 %fi
 
+%if 0%{?fedora} || 0%{?rhel}
+# For some reason qt(4)-dev doesn't depend upon redhat-rpm-config,
+# but the GCC spec file is still used, which leads to gcc failing
+# due to a missing annobin plugin during compilation.
+# Let's build-depend upon redhat-rpm-config for now manually.
+BuildRequires:  redhat-rpm-config
+%endif
+
 %if "%{?_vendor}" == "suse"
 BuildRequires:  fdupes update-desktop-files
 %if 0%{?suse_version} >= 1130
