@@ -43,7 +43,12 @@ BuildRequires:  libssh-devel >= 0.5.5-2.1x2go1
 BuildRequires:  libXpm-devel, libX11-devel
 %endif
 
+%if 0%{?el5} || 0%{?el6} || 0%{?el7}
+# EPEL still calls the package pkconfig for some reason.
+BuildRequires:  pkgconfig
+%else
 BuildRequires:  pkg-config
+%fi
 
 %if "%{?_vendor}" == "suse"
 BuildRequires:  fdupes update-desktop-files
