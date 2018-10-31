@@ -141,7 +141,7 @@ unix {
 
     # Failure to find libssh_threads is non-fatal, since newer libssh versions
     # don't ship a separate library any longer.
-    system($$PKG_CONFIG --exists "libssh < 0.8.0"):PKGCONFIG += libssh_threads
+    system("$$PKG_CONFIG --exists 'libssh < 0.8.0'"):PKGCONFIG += libssh_threads
   }
   else {
     # No pkgconfig stuff, because... for some reason we wanted to call the

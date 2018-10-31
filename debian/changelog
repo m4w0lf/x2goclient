@@ -39,6 +39,8 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - x2goclient.pro: fix qmake control flow for libssh logic, we really
       wanted to use else if for the Windows section and have the general else
       section being the general fallback.
+    - x2goclient.pro: fix quoting issue in system() call. Qmake's quoting
+      rules are really weird.
   * debian/control:
     - Add build-depend on pkg-config.
 
