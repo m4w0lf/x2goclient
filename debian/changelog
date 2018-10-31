@@ -49,6 +49,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       something else, like... gcc or qmake or qt(4)-dev, but it isn't.
     - Try to ignore gettext-tools-mini on *SuSE to force installation of the
       new/renamed gettext-runtime-mini package.
+    - It's %endif, not %fi.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Tue, 26 Jun 2018 00:39:28 +0200
 

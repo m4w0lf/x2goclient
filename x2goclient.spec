@@ -48,7 +48,7 @@ BuildRequires:  libXpm-devel, libX11-devel
 BuildRequires:  pkgconfig
 %else
 BuildRequires:  pkg-config
-%fi
+%endif
 
 %if 0%{?fedora} || 0%{?rhel}
 # For some reason qt(4)-dev doesn't depend upon redhat-rpm-config,
