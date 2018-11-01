@@ -50,6 +50,8 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - Try to ignore gettext-tools-mini on *SuSE to force installation of the
       new/renamed gettext-runtime-mini package.
     - It's %endif, not %fi.
+    - Revert the gettext-tools-mini change, was caused by an outdated
+      obs-build version.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Tue, 26 Jun 2018 00:39:28 +0200
 
