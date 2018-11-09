@@ -10572,6 +10572,7 @@ void ONMainWindow::generateEtcFiles()
                      << "/usr/lib/ssh" /* Mageia, OpenSUSE, SLE{S,D} < 12 x86, SLE{S,D} 12, Arch */
                      << "/usr/lib64/ssh" /* SLE{S,D} < 12 x86_64 */
                      << "/usr/lib/misc" /* Gentoo */
+                     << "/run/current-system/sw/bin/sftp-server" /* NixOS */
                      << "/usr/libexec"; /* Slackware, OS X */
 
 #if QT_VERSION < 0x050000
