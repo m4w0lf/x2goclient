@@ -224,7 +224,7 @@ SessionWidget::SessionWidget ( bool newSession, QString id, ONMainWindow * mw,
     sessBox->addItem ( "ICEWM" );
     sessBox->addItem ( tr ( "Connect to Windows Terminal Server" ) );
     sessBox->addItem ( tr ( "XDMCP" ) );
-    sessBox->addItem ( tr ( "Connect to local desktop" ) );
+    sessBox->addItem ( tr ( "X2Go/X11 Desktop Sharing" ) );
     sessBox->addItem ( tr ( "Custom desktop" ) );
     sessBox->addItem ( tr ( "Single application" ) );
     sessBox->addItem ( tr ( "Published applications" ) );
