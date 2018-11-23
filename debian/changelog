@@ -59,6 +59,9 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       sftp-server paths.
     - src/sessionwidget.cpp: Rename shadowing sessiontype to 'X2Go/X11 Desktop
       Sharing'.
+  * debian/control:
+    - In x2goclient R, prefer freerdp2-x11 over rdesktop over freerdp-x11 (which
+      is broken these days anyway).
 
  -- X2Go Release Manager <git-admin@x2go.org>  Tue, 26 Jun 2018 00:39:28 +0200
 

@@ -30,7 +30,7 @@ Depends:
  nxproxy | qvd-nxproxy,
 Recommends:
  openssh-server,
- rdesktop | freerdp-x11,
+ freerdp2-x11 | rdesktop | freerdp-x11,
 Suggests:
  pinentry-x2go,
 Conflicts:
