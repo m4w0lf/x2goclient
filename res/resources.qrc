@@ -96,6 +96,7 @@
        <file>img/icons/22x22/lxqt.png</file>
        <file>txt/packs</file>
        <file>txt/encodings</file>
+       <file>i18n/x2goclient_cs.qm</file>
        <file>i18n/x2goclient_da.qm</file>
        <file>i18n/x2goclient_de.qm</file>
        <file>i18n/x2goclient_es.qm</file>
