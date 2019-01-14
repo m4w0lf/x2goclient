@@ -205,8 +205,8 @@ SettingsWidget::SettingsWidget ( QString id, ONMainWindow * mw,
     setLay->addWidget ( rdpBox );
     rRdesktop=new QRadioButton ("rdesktop",rdpBox );
     rRdesktop->setChecked(true);
-    rXfreeRDPOld=new QRadioButton ( "xfreerdp (old style options)",rdpBox);
-    rXfreeRDPNew=new QRadioButton ( "xfreerdp (new style options)",rdpBox);
+    rXfreeRDPOld=new QRadioButton ( tr( "FreeRDP/X11 (pre-2.x style options)" ),rdpBox);
+    rXfreeRDPNew=new QRadioButton ( tr( "FreeRDP/X11 (2.x style options)" ),rdpBox);
     QButtonGroup* rClient=new QButtonGroup(rdpBox);
     rClient->addButton ( rRdesktop );
     rClient->addButton ( rXfreeRDPOld );
