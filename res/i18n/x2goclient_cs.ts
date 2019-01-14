@@ -1434,7 +1434,7 @@ Aktualizujte systém na PulseAudio.</translation>
         <location filename="../../src/onmainwindow.cpp" line="947"/>
         <location filename="../../src/onmainwindow.cpp" line="2194"/>
         <location filename="../../src/onmainwindow.cpp" line="8980"/>
-        <location filename="../../src/onmainwindow.cpp" line="11939"/>
+        <location filename="../../src/onmainwindow.cpp" line="11940"/>
         <source>Login:</source>
         <translation>Přihlašovací účet:</translation>
     </message>
@@ -1505,7 +1505,7 @@ Aktualizujte systém na PulseAudio.</translation>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="1001"/>
         <location filename="../../src/onmainwindow.cpp" line="3330"/>
-        <location filename="../../src/onmainwindow.cpp" line="12833"/>
+        <location filename="../../src/onmainwindow.cpp" line="12834"/>
         <source>Connecting to broker</source>
         <translation>Připojování ke zprostředkovateli</translation>
     </message>
@@ -1582,21 +1582,21 @@ Aktualizujte systém na PulseAudio.</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="1129"/>
-        <location filename="../../src/onmainwindow.cpp" line="12138"/>
+        <location filename="../../src/onmainwindow.cpp" line="12139"/>
         <source>Share folder ...</source>
         <translation>Sdílet složku ...</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="1130"/>
         <location filename="../../src/onmainwindow.cpp" line="6472"/>
-        <location filename="../../src/onmainwindow.cpp" line="12313"/>
+        <location filename="../../src/onmainwindow.cpp" line="12314"/>
         <source>Suspend</source>
         <translation>Pozastavit</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="1131"/>
-        <location filename="../../src/onmainwindow.cpp" line="12151"/>
-        <location filename="../../src/onmainwindow.cpp" line="12315"/>
+        <location filename="../../src/onmainwindow.cpp" line="12152"/>
+        <location filename="../../src/onmainwindow.cpp" line="12316"/>
         <source>Terminate</source>
         <translation>Ukončit</translation>
     </message>
@@ -1845,7 +1845,7 @@ Hodnota hash veřejného klíče: </translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="4809"/>
-        <location filename="../../src/onmainwindow.cpp" line="12304"/>
+        <location filename="../../src/onmainwindow.cpp" line="12305"/>
         <source>Select session:</source>
         <translation>Vyberte relaci:</translation>
     </message>
@@ -1889,7 +1889,7 @@ Hodnota hash veřejného klíče: </translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="4888"/>
-        <location filename="../../src/onmainwindow.cpp" line="12765"/>
+        <location filename="../../src/onmainwindow.cpp" line="12766"/>
         <source>Filter</source>
         <translation>Filtr</translation>
     </message>
@@ -1986,7 +1986,7 @@ Hodnota hash veřejného klíče: </translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="5945"/>
-        <location filename="../../src/onmainwindow.cpp" line="11472"/>
+        <location filename="../../src/onmainwindow.cpp" line="11473"/>
         <source>Attach X2Go window</source>
         <translation>Připojit X2Go okno</translation>
     </message>
@@ -2157,14 +2157,14 @@ Všechna neuložená data budou ztracena.</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="6779"/>
-        <location filename="../../src/onmainwindow.cpp" line="12385"/>
-        <location filename="../../src/onmainwindow.cpp" line="12407"/>
+        <location filename="../../src/onmainwindow.cpp" line="12386"/>
+        <location filename="../../src/onmainwindow.cpp" line="12408"/>
         <source>Display</source>
         <translation>Obrazovka</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="6781"/>
-        <location filename="../../src/onmainwindow.cpp" line="12396"/>
+        <location filename="../../src/onmainwindow.cpp" line="12397"/>
         <source>Creation time</source>
         <translation>Čas vytvoření</translation>
     </message>
@@ -2435,12 +2435,12 @@ Prosím zaktualizujte X2Go Server.</translation>
         </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10610"/>
+        <location filename="../../src/onmainwindow.cpp" line="10611"/>
         <source>Unable to find the sftp-server binary. Neither bundled, nor found in $PATH nor additional directories.</source>
         <translation>Nepoařilo se nalézt program sftp-server.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10611"/>
+        <location filename="../../src/onmainwindow.cpp" line="10612"/>
         <source>If you are using a Linux-based operating system, please ask your system administrator to install the package containing the sftp-server binary. Common names are &lt;b&gt;openssh&lt;/b&gt;, &lt;b&gt;openssh-server&lt;/b&gt; or &lt;b&gt;openssh-sftp-server&lt;/b&gt; depending upon distribution.
 
 If the sftp-server binary is installed on your system, please report a bug mentioning its path on:
@@ -2453,208 +2453,208 @@ Je-li program sftp-server ve vašem systému nainstalován, vytvořte prosím ch
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10653"/>
+        <location filename="../../src/onmainwindow.cpp" line="10654"/>
         <source>SSH key type selection error</source>
         <translation>Chyba při výběru typu klíče</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10654"/>
+        <location filename="../../src/onmainwindow.cpp" line="10655"/>
         <source>Unknown SSH key selected.</source>
         <translation>Byl vybrán neznámý SSH klíč.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10656"/>
-        <location filename="../../src/onmainwindow.cpp" line="10732"/>
-        <location filename="../../src/onmainwindow.cpp" line="10811"/>
-        <location filename="../../src/onmainwindow.cpp" line="10819"/>
-        <location filename="../../src/onmainwindow.cpp" line="10829"/>
+        <location filename="../../src/onmainwindow.cpp" line="10657"/>
+        <location filename="../../src/onmainwindow.cpp" line="10733"/>
+        <location filename="../../src/onmainwindow.cpp" line="10812"/>
+        <location filename="../../src/onmainwindow.cpp" line="10820"/>
+        <location filename="../../src/onmainwindow.cpp" line="10830"/>
         <source>Terminating application.</source>
         <translation>Ukončování aplikace.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10729"/>
+        <location filename="../../src/onmainwindow.cpp" line="10730"/>
         <source>SSH key base directory creation error</source>
         <translation>Chyba při vytváření výchozí složky s SSH klíči</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10730"/>
+        <location filename="../../src/onmainwindow.cpp" line="10731"/>
         <source>Unable to create SSH key base directory &apos;%1&apos;.</source>
         <translation>Nepodařilo se vytvořit výchozí složku s SSH klíči &apos;%1&apos;.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10808"/>
+        <location filename="../../src/onmainwindow.cpp" line="10809"/>
         <source>ssh-keygen launching error</source>
         <translation>Chyba při spuštění ssh-keygen</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10809"/>
+        <location filename="../../src/onmainwindow.cpp" line="10810"/>
         <source>Unable to start the ssh-keygen binary.</source>
         <translation>Nelze spustit ssh-keygen.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10816"/>
+        <location filename="../../src/onmainwindow.cpp" line="10817"/>
         <source>ssh-keygen crashed</source>
         <translation>ssh-keygen selhal</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10817"/>
+        <location filename="../../src/onmainwindow.cpp" line="10818"/>
         <source>The ssh-keygen binary crashed.</source>
         <translation>Program ssh-keygen selhal.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10824"/>
+        <location filename="../../src/onmainwindow.cpp" line="10825"/>
         <source>ssh-keygen program error</source>
         <translation>Chyba programu ssh-keygen</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10825"/>
+        <location filename="../../src/onmainwindow.cpp" line="10826"/>
         <source>The ssh-keygen binary did not exit cleanly.</source>
         <translation>Program ssh-keygen nebyl řádně ukončen.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10827"/>
+        <location filename="../../src/onmainwindow.cpp" line="10828"/>
         <source>It was probably called with unknown arguments.</source>
         <translation>Pravděpodobně byly zadány neplatné parametry.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10886"/>
+        <location filename="../../src/onmainwindow.cpp" line="10887"/>
         <source>Unable to open newly generated %1 public host key file.</source>
         <translation>Nepodařilo se otevřít nově vytvořený soubor s veřejným %1 klíčem.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10906"/>
+        <location filename="../../src/onmainwindow.cpp" line="10907"/>
         <source>%1 public host key file empty.</source>
         <translation>Soubor s veřejným %1 klíčem je prázdný.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10912"/>
+        <location filename="../../src/onmainwindow.cpp" line="10913"/>
         <source>Cannot open key: </source>
         <translation>Nelze otevřít klíč: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11271"/>
+        <location filename="../../src/onmainwindow.cpp" line="11272"/>
         <source>Error getting window geometry. (Did you close the window?)</source>
         <translation>Nepodařilo se načíst vlastnosti okna.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11497"/>
+        <location filename="../../src/onmainwindow.cpp" line="11498"/>
         <source>Detach X2Go window</source>
         <translation>Odpojit X2Go okno</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11559"/>
+        <location filename="../../src/onmainwindow.cpp" line="11560"/>
         <source>X2Go Session</source>
         <translation>X2Go relace</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11760"/>
+        <location filename="../../src/onmainwindow.cpp" line="11761"/>
         <source>Invalid value for argument &quot;speed&quot;</source>
         <translation>Neplatná hodnota parametru &quot;speed&quot;</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11940"/>
+        <location filename="../../src/onmainwindow.cpp" line="11941"/>
         <source>Password:</source>
         <translation>Heslo:</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11941"/>
+        <location filename="../../src/onmainwindow.cpp" line="11942"/>
         <source>Keyboard layout:</source>
         <translation>Rozložení klávesnice:</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11982"/>
+        <location filename="../../src/onmainwindow.cpp" line="11983"/>
         <source>Ok</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11984"/>
-        <location filename="../../src/onmainwindow.cpp" line="12308"/>
-        <location filename="../../src/onmainwindow.cpp" line="12310"/>
+        <location filename="../../src/onmainwindow.cpp" line="11985"/>
+        <location filename="../../src/onmainwindow.cpp" line="12309"/>
+        <location filename="../../src/onmainwindow.cpp" line="12311"/>
         <source>Cancel</source>
         <translation>Storno</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12121"/>
+        <location filename="../../src/onmainwindow.cpp" line="12122"/>
         <source>&lt;b&gt;Session ID:&lt;br&gt;Server:&lt;br&gt;Username:&lt;br&gt;Display:&lt;br&gt;Creation time:&lt;br&gt;Status:&lt;/b&gt;</source>
         <translation>&lt;b&gt;ID relace:&lt;br&gt;Server:&lt;br&gt;Uživatelské jméno:&lt;br&gt;Obrazovka:&lt;br&gt;Čas vytvoření:&lt;br&gt;Stav:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12131"/>
+        <location filename="../../src/onmainwindow.cpp" line="12132"/>
         <source>Applications ...</source>
         <translation>Aplikace ...</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12144"/>
+        <location filename="../../src/onmainwindow.cpp" line="12145"/>
         <source>Abort</source>
         <translation>Přerušit</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12156"/>
+        <location filename="../../src/onmainwindow.cpp" line="12157"/>
         <source>Show details</source>
         <translation>Zobrazit podrobnosti</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12306"/>
+        <location filename="../../src/onmainwindow.cpp" line="12307"/>
         <source>Resume</source>
         <translation>Obnovit</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12318"/>
+        <location filename="../../src/onmainwindow.cpp" line="12319"/>
         <source>New</source>
         <translation>Nový</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12321"/>
+        <location filename="../../src/onmainwindow.cpp" line="12322"/>
         <source>Full access</source>
         <translation>Úplný přístup</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12324"/>
+        <location filename="../../src/onmainwindow.cpp" line="12325"/>
         <source>View only</source>
         <translation>Pouze prohlížet</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12387"/>
+        <location filename="../../src/onmainwindow.cpp" line="12388"/>
         <source>Status</source>
         <translation>Stav</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12389"/>
+        <location filename="../../src/onmainwindow.cpp" line="12390"/>
         <source>Command</source>
         <translation>Příkaz</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12391"/>
+        <location filename="../../src/onmainwindow.cpp" line="12392"/>
         <source>Type</source>
         <translation>Typ</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12393"/>
+        <location filename="../../src/onmainwindow.cpp" line="12394"/>
         <source>Server</source>
         <translation>Server</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12398"/>
+        <location filename="../../src/onmainwindow.cpp" line="12399"/>
         <source>Client IP</source>
         <translation>IP adresa klienta</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12400"/>
+        <location filename="../../src/onmainwindow.cpp" line="12401"/>
         <source>Session ID</source>
         <translation>ID relace</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12404"/>
+        <location filename="../../src/onmainwindow.cpp" line="12405"/>
         <source>User</source>
         <translation>Uživatel</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12435"/>
+        <location filename="../../src/onmainwindow.cpp" line="12436"/>
         <source>Only my desktops</source>
         <translation>Pouze moje plochy</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12533"/>
+        <location filename="../../src/onmainwindow.cpp" line="12534"/>
         <source>SSH daemon could not be started.
 
 </source>
@@ -2663,8 +2663,8 @@ Je-li program sftp-server ve vašem systému nainstalován, vytvořte prosím ch
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12535"/>
-        <location filename="../../src/onmainwindow.cpp" line="12566"/>
+        <location filename="../../src/onmainwindow.cpp" line="12536"/>
+        <location filename="../../src/onmainwindow.cpp" line="12567"/>
         <source>You have enabled Remote Printing or File Sharing.
 These features require a running and functioning SSH server on your computer.
 &lt;b&gt;Printing and File Sharing will be disabled for this session.&lt;/b&gt;
@@ -2677,7 +2677,7 @@ Tyto funkce vyžadují spuštěný a funkční SSH server na místním počíta�
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12539"/>
+        <location filename="../../src/onmainwindow.cpp" line="12540"/>
         <source>Normally, this should not happen as X2Go Client for Windows ships its own internal SSH server.
 
 If you see this message, please report a bug on:
@@ -2688,7 +2688,7 @@ Prosím vytvořte chybové hlášení na:
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12544"/>
+        <location filename="../../src/onmainwindow.cpp" line="12545"/>
         <source>The SSH server failed to start.
 
 Please report a bug on:
@@ -2699,26 +2699,26 @@ Prosíme nahlašte chybu na:
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12548"/>
-        <location filename="../../src/onmainwindow.cpp" line="12580"/>
+        <location filename="../../src/onmainwindow.cpp" line="12549"/>
+        <location filename="../../src/onmainwindow.cpp" line="12581"/>
         <source>&lt;center&gt;&lt;a href=&quot;https://wiki.x2go.org/doku.php/wiki:bugs&quot;&gt;https://wiki.x2go.org/doku.php/wiki:bugs&lt;/a&gt;&lt;/center&gt;
 </source>
         <translation>&lt;center&gt;&lt;a href=&quot;https://wiki.x2go.org/doku.php/wiki:bugs&quot;&gt;https://wiki.x2go.org/doku.php/wiki:bugs&lt;/a&gt;&lt;/center&gt;
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12551"/>
-        <location filename="../../src/onmainwindow.cpp" line="12584"/>
+        <location filename="../../src/onmainwindow.cpp" line="12552"/>
+        <location filename="../../src/onmainwindow.cpp" line="12585"/>
         <source>Disabling Remote Printing or File Sharing support in the session settings will get rid of this message.</source>
         <translation>Vypnutím podpory vzdáleného tisku nebo sdílení souborů v nastavení relace se zbavíte této hlášky.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12564"/>
+        <location filename="../../src/onmainwindow.cpp" line="12565"/>
         <source>SSH daemon failed to open its public host key.</source>
         <translation>SSH službě se nezdařilo otevřít soubor s veřejným klíčem serveru.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12570"/>
+        <location filename="../../src/onmainwindow.cpp" line="12571"/>
         <source>Normally, this should not happen as X2Go Client for Windows ships its own internal SSH server and automatically generates the required keys.
 
 If you see this message, please report a bug on:
@@ -2729,7 +2729,7 @@ Prosím vytvořte chybové hlášení na:
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12576"/>
+        <location filename="../../src/onmainwindow.cpp" line="12577"/>
         <source>X2Go Client was unable to create SSH host keys.
 
 Please report a bug on:
@@ -2740,46 +2740,46 @@ Prosím nahlašte chybu na:
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12596"/>
-        <location filename="../../src/onmainwindow.cpp" line="12607"/>
+        <location filename="../../src/onmainwindow.cpp" line="12597"/>
+        <location filename="../../src/onmainwindow.cpp" line="12608"/>
         <source>SSH Error</source>
         <translation>Chyba SSH</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12597"/>
+        <location filename="../../src/onmainwindow.cpp" line="12598"/>
         <source>SSH daemon failed to open the application&apos;s public key
 used for exporting folders and printers.</source>
         <translation>SSH službě se nezdařilo otevřít soubor s veřejným klíčem
 používaným pro sdílení složek a tiskáren.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12608"/>
+        <location filename="../../src/onmainwindow.cpp" line="12609"/>
         <source>SSH daemon failed to open the application&apos;s
 authorized_keys file.</source>
         <translation>SSH službě se nezdařilo otevřít soubor autorizovanými klíči.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12649"/>
+        <location filename="../../src/onmainwindow.cpp" line="12650"/>
         <source>Restore toolbar</source>
         <translation>Obnovit panel nástrojů</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12661"/>
+        <location filename="../../src/onmainwindow.cpp" line="12662"/>
         <source>Minimize toolbar</source>
         <translation>Minimalizovat panel nástrojů</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12695"/>
+        <location filename="../../src/onmainwindow.cpp" line="12696"/>
         <source>&lt;br&gt;&lt;b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;Click this button&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;to restore toolbar&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;br&gt;</source>
         <translation>&lt;br&gt;&lt;b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;Pro obnovení  panelu nástrojů&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;klikněte na toto tlačítko&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12975"/>
+        <location filename="../../src/onmainwindow.cpp" line="12976"/>
         <source>libssh initialization failure</source>
         <translation>Chyba inicializace libssh</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12976"/>
+        <location filename="../../src/onmainwindow.cpp" line="12977"/>
         <source>Unable to initialize libssh.</source>
         <translation>Nelze inicializovat libssh.</translation>
     </message>
@@ -3506,8 +3506,12 @@ Přepnout X2Go Client do skrytého režimu?</translation>
     </message>
     <message>
         <location filename="../../src/sessionwidget.cpp" line="227"/>
+        <source>X2Go/X11 Desktop Sharing</source>
+        <translation>X2Go Desktop Sharing</translation>
+    </message>
+    <message>
         <source>Connect to local desktop</source>
-        <translation>Lokální relace</translation>
+        <translation type="obsolete">Lokální relace</translation>
     </message>
     <message>
         <location filename="../../src/sessionwidget.cpp" line="228"/>
@@ -3749,6 +3753,16 @@ Přepnout X2Go Client do skrytého režimu?</translation>
         <location filename="../../src/settingswidget.cpp" line="204"/>
         <source>RDP client</source>
         <translation>RDP klient</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingswidget.cpp" line="208"/>
+        <source>FreeRDP/X11 (pre-2.x style options)</source>
+        <translation>FreeRDP (verze starší než 2.x)</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingswidget.cpp" line="209"/>
+        <source>FreeRDP/X11 (2.x style options)</source>
+        <translation>FreeRDP (verze 2.x a novější)</translation>
     </message>
     <message>
         <location filename="../../src/settingswidget.cpp" line="219"/>

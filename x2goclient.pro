@@ -23,7 +23,8 @@ FORMS += src/ui/cupsprintsettingsdialog.ui \
          src/ui/helpdialog.ui \
          src/ui/folderexplorer.ui
 
-TRANSLATIONS += res/i18n/x2goclient_de.ts \
+TRANSLATIONS += res/i18n/x2goclient_cs.ts \
+                res/i18n/x2goclient_de.ts \
                 res/i18n/x2goclient_da.ts \
                 res/i18n/x2goclient_es.ts \
                 res/i18n/x2goclient_et.ts \
