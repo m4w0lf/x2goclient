@@ -41,16 +41,16 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - x2goclient.pro: fix quoting issue in system() call. Qmake's quoting
       rules are really weird.
   * debian/control:
-    - Add build-depend on pkg-config.
+    + Add build-depend on pkg-config.
   * x2goclient.spec:
-    - Build-depend on pkg-config.
-    - EPEL packages need to depend upon pkgconfig for now, not pkg-config.
-    - Pull in redhat-rpm-config manually. This should probably be done by
+    + Build-depend on pkg-config.
+    + EPEL packages need to depend upon pkgconfig for now, not pkg-config.
+    + Pull in redhat-rpm-config manually. This should probably be done by
       something else, like... gcc or qmake or qt(4)-dev, but it isn't.
-    - Try to ignore gettext-tools-mini on *SuSE to force installation of the
+    + Try to ignore gettext-tools-mini on *SuSE to force installation of the
       new/renamed gettext-runtime-mini package.
-    - It's %endif, not %fi.
-    - Revert the gettext-tools-mini change, was caused by an outdated
+    + It's %endif, not %fi.
+    + Revert the gettext-tools-mini change, was caused by an outdated
       obs-build version.
 
   [ Mike Gabriel ]
@@ -64,7 +64,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - Update qt_<lang>.qm files from Qt5 v5.11.2.
     - Rename radion button lables for xfreerdp options' style.
   * debian/control:
-    - In x2goclient R, prefer freerdp2-x11 over rdesktop over freerdp-x11 (which
+    + In x2goclient R, prefer freerdp2-x11 over rdesktop over freerdp-x11 (which
       is broken these days anyway).
 
   [ Tom Ruzicka ]
