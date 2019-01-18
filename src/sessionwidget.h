@@ -103,6 +103,7 @@ private:
     QCheckBox* cbProxySamePass;
     QCheckBox* cbProxyAutologin;
     QCheckBox* cbProxyKrbLogin;
+    QCheckBox* cbKdrive;
     QLineEdit* proxyKey;
     QPushButton* pbOpenProxyKey;
     QLabel* proxyKeyLabel;

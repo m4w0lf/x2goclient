@@ -18,6 +18,9 @@
 #include "onmainwindow_privat.h"
 #include "help.h"
 
+
+#include <QStyleFactory>
+
 void x2goSession::operator = ( const x2goSession& s )
 {
     agentPid=s.agentPid;
@@ -31,6 +34,7 @@ void x2goSession::operator = ( const x2goSession& s )
     sndPort=s.sndPort;
     fsPort=s.fsPort;
     status=s.status;
+    sessionType=s.sessionType;
 }
 
 bool	ONMainWindow::portable=false;
@@ -3998,6 +4002,10 @@ x2goSession ONMainWindow::getSessionFromString ( const QString& string )
             s.sessionType=x2goSession::ROOTLESS;
         if ( st=='S' )
             s.sessionType=x2goSession::SHADOW;
+        if ( st=='K' )
+        {
+            s.sessionType=x2goSession::KDRIVE;
+        }
         QString command=cmdinfo.mid ( 1 );
         if ( command.length() >0 )
             s.command=command;
@@ -4071,6 +4079,7 @@ void ONMainWindow::startNewSession()
     QString user=getCurrentUname();
 
     QString pack;
+    bool kdrive=false;
     bool fullscreen;
     int height;
     int width;
@@ -4214,6 +4223,10 @@ void ONMainWindow::startNewSession()
         {
             command=st->setting()->value ( sid+"/command",
                                            ( QVariant ) defaultCmd ).toString();
+
+            kdrive=st->setting()->value ( sid+"/kdrive",
+                                           ( QVariant ) false ).toBool();
+
             host=st->setting()->value (
                      sid+"/host",
                      ( QVariant )
@@ -4308,7 +4321,12 @@ void ONMainWindow::startNewSession()
             }
             localDisplayNumber=disp;
         }
-        if (! startXorgOnStart)
+        if(kdrive)
+        {
+            x2goDebug<<"KDRIVE session don't start X Server";
+            slotSetWinServersReady();
+        }
+        if (! startXorgOnStart && ! kdrive)
             startXOrg();
 #endif
         delete st;
@@ -4318,6 +4336,7 @@ void ONMainWindow::startNewSession()
     {
         runRemoteCommand=false;
     }
+
 
     resumingSession.server=host;
 
@@ -4413,6 +4432,8 @@ void ONMainWindow::startNewSession()
         sessTypeStr="P ";
         command="PUBLISHED";
     }
+    if(kdrive)
+        sessTypeStr="K ";
     QString dpiEnv;
     QString xdmcpEnv;
     QString xinerama_env = "X2GO_XINERAMA=";
@@ -4625,7 +4646,12 @@ void ONMainWindow::resumeSession ( const x2goSession& s )
         xorgMode=SAPP;
     xorgWidth=QString::number(width);
     xorgHeight=QString::number(height);
-    if (! startXorgOnStart)
+    if(s.sessionType == x2goSession::KDRIVE)
+    {
+        x2goDebug<<"KDRIVE session, don't start X-Server";
+        slotSetWinServersReady();
+    }
+    if (! startXorgOnStart  && (s.sessionType != x2goSession::KDRIVE))
         startXOrg();
 // #endif
 #else /* defined (Q_OS_WIN) */
@@ -4839,6 +4865,9 @@ void ONMainWindow::selectSession ( QStringList& sessions )
                 type=tr ( "single application" );
             if ( s.sessionType==x2goSession::SHADOW )
                 type=tr ( "shadow session" );
+            if ( s.sessionType==x2goSession::KDRIVE )
+                type=tr ( "X2GoKDrive session" );
+
 
             item= new QStandardItem ( type );
             model->setItem ( row,S_TYPE,item );
@@ -5357,6 +5386,7 @@ void ONMainWindow::slotRetResumeSess ( bool result,
     QString host;
 
     bool sound=true;
+    bool kdrive=false;
     int sndSystem=PULSE;
     QString sndPort;
 #if !defined (Q_OS_WIN) && !defined (Q_OS_DARWIN)
@@ -5395,6 +5425,8 @@ void ONMainWindow::slotRetResumeSess ( bool result,
         else
             st= new X2goSettings(config.iniFile,QSettings::IniFormat);
 
+        kdrive=st->setting()->value ( sid+"/kdrive",
+                                     ( QVariant ) false ).toBool();
         sound=st->setting()->value ( sid+"/sound",
                                      ( QVariant ) true ).toBool();
         QString sndsys=st->setting()->value (
@@ -5473,6 +5505,10 @@ void ONMainWindow::slotRetResumeSess ( bool result,
         sString.replace ( '\n','|' );
         host=resumingSession.server;
         resumingSession=getNewSessionFromString ( sString );
+        if(kdrive)
+        {
+            resumingSession.sessionType=x2goSession::KDRIVE;
+        }
         resumingSession.server=host;
         resumingSession.crTime=QDateTime::currentDateTime().toString (
                                    "dd.MM.yy HH:mm:ss" );
@@ -5505,6 +5541,15 @@ void ONMainWindow::slotRetResumeSess ( bool result,
     }
     else
     {
+
+        if(resumingSession.sessionType==x2goSession::KDRIVE)
+        {
+            qDebug()<<"resuming kdrive session";
+        }
+        else
+        {
+            qDebug()<<"resuming normal session";
+        }
         host=resumingSession.server;
         QStringList outputLines=output.split("\n",QString::SkipEmptyParts);
         foreach(QString line,outputLines)
@@ -5830,6 +5875,8 @@ void ONMainWindow::slotTunnelOk(int)
     xmodExecuted=false;
 
 
+    qDebug()<<"RESUMING SESSION is KDRIVE: "<<(resumingSession.sessionType== x2goSession::KDRIVE);
+
     nxproxy=new QProcess;
     proxyErrString="";
     QStringList env = QProcess::systemEnvironment();
@@ -5853,11 +5900,16 @@ void ONMainWindow::slotTunnelOk(int)
     // On Mac OS X, we want to make sure that DISPLAY is set to a proper value,
     // but at the same time don't want to set the value ourselves but keep
     // the provided one.
-    QString disp=getXDisplay();
-    if ( disp==QString::null )
+
+    QString disp="0";
+    if(resumingSession.sessionType!= x2goSession::KDRIVE)
     {
-        //slotProxyerror ( QProcess::FailedToStart );
-        return;
+        disp=getXDisplay();
+        if ( disp==QString::null )
+        {
+            //slotProxyerror ( QProcess::FailedToStart );
+            return;
+        }
     }
 #endif // Q_OS_WIN || Q_OS_DARWIN
 #if defined ( Q_OS_WIN )
@@ -5911,6 +5963,7 @@ void ONMainWindow::slotTunnelOk(int)
 
     QString proxyCmd="nxproxy -S nx/nx,options="+dirpath+"/options:"+
                      resumingSession.display;
+
 #ifdef Q_OS_DARWIN
     //run nxproxy from bundle
     QDir dir ( appDir );
@@ -5919,9 +5972,90 @@ void ONMainWindow::slotTunnelOk(int)
     proxyCmd="\""+dir.absolutePath() +"/\""+proxyCmd;
 #endif //Q_OS_DARWIN
 
-    x2goDebug<<"Starting NX proxy, command: " + proxyCmd;
 
-    nxproxy->start ( proxyCmd );
+    if(resumingSession.sessionType==x2goSession::KDRIVE)
+    {
+        bool randr=false;
+        bool fs=false;
+        QString width;
+        QString height;
+        bool multidisp=false;
+        QString dispNumber="1";
+
+        if (!embedMode )
+        {
+            if (!useLdap)
+            {
+                X2goSettings *st;
+                QString sid;
+                if ( !embedMode ) {
+                    if (!(sessionExplorer->getLastSession())) {
+                        x2goDebug << "No session selected, not searching for proxy window.";
+                        return;
+                    }
+
+                    sid=sessionExplorer->getLastSession()->id();
+                }
+                else
+                    sid="embedded";
+
+                if (brokerMode)
+                    st=new X2goSettings(config.iniFile,QSettings::IniFormat);
+                else
+                    st= new X2goSettings( "sessions" );
+                randr=st->setting()->value ( sid+"/xinerama",
+                                             ( QVariant ) defaultXinerama ).toBool();
+                fs=st->setting()->value ( sid+"/fullscreen", ( QVariant ) defaultFullscreen).toBool();
+
+                width=st->setting()->value ( sid+"/width", ( QVariant ) "800").toString();
+                height=st->setting()->value ( sid+"/height", ( QVariant ) "600").toString();
+
+
+                if (st->setting()->value ( sid+"/multidisp", ( QVariant ) false ).toBool())
+                {
+                    dispNumber=st->setting()->value ( sid+"/display", (QVariant ) "1").toString();
+                    multidisp=st->setting()->value ( sid+"/multidisp", ( QVariant ) false ).toBool();
+                }
+                delete st;
+            }
+        }
+
+        QStringList options;
+#ifdef Q_OS_WIN
+        //restore real path, as we not using cygwin for x2gokdriveclient
+        nxroot=homeDir +"/.x2go";
+        dirpath=nxroot+"/S-"+resumingSession.sessionId;
+#endif
+        proxyCmd="x2gokdriveclient";
+        options<<"--connect"<<"localhost"<<"--port"<<localGraphicPort<<"--title"<<resumingSession.sessionId<<"-S"<<"nx/nx,options="+dirpath+
+        "/options:"+resumingSession.display;
+        if(randr)
+        {
+            options<<"--randr";
+        }
+        if(fs)
+        {
+            options<<"--fs";
+        }
+        else
+            if(multidisp)
+            {
+                options<<"--screen"<<dispNumber;
+            }
+            else
+            {
+                options<<"--width"<<width<<"--height"<<height;
+            }
+
+        x2goDebug<<"Starting NX proxy, command: " + proxyCmd<<options;
+        nxproxy->start ( proxyCmd, options );
+    }
+    else
+    {
+        x2goDebug<<"Starting NX proxy, command: " + proxyCmd;
+        nxproxy->start ( proxyCmd);
+    }
+
     proxyRunning=true;
     if(brokerMode)
     {
@@ -11100,6 +11234,7 @@ bool ONMainWindow::startSshd(ONMainWindow::key_types key_type)
 
 void ONMainWindow::setProxyWinTitle()
 {
+
     if (embedMode)
         return;
 
@@ -11362,7 +11497,7 @@ void ONMainWindow::slotFindProxyWin()
 
         setProxyWinTitle();
         proxyWinTimer->stop();
-        if (!embedMode)
+        if (!embedMode && !(resumingSession.sessionType==x2goSession::KDRIVE))
         {
             if (!useLdap)
             {
@@ -11430,7 +11565,7 @@ void ONMainWindow::slotFindProxyWin()
 #ifdef Q_OS_WIN
         x2goDebug<<"Maximize proxy window: "<<maximizeProxyWin;
 
-        if ( !startEmbedded )
+        if ( !startEmbedded &&!(resumingSession.sessionType==x2goSession::KDRIVE))
         {
             if ( maximizeProxyWin )
             {
@@ -12072,7 +12207,7 @@ void ONMainWindow::initPassDlg()
         cancel->setEnabled ( false );
 #ifdef Q_OS_WIN
         QRect r;
-        wapiWindowRect ( ok->winId(),r );
+        wapiWindowRect ( (HWND)ok->winId(),r );
 #endif
     }
     if (defaultLayout.size()>1)
@@ -12261,8 +12396,8 @@ void ONMainWindow::initStatusDlg()
     if ( embedMode )
     {
         QRect r;
-        wapiWindowRect ( sbAdv->winId(),r );
-        wapiWindowRect ( stInfo->verticalScrollBar ()->winId(),r );
+        wapiWindowRect ( (HWND)sbAdv->winId(),r );
+        wapiWindowRect ( (HWND)stInfo->verticalScrollBar ()->winId(),r );
     }
 #endif
 
@@ -12515,10 +12650,10 @@ void ONMainWindow::initSelectSessDlg()
     if ( embedMode )
     {
         QRect r;
-        wapiWindowRect ( sOk->winId(),r );
-        wapiWindowRect ( sessTv->verticalScrollBar ()->winId(),r );
-        wapiWindowRect ( sessTv->horizontalScrollBar ()->winId(),r );
-        wapiWindowRect ( sessTv->header ()->viewport()->winId(),r );
+        wapiWindowRect ( (HWND)sOk->winId(),r );
+        wapiWindowRect ( (HWND)sessTv->verticalScrollBar ()->winId(),r );
+        wapiWindowRect ( (HWND)sessTv->horizontalScrollBar ()->winId(),r );
+        wapiWindowRect ( (HWND)sessTv->header ()->viewport()->winId(),r );
     }
 #endif
 

@@ -29,6 +29,8 @@
 #ifndef Q_OS_LINUX
 #if QT_VERSION < 0x050000
 #include <QPlastiqueStyle>
+#else
+#include <QStyleFactory>
 #endif
 #endif
 

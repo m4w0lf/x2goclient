@@ -207,6 +207,7 @@ SessionWidget::SessionWidget ( bool newSession, QString id, ONMainWindow * mw,
     QHBoxLayout* cmdLay=new QHBoxLayout ();
     cmdLay->addWidget ( new QLabel ( tr ( "Session type:" ),this ) );
 #endif
+    cbKdrive=new QCheckBox(tr("Run in X2GoKDrive (experimental)"));
     sessBox=new QComboBox ( deskSess );
     cmd=new QLineEdit ( deskSess );
     cmdCombo=new QComboBox ( deskSess );
@@ -228,14 +229,15 @@ SessionWidget::SessionWidget ( bool newSession, QString id, ONMainWindow * mw,
     sessBox->addItem ( tr ( "Custom desktop" ) );
     sessBox->addItem ( tr ( "Single application" ) );
     sessBox->addItem ( tr ( "Published applications" ) );
-    cmdLay->addWidget ( sessBox,0,1,Qt::AlignLeft );
+    cmdLay->addWidget ( cbKdrive,0,1,Qt::AlignLeft );
+    cmdLay->addWidget ( sessBox,1,1,Qt::AlignLeft );
     leCmdIp=new QLabel ( tr ( "Command:" ),deskSess );
     pbAdvanced=new QPushButton ( tr ( "Advanced options..." ),deskSess );
-    cmdLay->addWidget ( leCmdIp,0,2 );
+    cmdLay->addWidget ( leCmdIp,1,2 );
     cmdLay->setColumnStretch(6,1);
-    cmdLay->addWidget ( cmd ,0,3);
-    cmdLay->addWidget ( cmdCombo,0,4 );
-    cmdLay->addWidget ( pbAdvanced ,0,5);
+    cmdLay->addWidget ( cmd ,1,3);
+    cmdLay->addWidget ( cmdCombo,1,4 );
+    cmdLay->addWidget ( pbAdvanced ,1,5);
     cmdCombo->setSizePolicy ( QSizePolicy::Expanding,
                               QSizePolicy::Preferred );
     cmdCombo->hide();
@@ -254,7 +256,7 @@ SessionWidget::SessionWidget ( bool newSession, QString id, ONMainWindow * mw,
     sessLay->addWidget ( deskSess );
 #ifdef Q_OS_LINUX
     cbDirectRDP=new QCheckBox(tr("Direct RDP connection"), deskSess);
-    cmdLay->addWidget(cbDirectRDP,1,0,1,6);
+    cmdLay->addWidget(cbDirectRDP,2,0,1,6);
     cbDirectRDP->hide();
     connect(cbDirectRDP,SIGNAL(clicked()), this, SLOT(slot_rdpDirectClicked()));
 #endif
@@ -799,6 +801,9 @@ void SessionWidget::readConfig()
         sessName->selectAll();
         sessName->setFocus();
     }
+
+    cbKdrive->setChecked(st.setting()->value (sessionId+"/kdrive", false).toBool() );
+
 #ifdef Q_OS_LINUX
     slot_rdpDirectClicked();
 #endif
@@ -811,6 +816,7 @@ void SessionWidget::setDefaults()
     sessBox->setCurrentIndex ( KDE );
     cmdCombo->clear();
     cmdCombo->addItem ( "" );
+    cbKdrive->setChecked(false);
     cmdCombo->addItems ( mainWindow->transApplicationsNames() );
     cbAutoLogin->setChecked(false);
     cbKrbLogin->setChecked(false);
@@ -883,6 +889,8 @@ void SessionWidget::saveSettings()
     st.setting()->setValue(sessionId+"/directrdp",( QVariant ) cbDirectRDP->isChecked());
     st.setting()->setValue(sessionId+"/directxdmcp",( QVariant ) cbDirectRDP->isChecked());
 #endif
+
+    st.setting()->setValue(sessionId+"/kdrive",( QVariant ) cbKdrive->isChecked());
     QString command;
     bool rootless=false;
     bool published=false;
