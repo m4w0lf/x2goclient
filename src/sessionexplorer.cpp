@@ -237,7 +237,7 @@ void SessionExplorer::slotCreateDesktopIcon ( SessionButton* bt )
         "link.WorkingDirectory = \""<<workDir<<"\"\n"<<
         "link.Save\n";
     file.close();
-    system ( scrname.toAscii() );
+    system ( scrname.toLatin1() );
     QFile::remove ( scrname );
 #endif
 }

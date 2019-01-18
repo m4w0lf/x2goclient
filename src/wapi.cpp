@@ -24,6 +24,7 @@
 #ifdef Q_OS_WIN
 #include <winsock2.h>
 #include <windows.h>
+#include <winerror.h>
 #include <sddl.h>
 #include "wapi.h"
 #include "x2gologdebug.h"
