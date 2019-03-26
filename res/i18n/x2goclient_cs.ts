@@ -614,7 +614,7 @@ Některá standardní umístění:
     <message>
         <location filename="../../src/exportdialog.cpp" line="51"/>
         <source>&amp;share</source>
-        <translation>S&amp;dílet</translation>
+        <translation>s&amp;dílet</translation>
     </message>
     <message>
         <location filename="../../src/exportdialog.cpp" line="52"/>
@@ -666,17 +666,17 @@ Některá standardní umístění:
     <message>
         <location filename="../../src/folderexplorer.cpp" line="81"/>
         <source>Rename Folder ...</source>
-        <translation>Přejmenovat složku</translation>
+        <translation>Přejmenovat složku ...</translation>
     </message>
     <message>
         <location filename="../../src/folderexplorer.cpp" line="82"/>
         <source>Change Icon ...</source>
-        <translation>Změnit ikonu</translation>
+        <translation>Změnit ikonu ...</translation>
     </message>
     <message>
         <location filename="../../src/folderexplorer.cpp" line="83"/>
         <source>Delete Folder ...</source>
-        <translation>Smazat složku</translation>
+        <translation>Smazat složku ...</translation>
     </message>
     <message>
         <location filename="../../src/folderexplorer.cpp" line="97"/>
@@ -774,7 +774,7 @@ Některá standardní umístění:
     <message>
         <location filename="../../src/help.cpp" line="117"/>
         <source>Starts hidden (minimized to system tray where available.)</source>
-        <translation>Hlavní okno X2Go Client se spustí skryté (v oznamovací části hlavního panelu, pokud je k dispozici)</translation>
+        <translation>Hlavní okno X2Go Client se spustí skryté (v oznamovací části hlavního panelu, pokud je k dispozici.)</translation>
     </message>
     <message>
         <location filename="../../src/help.cpp" line="118"/>
@@ -909,7 +909,7 @@ Některá standardní umístění:
     <message>
         <location filename="../../src/help.cpp" line="146"/>
         <source>Automatically launches the application(s) &quot;app&quot;, &quot;app2&quot;, ... on session start in Published Applications mode.</source>
-        <translation>Automaticky spustí aplikaci/aplikace &quot;app&quot;,&quot;app2&quot;, ... při spuštění relace v režimu sdílených aplikací.</translation>
+        <translation>Automaticky spustí aplikaci/aplikace &quot;app&quot;, &quot;app2&quot;, ... při spuštění relace v režimu sdílených aplikací.</translation>
     </message>
     <message>
         <location filename="../../src/help.cpp" line="147"/>
@@ -1206,7 +1206,8 @@ Hodnota hash veřejného klíče: </translation>
         <location filename="../../src/mediawidget.cpp" line="69"/>
         <source>Use SSH port forwarding to tunnel
 sound system connections through firewalls</source>
-        <translation>Tunelovat připojení zvukových systémů skrz SSH</translation>
+        <translation>Tunelovat připojení zvukových
+systémů skrz SSH</translation>
     </message>
     <message>
         <location filename="../../src/mediawidget.cpp" line="71"/>
@@ -2437,7 +2438,8 @@ Prosím zaktualizujte X2Go Server.</translation>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="10611"/>
         <source>Unable to find the sftp-server binary. Neither bundled, nor found in $PATH nor additional directories.</source>
-        <translation>Nepoařilo se nalézt program sftp-server.</translation>
+        <translatorcomment>Please also specify the "bundled, $PATH, ..." stuff in the second sentence.</translatorcomment>
+        <translation type="unfinished">Nepoařilo se nalézt program sftp-server.</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="10612"/>
@@ -2534,7 +2536,8 @@ Je-li program sftp-server ve vašem systému nainstalován, vytvořte prosím ch
     <message>
         <location filename="../../src/onmainwindow.cpp" line="11272"/>
         <source>Error getting window geometry. (Did you close the window?)</source>
-        <translation>Nepodařilo se načíst vlastnosti okna.</translation>
+        <translatorcomment>Please keep/also translate the second sentence.</translatorcomment>
+        <translation type="unfinished">Nepodařilo se načíst vlastnosti okna.</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="11498"/>
@@ -2756,7 +2759,8 @@ používaným pro sdílení složek a tiskáren.</translation>
         <location filename="../../src/onmainwindow.cpp" line="12609"/>
         <source>SSH daemon failed to open the application&apos;s
 authorized_keys file.</source>
-        <translation>SSH službě se nezdařilo otevřít soubor autorizovanými klíči.</translation>
+        <translation>SSH službě se nezdařilo otevřít soubor
+autorizovanými klíči.</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="12650"/>
@@ -2771,7 +2775,7 @@ authorized_keys file.</source>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="12696"/>
         <source>&lt;br&gt;&lt;b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;Click this button&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;to restore toolbar&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;br&gt;</source>
-        <translation>&lt;br&gt;&lt;b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;Pro obnovení  panelu nástrojů&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;klikněte na toto tlačítko&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;br&gt;</translation>
+        <translation>&lt;br&gt;&lt;b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;Pro obnovení panelu nástrojů&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;klikněte na toto tlačítko&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="12976"/>
@@ -2929,8 +2933,8 @@ kprinter
 lpr -P hp_laserjet</source>
         <translation>Prosím nastavte příkaz pro tisk.
 Příklady:
-  kprinter
-  lpr -P hp_laserjet</translation>
+kprinter
+lpr -P hp_laserjet</translation>
     </message>
     <message>
         <location filename="../../src/ui/printercmddialog.ui" line="46"/>
@@ -2984,7 +2988,7 @@ Příklady:
     <message>
         <location filename="../../src/printercmddialog.cpp" line="51"/>
         <source>&lt;Path to gsprint.exe&gt; -query -color</source>
-        <translation>&lt;cesta k gsprint.exe&gt; -query -color</translation>
+        <translation>&lt;Cesta k gsprint.exe&gt; -query -color</translation>
     </message>
 </context>
 <context>
@@ -3030,8 +3034,8 @@ Příklady:
     <message>
         <location filename="../../src/pulsemanager.cpp" line="472"/>
         <source>Supposed to skip major version number. Something is wrong.</source>
-        <translatorcomment>This code block should never be executed I think...</translatorcomment>
-        <translation>Něco se pokazilo.</translation>
+        <translatorcomment>This code block should never be executed I think... || Yes, but please translate either way. Just because it should never be executed doesn&apos;t mean it WON&apos;t. Think stack corruptions and the like - that&apos; why this message is included here.</translatorcomment>
+        <translation type="unfinished">Něco se pokazilo.</translation>
     </message>
     <message>
         <location filename="../../src/pulsemanager.cpp" line="486"/>
@@ -3465,6 +3469,7 @@ Přepnout X2Go Client do skrytého režimu?</translation>
     <message>
         <location filename="../../src/sessionwidget.cpp" line="174"/>
         <source>RSA/DSA key:</source>
+        <translatorcomment>Remind me to change this in the source code, please. Since libssh now supports other types than RSA and DSA, we should probably rename this.</translatorcomment>
         <translation>SSH klíč:</translation>
     </message>
     <message>
@@ -3507,7 +3512,7 @@ Přepnout X2Go Client do skrytého režimu?</translation>
     <message>
         <location filename="../../src/sessionwidget.cpp" line="227"/>
         <source>X2Go/X11 Desktop Sharing</source>
-        <translation>X2Go Desktop Sharing</translation>
+        <translation>X2Go/X11 Desktop Sharing</translation>
     </message>
     <message>
         <source>Connect to local desktop</source>
@@ -3652,7 +3657,8 @@ Přepnout X2Go Client do skrytého režimu?</translation>
     <message>
         <location filename="../../src/settingswidget.cpp" line="64"/>
         <source>Custom</source>
-        <translation>Okno</translation>
+        <translatorcomment>Doesn&apos;t that mean window? Something&apos;s weird here... it refers to a custom window size.</translatorcomment>
+        <translation type="unfinished">Okno</translation>
     </message>
     <message>
         <location filename="../../src/settingswidget.cpp" line="66"/>
@@ -3757,12 +3763,12 @@ Přepnout X2Go Client do skrytého režimu?</translation>
     <message>
         <location filename="../../src/settingswidget.cpp" line="208"/>
         <source>FreeRDP/X11 (pre-2.x style options)</source>
-        <translation>FreeRDP (verze starší než 2.x)</translation>
+        <translation>FreeRDP/X11 (verze starší než 2.x)</translation>
     </message>
     <message>
         <location filename="../../src/settingswidget.cpp" line="209"/>
         <source>FreeRDP/X11 (2.x style options)</source>
-        <translation>FreeRDP (verze 2.x a novější)</translation>
+        <translation>FreeRDP/X11 (verze 2.x a novější)</translation>
     </message>
     <message>
         <location filename="../../src/settingswidget.cpp" line="219"/>
@@ -4029,7 +4035,7 @@ Přepnout X2Go Client do skrytého režimu?</translation>
     <message>
         <location filename="../../src/ui/xsettingsui.ui" line="61"/>
         <source> do not use primary clipboard</source>
-        <translation>Nepoužívat primární schránku</translation>
+        <translation> Nepoužívat primární schránku</translation>
     </message>
     <message>
         <location filename="../../src/ui/xsettingsui.ui" line="68"/>
