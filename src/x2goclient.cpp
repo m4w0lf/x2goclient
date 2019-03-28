@@ -27,6 +27,7 @@
 #include <cctype>
 #include <vector>
 #include <csignal>
+#include <array>
 
 #include "unixhelper.h"
 #include "ongetpass.h"
@@ -93,34 +94,86 @@ int fork_helper (int argc, char **argv) {
 
 int main (int argc, char **argv) {
 #ifdef Q_OS_UNIX
-  /* Scan program arguments for --unixhelper flag. */
+  /*
+   * Flags we don't need a cleanup helper for, since we know that X2Go Client
+   * will never spawn other processes.
+   *
+   * FIXME: What we'd actually want to have at this point (instead of a
+   *        hardcoded list of parameters, anyway) is to use the argument parser
+   *        from ONMainWindow (parseParameter). If this function returns false
+   *        for any parameter, we know that we won't ever need the UNIX cleanup
+   *        helper tool. Sadly, ONMainWindow is only started/available later,
+   *        so we can't use any of its functionality here. We'd also need to
+   *        make the function side-effect free. It should probably be
+   *        refactored into a special options parser class.
+   */
+  const std::array<const std::string, 6> bypass_flags = {
+    "--help",
+    "--help-pack",
+    "--version",
+    "-v",
+    "--changelog",
+    "--git-info"
+  };
+
+  bool bypass_unix_helper = 0;
   bool unix_helper_request = 0;
   for (int i = 0; i < argc; ++i) {
+    /* No need to continue scanning if we got the information we were looking for. */
+    if ((bypass_unix_helper) && (unix_helper_request)) {
+      break;
+    }
+
     std::string cur_arg (argv[i]);
 
     /* Make the current argument lowercase. */
     std::transform (cur_arg.begin (), cur_arg.end (), cur_arg.begin (), ::tolower);
 
-    if ((!cur_arg.empty ()) && (cur_arg.compare ("--unixhelper") == 0)) {
-      unix_helper_request = 1;
-      break;
+    if (!(cur_arg.empty ())) {
+      /* Scan program arguments for --unixhelper flag. */
+      if ((!(unix_helper_request)) && (0 == cur_arg.compare ("--unixhelper"))) {
+        unix_helper_request = 1;
+      }
+
+      /* Scan for flags bypassing the unix helper. */
+      if (!(bypass_unix_helper)) {
+        for (std::array<const std::string, 6>::const_iterator cit = bypass_flags.cbegin (); cit != bypass_flags.cend (); ++cit) {
+          if (0 == cur_arg.compare (*cit)) {
+            bypass_unix_helper = 1;
+          }
+        }
+      }
     }
   }
 
-  if (unix_helper_request) {
-    /* We were instructed to start as the UNIX cleanup helper tool. */
-    return (unixhelper::unix_cleanup (getppid ()));
+  /* Sanity checks! */
+  if ((unix_helper_request) && (bypass_unix_helper)) {
+    std::cerr << "Re-execution in UNIX cleanup helper mode was requested, but a command line parameter that is supposed to "
+              << "disable the UNIX cleanup helper was found.\n"
+              << "Terminating. Please report a bug, refer to this documentation: https://wiki.x2go.org/doku.php/wiki:bugs" << std::endl;
+
+    return (EXIT_FAILURE);
+  }
+
+  if (bypass_unix_helper) {
+    return (wrap_x2go_main (argc, argv));
   }
   else {
-    /*
-     * setsid() may succeed and we become a session and process
-     * group leader, or it may fail indicating that we already
-     * are a process group leader. Either way is fine.
-     */
-    setsid ();
+    if (unix_helper_request) {
+      /* We were instructed to start as the UNIX cleanup helper tool. */
+      return (unixhelper::unix_cleanup (getppid ()));
+    }
+    else {
+      /*
+       * setsid() may succeed and we become a session and process
+       * group leader, or it may fail indicating that we already
+       * are a process group leader. Either way is fine.
+       */
+      setsid ();
 
-    /* We should be process group leader by now. */
-    return (fork_helper (argc, argv));
+      /* We should be process group leader by now. */
+      return (fork_helper (argc, argv));
+    }
   }
 #else /* defined (Q_OS_UNIX) */
   return (wrap_x2go_main (argc, argv));

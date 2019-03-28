@@ -44,6 +44,9 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       in MacPorts.
     - res/i18n/x2goclient_cs.ts: whitespace and other fixups.
     - src/x2goclient.cpp: change HTTP to HTTPS links where needed.
+    - src/x2goclient.cpp: do not spawn UNIX cleanup helper if arguments that
+      let X2Go Client terminate right away have been passed. More work is
+      needed here, but that should cover the most basic bits.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
