@@ -61,7 +61,7 @@ int fork_helper (int argc, char **argv) {
       const int saved_errno = errno;
       std::cerr << "Failed to re-execute process as UNIX cleanup helper tool: " << std::strerror (saved_errno) << "\n"
                 << "Terminating and killing parent." << "\n"
-                << "Please report a bug, refer to this documentation: http://wiki.x2go.org/doku.php/wiki:bugs" << std::endl;
+                << "Please report a bug, refer to this documentation: https://wiki.x2go.org/doku.php/wiki:bugs" << std::endl;
 
       pid_t parent_pid = getppid ();
       if (0 != kill (parent_pid, SIGTERM)) {
@@ -79,7 +79,7 @@ int fork_helper (int argc, char **argv) {
   else if (-1 == tmp_pid) {
     const int saved_errno = errno;
     std::cerr << "Unable to create a new process for the UNIX cleanup watchdog: " << std::strerror (saved_errno) << "\n";
-    std::cerr << "Terminating. Please report a bug, refer to this documentation: http://wiki.x2go.org/doku.php/wiki:bugs" << std::endl;
+    std::cerr << "Terminating. Please report a bug, refer to this documentation: https://wiki.x2go.org/doku.php/wiki:bugs" << std::endl;
 
     std::exit (EXIT_FAILURE);
   }

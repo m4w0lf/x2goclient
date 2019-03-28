@@ -43,6 +43,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - macbuild.sh: switch to bundling PulseAudio 12.2 since it's now available
       in MacPorts.
     - res/i18n/x2goclient_cs.ts: whitespace and other fixups.
+    - src/x2goclient.cpp: change HTTP to HTTPS links where needed.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
