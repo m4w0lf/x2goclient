@@ -312,6 +312,8 @@ public:
     };
 
     static bool debugging;
+    static bool libssh_debugging;
+    static bool libssh_packetlog;
 
     static bool portable;
     ONMainWindow ( QWidget *parent = 0 );

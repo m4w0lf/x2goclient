@@ -42,6 +42,8 @@ QString ONMainWindow::u3Device;
 #endif
 
 bool ONMainWindow::debugging=false;
+bool ONMainWindow::libssh_debugging = false;
+bool ONMainWindow::libssh_packetlog = false;
 
 ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
 {
@@ -60,6 +62,8 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
 #endif
     x2goInfof(1) << tr("Starting X2Go Client %1...").arg (QString (VERSION));
     debugging = false;
+    libssh_debugging = false;
+    libssh_packetlog = false;
 
     setFocusPolicy ( Qt::NoFocus );
     installTranslator();
@@ -7364,6 +7368,16 @@ bool ONMainWindow::parseParameter ( QString param )
     if (param == "--debug")
     {
         ONMainWindow::debugging = true;
+        return true;
+    }
+
+    if ("--libssh-debug" == param) {
+        ONMainWindow::libssh_debugging = true;
+        return true;
+    }
+
+    if ("--libssh-packetlog" == param) {
+        ONMainWindow::libssh_packetlog = true;
         return true;
     }
 

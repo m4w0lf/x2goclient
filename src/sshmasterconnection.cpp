@@ -51,9 +51,6 @@
 
 #define DEBUG
 
-#undef SSH_DEBUG
-// #define SSH_DEBUG
-
 const QString SshMasterConnection::challenge_auth_code_prompts_[] = {
   "Verification code:",            // GA      (http://github.com/google/google-authenticator)
   "One-time password (OATH) for",  // OATH    (http://www.nongnu.org/oath-toolkit/pam_oath.html)
@@ -563,11 +560,15 @@ void SshMasterConnection::run()
     }
     disconnectSessionFlag=false;
 
-#ifdef SSH_DEBUG
-    int verbosity=SSH_LOG_PACKET;
-#else
-    int verbosity=SSH_LOG_NOLOG;
-#endif
+    int verbosity = SSH_LOG_NOLOG;
+
+    if (ONMainWindow::libssh_debugging) {
+      verbosity = SSH_LOG_DEBUG;
+    }
+
+    if (ONMainWindow::libssh_packetlog) {
+      verbosity = SSH_LOG_PACKET;
+    }
 
     long timeout = 60;
 

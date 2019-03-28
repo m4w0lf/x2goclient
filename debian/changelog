@@ -50,6 +50,10 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - src/onmainwindow.{cpp,h}: remove left-over references to agentCheckTimer
       and slotCheckAgentProcess ().
     - src/onmainwindow.cpp: fix various broken qCritical () calls.
+    - src/{onmainwindow.{cpp,h},{sshmasterconnection,help}.cpp}: let users
+      control libssh debugging via the new parameters --libssh-debug and
+      --libssh-packetlog. Properly document the new switches and their
+      implications.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:

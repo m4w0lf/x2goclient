@@ -110,6 +110,12 @@ help::params_t help::build_params () {
   ADD_OPT ("--debug", QT_TRANSLATE_NOOP ("Help", "Enables extensive debug output to the console." NEWLINE
                                          "On Windows, also enables PulseAudio logging to a file under \".x2go/pulse\" & cygwin sshd logging to a file under \".x2go/sshLogs\" directory, both under the USERPROFILE directory." NEWLINE
                                          "The logs are not deleted when X2Go Client terminates."));
+  ADD_OPT ("--libssh-debug", QT_TRANSLATE_NOOP ("Help", "Instructs libssh to print out extensive debug output to the console." NEWLINE
+                                                "This will only have an effect if libssh is being used. It tends to generate a lot of output." NEWLINE
+                                                "WARNING: Enabling this option could reveal sensitive information about client and server configuration, and, if libssh has been compiled with password debugging, user credentials. Do not publish log files created with this option."));
+  ADD_OPT ("--libssh-packetlog", QT_TRANSLATE_NOOP ("Help", "Instructs libssh to print out all network packets sent and received, including their contents." NEWLINE
+                                                    "This will only have an effect if libssh is being used. It tends to generate huge amounts of output." NEWLINE
+                                                    "WARNING: The same caveats as explained in the --libssh-debug option help text apply."));
   ADD_OPT ("--no-autoresume", QT_TRANSLATE_NOOP ("Help", "Do not resume sessions automatically."));
   ADD_OPT ("--no-menu", QT_TRANSLATE_NOOP ("Help", "Hides menu bar."));
   ADD_OPT ("--no-session-edit", QT_TRANSLATE_NOOP ("Help", "Disables session editing."));
