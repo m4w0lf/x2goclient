@@ -49,6 +49,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       needed here, but that should cover the most basic bits.
     - src/onmainwindow.{cpp,h}: remove left-over references to agentCheckTimer
       and slotCheckAgentProcess ().
+    - src/onmainwindow.cpp: fix various broken qCritical () calls.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:

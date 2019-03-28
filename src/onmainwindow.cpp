@@ -8088,7 +8088,7 @@ void ONMainWindow::showHelpPack()
         msg+=pc+"\n";
     }
     file.close();
-    qCritical()<<msg;
+    qCritical().nospace () << qPrintable (msg);
     if (!startHidden && !haveTerminal)
     {
         HelpDialog dlg(this);
@@ -8106,7 +8106,7 @@ void ONMainWindow::showTextFile(QString fname, QString title)
     QTextStream in ( &file );
     QString msg=in.readAll();
     file.close();
-    qCritical()<<msg;
+    qCritical().nospace () << qPrintable (msg);
     if (!startHidden && !haveTerminal)
     {
         HelpDialog dlg(this);
@@ -8140,7 +8140,7 @@ void ONMainWindow::showGit()
 
 void ONMainWindow::showVersion()
 {
-    qCritical()<<VERSION;
+    qCritical().nospace () << VERSION;
 
     if (!startHidden && !haveTerminal)
     {
