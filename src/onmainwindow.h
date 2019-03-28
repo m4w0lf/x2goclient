@@ -722,7 +722,6 @@ private:
     QString currentKey;
     QTimer *exportTimer;
     QTimer *extTimer;
-    QTimer *agentCheckTimer;
     QTimer *spoolTimer;
     QTimer *proxyWinTimer;
     QTimer *xineramaTimer;

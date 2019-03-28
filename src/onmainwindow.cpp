@@ -228,10 +228,6 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
 #endif
 #endif
 
-    agentCheckTimer=new QTimer ( this );
-    connect ( agentCheckTimer,SIGNAL ( timeout() ),this,
-              SLOT ( slotCheckAgentProcess() ) );
-
 #ifdef CFGCLIENT
     QStringList args;
     if(!X2goSettings::centralSettings())
