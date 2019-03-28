@@ -54,6 +54,10 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       control libssh debugging via the new parameters --libssh-debug and
       --libssh-packetlog. Properly document the new switches and their
       implications.
+    - src/sshmasterconnection.cpp: drop DEBUG preprocessor conditional blocks.
+      We have never actually disabled it and x2goDebug () will not write out
+      anything if debugging has not been requested, so we already have a soft
+      condition check for every x2goDebug () call.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
