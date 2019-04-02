@@ -370,6 +370,7 @@ void HttpBrokerClient::sendEvent(const QString& ev, const QString& id, const QSt
         QTextStream ( &req ) <<
                              "task=clientevent&"<<
                              "user="<<QUrl::toPercentEncoding(brokerUser)<<"&"<<
+                             "password="<<QUrl::toPercentEncoding(config->brokerPass)<<"&"<<
                              "sid="<<id<<"&"<<
                              "event="<<ev<<"&"<<
                              "server="<<QUrl::toPercentEncoding(server)<<"&"<<
