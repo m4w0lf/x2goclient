@@ -146,6 +146,7 @@ struct x2goSession
     QString grPort;
     QString sndPort;
     QString fsPort;
+    QString brokerUser;
     uint connectedSince;
     bool published;
     int colorDepth;

@@ -663,6 +663,7 @@ void HttpBrokerClient::slotRequestFinished ( QNetworkReply*  reply )
 void HttpBrokerClient::parseSession(QString sinfo)
 {
     config->sessiondata="";
+    suspendedSession.clear();
     x2goDebug<<"Starting parser.";
     QStringList lst=sinfo.split("SERVER:",QString::SkipEmptyParts);
     int keyStartPos=sinfo.indexOf("-----BEGIN DSA PRIVATE KEY-----");
@@ -687,11 +688,31 @@ void HttpBrokerClient::parseSession(QString sinfo)
     if (sinfo.indexOf("SESSION_INFO")!=-1)
     {
         QStringList lst=sinfo.split("SESSION_INFO:",QString::SkipEmptyParts);
-        config->sessiondata=lst[1];
-        x2goDebug<<"Session data: "<<config->sessiondata<<"\n";
+        //config->sessiondata=lst[1];
+        x2goDebug<<"Session data: "<<lst[1]<<"\n";
+        suspendedSession=lst[1].trimmed().split ( '\n', QString::SkipEmptyParts );
+        mainWindow->selectSession(suspendedSession);
+    }
+    else
+    {
+        emit sessionSelected();
     }
     x2goDebug<<"Parsing has finished.";
-    emit sessionSelected();
+}
+
+void HttpBrokerClient::resumeSession(const QString& id, const QString& server)
+{
+    x2goDebug<<"Resuming session with id:"<<id<<"on:"<<server;
+    foreach (QString sline, suspendedSession)
+    {
+        if(sline.indexOf(id)!=-1)
+        {
+            config->sessiondata=sline;
+            config->serverIp=server;
+            emit sessionSelected();
+            break;
+        }
+    }
 }
 
 

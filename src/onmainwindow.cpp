@@ -462,7 +462,6 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
     saveCygnusSettings();
 #endif
     initPassDlg();
-    initSelectSessDlg();
     initStatusDlg();
     interDlg=new InteractionDialog(bgFrame);
     connect(interDlg, SIGNAL(closeInterractionDialog()), this, SLOT(slotCloseInteractionDialog()));
@@ -558,6 +557,8 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
         connect ( brokerAliveTimer, SIGNAL ( timeout() ), this,
                   SLOT ( slotSendBrokerAlive() ) );
     }
+
+    initSelectSessDlg();
 
     proxyWinTimer=new QTimer ( this );
     connect ( proxyWinTimer, SIGNAL ( timeout() ), this,
@@ -3916,6 +3917,13 @@ void ONMainWindow::slotListSessions ( bool result,QString output,
 
             QDesktopWidget wd;
 
+            //we already selected the session
+            if(brokerMode)
+            {
+                resumeSession(s);
+                return;
+            }
+
             /* Check getSessionFromString for what this "invalid" string means. */
             if ((s.agentPid != "invalid") && (s.status == "S")
                 && (isColorDepthOk (wd.depth (), s.colorDepth))
@@ -3986,6 +3994,8 @@ x2goSession ONMainWindow::getSessionFromString ( const QString& string )
     s.sndPort=lst[9];
     if ( lst.count() >13 )
         s.fsPort=lst[13];
+    if (brokerMode && lst.count()>14)
+        s.brokerUser=lst[14];
     s.colorDepth=0;
     if ( s.sessionId.indexOf ( "_dp" ) !=-1 )
     {
@@ -4848,7 +4858,10 @@ void ONMainWindow::selectSession ( QStringList& sessions )
             selectedSessions.append ( s );
             QStandardItem *item;
 
-            item= new QStandardItem ( s.display );
+            if(!brokerMode)
+                item= new QStandardItem ( s.display );
+            else
+                item= new QStandardItem ( s.brokerUser );
             model->setItem ( row,S_DISPLAY,item );
 
             if ( s.status=="R" )
@@ -4960,6 +4973,12 @@ void ONMainWindow::selectSession ( QStringList& sessions )
         }
     }
 
+    if(brokerMode)
+    {
+        bSusp->hide();
+        bTerm->hide();
+    }
+
     sessTv->setCurrentIndex ( sessTv->model()->index ( 0, 0 ) );
     sessTv->setFocus();
     selectSessionDlg->show();
@@ -5019,6 +5038,11 @@ void ONMainWindow::slotActivated ( const QModelIndex& index )
 void ONMainWindow::slotResumeSess()
 {
     x2goSession s=getSelectedSession();
+    if(brokerMode)
+    {
+        broker->resumeSession(s.sessionId, s.server);
+        return;
+    }
     QDesktopWidget wd;
     if ( isColorDepthOk ( wd.depth(),s.colorDepth ) )
     {
@@ -12533,8 +12557,14 @@ void ONMainWindow::initSelectSessDlg()
     sessTv->setRootIsDecorated ( false );
 
     model=new QStandardItemModel ( sessionExplorer->getSessionsList()->size(), 8 );
-    model->setHeaderData ( S_DISPLAY,Qt::Horizontal,
-                           QVariant ( ( QString ) tr ( "Display" ) ) );
+    if(!brokerMode)
+        model->setHeaderData ( S_DISPLAY,Qt::Horizontal,
+                               QVariant ( ( QString ) tr ( "Display" ) ) );
+    else
+    {
+        model->setHeaderData ( S_DISPLAY,Qt::Horizontal,
+                               QVariant ( ( QString ) tr ( "User" ) ) );
+    }
     model->setHeaderData ( S_STATUS,Qt::Horizontal,
                            QVariant ( ( QString ) tr ( "Status" ) ) );
     model->setHeaderData ( S_COMMAND,Qt::Horizontal,
@@ -12609,7 +12639,8 @@ void ONMainWindow::initSelectSessDlg()
     alay->addWidget ( bShadowView );
     alay->addWidget ( bShadow );
     alay->addStretch();
-    alay->addWidget ( bNew );
+    if(!brokerMode)
+       alay->addWidget ( bNew );
     alay->addWidget ( bCancel );
 
     tvlay->addWidget ( sessTv );
@@ -12617,6 +12648,8 @@ void ONMainWindow::initSelectSessDlg()
 
     blay->addStretch();
     blay->addWidget ( sOk );
+    if(brokerMode)
+        blay->addWidget ( bNew );
     blay->addWidget ( sCancel );
     blay->addStretch();
     if ( !miniMode )
@@ -12635,13 +12668,21 @@ void ONMainWindow::initSelectSessDlg()
     connect ( sessTv,SIGNAL ( selected ( const QModelIndex& ) ),
               this,SLOT ( slotActivated ( const QModelIndex& ) ) );
 
+    connect ( sOk,SIGNAL ( clicked() ),this, SLOT ( slotResumeSess() ) );
     connect ( sessTv,SIGNAL ( doubleClicked ( const QModelIndex& ) ),
               this,SLOT ( slotResumeDoubleClick ( const QModelIndex& ) ) );
 
-    connect ( sOk,SIGNAL ( clicked() ),this, SLOT ( slotResumeSess() ) );
+    if(!brokerMode)
+    {
+        connect ( bNew,SIGNAL ( clicked() ),this, SLOT ( slotNewSess() ) );
+    }
+    else
+    {
+        connect ( bNew,SIGNAL ( clicked() ),broker, SIGNAL ( sessionSelected() ) );
+    }
+
     connect ( bSusp,SIGNAL ( clicked() ),this, SLOT ( slotSuspendSess() ) );
     connect ( bTerm,SIGNAL ( clicked() ),this, SLOT ( slotTermSess() ) );
-    connect ( bNew,SIGNAL ( clicked() ),this, SLOT ( slotNewSess() ) );
 
     connect ( bShadow,SIGNAL ( clicked() ),this,
               SLOT ( slotShadowSess() ) );
