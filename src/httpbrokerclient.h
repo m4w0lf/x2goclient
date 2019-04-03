@@ -47,6 +47,7 @@ public:
     void closeSSHInteractionDialog();
     void sendEvent(const QString& ev, const QString& id, const QString& server, const QString& client,
                    const QString& login, const QString& cmd, const QString& display, const QString& start, uint connectionTime);
+    void resumeSession(const QString& id, const QString& server);
 private:
     QNetworkAccessManager* http;
     QNetworkRequest* netRequest;
@@ -63,6 +64,7 @@ private:
     QTime requestTime;
     bool sshBroker;
     SshMasterConnection* sshConnection;
+    QStringList suspendedSession;
 private:
     void createIniFile(const QString& raw_content);
     void processClientConfig(const QString& raw_content);
