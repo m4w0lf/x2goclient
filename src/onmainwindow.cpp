@@ -3567,7 +3567,7 @@ void ONMainWindow::startDirectRDP()
     showSessionStatus();
     if(brokerMode)
     {
-        sendEventToBroker(CONNECTING);
+        sendEventToBroker(CONNECTED);
     }
 
 //     QTimer::singleShot ( 30000,this,SLOT ( slotRestartProxy() ) );
