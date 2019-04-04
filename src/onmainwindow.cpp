@@ -35,6 +35,7 @@ void x2goSession::operator = ( const x2goSession& s )
     fsPort=s.fsPort;
     status=s.status;
     sessionType=s.sessionType;
+    command=s.command;
 }
 
 bool	ONMainWindow::portable=false;
