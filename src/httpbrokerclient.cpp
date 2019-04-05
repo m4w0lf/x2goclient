@@ -627,6 +627,11 @@ void HttpBrokerClient::slotRequestFinished ( QNetworkReply*  reply )
     if(reply->error() != QNetworkReply::NoError)
     {
         x2goDebug<<"Broker HTTP request failed with error: "<<reply->errorString();
+        if(reply == eventRequest)
+        {
+            //do not exit, just return the function
+            return;
+        }
         QMessageBox::critical(0,tr("Error"),reply->errorString());
         emit fatalHttpError();
         return;
