@@ -27,7 +27,6 @@
 #include <cctype>
 #include <vector>
 #include <csignal>
-#include <array>
 
 #include "unixhelper.h"
 #include "ongetpass.h"
@@ -107,7 +106,7 @@ int main (int argc, char **argv) {
    *        make the function side-effect free. It should probably be
    *        refactored into a special options parser class.
    */
-  const std::array<const std::string, 6> bypass_flags = {
+  const std::string bypass_flags[] = {
     "--help",
     "--help-pack",
     "--version",
@@ -137,8 +136,8 @@ int main (int argc, char **argv) {
 
       /* Scan for flags bypassing the unix helper. */
       if (!(bypass_unix_helper)) {
-        for (std::array<const std::string, 6>::const_iterator cit = bypass_flags.cbegin (); cit != bypass_flags.cend (); ++cit) {
-          if (0 == cur_arg.compare (*cit)) {
+        for (std::size_t y = 0; y < sizeof (bypass_flags); ++y) {
+          if (0 == cur_arg.compare (bypass_flags[y])) {
             bypass_unix_helper = 1;
           }
         }

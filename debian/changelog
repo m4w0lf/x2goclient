@@ -58,6 +58,8 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       We have never actually disabled it and x2goDebug () will not write out
       anything if debugging has not been requested, so we already have a soft
       condition check for every x2goDebug () call.
+    - src/x2goclient.cpp: do not use std::array since that's a C++11 feature,
+      just live with plain C arrays for now.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
