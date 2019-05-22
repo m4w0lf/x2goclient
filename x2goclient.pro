@@ -142,7 +142,10 @@ unix {
 
     # Failure to find libssh_threads is non-fatal, since newer libssh versions
     # don't ship a separate library any longer.
-    system("$$PKG_CONFIG --exists 'libssh < 0.8.0'"):PKGCONFIG += libssh_threads
+    # We can't just check for version 0.8.0, though, since some distros
+    # (looking at you, Ubuntu Bionic/18.04) ship a pre-release version of 0.8.0
+    # which is actually still based upon 0.7.x and still has libssh_threads...
+    system("$$PKG_CONFIG --exists 'libssh_threads'"):PKGCONFIG += libssh_threads
   }
   else {
     # No pkgconfig stuff, because... for some reason we wanted to call the
