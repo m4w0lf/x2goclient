@@ -136,7 +136,7 @@ int main (int argc, char **argv) {
 
       /* Scan for flags bypassing the unix helper. */
       if (!(bypass_unix_helper)) {
-        for (std::size_t y = 0; y < sizeof (bypass_flags); ++y) {
+        for (std::size_t y = 0; y < (sizeof (bypass_flags) / sizeof (*bypass_flags)); ++y) {
           if (0 == cur_arg.compare (bypass_flags[y])) {
             bypass_unix_helper = 1;
           }
