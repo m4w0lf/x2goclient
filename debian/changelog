@@ -85,6 +85,8 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       better, since linux-g++ and linux-g++-64 are x86-specific, while there
       are way more potentially useful targets like linux-aarch64-gnu-g++,
       clang, llvm, icc etc.
+    - x2goclient.pro: while a linux scope seems to work fine with Qt5, Qt4
+      doesn't recognize that, so add another linux-* catch.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
