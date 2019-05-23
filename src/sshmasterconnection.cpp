@@ -531,11 +531,19 @@ void SshMasterConnection::run()
     int verbosity = SSH_LOG_NOLOG;
 
     if (ONMainWindow::libssh_debugging) {
-      verbosity = SSH_LOG_DEBUG;
+#if LIBSSH_VERSION_INT >= SSH_VERSION_INT (0, 6, 0)
+      verbosity = SSH_LOG_INFO;
+#else
+      verbosity = SSH_LOG_PROTOCOL;
+#endif
     }
 
     if (ONMainWindow::libssh_packetlog) {
+#if LIBSSH_VERSION_INT >= SSH_VERSION_INT (0, 6, 0)
+      verbosity = SSH_LOG_DEBUG;
+#else
       verbosity = SSH_LOG_PACKET;
+#endif
     }
 
     long timeout = 60;
