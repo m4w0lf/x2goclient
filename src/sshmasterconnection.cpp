@@ -1403,7 +1403,7 @@ bool SshMasterConnection::userAuthWithKey()
             priv_key = NULL;
         }
 #else
-        priv_key = privatekey_from_file (my_ssh_session, tmp_ba.data (), NULL, tmp_ba_passphrase.data ());
+        priv_key = privatekey_from_file (my_ssh_session, tmp_ba.data (), 0, tmp_ba_passphrase.data ());
 #endif
 
         if(i++==2)

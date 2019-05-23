@@ -71,6 +71,8 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - Windows: upgrade bundled VcXsrv to 1.20.1.4.
     - src/sshmasterconnection.cpp: use info (protocol) log level with
       --libssh-debug and debug (packet) log level with --libssh-packetlog.
+    - src/sshmasterconnection.cpp: fix compiler warning due to mismatching
+      argument with older libssh versions.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
