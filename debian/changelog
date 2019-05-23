@@ -80,6 +80,11 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       *before* the actual object files to be included/linked, which is an
       error for system libraries. Builds will still fail after this commit,
       but that's okay.
+    - x2goclient.pro: add libraries that we always want to use on Linux
+      correctly to LIBS and use a bigger catch clause. That should work much
+      better, since linux-g++ and linux-g++-64 are x86-specific, while there
+      are way more potentially useful targets like linux-aarch64-gnu-g++,
+      clang, llvm, icc etc.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:

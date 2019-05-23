@@ -215,13 +215,8 @@ exists(res/txt/changelog) {
   RESOURCES += res/changelog.qrc
 }
 
-linux-g++ {
-  message("building $$TARGET with ldap and cups")
-  LIBS += -lldap -lcups -lX11 -lXpm
-  DEFINES += __linux__
-}
-linux-g++-64 {
-  message("building $$TARGET with ldap and cups")
+linux {
+  message("building $$TARGET via $$QMAKESPEC with ldap and cups")
   LIBS += -lldap -lcups -lX11 -lXpm
   DEFINES += __linux__
 }
