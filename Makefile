@@ -24,7 +24,8 @@ QMAKE_BINARY=qmake-qt4
 LRELEASE_BINARY=lrelease-qt4
 QMAKE_OPTS=
 
-LDFLAGS+=-lldap -lcups -lX11 -lXpm
+LDFLAGS=
+LIBS=
 
 
 #####################################################################
@@ -67,7 +68,7 @@ build: build_man
 
 build_client:
 	$(LRELEASE_BINARY) x2goclient.pro
-	mkdir -p $(CLIENT_DIR) && cd $(CLIENT_DIR) && $(QMAKE_BINARY) QMAKE_CFLAGS="${CPPFLAGS} ${CFLAGS}" QMAKE_CXXFLAGS="${CPPFLAGS} ${CXXFLAGS}" QMAKE_LFLAGS="${LDFLAGS}" $(QMAKE_OPTS) ../x2goclient.pro
+	mkdir -p $(CLIENT_DIR) && cd $(CLIENT_DIR) && $(QMAKE_BINARY) QMAKE_CFLAGS="${CPPFLAGS} ${CFLAGS}" QMAKE_CXXFLAGS="${CPPFLAGS} ${CXXFLAGS}" QMAKE_LFLAGS="${LDFLAGS}" QMAKE_LIBS="${LIBS}" $(QMAKE_OPTS) ../x2goclient.pro
 	cd $(CLIENT_DIR) && $(MAKE)
 
 build_man:

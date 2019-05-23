@@ -73,6 +73,13 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       --libssh-debug and debug (packet) log level with --libssh-packetlog.
     - src/sshmasterconnection.cpp: fix compiler warning due to mismatching
       argument with older libssh versions.
+    - Makefile: clear out LDFLAGS, add new (cleared) LIBS variable and pass
+      down as QMAKE_LIBS. The previous behavior was leading to compile
+      failures on arm64 machines (albeit only old distro versions,
+      apparently), because QMAKE_LFLAGS is being put on the command line
+      *before* the actual object files to be included/linked, which is an
+      error for system libraries. Builds will still fail after this commit,
+      but that's okay.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
