@@ -173,6 +173,9 @@ help::params_t help::build_params () {
                                                              "If <num> is zero or a negative number, no limit is imposed." NEWLINE
                                                              "The limits for <num> are platform dependent. If the passed value is out of bounds, X2Go Client falls back to the default value."));
 #endif /* defined (Q_OS_WIN) */
+#if defined (Q_OS_UNIX)
+  ADD_OPT ("--bypass-cleanup-helper", QT_TRANSLATE_NOOP ("Help", "Disables X2Go Client's UNIX cleanup helper. This will prevent X2Go Client from terminating spawned processes after the main program terminates or crashes. Use with care and when in doubt, do not use this parameter at all."));
+#endif /* defined (Q_OS_UNIX) */
 
 # undef NEWLINE
 # undef ADD_OPT

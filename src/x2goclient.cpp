@@ -107,6 +107,7 @@ int main (int argc, char **argv) {
    *        refactored into a special options parser class.
    */
   const std::string bypass_flags[] = {
+    "--bypass-cleanup-helper",
     "--help",
     "--help-pack",
     "--version",

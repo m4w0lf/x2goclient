@@ -7335,6 +7335,12 @@ void ONMainWindow::slotReadApplications(bool result, QString output,
 
 bool ONMainWindow::parseParameter ( QString param )
 {
+#if defined (Q_OS_UNIX)
+    if ("--bypass-cleanup-helper" == param) {
+        return (true);
+    }
+#endif /* defined (Q_OS_UNIX) */
+
     if ( param=="--help" )
     {
         showHelp();
