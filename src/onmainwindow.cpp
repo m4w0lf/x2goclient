@@ -3561,7 +3561,13 @@ void ONMainWindow::startDirectRDP()
 //     x2goDebug<<"starting direct session with cmd:"<<proxyCmd;
     nxproxy->start ( proxyCmd );
     resumingSession.server=host;
-    resumingSession.sessionId=user+"-RDP-"+QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()/1000)+"_stRRDP_dp24";
+    resumingSession.sessionId=user+"-RDP-";
+#if QT_VERSION < 0x040700
+    resumingSession.sessionId += QString::number(QDateTime::currentDateTime().toTime_t())
+#else
+    resumingSession.sessionId += QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()/1000)
+#endif
+    resumingSession.sessionId += "_stRRDP_dp24";
     resumingSession.display="RDP";
     resumingSession.command="RDP";
     resumingSession.crTime=QDateTime::currentDateTime().toString("dd.MM.yy HH:mm:ss");
