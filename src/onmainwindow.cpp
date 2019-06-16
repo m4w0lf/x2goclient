@@ -3565,7 +3565,7 @@ void ONMainWindow::startDirectRDP()
 #if QT_VERSION < 0x040700
     resumingSession.sessionId += QString::number(QDateTime::currentDateTime().toTime_t())
 #else
-    resumingSession.sessionId += QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()/1000)
+    resumingSession.sessionId += QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()/1000);
 #endif
     resumingSession.sessionId += "_stRRDP_dp24";
     resumingSession.display="RDP";

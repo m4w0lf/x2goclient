@@ -100,6 +100,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       --bypass-cleanup-helper parameter.
     - onmainwindow.cpp: fix building with Qt 4.6, currently the latest version
       available in EPEL 6.
+    - onmainwindow.cpp: unbreak builds by fixing syntax error.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
