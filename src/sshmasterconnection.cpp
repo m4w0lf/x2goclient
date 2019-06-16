@@ -169,6 +169,16 @@ SshMasterConnection::SshMasterConnection (QObject* parent, QString host, int por
               << "; useproxy " << useproxy << "; proxyserver " << proxyserver
               << "; proxyport " << proxyport;
     this->host=host;
+    // If the hostname starts with "!" do not perform loginCheck() for this connection
+    if (this->host.indexOf("!") == 0)
+    {
+        this->loginCheck=false;
+        this->host.remove(0, 1);
+    }
+    else
+    {
+        this->loginCheck=true;
+    }
     this->port=port;
     this->user=user;
     this->pass=pass;
@@ -678,7 +688,14 @@ void SshMasterConnection::run()
         x2goDebug<<"User authentication OK.";
         // checkLogin() is currently specific to libssh.
         if(kerberos)
+        {
             emit connectionOk(host);
+        }
+        else if(this->loginCheck == false)
+        {
+            x2goDebug<<"Skipping Login Check as requested by configuration";
+            emit connectionOk(host);
+        }
         else
         {
             if(checkLogin())

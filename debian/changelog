@@ -135,6 +135,15 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
   [ Ulrich Sibiller ]
   * New upstream release (4.1.2.2):
     - src/sshmasterconnection.cpp: close channel on failure in checkLogin ().
+    - src/sshmasterconnection.{cpp,h}: skip checkLogin() if hostname starts
+      with "!". Some special ssh proxies will not allow arbitrary commands.
+      checkLogin() will break these sessions because it tries to run the echo
+      command on the proxy. By specifying a "!" as the first character of the
+      (proxy) hostname you can instruct x2goclient ot skip the checkLogin()
+      call altogether. Note that this will break proxies that require you to
+      change you password or some other type of interaction. As this is added
+      to SshMasterConnection it is also valid to specify that for the server
+      hostname although this is not very useful.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Tue, 26 Jun 2018 00:39:28 +0200
 

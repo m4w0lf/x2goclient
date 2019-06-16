@@ -213,6 +213,7 @@ private:
     SshMasterConnection* sshProxy;
     bool sshProxyReady;
     bool breakLoop;
+    bool loginCheck;
 
     bool challengeAuthPasswordAccepted;
     QString challengeAuthVerificationCode;
