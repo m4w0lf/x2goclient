@@ -1645,6 +1645,7 @@ bool SshMasterConnection::checkLogin()
         QString err=ssh_get_error ( my_ssh_session );
         QString errorMsg=tr ( "%1 failed." ).arg ("ssh_channel_open_session");
         x2goDebug<<errorMsg.left (errorMsg.size () - 1)<<": "<<err<<endl;
+        ssh_channel_free(channel);
         return false;
     }
     if (ssh_channel_request_pty(channel)!=SSH_OK)
@@ -1652,6 +1653,7 @@ bool SshMasterConnection::checkLogin()
         QString err=ssh_get_error ( my_ssh_session );
         QString errorMsg=tr ( "%1 failed." ).arg ("ssh_channel_request_pty");
         x2goDebug<<errorMsg.left (errorMsg.size () - 1)<<": "<<err<<endl;
+        ssh_channel_free(channel);
         return false;
     }
     if(ssh_channel_change_pty_size(channel, 80, 24)!=SSH_OK)
@@ -1659,6 +1661,7 @@ bool SshMasterConnection::checkLogin()
         QString err=ssh_get_error ( my_ssh_session );
         QString errorMsg=tr ( "%1 failed." ).arg ("ssh_channel_change_pty_size");
         x2goDebug<<errorMsg.left (errorMsg.size () - 1)<<": "<<err<<endl;
+        ssh_channel_free(channel);
         return false;
     }
     if ( ssh_channel_request_exec ( channel, "echo \"LOGIN OK\"" ) != SSH_OK )
@@ -1666,6 +1669,7 @@ bool SshMasterConnection::checkLogin()
         QString err=ssh_get_error ( my_ssh_session );
         QString errorMsg=tr ( "%1 failed." ).arg ("ssh_channel_request_exec");
         x2goDebug<<errorMsg.left (errorMsg.size () - 1)<<": "<<err<<endl;
+        ssh_channel_free(channel);
     }
     else
     {
@@ -1678,7 +1682,10 @@ bool SshMasterConnection::checkLogin()
         {
             int nbytes = ssh_channel_read_nonblocking(channel, buffer, sizeof(buffer), 0);
             if (nbytes < 0)
+            {
+                ssh_channel_free(channel);
                 return false;
+            }
             if (nbytes > 0)
             {
                 QString inf=QByteArray ( buffer,nbytes );
