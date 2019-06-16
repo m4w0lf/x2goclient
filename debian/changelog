@@ -22,6 +22,13 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       imposiible to find out user name on X2Go server, which is not always the
       same as broker username. This won't break a compatibility with previous
       broker as they just will ignore this parameter.
+    - X2Gokdrive support for X2GoClient.
+    - Fix authentification on http broker when sending event.
+    - Fix resuming sessions on multiple servers.
+    - Initializing sessionId, command and display for direct RDP to complay with standard sessions.
+    - Direct RDP sesion send to broker event CONNECTED instead of CONNECTING at start of RDP client.
+    - Fixing setting correct session command when resuming the session.
+    - Don't exit if sending event to http broker has failed.
 
   [ Mihai Moldovan ]
   * New upstream version (4.1.2.2):
