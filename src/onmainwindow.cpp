@@ -10754,6 +10754,7 @@ void ONMainWindow::generateEtcFiles()
                      << "/usr/libexec/openssh" /* Fedora, CentOS, hopefully also RHEL */
                      << "/usr/lib/ssh" /* Mageia, OpenSUSE, SLE{S,D} < 12 x86, SLE{S,D} 12, Arch */
                      << "/usr/lib64/ssh" /* SLE{S,D} < 12 x86_64 */
+                     << "/usr/lib64/misc" /* Gentoo *64 with 17.1 profile - has no lib compat-symlink. */
                      << "/usr/lib/misc" /* Gentoo */
                      << "/run/current-system/sw/bin" /* NixOS */
                      << "/usr/libexec"; /* Slackware, OS X */

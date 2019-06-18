@@ -102,6 +102,9 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       version available in EPEL 6.
     - src/onmainwindow.cpp: unbreak builds by fixing syntax error.
     - src/onmainwindow.cpp: also unbreak old EPEL 6 builds.
+    - src/onmainwindow.cpp: add (and prefer) non-compat-symlink scp server
+      location for 64-bit-based Gentoo distros (17.1+ profiles). Fixes:
+      #1393.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
