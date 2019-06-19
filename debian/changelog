@@ -29,6 +29,8 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - Direct RDP sesion send to broker event CONNECTED instead of CONNECTING at start of RDP client.
     - Fixing setting correct session command when resuming the session.
     - Don't exit if sending event to http broker has failed.
+    - If using x2go broker and ssh proxy check for the option "usebrokeruserforproxy" in the session
+      file. If it's "true", use the same username for the proxy as broker login.
 
   [ Mihai Moldovan ]
   * New upstream version (4.1.2.2):

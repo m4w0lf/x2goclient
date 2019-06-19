@@ -3803,11 +3803,19 @@ bool ONMainWindow::startSession ( const QString& sid )
         {
             bool ok;
             bool useBrokerPassForProxy=false;
+            bool useBrokerUserForProxy=false;
             if(brokerMode)
             {
                 useBrokerPassForProxy=(st->setting()->value (
-                                           sid+"/usebrokerpassforproxy", false
-                                       ).toBool() );
+                    sid+"/usebrokerpassforproxy", false
+                ).toBool() );
+                useBrokerUserForProxy=(st->setting()->value (
+                    sid+"/usebrokeruserforproxy", false
+                ).toBool() );
+                if(useBrokerUserForProxy)
+                {
+                    proxylogin=config.brokerUser;
+                }
             }
             if(useBrokerPassForProxy)
                 proxypassword=config.brokerPass;
