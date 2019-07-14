@@ -28,6 +28,7 @@ Depends:
  ${misc:Depends},
  openssh-client,
  nxproxy | qvd-nxproxy,
+ x2gokdriveclient,
 Recommends:
  openssh-server,
  freerdp2-x11 | rdesktop | freerdp-x11,
