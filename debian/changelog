@@ -33,6 +33,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       file. If it's "true", use the same username for the proxy as broker login.
     - Broker can send to client the number of suspended and running sessions for each session type.
       Client will display this information to user on session button.
+    - update copyright years in about dialog.
 
   [ Mihai Moldovan ]
   * New upstream version (4.1.2.2):
