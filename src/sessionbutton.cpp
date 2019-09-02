@@ -333,6 +333,25 @@ void SessionButton::redraw()
         sessStatus->setText("("+tr("suspended")+")");
     }
 
+    int suspended=st->setting()->value ( sid+"/suspended",
+                                         ( QVariant ) QString::null ).toUInt();
+
+    int running=st->setting()->value ( sid+"/running",
+                                         ( QVariant ) QString::null ).toUInt();
+    if(suspended || running)
+    {
+        QStringList parts;
+        if(suspended)
+        {
+            parts<<tr("suspended")+" - "+QString::number(suspended);
+        }
+        if(running)
+        {
+            parts<<tr("running")+" - "+QString::number(running);
+        }
+        sessStatus->setText(parts.join(", "));
+    }
+
     QString sessIcon = wrap_legacy_resource_URIs (st->setting()->value (sid+"/icon",
                        (QVariant) ":/img/icons/128x128/x2gosession.png"
                                                                        ).toString ());
