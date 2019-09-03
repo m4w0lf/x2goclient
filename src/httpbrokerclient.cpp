@@ -291,7 +291,7 @@ void HttpBrokerClient::getUserSessions()
                              "password="<<QUrl::toPercentEncoding(config->brokerPass)<<"&"<<
                              "authid="<<nextAuthId;
 
-        x2goDebug << "sending request: "<< req.toUtf8();
+        x2goDebug << "sending request: "<< scramblePwd(req.toUtf8());
         QNetworkRequest request(QUrl(config->brokerurl));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
         sessionsRequest=http->post (request, req.toUtf8() );
@@ -333,7 +333,7 @@ void HttpBrokerClient::selectUserSession(const QString& session, const QString& 
         {
             QTextStream ( &req ) <<"&login="<<QUrl::toPercentEncoding(loginName);
         }
-        x2goDebug << "Sending request: "<< req.toUtf8();
+        x2goDebug << "sending request: "<< scramblePwd(req.toUtf8());
         QNetworkRequest request(QUrl(config->brokerurl));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
         selSessRequest=http->post (request, req.toUtf8() );
@@ -381,7 +381,7 @@ void HttpBrokerClient::sendEvent(const QString& ev, const QString& id, const QSt
                              "start="<<QUrl::toPercentEncoding(start)<<"&"<<
                              "elapsed="<<QString::number(connectionTime)<<"&"<<
                              "authid="<<nextAuthId;
-        x2goDebug << "Sending request: "<< req.toUtf8();
+        x2goDebug << "sending request: "<< scramblePwd(req.toUtf8());
         QNetworkRequest request(QUrl(config->brokerurl));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
         eventRequest=http->post (request, req.toUtf8() );
@@ -447,7 +447,7 @@ void HttpBrokerClient::changePassword(QString newPass)
                              "user="<<QUrl::toPercentEncoding(brokerUser)<<"&"<<
                              "password="<<QUrl::toPercentEncoding(config->brokerPass)<<"&"<<
                              "authid="<<nextAuthId;
-        x2goDebug << "Sending request: "<< req.toUtf8();
+        x2goDebug << "sending request: "<< scramblePwd(req.toUtf8());
         QNetworkRequest request(QUrl(config->brokerurl));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
         chPassRequest=http->post (request, req.toUtf8() );
@@ -472,7 +472,7 @@ void HttpBrokerClient::testConnection()
         QString req;
         QTextStream ( &req ) <<
                              "task=testcon";
-        x2goDebug << "Sending request: "<< req.toUtf8();
+        x2goDebug << "sending request: "<< scramblePwd(req.toUtf8());
         QNetworkRequest request(QUrl(config->brokerurl));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
         testConRequest=http->post (request, req.toUtf8() );
@@ -874,4 +874,26 @@ void HttpBrokerClient::slotSshIoErr(SshProcess* caller, QString error, QString l
         sshConnection=0l;
     }
     createSshConnection();
+}
+
+QString HttpBrokerClient::scramblePwd(const QString& req)
+{
+    QString scrambled=req;
+    int startPos=scrambled.indexOf("password=");
+    if(startPos!=-1)
+    {
+        startPos+=9;
+        int endPos=scrambled.indexOf("&",startPos);
+        int plength;
+        if(endPos==-1)
+        {
+            plength=scrambled.length()-startPos;
+        }
+        else
+        {
+            plength=endPos-startPos;
+        }
+        scrambled.replace(startPos,plength,'*');
+    }
+    return scrambled;
 }

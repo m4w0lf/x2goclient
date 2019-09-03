@@ -71,6 +71,7 @@ private:
     void parseSession(QString sInfo);
     void createSshConnection();
     bool checkAccess(QString answer);
+    QString scramblePwd(const QString& req);
 
 private slots:
     void slotRequestFinished ( QNetworkReply*  reply );
