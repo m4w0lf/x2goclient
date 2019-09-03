@@ -35,6 +35,8 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       Client will display this information to user on session button.
     - update copyright years in about dialog.
     - Do not show password in debug output of HTTP broker.
+    - Fix crashing if the path for automount in the session config file in wrong
+      format. Supporting both Windows and Linux path in automount format. Check if path exists before mounting.
 
   [ Mihai Moldovan ]
   * New upstream version (4.1.2.2):

@@ -8657,17 +8657,21 @@ void ONMainWindow::exportDefaultDirs()
                                         QString::SkipEmptyParts );
             for ( int i=0; i<lst.size(); ++i )
             {
-#ifndef Q_OS_WIN
+                //check if directory is in Windows client format
+                QChar splitChar='#';
+                if(lst[i].indexOf(splitChar)==-1)
+                {
+                    //Linux client format
+                    splitChar=':';
+                }
                 QStringList tails=lst[i].split (
-                                      ":",
+                                      splitChar,
                                       QString::SkipEmptyParts );
-#else
-
-                QStringList tails=lst[i].split (
-                                      "#",
-                                      QString::SkipEmptyParts );
-#endif
-
+                if(tails.length()!=2)
+                {
+                    //wrong format
+                    continue;
+                }
                 if ( tails[1]=="1" )
                 {
 #ifdef Q_OS_WIN
@@ -8678,7 +8682,15 @@ void ONMainWindow::exportDefaultDirs()
                         tails[0].replace (
                             "(U3)",u3Device );
                     }
+#endif
 
+                    if(!QFile::exists(tails[0]))
+                    {
+                        x2goDebug<<"Path "<<tails[0]<<" not found";
+                        continue;
+                    }
+
+#ifdef Q_OS_WIN
                     tails[0]=cygwinPath (
                                  wapiShortFileName (
                                      tails[0] ) );
@@ -8739,6 +8751,7 @@ void ONMainWindow::exportDefaultDirs()
     }
     if ( dirs.size() <=0 )
         return;
+
     exportDirs ( dirs.join ( ":" ) );
 }
 
