@@ -37,6 +37,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - Do not show password in debug output of HTTP broker.
     - Fix crashing if the path for automount in the session config file in wrong
       format. Supporting both Windows and Linux path in automount format. Check if path exists before mounting.
+    - Do not show Pulseaudio warning on Windows, if Pulseaudio is disabled in settings or by command line.
 
   [ Mihai Moldovan ]
   * New upstream version (4.1.2.2):

@@ -5510,16 +5510,24 @@ void ONMainWindow::slotRetResumeSess ( bool result,
                                             true ).toBool();
 
 #if defined (Q_OS_WIN) || defined (Q_OS_DARWIN)
-        if (sound) {
+        if (sound)
+        {
             if(!pulseManager || !(pulseManager->is_server_running()))
-	    {
-	        show_RichText_WarningMsgBox (tr("PulseAudio is not running"),
-					     tr("Sound output will be disabled for this session. Please enable PulseAudio in the configuration dialog or disable sound in the session settings"),true);
-		sound=false;
-	    }
-	    else
-	    {
-                switch (sndSystem) {
+            {
+                X2goSettings st ("settings");
+                bool disablePA = st.setting ()->value ("pulse/disable",
+                                                   (QVariant) false).toBool ();
+                if(!systemDisablePA && ! disablePA)
+                {
+                    show_RichText_WarningMsgBox (tr("PulseAudio is not running"),
+                                                 tr("Sound output will be disabled for this session. Please enable PulseAudio in the configuration dialog or disable sound in the session settings"),true);
+                }
+                sound=false;
+            }
+            else
+            {
+                switch (sndSystem)
+                {
                     case PULSE:
                         sndPort = QString::number (pulseManager->get_pulse_port ());
                     break;
@@ -5527,7 +5535,7 @@ void ONMainWindow::slotRetResumeSess ( bool result,
                         sndPort = QString::number (pulseManager->get_esd_port ());
                     break;
                }
-	    }
+            }
         }
 
 #endif /* defined (Q_OS_WIN) || defined (Q_OS_DARWIN) */
