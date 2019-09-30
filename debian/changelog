@@ -114,6 +114,8 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - src/onmainwindow.cpp: add (and prefer) non-compat-symlink scp server
       location for 64-bit-based Gentoo distros (17.1+ profiles). Fixes:
       #1393.
+    - res/i18n/x2goclient_*.ts: replace changed source strings, no
+      retranslations required.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
