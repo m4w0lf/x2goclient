@@ -116,6 +116,8 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       #1393.
     - res/i18n/x2goclient_*.ts: replace changed source strings, no
       retranslations required.
+    - src/httpbrokerclient.cpp: do not leak password length in debug output
+      either.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:

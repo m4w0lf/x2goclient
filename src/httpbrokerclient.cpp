@@ -893,7 +893,9 @@ QString HttpBrokerClient::scramblePwd(const QString& req)
         {
             plength=endPos-startPos;
         }
-        scrambled.replace(startPos,plength,'*');
+        scrambled.remove(startPos, plength);
+        // Hardcode a value of 8 here - the length of the string "password".
+        scrambled.insert(startPos, QString ('*').repeated (8));
     }
     return scrambled;
 }
