@@ -44,6 +44,11 @@ HttpBrokerClient::HttpBrokerClient ( ONMainWindow* wnd, ConfigFile* cfg )
     config=cfg;
     mainWindow=wnd;
     sshConnection=0;
+    sessionsRequest=0l;
+    selSessRequest=0l;
+    chPassRequest=0l;
+    testConRequest=0l;
+    eventRequest=0l;
     QUrl lurl ( config->brokerurl );
     if(lurl.userName().length()>0)
         config->brokerUser=lurl.userName();
@@ -629,6 +634,8 @@ void HttpBrokerClient::slotRequestFinished ( QNetworkReply*  reply )
         x2goDebug<<"Broker HTTP request failed with error: "<<reply->errorString();
         if(reply == eventRequest)
         {
+            reply->deleteLater();
+            eventRequest=0l;
             //do not exit, just return the function
             return;
         }
@@ -641,22 +648,27 @@ void HttpBrokerClient::slotRequestFinished ( QNetworkReply*  reply )
     x2goDebug<<"A http request returned. Result was: "<<answer;
     if (reply == testConRequest)
     {
+        testConRequest=0l;
         slotConnectionTest(true,answer,0);
     }
-    if (reply == sessionsRequest)
+    else if (reply == sessionsRequest)
     {
+        sessionsRequest=0l;
         slotListSessions(true, answer,0);
     }
-    if (reply == selSessRequest)
+    else if (reply == selSessRequest)
     {
+        selSessRequest=0l;
         slotSelectSession(true,answer,0);
     }
-    if (reply == chPassRequest)
+    else if (reply == chPassRequest)
     {
+        chPassRequest=0l;
         slotPassChanged(true,answer,0);
     }
-    if (reply == eventRequest)
+    else if (reply == eventRequest)
     {
+        eventRequest=0l;
         slotEventSent(true,answer,0);
     }
 
