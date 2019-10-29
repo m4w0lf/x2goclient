@@ -6933,7 +6933,8 @@ bool ONMainWindow::termSession ( QString sessId, bool warn )
         if ( answer !=
                 QMessageBox::Yes )
         {
-            slotRetTermSess ( true,QString::null,0 );
+            if ( selectSessionDlg->isVisible() )
+                selectSessionDlg->setEnabled ( true );
             return false;
         }
     }

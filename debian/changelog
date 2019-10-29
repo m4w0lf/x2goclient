@@ -40,6 +40,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - Do not show Pulseaudio warning on Windows, if Pulseaudio is disabled in settings or by command line.
     - Improve request handling in HTTP broker.
     - Add possibility to suspend and terminate sessions from session selection dialog in broker mode.
+    - Do not delete session from list if terminating of session is canceled.
 
   [ Mihai Moldovan ]
   * New upstream version (4.1.2.2):
