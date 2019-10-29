@@ -221,6 +221,8 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
 #endif /* defined (Q_OS_DARWIN) || defined (Q_OS_WIN) */
 
 
+    connectionType=DEFAULT;
+
     hide();
     kdeIconsPath=getKdeIconsPath();
 
@@ -2943,7 +2945,21 @@ void ONMainWindow::slotSshConnectionOk()
         continueLDAPSession();
     }
     else
-        continueNormalSession();
+    {
+        if(brokerMode && (connectionType != DEFAULT))
+        {
+            if(connectionType==SUSPEND)
+            {
+                suspendSession(suspendTerminateSessionFromBroker);
+            }
+            else
+            {
+                termSession(suspendTerminateSessionFromBroker, false);
+            }
+        }
+        else
+            continueNormalSession();
+    }
 }
 
 void ONMainWindow::cleanServerSshConnections()
@@ -3619,8 +3635,9 @@ QString ONMainWindow::findSshKeyForServer(QString user, QString server, QString 
 }
 
 
-bool ONMainWindow::startSession ( const QString& sid )
+bool ONMainWindow::startSession ( const QString& sid, CONTYPE conType )
 {
+    connectionType=conType;
     setEnabled ( false );
 #ifdef Q_OS_LINUX
     directRDP=false;
@@ -3664,7 +3681,10 @@ bool ONMainWindow::startSession ( const QString& sid )
     passForm->setEnabled ( false );
     if(brokerMode)
     {
-        host=config.serverIp;
+        if(connectionType==DEFAULT)
+            host=config.serverIp;
+        else
+            host=suspendTerminateHostFromBroker;
         sshPort=config.sshport;
         x2goDebug<<"Server: "<<host;
     }
@@ -4990,11 +5010,6 @@ void ONMainWindow::selectSession ( QStringList& sessions )
         }
     }
 
-    if(brokerMode)
-    {
-        bSusp->hide();
-        bTerm->hide();
-    }
 
     sessTv->setCurrentIndex ( sessTv->model()->index ( 0, 0 ) );
     sessTv->setFocus();
@@ -5145,28 +5160,29 @@ void ONMainWindow::slotSuspendSess()
     QString host=sessTv->model()->index (
                      sessTv->currentIndex().row(),
                      S_SERVER ).data().toString();
+
+
     if ( !useLdap )
     {
-        if ( brokerMode )
+        if ( !brokerMode )
         {
-            host=config.serverIp;
-        }
-        if ( embedMode )
-        {
-            host=config.server;
-        }
-        else
-        {
-            X2goSettings st ( "sessions" );
-
-            if (!(sessionExplorer->getLastSession())) {
-                x2goDebug << "No session selected, returning without suspending a session.";
-                return;
+            if ( embedMode )
+            {
+                host=config.server;
             }
+            else
+            {
+                X2goSettings st ( "sessions" );
 
-            QString sid=sessionExplorer->getLastSession()->id();
-            host=st.setting()->value ( sid+"/host",
-                                       ( QVariant ) host ).toString();
+                if (!(sessionExplorer->getLastSession())) {
+                    x2goDebug << "No session selected, returning without suspending a session.";
+                    return;
+                }
+
+                QString sid=sessionExplorer->getLastSession()->id();
+                host=st.setting()->value ( sid+"/host",
+                                           ( QVariant ) host ).toString();
+            }
         }
     }
     else
@@ -5182,8 +5198,14 @@ void ONMainWindow::slotSuspendSess()
         }
     }
 
-
-    suspendSession ( sessId );
+    if(brokerMode)
+    {
+       suspendBrokerSession(sessId, host);
+    }
+    else
+    {
+       suspendSession ( sessId );
+    }
 }
 
 
@@ -5262,6 +5284,7 @@ void ONMainWindow::slotTermSessFromSt()
 void ONMainWindow::slotRetSuspSess ( bool result, QString output,
                                      int )
 {
+    setEnabled ( true );
     if ( result==false )
     {
         QString message=tr ( "<b>Connection failed.</b>\n" ) +output;
@@ -5317,6 +5340,9 @@ void ONMainWindow::slotTermSess()
 
     QString sessId=sessTv->model()->index ( sessTv->currentIndex().row(),
                                             S_ID ).data().toString();
+    QString host=sessTv->model()->index (
+                                            sessTv->currentIndex().row(),
+                                            S_SERVER ).data().toString();
 
     if ( !useLdap )
     {
@@ -5334,9 +5360,6 @@ void ONMainWindow::slotTermSess()
     }
     else
     {
-        QString host=sessTv->model()->index ( sessTv->currentIndex().row(),
-                                              S_SERVER ).data().toString();
-
         sshConnection=findServerSshConnection(host);
         if (!sshConnection)
         {
@@ -5347,8 +5370,14 @@ void ONMainWindow::slotTermSess()
             return;
         }
     }
-
-    termSession ( sessId );
+    if(brokerMode)
+    {
+        termBrokerSession(sessId, host);
+    }
+    else
+    {
+        termSession ( sessId );
+    }
 }
 
 
@@ -5361,6 +5390,7 @@ void ONMainWindow::slotNewSess()
 void ONMainWindow::slotRetTermSess ( bool result,  QString output,
                                      int )
 {
+    setEnabled ( true );
     if ( result==false )
     {
         QString message=tr ( "<b>Connection failed.</b>\n" ) +output;
@@ -6842,6 +6872,33 @@ void ONMainWindow::slotResumeDoubleClick ( const QModelIndex& )
 {
     if ( !shadowSession )
         slotResumeSess();
+}
+
+void ONMainWindow::suspendBrokerSession(const QString& sessId, const QString& host)
+{
+    suspendTerminateHostFromBroker=host;
+    suspendTerminateSessionFromBroker=sessId;
+    startSession(config.session, SUSPEND);
+}
+
+void ONMainWindow::termBrokerSession(const QString& sessId, const QString& host)
+{
+    if(QMessageBox::warning (
+        this,tr ( "Warning" ),
+                                     tr (
+                                         "Are you sure you want to terminate "
+                                         "this session?\n"
+                                         "Unsaved documents will be lost." ),
+                             QMessageBox::Yes,QMessageBox::No )!= QMessageBox::Yes)
+    {
+        setEnabled(true);
+        selectSessionDlg->setEnabled ( true );
+        return;
+    }
+
+    suspendTerminateHostFromBroker=host;
+    suspendTerminateSessionFromBroker=sessId;
+    startSession(config.session, TERMINATE);
 }
 
 
@@ -12678,8 +12735,7 @@ void ONMainWindow::initSelectSessDlg()
     alay->addWidget ( bShadowView );
     alay->addWidget ( bShadow );
     alay->addStretch();
-    if(!brokerMode)
-       alay->addWidget ( bNew );
+    alay->addWidget ( bNew );
     alay->addWidget ( bCancel );
 
     tvlay->addWidget ( sessTv );
@@ -12687,8 +12743,6 @@ void ONMainWindow::initSelectSessDlg()
 
     blay->addStretch();
     blay->addWidget ( sOk );
-    if(brokerMode)
-        blay->addWidget ( bNew );
     blay->addWidget ( sCancel );
     blay->addStretch();
     if ( !miniMode )

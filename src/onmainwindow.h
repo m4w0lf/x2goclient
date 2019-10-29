@@ -325,8 +325,10 @@ public:
     static bool isServerRunning ( int port );
     void startNewSession();
     void suspendSession ( QString sessId );
+    void suspendBrokerSession ( const QString& sessId, const QString& host );
     bool termSession ( QString sessId,
                        bool warn=true );
+    void termBrokerSession ( const QString& sessId, const QString& host );
     InteractionDialog* getInteractionDialog()
     {
       return interDlg;
@@ -915,6 +917,17 @@ private:
     bool trayMinCon;
     bool trayMaxDiscon;
     bool trayAutoHidden;
+
+    //server connection type
+    // DEFAULT - start X2GO session
+    // SUSPEND - open connection to suspend broker session
+    // TERMINATE - open connection to terminate broker session
+    typedef enum {DEFAULT, SUSPEND, TERMINATE} CONTYPE;
+
+    CONTYPE connectionType;
+    QString suspendTerminateHostFromBroker;
+    QString suspendTerminateSessionFromBroker;
+
     void sendEventToBroker(client_events ev);
     void suspendFromBroker(const QString& sid);
     void terminateFromBroker(const QString& sid);
@@ -930,7 +943,7 @@ private:
     QString getKdeIconsPath();
     QString findTheme ( QString theme );
     bool initLdapSession ( bool showBox=true );
-    bool startSession ( const QString& id );
+    bool startSession ( const QString& id, CONTYPE conType=DEFAULT);
     x2goSession getSessionFromString ( const QString& string );
     void resumeSession ( const x2goSession& s );
     void selectSession ( QStringList& sessions );
