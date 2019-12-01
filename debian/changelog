@@ -121,6 +121,11 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       retranslations required.
     - src/httpbrokerclient.cpp: do not leak password length in debug output
       either.
+    - src/sessionwidget.cpp: stop parsing proxy address as "host:port: if the
+      address contains a colon. Fixes: #1418. We don't do this for the
+      "normal" host address and this behavior clashes with IPv6 addresses. We
+      COULD, theoretically, keep it, but that would require writing an
+      arbitrary address parser. Too much effort for little gain.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:

@@ -668,13 +668,6 @@ void SessionWidget::readConfig()
                                     false
                                 ).toBool() );
 
-    if(proxyHost->text().indexOf(":")!=-1)
-    {
-        QStringList parts=proxyHost->text().split(":");
-        proxyHost->setText(parts[0]);
-        proxyPort->setValue(parts[1].toInt());
-    }
-
 
     QTimer::singleShot(1, this,SLOT(slot_proxySameLogin()));
     QTimer::singleShot(2, this,SLOT(slot_proxyType()));
