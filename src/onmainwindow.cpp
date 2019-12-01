@@ -3786,12 +3786,6 @@ bool ONMainWindow::startSession ( const QString& sid, CONTYPE conType )
         proxyKrbLogin = config.proxyKrbLogin;
     }
 
-    if (proxyserver.indexOf (":") != -1) {
-        QStringList parts = proxyserver.split (":");
-        proxyserver = parts[0];
-        proxyport = parts[1].toInt ();
-    }
-
     bool proxySamePass=(st->setting()->value (
                             sid+"/sshproxysamepass",
                             false

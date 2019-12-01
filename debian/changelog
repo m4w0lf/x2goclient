@@ -126,6 +126,8 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       "normal" host address and this behavior clashes with IPv6 addresses. We
       COULD, theoretically, keep it, but that would require writing an
       arbitrary address parser. Too much effort for little gain.
+    - src/onmainwindow.cpp: also remove proxy "host:port" parsing at connect
+      time. Fixes: #1418.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
