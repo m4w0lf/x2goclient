@@ -179,7 +179,7 @@ NXAUTH="xauth"
 PULSEAUDIO_BINARIES=( "pulseaudio" "esdcompat" "pacat" "pacmd"      "pactl"
                       "pamon"      "paplay"    "parec" "parecord"   "pasuspender" )
 PULSEAUDIO_LIBRARIES=( "libpulse-simple.0.dylib"
-                       "pulse-12.2"
+                       "pulse-13.0"
                        "pulseaudio" )
 RESOURCE_FILES=( "audio/startup.wav" )
 
