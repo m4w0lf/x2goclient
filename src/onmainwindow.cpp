@@ -1164,13 +1164,19 @@ void ONMainWindow::trayIconInit()
             // setup the tray icon itself
             trayIcon = new QSystemTrayIcon(this);
 
+#ifndef Q_OS_DARWIN
             connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
                     this, SLOT(trayIconActivated(QSystemTrayIcon::ActivationReason)));
+#endif
             connect(trayIcon, SIGNAL(messageClicked()), this, SLOT(trayMessageClicked()));
 
             trayIcon->setContextMenu(trayIconMenu);
             trayIcon->setIcon(QIcon ( ":/img/icons/128x128/x2go.png") );
+#ifdef Q_OS_DARWIN
+            trayIcon->setToolTip(tr("A click displays the context menu."));
+#else
             trayIcon->setToolTip(tr("A left click hides or restores the window. A right click displays the context menu."));
+#endif
         }
 
         if (!startHidden | forceToShowTrayicon)

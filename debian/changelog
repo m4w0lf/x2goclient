@@ -130,6 +130,11 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       time. Fixes: #1418.
     - macbuild.sh: switch to bundling PulseAudio 13.0 since it's now available
       in MacPorts.
+    - src/onmainwindow.cpp: disable "left click" action on OS X/macOS. This
+      platform always gets a left click event, even when right clicked. May
+      sound weird first, but this behavior is consistent between all
+      applications - tray icons can be clicked via either button and will
+      always trigger a context menu. Let X2Go Client behave the same way.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
