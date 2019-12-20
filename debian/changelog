@@ -135,6 +135,11 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       sound weird first, but this behavior is consistent between all
       applications - tray icons can be clicked via either button and will
       always trigger a context menu. Let X2Go Client behave the same way.
+    - src/sshprocess.cpp: strip ~/, ~user{,/}, ${HOME}{,/} and $HOME{,/} from
+      destination paths in scp mode. Fixes: #1428. This was already necessary
+      for pascp (PuTTY-based Windows solution for Kerberos support), but newer
+      libssh versions with the CVE-2019-14889 also interpret paths as literal
+      strings.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:

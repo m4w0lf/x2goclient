@@ -310,6 +310,38 @@ void SshProcess::start_cp(QString src, QString dst)
     x2goDebug<<"Copying file via SshProcess object "<<pid<<": "<<src<<" -> "<<dst;
 
     scpSource=src;
+
+    /*
+     * pscp and newer libssh versions with the CVE-2019-14889 fixes treat
+     * paths as literal strings when in SFTP/SCP mode.
+     *
+     * Paths like the following will lead to errors:
+     *  - ~user/foo.txt
+     *  - ~/foo.txt
+     *  - ${HOME}/foo.txt
+     *  - $HOME/foo.txt
+     *
+     * However, relative paths are interpreted as relative to the user's home
+     * dir.
+     * For example:
+     * foo.txt
+     *
+     * This workaround assumes that files will never be uploaded to a home dir
+     * other than the user's.
+     */
+
+    dst.remove("~"+masterCon->getUser()+"/");
+    dst.remove("~"+masterCon->getUser()    );
+
+    dst.remove("~/");
+    dst.remove("~" );
+
+    dst.remove("${HOME}/");
+    dst.remove("${HOME}");
+
+    dst.remove("$HOME/");
+    dst.remove("$HOME");
+
     if(!masterCon->useKerberos())
     {
         connect(masterCon, SIGNAL(copyErr(SshProcess*,QString,QString)), this,
@@ -321,32 +353,6 @@ void SshProcess::start_cp(QString src, QString dst)
     {
         proc=new QProcess(this);
 #ifdef Q_OS_WIN
-//pscp doesn't acccept paths like the following when in SFTP mode (default)
-//~user/foo.txt
-//~/foo.txt
-//${HOME}/foo.txt
-//$HOME/foo.txt
-//
-//However, pscp does let you specify a path relative to the user's home dir.
-//You simply specify the relative path without a / at the beginning.
-//For example:
-//foo.txt
-//
-//This workaround assumes that files will never be uploaded to a home dir
-//other than the user's.
-
-        dst.remove("~"+masterCon->getUser()+"/");
-        dst.remove("~"+masterCon->getUser()    );
-
-        dst.remove("~/");
-        dst.remove("~" );
-
-        dst.remove("${HOME}/");
-        dst.remove("${HOME}");
-
-        dst.remove("$HOME/");
-        dst.remove("$HOME");
-
         QString sshString="pscp -batch -P "+
 #else
         QString sshString="scp -o GSSApiAuthentication=yes -o PasswordAuthentication=no -o PubkeyAuthentication=no -P "+
