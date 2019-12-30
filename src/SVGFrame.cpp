@@ -44,13 +44,6 @@ SVGFrame::SVGFrame ( QString fname,bool st,QWidget* parent,
 		if ( drawImg )
 		{
 			setAutoFillBackground ( true );
-			QPalette pal=palette();
-			QImage img ( renderer->defaultSize(),
-			             QImage::Format_ARGB32_Premultiplied );
-			QPainter p ( &img );
-			renderer->render ( &p );
-			pal.setBrush ( QPalette::Window,QBrush ( QPixmap::fromImage ( img ) ) );
-			setPalette ( pal );
 		}
 		else
 		{
@@ -74,11 +67,9 @@ SVGFrame::SVGFrame ( QWidget* parent,
 
 void SVGFrame::paintEvent ( QPaintEvent* event )
 {
-	if ( repaint && !drawImg && !empty )
+	if ( repaint && !empty )
 	{
 		QPainter p ( this );
-		p.setViewport ( 0, 0, width(), height() );
-		p.eraseRect ( 0, 0, width(), height() );
 		renderer->render ( &p );
 	}
 	QFrame::paintEvent ( event );
@@ -89,16 +80,6 @@ void SVGFrame::resizeEvent ( QResizeEvent* event )
 {
 	QFrame::resizeEvent ( event );
 	emit resized ( event->size() );
-	if ( drawImg && event->size().width() >0 && event->size().height() >0 &&!empty )
-	{
-		QPalette pal=palette();
-		QImage img ( event->size(),QImage::Format_ARGB32_Premultiplied );
-		QPainter p ( &img );
-		if ( p.isActive() )
-			renderer->render ( &p );
-		pal.setBrush ( QPalette::Window,QBrush ( QPixmap::fromImage ( img ) ) );
-		setPalette ( pal );
-	}
 }
 
 
