@@ -147,6 +147,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       single-frame SVG files.
     - src/sshmasterconnection.cpp: work around lupdate warning by adding
       another block in the #else preprocessor branch.
+    - res/i18n/x2goclient_*.ts: update translation files.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:

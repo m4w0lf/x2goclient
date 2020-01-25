@@ -517,32 +517,32 @@ Några vanliga installationssökvägar är:
 <context>
     <name>ConnectionWidget</name>
     <message>
-        <location filename="../../src/connectionwidget.cpp" line="39"/>
+        <location filename="../../src/connectionwidget.cpp" line="40"/>
         <source>&amp;Connection speed</source>
         <translation>&amp;Anslutningshastighet</translation>
     </message>
     <message>
-        <location filename="../../src/connectionwidget.cpp" line="44"/>
+        <location filename="../../src/connectionwidget.cpp" line="45"/>
         <source>Connection speed:</source>
         <translation>Anslutningshastighet:</translation>
     </message>
     <message>
-        <location filename="../../src/connectionwidget.cpp" line="74"/>
+        <location filename="../../src/connectionwidget.cpp" line="75"/>
         <source>C&amp;ompression</source>
         <translation>K&amp;omprimering</translation>
     </message>
     <message>
-        <location filename="../../src/connectionwidget.cpp" line="91"/>
+        <location filename="../../src/connectionwidget.cpp" line="92"/>
         <source>Method:</source>
         <translation>Metod:</translation>
     </message>
     <message>
-        <location filename="../../src/connectionwidget.cpp" line="93"/>
+        <location filename="../../src/connectionwidget.cpp" line="94"/>
         <source>Compression method:</source>
         <translation>Komprimeringsmetod:</translation>
     </message>
     <message>
-        <location filename="../../src/connectionwidget.cpp" line="95"/>
+        <location filename="../../src/connectionwidget.cpp" line="96"/>
         <source>Image quality:</source>
         <translation>Bildkvalitet:</translation>
     </message>
@@ -836,224 +836,229 @@ Några vanliga installationssökvägar är:
         <translation>Visar tillgängliga packningsmetoder.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="113"/>
+        <location filename="../../src/help.cpp" line="119"/>
         <source>Do not resume sessions automatically.</source>
         <translation>Återuppta inte sessioner automatiskt.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="114"/>
+        <location filename="../../src/help.cpp" line="120"/>
         <source>Hides menu bar.</source>
         <translation>Döljer menyraden.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="115"/>
+        <location filename="../../src/help.cpp" line="121"/>
         <source>Disables session editing.</source>
         <translation>Inaktivera sessionsredigering.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="116"/>
+        <location filename="../../src/help.cpp" line="122"/>
         <source>Starts maximized.</source>
         <translation>Startar maximerad.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="117"/>
+        <location filename="../../src/help.cpp" line="123"/>
         <source>Starts hidden (minimized to system tray where available.)</source>
         <translation>Startar dold (minimerad till systemfältet om det finns.)</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="118"/>
+        <location filename="../../src/help.cpp" line="124"/>
         <source>Starts in &quot;portable&quot; mode.</source>
         <translation>Startar i portabelt läge.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="119"/>
+        <location filename="../../src/help.cpp" line="125"/>
         <source>Forces OpenPGP smart card authentication.</source>
         <translation>Tvingar OpenPGP smartkortsautenticering.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="121"/>
+        <location filename="../../src/help.cpp" line="127"/>
         <source>Disable PulseAudio.</source>
         <translation>Deaktivera PulseAudio.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="122"/>
+        <location filename="../../src/help.cpp" line="128"/>
         <source>Disable sound input.</source>
         <translation>Deaktivera ljudinmatning.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="124"/>
+        <location filename="../../src/help.cpp" line="130"/>
         <source>Enables Xinerama by default.</source>
         <translation>Aktivera Xinerama som standard.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="125"/>
+        <location filename="../../src/help.cpp" line="131"/>
         <source>Allows client side printing in LDAP mode.</source>
         <translation>Tillåt klientutskrifter i LDAP-läge.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="126"/>
+        <location filename="../../src/help.cpp" line="132"/>
         <source>Enables thinclient mode. Starts without a window manager.</source>
         <translation>Aktiverar tunn klient-läge. Startar utan fönsterhanterare.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="127"/>
+        <location filename="../../src/help.cpp" line="133"/>
         <source>Enables shutdown button.</source>
         <translation>Aktivera &quot;Avsluta&quot;-knapp.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="128"/>
+        <location filename="../../src/help.cpp" line="134"/>
         <source>Adds RSA key fingerprint to &quot;.ssh/known_hosts&quot; if authenticity of the server can&apos;t be determined.</source>
         <translation>Sparar fingeravtryck för RSA-nyckel i &quot;.ssh/knows_hosts&quot; om serverns identitet inte kan fastställas.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="129"/>
+        <location filename="../../src/help.cpp" line="135"/>
         <source>Starts with LDAP support. Example: --ldap=ldapserver:389:o=organization,c=de</source>
         <translation>Startar med LDAP-support. Exempel: --ldap=ldapserver:389:o=organization,c=se</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="130"/>
+        <location filename="../../src/help.cpp" line="136"/>
         <source>Defines the first LDAP failover server.</source>
         <translation>Anger första LDAP failoverserver.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="131"/>
+        <location filename="../../src/help.cpp" line="137"/>
         <source>Defines the second LDAP failover server.</source>
         <translation>Anger andra LDAP failoverserver.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="132"/>
+        <location filename="../../src/help.cpp" line="138"/>
         <source>Defines the remote SSH server port. Default: 22.</source>
         <translation>Anger fjärrserverns SSH-port. Standardinställning: 22.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="133"/>
+        <location filename="../../src/help.cpp" line="139"/>
         <source>Defines the local machine&apos;s SSH server port. Needed for Client-Side Printing and File Sharing support. Default: 22.</source>
         <translation>Anger lokal SSH serverport. Behövs för klientutskrifter och fildelning. Standardinställning: 22.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="134"/>
+        <location filename="../../src/help.cpp" line="140"/>
         <source>Sets the default command. Default: &apos;KDE&apos; (Desktop Session)</source>
         <translation>Sätter standardkommando. Standardinställning: &apos;KDE&apos; (skrivbordsession)</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="135"/>
+        <location filename="../../src/help.cpp" line="141"/>
         <source>Starts the session named &quot;session&quot;.</source>
         <translation>Startar sessionen med namnet &quot;session&quot;.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="136"/>
+        <location filename="../../src/help.cpp" line="142"/>
         <source>Sets the user name for connecting to the remote SSH server to &quot;username&quot;.</source>
         <translation>Sätter användarnamnet för anslutning till fjärrserver via SSH till &quot;username&quot;.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="137"/>
+        <location filename="../../src/help.cpp" line="143"/>
         <source>Sets the default window geometry. Default: 800x600.</source>
         <translation>Sätter standardinställning för fönstergeometri. Standardinställning: 800x600.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="138"/>
+        <location filename="../../src/help.cpp" line="144"/>
         <source>Sets the remote X2Go Agent&apos;s DPI value to &quot;dpi&quot;. Default: same as local display.</source>
         <translation>Sätter DPI-värde för X2Go&apos;s fjärragent till &quot;dpi&quot;. Standardinställning: samma som lokal bildskärm.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="139"/>
+        <location filename="../../src/help.cpp" line="145"/>
         <source>Sets the default link type. Default: &quot;adsl&quot;.</source>
         <translation>Sätter standardlänk. Standardinställning: &quot;adsl&quot;.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="140"/>
+        <location filename="../../src/help.cpp" line="146"/>
         <source>Sets default pack method. Default: &quot;16m-jpeg-9&quot;.</source>
         <translation>Sätter standardmetod för packning. Standardinställning: &quot;16m-jpeg-9&quot;.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="141"/>
+        <location filename="../../src/help.cpp" line="147"/>
         <source>Sets the default clipboard mode. Default: &quot;both&quot;.</source>
         <translation>Sätter standardinställning för urklipp. Standardinställning: &quot;both&quot;.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="142"/>
+        <location filename="../../src/help.cpp" line="148"/>
         <source>Sets the default keyboard layout to &quot;layout&quot;. &quot;layout&quot; may be a comma-separated list.</source>
         <translation>Sätter standardinställning för tangentbordslayout till &quot;layout&quot;. &quot;layout&quot; kan vara en kommaseparerad lista.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="143"/>
+        <location filename="../../src/help.cpp" line="149"/>
         <source>Sets the default keyboard type.</source>
         <translation>Sätter standardinställning för tangentbord.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="144"/>
+        <location filename="../../src/help.cpp" line="150"/>
         <source>Sets the user&apos;s home directory.</source>
         <translation>Sätter användarens hemkatalog.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="145"/>
+        <location filename="../../src/help.cpp" line="151"/>
         <source>Enables or disables overwriting the current keyboard settings.</source>
         <translation>Aktiverar eller deaktiverar ersättning av aktuella tangentbordsintällningar.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="146"/>
+        <location filename="../../src/help.cpp" line="152"/>
         <source>Automatically launches the application(s) &quot;app&quot;, &quot;app2&quot;, ... on session start in Published Applications mode.</source>
         <translation>Automatisk start av applikation(er) &quot;app&quot;, &quot;app2&quot;, ... vid sessionsstart som Publicerade applikationer.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="147"/>
+        <location filename="../../src/help.cpp" line="153"/>
         <source>Defines an alternative session config file path.</source>
         <translation>Anger en alternativ sessionsinställningsfil.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="148"/>
+        <location filename="../../src/help.cpp" line="154"/>
         <source>Force-enables session system tray icon.</source>
         <translation>Tvingande aktivering av sessionsikon i systemfältet.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="149"/>
+        <location filename="../../src/help.cpp" line="155"/>
         <source>Automatically closes X2Go Client after a disconnect.</source>
         <translation>Automatisk nerstängning av X2Go-klienten efter frånkoppling.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="150"/>
+        <location filename="../../src/help.cpp" line="156"/>
         <source>Hides all Folder-Sharing-related options.</source>
         <translation>Döljer alla mappdelningsalternativ.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="151"/>
+        <location filename="../../src/help.cpp" line="157"/>
         <source>Sets the broker name to display in X2Go Client. This parameter is optional.</source>
         <translation>Sätter brokernamn att visa i X2Go-klienten. Denna parameter är valfri.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="158"/>
+        <location filename="../../src/help.cpp" line="164"/>
         <source>Sets the path to an SSH key to use for authentication against an SSH session broker. The client&apos;s behavior is undefined if this flag is used for non-SSH session brokers.</source>
         <translation>Sätter sökväg till SSH-nyckel för autentisering mot SSH-broker. Klientens beteende är odefinierat om denna flagga används för icke-SSH-broker.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="159"/>
+        <location filename="../../src/help.cpp" line="165"/>
         <source>Enables the use of the default SSH key or SSH agent for authentication against an SSH session broker. The client&apos;s behavior is undefined if this flag is used for non-SSH session brokers.</source>
         <translation>Aktiverar användning av standard SSH-nyckel eller SSH-agent för autentisering mot SSH-broker. Klientens beteende är odefinierat om denna flagga används för icke-SSH-broker.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="160"/>
+        <location filename="../../src/help.cpp" line="166"/>
         <source>Does not ask for user credentials during session broker authentication. This can be useful if you are using an HTTP(S) session broker without authentication. If you run an HTTP(S) server without authentication, but with user-specific profiles, then put the user name into the broker URL (refer to --broker-url.) The user name then will be extracted from the broker URL and be sent to the session broker. The client&apos;s behavior is undefined if this flag is used for non-HTTP(S) session brokers.</source>
         <translation>Frågar inte efter användaruppgifter vid autentisering mot sessions-broker. Detta kan vara användningsbart om du använder en HTTP(S) sessions-broker utan autentisering. Om du använder en HTTP(S)-server utan autentisering men med användarspecifika profiler, ange då användarnamnet i broker-URL (se --broker-url). Användarnamnet komemr då att extraheras från URL:en och skickas till brokern. Klientens beteende är odefinierat om denna flagga används för icke-HTTP(s)-sessionsbroker.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="161"/>
+        <location filename="../../src/help.cpp" line="167"/>
         <source>Use broker credentials as session user/password credentials when using broker mode with broker authentication. Currently only affects direct RDP sessions.</source>
         <translation>Använd agentautentiseringsuppgifter som användarnamn / lösenordsuppgifter när du använder agentläge med agentautentisering. För närvarande påverkar det bara direkta RDP-sessioner.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="162"/>
+        <location filename="../../src/help.cpp" line="168"/>
         <source>Enables broker logout button.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="163"/>
+        <location filename="../../src/help.cpp" line="169"/>
         <source>Use a custom/branded background image (SVG format) for X2Go Client&apos;s main window. If a directory is given, will randomly pick an SVG file inside of it.</source>
         <translation>Använd anpassad bakgrundsbild (SVG-format) för X2Go Clients huvudfönster. Om en mapp anges så väljs en SVG-fil slumpvis från mappen.</translation>
     </message>
     <message>
-        <location filename="../../src/help.cpp" line="164"/>
+        <location filename="../../src/help.cpp" line="170"/>
         <source>Use a custom icon (SVG format) for additional branding to replace the default in the lower left corner of X2Go Client&apos;s main window.</source>
         <translation>Använd en anpassad ikon (SVG-format) som ersättning för standardikonen i nedre vänstra hörnet av X2Go Clients huvudfönster.</translation>
+    </message>
+    <message>
+        <location filename="../../src/help.cpp" line="177"/>
+        <source>Disables X2Go Client&apos;s UNIX cleanup helper. This will prevent X2Go Client from terminating spawned processes after the main program terminates or crashes. Use with care and when in doubt, do not use this parameter at all.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1077,12 +1082,13 @@ Några vanliga installationssökvägar är:
         <translation type="obsolete">pc105/se</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="432"/>
-        <location filename="../../src/httpbrokerclient.cpp" line="455"/>
-        <location filename="../../src/httpbrokerclient.cpp" line="475"/>
-        <location filename="../../src/httpbrokerclient.cpp" line="490"/>
-        <location filename="../../src/httpbrokerclient.cpp" line="504"/>
-        <location filename="../../src/httpbrokerclient.cpp" line="520"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="417"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="547"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="570"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="590"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="605"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="619"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="642"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
@@ -1095,7 +1101,7 @@ Några vanliga installationssökvägar är:
         <translation type="obsolete">Din session har kopplats från. För att återansluta sessionen, återgå till inloggningssidan eller ladda om sidan i webbläsaren.</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="146"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="151"/>
         <source>Host key for server changed.
 It is now: </source>
         <translation>Nyckel för server har ändrats.
@@ -1114,7 +1120,7 @@ Den är nu: </translation>
         <translation type="obsolete">Hittar ej fil för kända servrar. Om du accepterar serverns nyckel så kommer filen att skapas automatiskt</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="191"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="196"/>
         <source>The server is unknown. Do you trust the host key?
 Public key hash: </source>
         <translation>Okänd server. Litar du på denna nyckel?
@@ -1125,22 +1131,22 @@ Publik nyckel: </translation>
         <translation type="obsolete">Verifiering av serverns nyckel misslyckades</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="195"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="200"/>
         <source>Yes</source>
         <translation>Ja</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="195"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="200"/>
         <source>No</source>
         <translation>Nej</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="225"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="230"/>
         <source>Verification code:</source>
         <translation>Verifieringskod:</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="221"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="226"/>
         <source>Enter passphrase to decrypt a key</source>
         <translation>Ange lösenord för att dekryptera nyckel</translation>
     </message>
@@ -1149,12 +1155,12 @@ Publik nyckel: </translation>
         <translation type="obsolete">Autentisering misslyckades</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="617"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="769"/>
         <source>&lt;br&gt;&lt;b&gt;Server uses an invalid security certificate.&lt;/b&gt;&lt;br&gt;&lt;br&gt;</source>
         <translation>&lt;br&gt;&lt;b&gt;Servern använder ett ogiltigt certifikat.&lt;/b&gt;&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="620"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="772"/>
         <source>&lt;p style=&apos;background:#FFFFDC;&apos;&gt;You should not add an exception if you are using an internet connection that you do not trust completely or if you are not used to seeing a warning for this server.&lt;/p&gt;</source>
         <translation>&lt;p style=&apos;background:#FFFFDC;&apos;&gt;Du bör ej lägga till ett undantag om du inte använder en betrodd uppkoppling eller om du inte brukar få en varning för denna server.&lt;/p&gt;</translation>
     </message>
@@ -1163,123 +1169,123 @@ Publik nyckel: </translation>
         <translation type="obsolete">Säker anslutning misslyckades</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="147"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="152"/>
         <source>For security reasons, the connection attempt will be aborted.</source>
         <translation>Anslutningen avbryts av säkerhetsskäl.</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="160"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="165"/>
         <source>The host key for this server was not found but another type of key exists. An attacker might have changed the default server key to trick your client into thinking the key does not exist yet.</source>
         <translation>Servernyckeln för denna server hittades inte men en annan typ av nyckel finns. En angripare kan ha ändrat servernyckel för att lura klienten att nyckeln inte ännu finns.</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="186"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="191"/>
         <source>Could not find known hosts file. If you accept the host key here, the file will be automatically created.</source>
         <translation>Hittar ej fil för kända servrar. Om du accepterar serverns nyckel så kommer filen att skapas automatiskt.</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="195"/>
-        <location filename="../../src/httpbrokerclient.cpp" line="205"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="200"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="210"/>
         <source>Host key verification failed.</source>
         <translation>Verifiering av serverns nyckel misslyckades.</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="229"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="234"/>
         <source>Enter user account password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="266"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="271"/>
         <source>Authentication failed.</source>
         <translation>Autentisering misslyckades.</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="433"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="548"/>
         <source>Login failed!&lt;br&gt;Please try again.</source>
         <translation>Inloggning misslyckades!&lt;br&gt;Var god försök igen.</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="625"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="777"/>
         <source>Secure connection failed.</source>
         <translation>Säker anslutning misslyckades.</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="630"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="782"/>
         <source>Issued to:
 </source>
         <translation>Utgivet till:
 </translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="631"/>
-        <location filename="../../src/httpbrokerclient.cpp" line="655"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="783"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="807"/>
         <source>Common Name(CN)	</source>
         <translation>Common Name(CN)	</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="638"/>
-        <location filename="../../src/httpbrokerclient.cpp" line="662"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="790"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="814"/>
         <source>Organization(O)	</source>
         <translation>Organization(O)	</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="645"/>
-        <location filename="../../src/httpbrokerclient.cpp" line="669"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="797"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="821"/>
         <source>Organizational Unit(OU)	</source>
         <translation>Organizational Unit(OU)	</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="652"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="804"/>
         <source>Serial Number	</source>
         <translation>Serienummer	</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="654"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="806"/>
         <source>Issued by:
 </source>
         <translation>Utgivare:</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="677"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="829"/>
         <source>Validity:
 </source>
         <translation>Giltighetstid:
 </translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="678"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="830"/>
         <source>Issued on	</source>
         <translation>Utgivningsdatum	</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="679"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="831"/>
         <source>expires on	</source>
         <translation>giltigt till	</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="680"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="832"/>
         <source>Fingerprints:
 </source>
         <translation>Fingeravtryck:
 </translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="681"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="833"/>
         <source>SHA1	</source>
         <translation>SHA1	</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="683"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="835"/>
         <source>MD5	</source>
         <translation>MD5	</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="689"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="841"/>
         <source>Exit X2Go Client</source>
         <translation>Avsluta X2Go-klienten</translation>
     </message>
     <message>
-        <location filename="../../src/httpbrokerclient.cpp" line="691"/>
+        <location filename="../../src/httpbrokerclient.cpp" line="843"/>
         <source>Add exception</source>
         <translation>Lägg till undantag</translation>
     </message>
@@ -1287,18 +1293,18 @@ Publik nyckel: </translation>
 <context>
     <name>InteractionDialog</name>
     <message>
-        <location filename="../../src/InteractionDialog.cpp" line="73"/>
+        <location filename="../../src/InteractionDialog.cpp" line="75"/>
         <source>Terminal output:</source>
         <translation>Terminalutdata:</translation>
     </message>
     <message>
-        <location filename="../../src/InteractionDialog.cpp" line="80"/>
-        <location filename="../../src/InteractionDialog.cpp" line="117"/>
+        <location filename="../../src/InteractionDialog.cpp" line="82"/>
+        <location filename="../../src/InteractionDialog.cpp" line="119"/>
         <source>Cancel</source>
         <translation>Avbryt</translation>
     </message>
     <message>
-        <location filename="../../src/InteractionDialog.cpp" line="149"/>
+        <location filename="../../src/InteractionDialog.cpp" line="151"/>
         <source>Reconnect</source>
         <translation>Återanslut</translation>
     </message>
@@ -1306,56 +1312,56 @@ Publik nyckel: </translation>
 <context>
     <name>MediaWidget</name>
     <message>
-        <location filename="../../src/mediawidget.cpp" line="44"/>
         <location filename="../../src/mediawidget.cpp" line="46"/>
+        <location filename="../../src/mediawidget.cpp" line="48"/>
         <source>Sound</source>
         <translation>Ljud</translation>
     </message>
     <message>
-        <location filename="../../src/mediawidget.cpp" line="56"/>
+        <location filename="../../src/mediawidget.cpp" line="58"/>
         <source>Enable sound support</source>
         <translation>Aktivera ljudstöd</translation>
     </message>
     <message>
-        <location filename="../../src/mediawidget.cpp" line="65"/>
+        <location filename="../../src/mediawidget.cpp" line="67"/>
         <source>Start sound daemon</source>
         <translation>Starta ljudserver</translation>
     </message>
     <message>
-        <location filename="../../src/mediawidget.cpp" line="67"/>
+        <location filename="../../src/mediawidget.cpp" line="69"/>
         <source>Use running sound daemon</source>
         <translation>Använd aktiv ljudserver</translation>
     </message>
     <message>
-        <location filename="../../src/mediawidget.cpp" line="69"/>
+        <location filename="../../src/mediawidget.cpp" line="71"/>
         <source>Use SSH port forwarding to tunnel
 sound system connections through firewalls</source>
         <translation>Använd SSH port forwarding för att tunnla
 ljudström genom brandväggar</translation>
     </message>
     <message>
-        <location filename="../../src/mediawidget.cpp" line="71"/>
+        <location filename="../../src/mediawidget.cpp" line="73"/>
         <source>Use default sound port</source>
         <translation>Använd standardport för ljud</translation>
     </message>
     <message>
-        <location filename="../../src/mediawidget.cpp" line="78"/>
+        <location filename="../../src/mediawidget.cpp" line="80"/>
         <source>Sound port:</source>
         <translation>Ljudport:</translation>
     </message>
     <message>
-        <location filename="../../src/mediawidget.cpp" line="105"/>
+        <location filename="../../src/mediawidget.cpp" line="107"/>
         <source>Client side printing support</source>
         <translation>Stöd för utskrifter via klienten</translation>
     </message>
     <message>
-        <location filename="../../src/mediawidget.cpp" line="154"/>
-        <location filename="../../src/mediawidget.cpp" line="174"/>
+        <location filename="../../src/mediawidget.cpp" line="158"/>
+        <location filename="../../src/mediawidget.cpp" line="178"/>
         <source>Deprecation Warning</source>
         <translation>Utfasningsvarning</translation>
     </message>
     <message>
-        <location filename="../../src/mediawidget.cpp" line="155"/>
+        <location filename="../../src/mediawidget.cpp" line="159"/>
         <source>ARTS support is scheduled to be removed soon.
 
 Please upgrade to PulseAudio.</source>
@@ -1364,7 +1370,7 @@ Please upgrade to PulseAudio.</source>
 Var vänlig uppgradera till PulseAudio.</translation>
     </message>
     <message>
-        <location filename="../../src/mediawidget.cpp" line="175"/>
+        <location filename="../../src/mediawidget.cpp" line="179"/>
         <source>ESounD support is scheduled to be removed soon.
 
 Please upgrade to PulseAudio.</source>
@@ -1380,8 +1386,8 @@ Var vänlig uppgradera till PulseAudio.</translation>
         <translation type="obsolete">Startar x2goclient...</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="108"/>
-        <location filename="../../src/onmainwindow.cpp" line="7441"/>
+        <location filename="../../src/onmainwindow.cpp" line="117"/>
+        <location filename="../../src/onmainwindow.cpp" line="7837"/>
         <source>us</source>
         <translation>se</translation>
     </message>
@@ -1390,34 +1396,34 @@ Var vänlig uppgradera till PulseAudio.</translation>
         <translation type="obsolete">pc105/se</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="185"/>
+        <location filename="../../src/onmainwindow.cpp" line="194"/>
         <source>X2Go Client</source>
         <translation>X2Go-klient</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="206"/>
-        <location filename="../../src/onmainwindow.cpp" line="3286"/>
-        <location filename="../../src/onmainwindow.cpp" line="6293"/>
+        <location filename="../../src/onmainwindow.cpp" line="216"/>
+        <location filename="../../src/onmainwindow.cpp" line="3324"/>
+        <location filename="../../src/onmainwindow.cpp" line="6637"/>
         <source>connecting</source>
         <translation>ansluter</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="217"/>
+        <location filename="../../src/onmainwindow.cpp" line="229"/>
         <source>Internet browser</source>
         <translation>Webbläsare</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="218"/>
+        <location filename="../../src/onmainwindow.cpp" line="230"/>
         <source>Email client</source>
         <translation>E-postklient</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="219"/>
+        <location filename="../../src/onmainwindow.cpp" line="231"/>
         <source>OpenOffice.org</source>
         <translation>OpenOffice.org</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="220"/>
+        <location filename="../../src/onmainwindow.cpp" line="232"/>
         <source>Terminal</source>
         <translation>Terminal</translation>
     </message>
@@ -1426,12 +1432,12 @@ Var vänlig uppgradera till PulseAudio.</translation>
         <translation type="obsolete">Startar x2goclient i portabelt läge ... datakatalog är: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="419"/>
+        <location filename="../../src/onmainwindow.cpp" line="427"/>
         <source>&amp;Settings ...</source>
         <translation>&amp;Inställningar...</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="423"/>
+        <location filename="../../src/onmainwindow.cpp" line="431"/>
         <source>Support ...</source>
         <translation>Hjälp ...</translation>
     </message>
@@ -1444,13 +1450,13 @@ Var vänlig uppgradera till PulseAudio.</translation>
         <translation type="obsolete">Startade x2goclient.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="663"/>
+        <location filename="../../src/onmainwindow.cpp" line="681"/>
         <source>Can&apos;t load translator: </source>
         <translation>Kan inte ladda översättare: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="659"/>
-        <location filename="../../src/onmainwindow.cpp" line="687"/>
+        <location filename="../../src/onmainwindow.cpp" line="677"/>
+        <location filename="../../src/onmainwindow.cpp" line="705"/>
         <source>Translator: </source>
         <translation>Översättare: </translation>
     </message>
@@ -1463,16 +1469,16 @@ Var vänlig uppgradera till PulseAudio.</translation>
         <translation type="vanished">Dela mapp ...</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1120"/>
-        <location filename="../../src/onmainwindow.cpp" line="6347"/>
-        <location filename="../../src/onmainwindow.cpp" line="12183"/>
+        <location filename="../../src/onmainwindow.cpp" line="1138"/>
+        <location filename="../../src/onmainwindow.cpp" line="6696"/>
+        <location filename="../../src/onmainwindow.cpp" line="12597"/>
         <source>Suspend</source>
         <translation>Vila</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1121"/>
-        <location filename="../../src/onmainwindow.cpp" line="12021"/>
-        <location filename="../../src/onmainwindow.cpp" line="12185"/>
+        <location filename="../../src/onmainwindow.cpp" line="1139"/>
+        <location filename="../../src/onmainwindow.cpp" line="12435"/>
+        <location filename="../../src/onmainwindow.cpp" line="12599"/>
         <source>Terminate</source>
         <translation>Avsluta</translation>
     </message>
@@ -1481,45 +1487,45 @@ Var vänlig uppgradera till PulseAudio.</translation>
         <translation type="vanished">Återanslut</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11367"/>
+        <location filename="../../src/onmainwindow.cpp" line="11781"/>
         <source>Detach X2Go window</source>
         <translation>Koppla lös X2Go-fönster</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12531"/>
+        <location filename="../../src/onmainwindow.cpp" line="12959"/>
         <source>Minimize toolbar</source>
         <translation>Minimera verktygsrad</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="738"/>
-        <location filename="../../src/onmainwindow.cpp" line="2191"/>
-        <location filename="../../src/onmainwindow.cpp" line="8859"/>
+        <location filename="../../src/onmainwindow.cpp" line="756"/>
+        <location filename="../../src/onmainwindow.cpp" line="2215"/>
+        <location filename="../../src/onmainwindow.cpp" line="9268"/>
         <source>Session:</source>
         <translation>Session:</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="799"/>
+        <location filename="../../src/onmainwindow.cpp" line="817"/>
         <source>&amp;Quit</source>
         <translation>&amp;Avsluta</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="800"/>
+        <location filename="../../src/onmainwindow.cpp" line="818"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="801"/>
-        <location filename="../../src/onmainwindow.cpp" line="1144"/>
+        <location filename="../../src/onmainwindow.cpp" line="819"/>
+        <location filename="../../src/onmainwindow.cpp" line="1162"/>
         <source>Quit</source>
         <translation>Avsluta</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="804"/>
+        <location filename="../../src/onmainwindow.cpp" line="822"/>
         <source>&amp;New session ...</source>
         <translation>&amp;Ny session...</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="805"/>
+        <location filename="../../src/onmainwindow.cpp" line="823"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
@@ -1529,7 +1535,7 @@ Var vänlig uppgradera till PulseAudio.</translation>
         <translation type="obsolete">S&amp;essionshantering...</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="811"/>
+        <location filename="../../src/onmainwindow.cpp" line="829"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
@@ -1546,13 +1552,13 @@ Var vänlig uppgradera till PulseAudio.</translation>
         <translation type="obsolete">&amp;Testa anslutning...</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="848"/>
-        <location filename="../../src/onmainwindow.cpp" line="869"/>
+        <location filename="../../src/onmainwindow.cpp" line="866"/>
+        <location filename="../../src/onmainwindow.cpp" line="887"/>
         <source>Show toolbar</source>
         <translation>Visa verktygsrad</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="854"/>
+        <location filename="../../src/onmainwindow.cpp" line="872"/>
         <source>About Qt</source>
         <translation>Om Qt</translation>
     </message>
@@ -1562,29 +1568,29 @@ Var vänlig uppgradera till PulseAudio.</translation>
         <translation type="obsolete">Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="61"/>
+        <location filename="../../src/onmainwindow.cpp" line="68"/>
         <source>Starting X2Go Client %1...</source>
         <translation>Startar X2Go-klient %1...</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="278"/>
+        <location filename="../../src/onmainwindow.cpp" line="286"/>
         <source>Starting X2Go Client in portable mode. Data directory is: </source>
         <translation>Startar X2Go-klient i portabelt läge. Datakatalog är: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="430"/>
-        <location filename="../../src/onmainwindow.cpp" line="8760"/>
+        <location filename="../../src/onmainwindow.cpp" line="438"/>
+        <location filename="../../src/onmainwindow.cpp" line="9169"/>
         <source>About X2Go Client</source>
         <translation>Om X2Go-klient</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="562"/>
+        <location filename="../../src/onmainwindow.cpp" line="574"/>
         <source>Started X2Go Client.</source>
         <translation>Startade X2Go-klient.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="659"/>
-        <location filename="../../src/onmainwindow.cpp" line="687"/>
+        <location filename="../../src/onmainwindow.cpp" line="677"/>
+        <location filename="../../src/onmainwindow.cpp" line="705"/>
         <source> found.</source>
         <translation> hittad.</translation>
     </message>
@@ -1593,248 +1599,253 @@ Var vänlig uppgradera till PulseAudio.</translation>
         <translation type="obsolete">Engelska begärt, laddar inte översättare.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="693"/>
+        <location filename="../../src/onmainwindow.cpp" line="711"/>
         <source>Non-fatal: can&apos;t load translator: </source>
         <translation>Icke-kritiskt: kan inte ladda översättare: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="694"/>
+        <location filename="../../src/onmainwindow.cpp" line="712"/>
         <source>Trying to load language with lower preference, if existent.</source>
         <translation>Försöker ladda språk med lägre preferens, om det finns.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="810"/>
+        <location filename="../../src/onmainwindow.cpp" line="828"/>
         <source>Session management ...</source>
         <translation>Sessionshantering...</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="821"/>
+        <location filename="../../src/onmainwindow.cpp" line="839"/>
         <source>&amp;Create session icon on desktop ...</source>
         <translation>S&amp;kapa sessionsgenväg på Skrivbordet...</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="830"/>
+        <location filename="../../src/onmainwindow.cpp" line="848"/>
         <source>&amp;Set broker password ...</source>
         <translation>&amp;Ange agentlösenord...</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="841"/>
+        <location filename="../../src/onmainwindow.cpp" line="859"/>
         <source>&amp;Connectivity test ...</source>
         <translation>&amp;Testa anslutning...</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="873"/>
+        <location filename="../../src/onmainwindow.cpp" line="891"/>
         <source>&amp;Session</source>
         <translation>&amp;Session</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="876"/>
+        <location filename="../../src/onmainwindow.cpp" line="894"/>
         <source>&amp;Options</source>
         <translation>&amp;Alternativ</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="898"/>
+        <location filename="../../src/onmainwindow.cpp" line="916"/>
         <source>&amp;Help</source>
         <translation>&amp;Hjälp</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="937"/>
-        <location filename="../../src/onmainwindow.cpp" line="2184"/>
-        <location filename="../../src/onmainwindow.cpp" line="8852"/>
-        <location filename="../../src/onmainwindow.cpp" line="11809"/>
+        <location filename="../../src/onmainwindow.cpp" line="955"/>
+        <location filename="../../src/onmainwindow.cpp" line="2208"/>
+        <location filename="../../src/onmainwindow.cpp" line="9261"/>
+        <location filename="../../src/onmainwindow.cpp" line="12223"/>
         <source>Login:</source>
         <translation>Användare:</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="958"/>
-        <location filename="../../src/onmainwindow.cpp" line="987"/>
-        <location filename="../../src/onmainwindow.cpp" line="1819"/>
-        <location filename="../../src/onmainwindow.cpp" line="1848"/>
-        <location filename="../../src/onmainwindow.cpp" line="1856"/>
-        <location filename="../../src/onmainwindow.cpp" line="2004"/>
-        <location filename="../../src/onmainwindow.cpp" line="2031"/>
-        <location filename="../../src/onmainwindow.cpp" line="2034"/>
-        <location filename="../../src/onmainwindow.cpp" line="2248"/>
-        <location filename="../../src/onmainwindow.cpp" line="2430"/>
-        <location filename="../../src/onmainwindow.cpp" line="2446"/>
-        <location filename="../../src/onmainwindow.cpp" line="2460"/>
-        <location filename="../../src/onmainwindow.cpp" line="2494"/>
-        <location filename="../../src/onmainwindow.cpp" line="2539"/>
-        <location filename="../../src/onmainwindow.cpp" line="3818"/>
-        <location filename="../../src/onmainwindow.cpp" line="4045"/>
-        <location filename="../../src/onmainwindow.cpp" line="4054"/>
-        <location filename="../../src/onmainwindow.cpp" line="4434"/>
-        <location filename="../../src/onmainwindow.cpp" line="5012"/>
-        <location filename="../../src/onmainwindow.cpp" line="5093"/>
-        <location filename="../../src/onmainwindow.cpp" line="5162"/>
-        <location filename="../../src/onmainwindow.cpp" line="5192"/>
-        <location filename="../../src/onmainwindow.cpp" line="5236"/>
-        <location filename="../../src/onmainwindow.cpp" line="5671"/>
-        <location filename="../../src/onmainwindow.cpp" line="5701"/>
-        <location filename="../../src/onmainwindow.cpp" line="5857"/>
-        <location filename="../../src/onmainwindow.cpp" line="7017"/>
-        <location filename="../../src/onmainwindow.cpp" line="7047"/>
-        <location filename="../../src/onmainwindow.cpp" line="7927"/>
-        <location filename="../../src/onmainwindow.cpp" line="8043"/>
-        <location filename="../../src/onmainwindow.cpp" line="8125"/>
-        <location filename="../../src/onmainwindow.cpp" line="8395"/>
-        <location filename="../../src/onmainwindow.cpp" line="8446"/>
-        <location filename="../../src/onmainwindow.cpp" line="8509"/>
+        <location filename="../../src/onmainwindow.cpp" line="976"/>
+        <location filename="../../src/onmainwindow.cpp" line="1005"/>
+        <location filename="../../src/onmainwindow.cpp" line="1843"/>
+        <location filename="../../src/onmainwindow.cpp" line="1872"/>
+        <location filename="../../src/onmainwindow.cpp" line="1880"/>
+        <location filename="../../src/onmainwindow.cpp" line="2028"/>
+        <location filename="../../src/onmainwindow.cpp" line="2055"/>
+        <location filename="../../src/onmainwindow.cpp" line="2058"/>
+        <location filename="../../src/onmainwindow.cpp" line="2272"/>
+        <location filename="../../src/onmainwindow.cpp" line="2454"/>
+        <location filename="../../src/onmainwindow.cpp" line="2470"/>
+        <location filename="../../src/onmainwindow.cpp" line="2484"/>
+        <location filename="../../src/onmainwindow.cpp" line="2518"/>
+        <location filename="../../src/onmainwindow.cpp" line="2563"/>
+        <location filename="../../src/onmainwindow.cpp" line="3878"/>
+        <location filename="../../src/onmainwindow.cpp" line="4177"/>
+        <location filename="../../src/onmainwindow.cpp" line="4186"/>
+        <location filename="../../src/onmainwindow.cpp" line="4579"/>
+        <location filename="../../src/onmainwindow.cpp" line="5204"/>
+        <location filename="../../src/onmainwindow.cpp" line="5308"/>
+        <location filename="../../src/onmainwindow.cpp" line="5377"/>
+        <location filename="../../src/onmainwindow.cpp" line="5414"/>
+        <location filename="../../src/onmainwindow.cpp" line="5458"/>
+        <location filename="../../src/onmainwindow.cpp" line="5917"/>
+        <location filename="../../src/onmainwindow.cpp" line="5947"/>
+        <location filename="../../src/onmainwindow.cpp" line="6197"/>
+        <location filename="../../src/onmainwindow.cpp" line="7397"/>
+        <location filename="../../src/onmainwindow.cpp" line="7427"/>
+        <location filename="../../src/onmainwindow.cpp" line="8323"/>
+        <location filename="../../src/onmainwindow.cpp" line="8439"/>
+        <location filename="../../src/onmainwindow.cpp" line="8521"/>
         <location filename="../../src/onmainwindow.cpp" line="8803"/>
-        <location filename="../../src/onmainwindow.cpp" line="8805"/>
-        <location filename="../../src/onmainwindow.cpp" line="9095"/>
-        <location filename="../../src/onmainwindow.cpp" line="9151"/>
-        <location filename="../../src/onmainwindow.cpp" line="9515"/>
-        <location filename="../../src/onmainwindow.cpp" line="9534"/>
-        <location filename="../../src/onmainwindow.cpp" line="9593"/>
-        <location filename="../../src/onmainwindow.cpp" line="9621"/>
-        <location filename="../../src/onmainwindow.cpp" line="9643"/>
-        <location filename="../../src/onmainwindow.cpp" line="9664"/>
-        <location filename="../../src/onmainwindow.cpp" line="9682"/>
+        <location filename="../../src/onmainwindow.cpp" line="8855"/>
+        <location filename="../../src/onmainwindow.cpp" line="8918"/>
+        <location filename="../../src/onmainwindow.cpp" line="9212"/>
+        <location filename="../../src/onmainwindow.cpp" line="9214"/>
+        <location filename="../../src/onmainwindow.cpp" line="9504"/>
+        <location filename="../../src/onmainwindow.cpp" line="9560"/>
+        <location filename="../../src/onmainwindow.cpp" line="9924"/>
+        <location filename="../../src/onmainwindow.cpp" line="9943"/>
+        <location filename="../../src/onmainwindow.cpp" line="10002"/>
+        <location filename="../../src/onmainwindow.cpp" line="10030"/>
+        <location filename="../../src/onmainwindow.cpp" line="10052"/>
+        <location filename="../../src/onmainwindow.cpp" line="10073"/>
+        <location filename="../../src/onmainwindow.cpp" line="10091"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="958"/>
+        <location filename="../../src/onmainwindow.cpp" line="976"/>
         <source>Operation failed</source>
         <translation>Operation misslyckades</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="962"/>
+        <location filename="../../src/onmainwindow.cpp" line="980"/>
         <source>Password changed</source>
         <translation>Lösenord ändrat</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="987"/>
+        <location filename="../../src/onmainwindow.cpp" line="1005"/>
         <source>Wrong password!</source>
         <translation>Fel lösenord!</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="991"/>
-        <location filename="../../src/onmainwindow.cpp" line="3320"/>
-        <location filename="../../src/onmainwindow.cpp" line="12703"/>
+        <location filename="../../src/onmainwindow.cpp" line="1009"/>
+        <location filename="../../src/onmainwindow.cpp" line="3358"/>
+        <location filename="../../src/onmainwindow.cpp" line="13131"/>
         <source>Connecting to broker</source>
         <translation>Ansluter till agent</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1040"/>
+        <location filename="../../src/onmainwindow.cpp" line="1058"/>
         <source>&lt;b&gt;Authentication&lt;/b&gt;</source>
         <translation>&lt;b&gt;Autentisering&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1089"/>
+        <location filename="../../src/onmainwindow.cpp" line="1107"/>
         <source>Restore</source>
         <translation>Återställ</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1091"/>
-        <location filename="../../src/onmainwindow.cpp" line="6148"/>
+        <location filename="../../src/onmainwindow.cpp" line="1109"/>
+        <location filename="../../src/onmainwindow.cpp" line="6491"/>
         <source>Not connected</source>
         <translation>Ej ansluten</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1093"/>
+        <location filename="../../src/onmainwindow.cpp" line="1111"/>
         <source>Multimedia</source>
         <translation>Ljud och video</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1095"/>
+        <location filename="../../src/onmainwindow.cpp" line="1113"/>
         <source>Development</source>
         <translation>Programmering</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1097"/>
+        <location filename="../../src/onmainwindow.cpp" line="1115"/>
         <source>Education</source>
         <translation>Utbildning</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1099"/>
+        <location filename="../../src/onmainwindow.cpp" line="1117"/>
         <source>Game</source>
         <translation>Spel</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1101"/>
+        <location filename="../../src/onmainwindow.cpp" line="1119"/>
         <source>Graphics</source>
         <translation>Grafik</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1103"/>
+        <location filename="../../src/onmainwindow.cpp" line="1121"/>
         <source>Network</source>
         <translation>Nätverk</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1105"/>
+        <location filename="../../src/onmainwindow.cpp" line="1123"/>
         <source>Office</source>
         <translation>Kontor</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1107"/>
+        <location filename="../../src/onmainwindow.cpp" line="1125"/>
         <source>Settings</source>
         <translation>Inställningar</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1109"/>
+        <location filename="../../src/onmainwindow.cpp" line="1127"/>
         <source>System</source>
         <translation>System</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1111"/>
+        <location filename="../../src/onmainwindow.cpp" line="1129"/>
         <source>Utility</source>
         <translation>Verktyg</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1113"/>
+        <location filename="../../src/onmainwindow.cpp" line="1131"/>
         <source>Other</source>
         <translation>Övrigt</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1119"/>
-        <location filename="../../src/onmainwindow.cpp" line="12008"/>
+        <location filename="../../src/onmainwindow.cpp" line="1137"/>
+        <location filename="../../src/onmainwindow.cpp" line="12422"/>
         <source>Share folder ...</source>
         <translation>Dela mapp ...</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1155"/>
+        <location filename="../../src/onmainwindow.cpp" line="1176"/>
+        <source>A click displays the context menu.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/onmainwindow.cpp" line="1178"/>
         <source>A left click hides or restores the window. A right click displays the context menu.</source>
         <translation>Vänster musknapp för att dölja/återställa. Höger musknapp för att visa snabbmeny.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1340"/>
+        <location filename="../../src/onmainwindow.cpp" line="1364"/>
         <source>Closing X2Go Client ...</source>
         <translation>Stänger X2Go-klient...</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1498"/>
+        <location filename="../../src/onmainwindow.cpp" line="1522"/>
         <source>Finished X2Go Client closing hooks.</source>
         <translation>Slutförde X2Go-klientens avslutshookar.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1771"/>
+        <location filename="../../src/onmainwindow.cpp" line="1795"/>
         <source>Broker authentication failed!</source>
         <translation>Autentisering till agent misslyckades!</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1855"/>
+        <location filename="../../src/onmainwindow.cpp" line="1879"/>
         <source>no X2Go Server found in LDAP </source>
         <translation>ingen X2Go-server hittades i LDAP </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="2879"/>
+        <location filename="../../src/onmainwindow.cpp" line="2903"/>
         <source>Connection error: </source>
         <translation>Anslutningsfel: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="2960"/>
+        <location filename="../../src/onmainwindow.cpp" line="2998"/>
         <source>Couldn&apos;t find an SSH connection.</source>
         <translation>Kunde inte hitta en SSH-anslutning.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3057"/>
+        <location filename="../../src/onmainwindow.cpp" line="3095"/>
         <source>Enter user account password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3124"/>
+        <location filename="../../src/onmainwindow.cpp" line="3162"/>
         <source>This can be an indication of a man-in-the-middle attack.
 Somebody might be eavesdropping on you.
 For security reasons, it is recommended to stop the connection attempt.
@@ -1847,17 +1858,17 @@ Vill du avsluta anslutningen?
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3128"/>
-        <location filename="../../src/onmainwindow.cpp" line="3139"/>
-        <location filename="../../src/onmainwindow.cpp" line="3156"/>
-        <location filename="../../src/onmainwindow.cpp" line="3167"/>
-        <location filename="../../src/onmainwindow.cpp" line="3199"/>
-        <location filename="../../src/onmainwindow.cpp" line="3211"/>
+        <location filename="../../src/onmainwindow.cpp" line="3166"/>
+        <location filename="../../src/onmainwindow.cpp" line="3177"/>
+        <location filename="../../src/onmainwindow.cpp" line="3194"/>
+        <location filename="../../src/onmainwindow.cpp" line="3205"/>
+        <location filename="../../src/onmainwindow.cpp" line="3237"/>
+        <location filename="../../src/onmainwindow.cpp" line="3249"/>
         <source>Host key verification failed.</source>
         <translation>Verifiering av serverns nyckel misslyckades.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3151"/>
+        <location filename="../../src/onmainwindow.cpp" line="3189"/>
         <source>The host key for this server was not found but another type of key exists. An attacker might have changed the default server key to trick your client into thinking the key does not exist yet.
 For security reasons, it is recommended to stop the connection attempt.
 Do you want to terminate the connection?
@@ -1868,55 +1879,60 @@ Vill du avsluta anslutningen?
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3190"/>
+        <location filename="../../src/onmainwindow.cpp" line="3228"/>
         <source>Could not find known hosts file. If you accept the host key here, the file will be automatically created.</source>
         <translation>Hittar ej fil för kända servrar. Om du accepterar serverns nyckel så kommer filen att skapas automatiskt.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3245"/>
+        <location filename="../../src/onmainwindow.cpp" line="3283"/>
         <source>Authentication failed.</source>
         <translation>Autentisering misslyckades.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3537"/>
+        <location filename="../../src/onmainwindow.cpp" line="3575"/>
         <source>XDM</source>
         <translation>XDM</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3543"/>
+        <location filename="../../src/onmainwindow.cpp" line="3581"/>
         <source>RDP</source>
         <translation>RDP</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3809"/>
-        <location filename="../../src/onmainwindow.cpp" line="5086"/>
-        <location filename="../../src/onmainwindow.cpp" line="5185"/>
-        <location filename="../../src/onmainwindow.cpp" line="5218"/>
-        <location filename="../../src/onmainwindow.cpp" line="8036"/>
-        <location filename="../../src/onmainwindow.cpp" line="8118"/>
-        <location filename="../../src/onmainwindow.cpp" line="8437"/>
-        <location filename="../../src/onmainwindow.cpp" line="8501"/>
-        <location filename="../../src/onmainwindow.cpp" line="9508"/>
+        <location filename="../../src/onmainwindow.cpp" line="3869"/>
+        <location filename="../../src/onmainwindow.cpp" line="5301"/>
+        <location filename="../../src/onmainwindow.cpp" line="5407"/>
+        <location filename="../../src/onmainwindow.cpp" line="5440"/>
+        <location filename="../../src/onmainwindow.cpp" line="8432"/>
+        <location filename="../../src/onmainwindow.cpp" line="8514"/>
+        <location filename="../../src/onmainwindow.cpp" line="8846"/>
+        <location filename="../../src/onmainwindow.cpp" line="8910"/>
+        <location filename="../../src/onmainwindow.cpp" line="9917"/>
         <source>&lt;b&gt;Connection failed.&lt;/b&gt;
 </source>
         <translation>&lt;b&gt;Anslutning misslyckades.&lt;/b&gt;
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4046"/>
+        <location filename="../../src/onmainwindow.cpp" line="4178"/>
         <source>No server available.</source>
         <translation>Ingen server tillgänglig.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4055"/>
-        <location filename="../../src/onmainwindow.cpp" line="4435"/>
-        <location filename="../../src/onmainwindow.cpp" line="5013"/>
-        <location filename="../../src/onmainwindow.cpp" line="5163"/>
+        <location filename="../../src/onmainwindow.cpp" line="4187"/>
+        <location filename="../../src/onmainwindow.cpp" line="4580"/>
+        <location filename="../../src/onmainwindow.cpp" line="5205"/>
+        <location filename="../../src/onmainwindow.cpp" line="5378"/>
         <source>Server not available.</source>
         <translation>Server ej tillgänglig.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4801"/>
+        <location filename="../../src/onmainwindow.cpp" line="4922"/>
+        <source>X2GoKDrive session</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/onmainwindow.cpp" line="4957"/>
         <source>No accessible desktop found.</source>
         <translation>Inget tillgängligt Skrivbord hittades.</translation>
     </message>
@@ -1929,12 +1945,12 @@ Vill du avsluta anslutningen?
         <translation type="obsolete"> bitar och startar om X.Org-servern innan du återansluter till denna X2Go-session.&lt;br&gt;Återanslut session ändå?</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4936"/>
+        <location filename="../../src/onmainwindow.cpp" line="5106"/>
         <source>Your current color depth is different from the session&apos;s color depth. This may cause problems reconnecting to this session and in most cases &lt;b&gt;you will lose the session&lt;/b&gt; and have to start a new one! </source>
         <translation>Ditt nuvarande färgdjup avviker från sessionens färgdjup. Det kan orsaka problem vid återanslutning till denna session och oftast &lt;b&gt;tappar du sessionen&lt;/b&gt; och måste starta en ny! </translation>
     </message>
     <message numerus="yes">
-        <location filename="../../src/onmainwindow.cpp" line="4941"/>
+        <location filename="../../src/onmainwindow.cpp" line="5111"/>
         <source>It&apos;s highly recommended to change the color depth of your display to %n bit(s) and restart your X.Org Server before you reconnect to this X2Go session.</source>
         <comment>%n will be replaced with a number</comment>
         <translation>
@@ -1943,57 +1959,58 @@ Vill du avsluta anslutningen?
         </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4947"/>
+        <location filename="../../src/onmainwindow.cpp" line="5117"/>
         <source>&lt;br /&gt;Do you want to resume this session anyway?</source>
         <translation>&lt;br /&gt;Vill du återansluta ändå?</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="5332"/>
+        <location filename="../../src/onmainwindow.cpp" line="5563"/>
         <source>PulseAudio is not running</source>
         <translation>PulseAudio är inte aktivt</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="5333"/>
+        <location filename="../../src/onmainwindow.cpp" line="5564"/>
         <source>Sound output will be disabled for this session. Please enable PulseAudio in the configuration dialog or disable sound in the session settings</source>
         <translation>Ljudutmatning deaktiveras för denna session. Var vänlig aktivera PulseAudio i konfigurationen eller deaktivera ljud i sessionsinställningarna</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6078"/>
+        <location filename="../../src/onmainwindow.cpp" line="6418"/>
         <source>Failed to start RDP or XDMCP client</source>
         <translation>Start av RDP- eller XDMCP-klient misslyckades</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6079"/>
+        <location filename="../../src/onmainwindow.cpp" line="6419"/>
         <source>Check session settings and ensure that selected client is installed on your system.</source>
         <translation>Kontrollera sessionsinställningar och verifiera att den valda klienten är installerad i ditt system.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6170"/>
+        <location filename="../../src/onmainwindow.cpp" line="6513"/>
         <source>Proxy didn&apos;t terminate after 3 seconds. Killing the proxy.</source>
         <translation>Proxy avslutade inte efter 3 sekunder. Dödar proxy.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6215"/>
-        <location filename="../../src/onmainwindow.cpp" line="9545"/>
+        <location filename="../../src/onmainwindow.cpp" line="6558"/>
+        <location filename="../../src/onmainwindow.cpp" line="9954"/>
         <source>Closing X2Go Client because it was started in hidden mode.</source>
         <translation>Avslutar X2Go-klienten eftersom den startades i dolt läge.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6220"/>
-        <location filename="../../src/onmainwindow.cpp" line="9550"/>
+        <location filename="../../src/onmainwindow.cpp" line="6563"/>
+        <location filename="../../src/onmainwindow.cpp" line="9959"/>
         <source>Closing X2Go Client because the --close-disconnect parameter was passed.</source>
         <translation>Avslutar X2Go-klienten eftersom --close-disconnect angavs som inparameter.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6560"/>
+        <location filename="../../src/onmainwindow.cpp" line="6899"/>
+        <location filename="../../src/onmainwindow.cpp" line="6936"/>
         <source>Are you sure you want to terminate this session?
 Unsaved documents will be lost.</source>
         <translation>Är du säker på att du vill avsluta sessionen?
 Data som ej sparats kommer att förloras.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7011"/>
-        <location filename="../../src/onmainwindow.cpp" line="7041"/>
+        <location filename="../../src/onmainwindow.cpp" line="7391"/>
+        <location filename="../../src/onmainwindow.cpp" line="7421"/>
         <source>&lt;b&gt;Connection failed.&lt;/b&gt;
 :
 </source>
@@ -2002,136 +2019,136 @@ Data som ej sparats kommer att förloras.</translation>
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7609"/>
-        <location filename="../../src/onmainwindow.cpp" line="7620"/>
-        <location filename="../../src/onmainwindow.cpp" line="7631"/>
-        <location filename="../../src/onmainwindow.cpp" line="7670"/>
+        <location filename="../../src/onmainwindow.cpp" line="8005"/>
+        <location filename="../../src/onmainwindow.cpp" line="8016"/>
+        <location filename="../../src/onmainwindow.cpp" line="8027"/>
+        <location filename="../../src/onmainwindow.cpp" line="8066"/>
         <source> (file does not exist)</source>
         <translation> (filen finns inte)</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7658"/>
+        <location filename="../../src/onmainwindow.cpp" line="8054"/>
         <source> (directory does not exist)</source>
         <translation> (mapp finns inte)</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7728"/>
+        <location filename="../../src/onmainwindow.cpp" line="8124"/>
         <source>Invalid value for parameter &quot;--link&quot;.</source>
         <translation>Fel värde för &quot;--link&quot;.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7745"/>
+        <location filename="../../src/onmainwindow.cpp" line="8141"/>
         <source>Invalid value for parameter &quot;--clipboard&quot;.</source>
         <translation>Fel värde för argument &quot;--clipboard&quot;.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7761"/>
+        <location filename="../../src/onmainwindow.cpp" line="8157"/>
         <source>Invalid value for parameter &quot;--sound&quot;.</source>
         <translation>Fel värde för &quot;--sound&quot;.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7777"/>
-        <location filename="../../src/onmainwindow.cpp" line="7787"/>
+        <location filename="../../src/onmainwindow.cpp" line="8173"/>
+        <location filename="../../src/onmainwindow.cpp" line="8183"/>
         <source>Invalid value for parameter &quot;--geometry&quot;.</source>
         <translation>Fel värde för &quot;--geometry&quot;.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7804"/>
+        <location filename="../../src/onmainwindow.cpp" line="8200"/>
         <source>Invalid value for parameter &quot;--set-kbd&quot;.</source>
         <translation>Fel värde för &quot;--set-kbd&quot;.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7820"/>
+        <location filename="../../src/onmainwindow.cpp" line="8216"/>
         <source>Invalid value for parameter &quot;--ldap&quot;.</source>
         <translation>Fel värde för &quot;--ldap&quot;.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7841"/>
+        <location filename="../../src/onmainwindow.cpp" line="8237"/>
         <source>Invalid value for parameter &quot;--ldap1&quot;.</source>
         <translation>Fel värde för &quot;--ldap1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7860"/>
+        <location filename="../../src/onmainwindow.cpp" line="8256"/>
         <source>Invalid value for parameter &quot;--ldap2&quot;.</source>
         <translation>Fel värde för &quot;--ldap2&quot;.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7914"/>
+        <location filename="../../src/onmainwindow.cpp" line="8310"/>
         <source>Invalid value for parameter &quot;--pack&quot;.</source>
         <translation>Fel värde för &quot;--pack&quot;.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7949"/>
+        <location filename="../../src/onmainwindow.cpp" line="8345"/>
         <source>Available pack methods:</source>
         <translation>Tillgängliga kompressionsmetoder:</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7971"/>
+        <location filename="../../src/onmainwindow.cpp" line="8367"/>
         <source>Pack Methods</source>
         <translation>Kompressionsmetoder</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="8001"/>
-        <location filename="../../src/onmainwindow.cpp" line="8011"/>
+        <location filename="../../src/onmainwindow.cpp" line="8397"/>
+        <location filename="../../src/onmainwindow.cpp" line="8407"/>
         <source>Option is not available in this build.</source>
         <translation>Alternativet är inte tillgängligt i denna version.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="8393"/>
+        <location filename="../../src/onmainwindow.cpp" line="8801"/>
         <source>Unable to create directory:</source>
         <translation>Kunde ej skapa katalog:</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="8744"/>
+        <location filename="../../src/onmainwindow.cpp" line="9153"/>
         <source>&lt;br&gt;(C) 2005-2019 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</source>
         <translation>&lt;br&gt;(C) 2005-2019 av &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9026"/>
+        <location filename="../../src/onmainwindow.cpp" line="9435"/>
         <source>Check whether the package providing &quot;pcsc_scan&quot; is installed.
 The current search path is: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9642"/>
+        <location filename="../../src/onmainwindow.cpp" line="10051"/>
         <source>Unable to create or append to file: </source>
         <translation>Kunde ej skapa eller lägga till fil: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9662"/>
+        <location filename="../../src/onmainwindow.cpp" line="10071"/>
         <source>Unable to change the permissions of file: </source>
         <translation>Kunde ej ändra rättigheter på fil: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9663"/>
+        <location filename="../../src/onmainwindow.cpp" line="10072"/>
         <source>This is an error because sshd would deny such a file.</source>
         <translation>Detta är ett fel eftersom sshd skulle neka en sådan fil.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9680"/>
+        <location filename="../../src/onmainwindow.cpp" line="10089"/>
         <source>Unable to change the permissions of directory: </source>
         <translation>Kunde ej ändra rättigheter på katalog: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9681"/>
+        <location filename="../../src/onmainwindow.cpp" line="10090"/>
         <source>This is an error because sshd would deny such a directory.</source>
         <translation>Detta är ett fel eftersom sshd skulle neka en sådan katalog.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10120"/>
-        <location filename="../../src/onmainwindow.cpp" line="10203"/>
+        <location filename="../../src/onmainwindow.cpp" line="10529"/>
+        <location filename="../../src/onmainwindow.cpp" line="10612"/>
         <source>Can&apos;t start X.Org Server.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10122"/>
-        <location filename="../../src/onmainwindow.cpp" line="10153"/>
-        <location filename="../../src/onmainwindow.cpp" line="10205"/>
+        <location filename="../../src/onmainwindow.cpp" line="10531"/>
+        <location filename="../../src/onmainwindow.cpp" line="10562"/>
+        <location filename="../../src/onmainwindow.cpp" line="10614"/>
         <source>Please check your installation.</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../../src/onmainwindow.cpp" line="10151"/>
+        <location filename="../../src/onmainwindow.cpp" line="10560"/>
         <source>X.Org Server did not launch correctly after %n tries.</source>
         <comment>%n will be substituted with the current number of tries</comment>
         <translation type="unfinished">
@@ -2140,12 +2157,12 @@ The current search path is: </source>
         </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10480"/>
+        <location filename="../../src/onmainwindow.cpp" line="10893"/>
         <source>Unable to find the sftp-server binary. Neither bundled, nor found in $PATH nor additional directories.</source>
         <translation>Kunde ej hitta binär för sftp-server. Varken som medskickad eller i $PATH eller i ytterligare sökvägar.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10481"/>
+        <location filename="../../src/onmainwindow.cpp" line="10894"/>
         <source>If you are using a Linux-based operating system, please ask your system administrator to install the package containing the sftp-server binary. Common names are &lt;b&gt;openssh&lt;/b&gt;, &lt;b&gt;openssh-server&lt;/b&gt; or &lt;b&gt;openssh-sftp-server&lt;/b&gt; depending upon distribution.
 
 If the sftp-server binary is installed on your system, please report a bug mentioning its path on:
@@ -2158,87 +2175,87 @@ Om sftp-server finns installerat på ditt system, var vänlig rapportera felet (
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10523"/>
+        <location filename="../../src/onmainwindow.cpp" line="10936"/>
         <source>SSH key type selection error</source>
         <translation>Ett fel uppstod vid val av nyckeltyp för SSH</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10524"/>
+        <location filename="../../src/onmainwindow.cpp" line="10937"/>
         <source>Unknown SSH key selected.</source>
         <translation>Okänd SSH-nyckel vald.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10526"/>
-        <location filename="../../src/onmainwindow.cpp" line="10602"/>
-        <location filename="../../src/onmainwindow.cpp" line="10681"/>
-        <location filename="../../src/onmainwindow.cpp" line="10689"/>
-        <location filename="../../src/onmainwindow.cpp" line="10699"/>
+        <location filename="../../src/onmainwindow.cpp" line="10939"/>
+        <location filename="../../src/onmainwindow.cpp" line="11015"/>
+        <location filename="../../src/onmainwindow.cpp" line="11094"/>
+        <location filename="../../src/onmainwindow.cpp" line="11102"/>
+        <location filename="../../src/onmainwindow.cpp" line="11112"/>
         <source>Terminating application.</source>
         <translation>Avslutar applikation.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10599"/>
+        <location filename="../../src/onmainwindow.cpp" line="11012"/>
         <source>SSH key base directory creation error</source>
         <translation>Ett fel uppstod vid skapande av katalog för SSH-nyckel</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10600"/>
+        <location filename="../../src/onmainwindow.cpp" line="11013"/>
         <source>Unable to create SSH key base directory &apos;%1&apos;.</source>
         <translation>Kunde ej skapa katalog &apos;%1&apos; för SSH-nyckel.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10678"/>
+        <location filename="../../src/onmainwindow.cpp" line="11091"/>
         <source>ssh-keygen launching error</source>
         <translation>Ett fel uppstod när ssh-keygen skulle startas</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10679"/>
+        <location filename="../../src/onmainwindow.cpp" line="11092"/>
         <source>Unable to start the ssh-keygen binary.</source>
         <translation>Kunde ej starta ssh-keygen.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10686"/>
+        <location filename="../../src/onmainwindow.cpp" line="11099"/>
         <source>ssh-keygen crashed</source>
         <translation>ssh-keygen kraschade</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10687"/>
+        <location filename="../../src/onmainwindow.cpp" line="11100"/>
         <source>The ssh-keygen binary crashed.</source>
         <translation>ssh-keygen kraschade.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10694"/>
+        <location filename="../../src/onmainwindow.cpp" line="11107"/>
         <source>ssh-keygen program error</source>
         <translation>ssh-keygen avslutades med felkod</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10695"/>
+        <location filename="../../src/onmainwindow.cpp" line="11108"/>
         <source>The ssh-keygen binary did not exit cleanly.</source>
         <translation>ssh-keygen avslutades inte korrekt.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10697"/>
+        <location filename="../../src/onmainwindow.cpp" line="11110"/>
         <source>It was probably called with unknown arguments.</source>
         <translation>Det var sannolikt anropat med okända inparametrar.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10756"/>
+        <location filename="../../src/onmainwindow.cpp" line="11169"/>
         <source>Unable to open newly generated %1 public host key file.</source>
         <translation>Kunde ej öppna nyligen genererad %1 publik nyckelfil.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10776"/>
+        <location filename="../../src/onmainwindow.cpp" line="11189"/>
         <source>%1 public host key file empty.</source>
         <translation>%1 publik nyckelfil tom.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="10782"/>
+        <location filename="../../src/onmainwindow.cpp" line="11195"/>
         <source>Cannot open key: </source>
         <translation>Kan inte öppna nyckel: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12405"/>
-        <location filename="../../src/onmainwindow.cpp" line="12436"/>
+        <location filename="../../src/onmainwindow.cpp" line="12833"/>
+        <location filename="../../src/onmainwindow.cpp" line="12864"/>
         <source>You have enabled Remote Printing or File Sharing.
 These features require a running and functioning SSH server on your computer.
 &lt;b&gt;Printing and File Sharing will be disabled for this session.&lt;/b&gt;
@@ -2251,7 +2268,7 @@ Dessa funktioner kräver en aktiv och fungerande SSH-server på din dator.
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12409"/>
+        <location filename="../../src/onmainwindow.cpp" line="12837"/>
         <source>Normally, this should not happen as X2Go Client for Windows ships its own internal SSH server.
 
 If you see this message, please report a bug on:
@@ -2262,7 +2279,7 @@ Om du ser detta meddelande, var vänlig rapportera en bug på:
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12414"/>
+        <location filename="../../src/onmainwindow.cpp" line="12842"/>
         <source>The SSH server failed to start.
 
 Please report a bug on:
@@ -2272,15 +2289,15 @@ Please report a bug on:
 Var vänlig rapportera en bug på:</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12418"/>
-        <location filename="../../src/onmainwindow.cpp" line="12450"/>
+        <location filename="../../src/onmainwindow.cpp" line="12846"/>
+        <location filename="../../src/onmainwindow.cpp" line="12878"/>
         <source>&lt;center&gt;&lt;a href=&quot;https://wiki.x2go.org/doku.php/wiki:bugs&quot;&gt;https://wiki.x2go.org/doku.php/wiki:bugs&lt;/a&gt;&lt;/center&gt;
 </source>
         <translation>&lt;center&gt;&lt;a href=&quot;https://wiki.x2go.org/doku.php/wiki:bugs&quot;&gt;https://wiki.x2go.org/doku.php/wiki:bugs&lt;/a&gt;&lt;/center&gt;
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12440"/>
+        <location filename="../../src/onmainwindow.cpp" line="12868"/>
         <source>Normally, this should not happen as X2Go Client for Windows ships its own internal SSH server and automatically generates the required keys.
 
 If you see this message, please report a bug on:
@@ -2291,7 +2308,7 @@ Om du ser detta meddelande, var vänlig rapportera en bug på:
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12446"/>
+        <location filename="../../src/onmainwindow.cpp" line="12874"/>
         <source>X2Go Client was unable to create SSH host keys.
 
 Please report a bug on:
@@ -2302,12 +2319,12 @@ Var vänlig rapportera en bug på:
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12845"/>
+        <location filename="../../src/onmainwindow.cpp" line="13273"/>
         <source>libssh initialization failure</source>
         <translation>initaliseringsfel i libssh</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12846"/>
+        <location filename="../../src/onmainwindow.cpp" line="13274"/>
         <source>Unable to initialize libssh.</source>
         <translation>Kan ej initialisera libssh.</translation>
     </message>
@@ -2320,17 +2337,17 @@ Var vänlig rapportera en bug på:
         <translation type="vanished">&lt;br&gt;X2Go Plugin sponsrades av &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="8747"/>
+        <location filename="../../src/onmainwindow.cpp" line="9156"/>
         <source>&lt;br&gt;This is a client to access the X2Go network-based computing environment. This client will be able to connect to X2Go Server(s) and start, stop, resume and terminate (running) desktop sessions. X2Go Client stores different server connections and may automatically request authentication data from LDAP directories. Furthermore, it can be used as a fullscreen login screen (replacement for login managers like XDM). Please visit &lt;a href=&quot;http://www.x2go.org&quot;&gt;the project home page at x2go.org&lt;/a&gt; for further information.</source>
         <translation>&lt;br&gt;Klient för X2Go. Denna klient kan ansluta till X2Go-servrar och starta/stoppa/återansluta/avsluta (aktiva) sessioner. X2Go-klienten kan spara anslutningsinställningar samt använda LDAP för autentisering. Klienten kan även användas som inloggningsskärm (ersättning för exempelvis XDM). Besök &lt;a href=&quot;http://www.x2go.org&quot;&gt;projektets hemsida på x2go.org&lt;/a&gt; för vidare information.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="8761"/>
+        <location filename="../../src/onmainwindow.cpp" line="9170"/>
         <source>&lt;b&gt;X2Go Client v. </source>
         <translation>&lt;b&gt;X2Go-klient V. </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="8806"/>
+        <location filename="../../src/onmainwindow.cpp" line="9215"/>
         <source>Please check LDAP Settings.</source>
         <translation>Kontrollera LDAP-inställningar.</translation>
     </message>
@@ -2341,48 +2358,48 @@ The current search path is: </source>
 Aktuell sökväg är: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9038"/>
+        <location filename="../../src/onmainwindow.cpp" line="9447"/>
         <source>didn&apos;t start yet.</source>
         <translation>har inte startat ännu.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9048"/>
+        <location filename="../../src/onmainwindow.cpp" line="9457"/>
         <source>Unable to read from scdaemon.</source>
         <translation>Kunde ej läsa från scdaemon.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9096"/>
+        <location filename="../../src/onmainwindow.cpp" line="9505"/>
         <source>No valid card found.</source>
         <translation>Inget giltigt kort hittades.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9152"/>
+        <location filename="../../src/onmainwindow.cpp" line="9561"/>
         <source>This card is unknown to the X2Go system.</source>
         <translation>Detta kort är okänt för X2Go-systemet.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9364"/>
+        <location filename="../../src/onmainwindow.cpp" line="9773"/>
         <source>Can&apos;t start X.Org Server.
 Please check your installation.</source>
         <translation>Kan ej starta X.Org-server.
 Kontrollera installation.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9566"/>
+        <location filename="../../src/onmainwindow.cpp" line="9975"/>
         <source>Remote server does not support file system exports through SSH tunnels.
 Please update your x2goserver package.</source>
         <translation>Servern stöder ej filsystemsexport via SSH-tunnel.
 Uppdatera till en nyare version av x2goserver.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9591"/>
+        <location filename="../../src/onmainwindow.cpp" line="10000"/>
         <source>Unable to create SSH tunnel for Folder Sharing and Printing support:
 </source>
         <translation>Kunde inte skapa SSH-tunnel för mappdelning och skrivarstöd:
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9620"/>
+        <location filename="../../src/onmainwindow.cpp" line="10029"/>
         <source>Unable to read:
 </source>
         <translation>Kunde ej läsa:
@@ -2395,22 +2412,22 @@ Uppdatera till en nyare version av x2goserver.</translation>
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11141"/>
+        <location filename="../../src/onmainwindow.cpp" line="11555"/>
         <source>Error getting window geometry. (Did you close the window?)</source>
         <translation>Ett fel uppstod när fönstergeometri hämtades (fönster stängt?)</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11630"/>
+        <location filename="../../src/onmainwindow.cpp" line="12044"/>
         <source>Invalid value for argument &quot;speed&quot;</source>
         <translation>Fel värde för &quot;speed&quot;</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12001"/>
+        <location filename="../../src/onmainwindow.cpp" line="12415"/>
         <source>Applications ...</source>
         <translation>Applikationer...</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12403"/>
+        <location filename="../../src/onmainwindow.cpp" line="12831"/>
         <source>SSH daemon could not be started.
 
 </source>
@@ -2500,13 +2517,13 @@ Var vänlig rapportera en bugg på:
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12421"/>
-        <location filename="../../src/onmainwindow.cpp" line="12454"/>
+        <location filename="../../src/onmainwindow.cpp" line="12849"/>
+        <location filename="../../src/onmainwindow.cpp" line="12882"/>
         <source>Disabling Remote Printing or File Sharing support in the session settings will get rid of this message.</source>
         <translation>Deaktivering av fjärrutskrift eller mappdelning i sessionsinställningarna blockerar detta meddelande.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12434"/>
+        <location filename="../../src/onmainwindow.cpp" line="12862"/>
         <source>SSH daemon failed to open its public host key.</source>
         <translation>SSH kunde inte öppna sin publika nyckel.</translation>
     </message>
@@ -2573,7 +2590,7 @@ Om du är administratör, var vänlig kör:
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12478"/>
+        <location filename="../../src/onmainwindow.cpp" line="12906"/>
         <source>SSH daemon failed to open the application&apos;s
 authorized_keys file.</source>
         <translation>SSH kunde inte öppna applikationens
@@ -2592,9 +2609,9 @@ authorized_keys-fil.</translation>
         <translation type="obsolete">Stängt x2goclient.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="1820"/>
-        <location filename="../../src/onmainwindow.cpp" line="2005"/>
-        <location filename="../../src/onmainwindow.cpp" line="2035"/>
+        <location filename="../../src/onmainwindow.cpp" line="1844"/>
+        <location filename="../../src/onmainwindow.cpp" line="2029"/>
+        <location filename="../../src/onmainwindow.cpp" line="2059"/>
         <source>Please check LDAP settings</source>
         <translation>Kontrollera LDAP-inställningar</translation>
     </message>
@@ -2627,7 +2644,7 @@ Använd dolt läge?</translation>
         <translation type="obsolete">Länk till X2Go-session</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="2246"/>
+        <location filename="../../src/onmainwindow.cpp" line="2270"/>
         <source>No X2Go sessions found, closing.</source>
         <translation>Inga X2Go-sessioner hittades, stänger.</translation>
     </message>
@@ -2636,8 +2653,8 @@ Använd dolt läge?</translation>
         <translation type="obsolete">fel värde för argument &quot;--clipboard&quot;</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12466"/>
-        <location filename="../../src/onmainwindow.cpp" line="12477"/>
+        <location filename="../../src/onmainwindow.cpp" line="12894"/>
+        <location filename="../../src/onmainwindow.cpp" line="12905"/>
         <source>SSH Error</source>
         <translation>SSH-fel</translation>
     </message>
@@ -2680,7 +2697,7 @@ på din dator.</translation>
         <translation type="obsolete">SSH kunde inte öppna applikationens publika servernyckel.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12467"/>
+        <location filename="../../src/onmainwindow.cpp" line="12895"/>
         <source>SSH daemon failed to open the application&apos;s public key
 used for exporting folders and printers.</source>
         <translation>SSH kunde inte öppna applikationens publika nyckel
@@ -2701,34 +2718,34 @@ authorized_keys-fil.</translation>
         <translation type="obsolete">Är du säker på att du vill radera denna session?</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="2668"/>
-        <location filename="../../src/onmainwindow.cpp" line="6836"/>
+        <location filename="../../src/onmainwindow.cpp" line="2692"/>
+        <location filename="../../src/onmainwindow.cpp" line="7213"/>
         <source>KDE</source>
         <translation>KDE</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="2755"/>
+        <location filename="../../src/onmainwindow.cpp" line="2779"/>
         <source>RDP connection</source>
         <translation>RDP-anslutning</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="2759"/>
-        <location filename="../../src/onmainwindow.cpp" line="3538"/>
+        <location filename="../../src/onmainwindow.cpp" line="2783"/>
+        <location filename="../../src/onmainwindow.cpp" line="3576"/>
         <source>XDMCP</source>
         <translation>XDMCP</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="2763"/>
+        <location filename="../../src/onmainwindow.cpp" line="2787"/>
         <source>Connection to local desktop</source>
         <translation>Anslutning till lokalt Skrivbord</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="2767"/>
+        <location filename="../../src/onmainwindow.cpp" line="2791"/>
         <source> on </source>
         <translation> på </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="2826"/>
+        <location filename="../../src/onmainwindow.cpp" line="2850"/>
         <source>Starting connection to server: </source>
         <translation>Startar anslutning till server: </translation>
     </message>
@@ -2745,12 +2762,12 @@ authorized_keys-fil.</translation>
         <translation type="obsolete">Kunde inte hitta en SSH-anslutning.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3049"/>
+        <location filename="../../src/onmainwindow.cpp" line="3087"/>
         <source>Enter passphrase to decrypt a key</source>
         <translation>Ange lösenord för att dekryptera nyckel</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3123"/>
+        <location filename="../../src/onmainwindow.cpp" line="3161"/>
         <source>Host key for server changed.
 It is now: </source>
         <translation>Nyckel för server har ändrats.
@@ -2769,7 +2786,7 @@ Den är nu: </translation>
         <translation type="obsolete">Hittar ej fil för kända servrar. Om du accepterar serverns nyckel så kommer filen att skapas automatiskt</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3195"/>
+        <location filename="../../src/onmainwindow.cpp" line="3233"/>
         <source>The server is unknown. Do you trust the host key?
 Public key hash: </source>
         <translation>Okänd server. Litar du på denna nyckel?
@@ -2780,7 +2797,7 @@ Publik nyckel: </translation>
         <translation type="obsolete">Verifiering av serverns nyckel misslyckades</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3053"/>
+        <location filename="../../src/onmainwindow.cpp" line="3091"/>
         <source>Verification code:</source>
         <translation>Verifieringskod:</translation>
     </message>
@@ -2797,18 +2814,18 @@ Vill du avsluta anslutningen?
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4949"/>
+        <location filename="../../src/onmainwindow.cpp" line="5119"/>
         <source>Yes</source>
         <translation>Ja</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4950"/>
+        <location filename="../../src/onmainwindow.cpp" line="5120"/>
         <source>No</source>
         <translation>Nej</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3145"/>
-        <location filename="../../src/onmainwindow.cpp" line="3173"/>
+        <location filename="../../src/onmainwindow.cpp" line="3183"/>
+        <location filename="../../src/onmainwindow.cpp" line="3211"/>
         <source>If you accept the new host key the security of your connection may be compromised.
 Do you want to update the host key?</source>
         <translation>Om du accepterar den nya servernyckeln så kan säkerheten i anslutningen vara komprometterad.
@@ -2824,7 +2841,7 @@ Av säkerhetsskäl är det rekommenderat att du avslutar anslutningen.
 Vill du avsluta anslutningen?</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3240"/>
+        <location filename="../../src/onmainwindow.cpp" line="3278"/>
         <source>Authentication failed: </source>
         <translation>Autentisering misslyckades: </translation>
     </message>
@@ -2833,7 +2850,7 @@ Vill du avsluta anslutningen?</translation>
         <translation type="obsolete">Autentisering misslyckades</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3787"/>
+        <location filename="../../src/onmainwindow.cpp" line="3847"/>
         <source>Enter password for SSH proxy</source>
         <translation>Ange lösenord för SSH-proxy</translation>
     </message>
@@ -2844,37 +2861,37 @@ Vill du avsluta anslutningen?</translation>
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3812"/>
-        <location filename="../../src/onmainwindow.cpp" line="5089"/>
-        <location filename="../../src/onmainwindow.cpp" line="5188"/>
-        <location filename="../../src/onmainwindow.cpp" line="7014"/>
-        <location filename="../../src/onmainwindow.cpp" line="7044"/>
-        <location filename="../../src/onmainwindow.cpp" line="8039"/>
-        <location filename="../../src/onmainwindow.cpp" line="8121"/>
-        <location filename="../../src/onmainwindow.cpp" line="8440"/>
-        <location filename="../../src/onmainwindow.cpp" line="8505"/>
-        <location filename="../../src/onmainwindow.cpp" line="9511"/>
+        <location filename="../../src/onmainwindow.cpp" line="3872"/>
+        <location filename="../../src/onmainwindow.cpp" line="5304"/>
+        <location filename="../../src/onmainwindow.cpp" line="5410"/>
+        <location filename="../../src/onmainwindow.cpp" line="7394"/>
+        <location filename="../../src/onmainwindow.cpp" line="7424"/>
+        <location filename="../../src/onmainwindow.cpp" line="8435"/>
+        <location filename="../../src/onmainwindow.cpp" line="8517"/>
+        <location filename="../../src/onmainwindow.cpp" line="8849"/>
+        <location filename="../../src/onmainwindow.cpp" line="8914"/>
+        <location filename="../../src/onmainwindow.cpp" line="9920"/>
         <source>&lt;b&gt;Wrong password!&lt;/b&gt;&lt;br&gt;&lt;br&gt;</source>
         <translation>&lt;b&gt;Fel lösenord!&lt;/b&gt;&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3824"/>
-        <location filename="../../src/onmainwindow.cpp" line="3827"/>
-        <location filename="../../src/onmainwindow.cpp" line="3829"/>
-        <location filename="../../src/onmainwindow.cpp" line="8452"/>
-        <location filename="../../src/onmainwindow.cpp" line="8455"/>
-        <location filename="../../src/onmainwindow.cpp" line="8457"/>
+        <location filename="../../src/onmainwindow.cpp" line="3884"/>
+        <location filename="../../src/onmainwindow.cpp" line="3887"/>
+        <location filename="../../src/onmainwindow.cpp" line="3889"/>
+        <location filename="../../src/onmainwindow.cpp" line="8861"/>
+        <location filename="../../src/onmainwindow.cpp" line="8864"/>
+        <location filename="../../src/onmainwindow.cpp" line="8866"/>
         <source>Connection failed: </source>
         <translation>Anslutning misslyckades: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3827"/>
-        <location filename="../../src/onmainwindow.cpp" line="8455"/>
+        <location filename="../../src/onmainwindow.cpp" line="3887"/>
+        <location filename="../../src/onmainwindow.cpp" line="8864"/>
         <source> - Wrong password.</source>
         <translation> - Fel lösenord.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="3976"/>
+        <location filename="../../src/onmainwindow.cpp" line="4045"/>
         <source>unknown</source>
         <translation>okänt</translation>
     </message>
@@ -2887,41 +2904,41 @@ Vill du avsluta anslutningen?</translation>
         <translation type="obsolete">Server ej tillgänglig</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4735"/>
-        <location filename="../../src/onmainwindow.cpp" line="12174"/>
+        <location filename="../../src/onmainwindow.cpp" line="4885"/>
+        <location filename="../../src/onmainwindow.cpp" line="12588"/>
         <source>Select session:</source>
         <translation>Välj session:</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4755"/>
-        <location filename="../../src/onmainwindow.cpp" line="4888"/>
-        <location filename="../../src/onmainwindow.cpp" line="6313"/>
+        <location filename="../../src/onmainwindow.cpp" line="4908"/>
+        <location filename="../../src/onmainwindow.cpp" line="5053"/>
+        <location filename="../../src/onmainwindow.cpp" line="6662"/>
         <source>running</source>
         <translation>aktiv</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4757"/>
-        <location filename="../../src/onmainwindow.cpp" line="5105"/>
+        <location filename="../../src/onmainwindow.cpp" line="4910"/>
+        <location filename="../../src/onmainwindow.cpp" line="5320"/>
         <source>suspended</source>
         <translation>vilande</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4763"/>
+        <location filename="../../src/onmainwindow.cpp" line="4916"/>
         <source>Desktop</source>
         <translation>Skrivbord</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4765"/>
+        <location filename="../../src/onmainwindow.cpp" line="4918"/>
         <source>single application</source>
         <translation>Applikation</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4767"/>
+        <location filename="../../src/onmainwindow.cpp" line="4920"/>
         <source>shadow session</source>
         <translation>Skuggsession</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4800"/>
+        <location filename="../../src/onmainwindow.cpp" line="4956"/>
         <source>Information</source>
         <translation>Information</translation>
     </message>
@@ -2930,20 +2947,21 @@ Vill du avsluta anslutningen?</translation>
         <translation type="obsolete">Inget tillgängligt Skrivbord hittades</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4814"/>
-        <location filename="../../src/onmainwindow.cpp" line="12635"/>
+        <location filename="../../src/onmainwindow.cpp" line="4970"/>
+        <location filename="../../src/onmainwindow.cpp" line="13063"/>
         <source>Filter</source>
         <translation>Filter</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4821"/>
+        <location filename="../../src/onmainwindow.cpp" line="4977"/>
         <source>Select desktop:</source>
         <translation>Välj Skrivbord:</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="4935"/>
-        <location filename="../../src/onmainwindow.cpp" line="5887"/>
-        <location filename="../../src/onmainwindow.cpp" line="6559"/>
+        <location filename="../../src/onmainwindow.cpp" line="5105"/>
+        <location filename="../../src/onmainwindow.cpp" line="6227"/>
+        <location filename="../../src/onmainwindow.cpp" line="6898"/>
+        <location filename="../../src/onmainwindow.cpp" line="6935"/>
         <source>Warning</source>
         <translation>Varning</translation>
     </message>
@@ -2960,126 +2978,126 @@ Vill du avsluta anslutningen?</translation>
         <translation type="obsolete"> bitar och startar om X-servern innan du återansluter till denna X2Go-session.&lt;br&gt;Återanslut session ändå?</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="5039"/>
+        <location filename="../../src/onmainwindow.cpp" line="5241"/>
         <source>suspending</source>
         <translation>försätter i vila</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="5074"/>
+        <location filename="../../src/onmainwindow.cpp" line="5280"/>
         <source>terminating</source>
         <translation>avslutar</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="5221"/>
+        <location filename="../../src/onmainwindow.cpp" line="5443"/>
         <source>&lt;b&gt;Wrong Password!&lt;/b&gt;&lt;br&gt;&lt;br&gt;</source>
         <translation>&lt;b&gt;Fel lösenord!&lt;/b&gt;&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="5389"/>
-        <location filename="../../src/onmainwindow.cpp" line="5391"/>
+        <location filename="../../src/onmainwindow.cpp" line="5626"/>
+        <location filename="../../src/onmainwindow.cpp" line="5628"/>
         <source>New session started</source>
         <translation>Ny session startad</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="5428"/>
-        <location filename="../../src/onmainwindow.cpp" line="5430"/>
+        <location filename="../../src/onmainwindow.cpp" line="5674"/>
+        <location filename="../../src/onmainwindow.cpp" line="5676"/>
         <source>Session resumed</source>
         <translation>Session återupptagen</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="5667"/>
-        <location filename="../../src/onmainwindow.cpp" line="5671"/>
+        <location filename="../../src/onmainwindow.cpp" line="5913"/>
+        <location filename="../../src/onmainwindow.cpp" line="5917"/>
         <source>Unable to create folder: </source>
         <translation>Kunde ej skapa katalog: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="5697"/>
-        <location filename="../../src/onmainwindow.cpp" line="5701"/>
+        <location filename="../../src/onmainwindow.cpp" line="5943"/>
+        <location filename="../../src/onmainwindow.cpp" line="5947"/>
         <source>Unable to write file: </source>
         <translation>Kunde ej skriva till fil: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="5855"/>
+        <location filename="../../src/onmainwindow.cpp" line="6195"/>
         <source>Unable to create SSH tunnel for X2Go session (NX) startup:
 </source>
         <translation>Kunde inte skapa SSH-tunnel för X2Go-sessionsstart (NX):
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="5885"/>
+        <location filename="../../src/onmainwindow.cpp" line="6225"/>
         <source>Unable to create SSH tunnel for audio data:
 </source>
         <translation>Kunde ej skapa SSH-tunnel för ljuddata:
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6016"/>
-        <location filename="../../src/onmainwindow.cpp" line="9025"/>
+        <location filename="../../src/onmainwindow.cpp" line="6356"/>
+        <location filename="../../src/onmainwindow.cpp" line="9434"/>
         <source>failed to start.</source>
         <translation>startade inte.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6017"/>
+        <location filename="../../src/onmainwindow.cpp" line="6357"/>
         <source>This likely means the binary is not available.
 The current search path is: </source>
         <translation>Det här betyder sannolikt att binären saknas.
 Aktuell sökväg är: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6031"/>
+        <location filename="../../src/onmainwindow.cpp" line="6371"/>
         <source>returned a non-zero exit code or crashed otherwise.</source>
         <translation>returnerade en felkod eller avslutades oväntat.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6032"/>
+        <location filename="../../src/onmainwindow.cpp" line="6372"/>
         <source>Execution failed, exit code was: </source>
         <translation>Exekvering misslyckades, felkod: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6037"/>
+        <location filename="../../src/onmainwindow.cpp" line="6377"/>
         <source>didn&apos;t start up in time.</source>
         <translation>startade inte i tid.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6038"/>
-        <location filename="../../src/onmainwindow.cpp" line="9039"/>
+        <location filename="../../src/onmainwindow.cpp" line="6378"/>
+        <location filename="../../src/onmainwindow.cpp" line="9448"/>
         <source>This error shouldn&apos;t come up.</source>
         <translation>Det här felet borde inte komma.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6042"/>
-        <location filename="../../src/onmainwindow.cpp" line="9043"/>
+        <location filename="../../src/onmainwindow.cpp" line="6382"/>
+        <location filename="../../src/onmainwindow.cpp" line="9452"/>
         <source>didn&apos;t accept a write operation.</source>
         <translation>accepterade inte en skrivoperation.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6043"/>
-        <location filename="../../src/onmainwindow.cpp" line="6048"/>
-        <location filename="../../src/onmainwindow.cpp" line="9044"/>
-        <location filename="../../src/onmainwindow.cpp" line="9049"/>
+        <location filename="../../src/onmainwindow.cpp" line="6383"/>
+        <location filename="../../src/onmainwindow.cpp" line="6388"/>
+        <location filename="../../src/onmainwindow.cpp" line="9453"/>
+        <location filename="../../src/onmainwindow.cpp" line="9458"/>
         <source>It is probably not running correctly or crashed in-between.</source>
         <translation>Det är sannolikt inte igång eller har avslutats oväntat.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6047"/>
+        <location filename="../../src/onmainwindow.cpp" line="6387"/>
         <source>Unable to read from xmodmap.</source>
         <translation>Kunde ej läsa från xmodmap.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6052"/>
-        <location filename="../../src/onmainwindow.cpp" line="9053"/>
+        <location filename="../../src/onmainwindow.cpp" line="6392"/>
+        <location filename="../../src/onmainwindow.cpp" line="9462"/>
         <source>encountered an unknown error during start up or execution.</source>
         <translation>påträffade ett okänt fel under uppstart eller exekvering.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6056"/>
-        <location filename="../../src/onmainwindow.cpp" line="9057"/>
+        <location filename="../../src/onmainwindow.cpp" line="6396"/>
+        <location filename="../../src/onmainwindow.cpp" line="9466"/>
         <source>experienced an undefined error.</source>
         <translation>ett odefinierat fel inträffade.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6065"/>
-        <location filename="../../src/onmainwindow.cpp" line="9066"/>
+        <location filename="../../src/onmainwindow.cpp" line="6405"/>
+        <location filename="../../src/onmainwindow.cpp" line="9475"/>
         <source>X2Go Client will now terminate.
 
 File a bug report as outlined on the &lt;a href=&quot;http://wiki.x2go.org/doku.php/wiki:bugs&quot;&gt;bugs wiki page&lt;/a&gt;.</source>
@@ -3088,12 +3106,12 @@ File a bug report as outlined on the &lt;a href=&quot;http://wiki.x2go.org/doku.
 Lämna en buggrapport enligt &lt;a href=&quot;http://wiki.x2go.org/doku.php/wiki:bugs&quot;&gt;bugs wiki page&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6159"/>
+        <location filename="../../src/onmainwindow.cpp" line="6502"/>
         <source>Emergency exit.</source>
         <translation>Akut avslut.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6167"/>
+        <location filename="../../src/onmainwindow.cpp" line="6510"/>
         <source>Waiting for proxy to exit.</source>
         <translation>Väntar på att proxy ska avslutas.</translation>
     </message>
@@ -3102,14 +3120,14 @@ Lämna en buggrapport enligt &lt;a href=&quot;http://wiki.x2go.org/doku.php/wiki
         <translation type="obsolete">Misslyckades, dödar proxy.</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7923"/>
-        <location filename="../../src/onmainwindow.cpp" line="7927"/>
-        <location filename="../../src/onmainwindow.cpp" line="7932"/>
+        <location filename="../../src/onmainwindow.cpp" line="8319"/>
+        <location filename="../../src/onmainwindow.cpp" line="8323"/>
+        <location filename="../../src/onmainwindow.cpp" line="8328"/>
         <source>Wrong parameter: </source>
         <translation>Felaktig parameter: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7941"/>
+        <location filename="../../src/onmainwindow.cpp" line="8337"/>
         <source>Help</source>
         <translation>Hjälp</translation>
     </message>
@@ -3122,12 +3140,12 @@ Lämna en buggrapport enligt &lt;a href=&quot;http://wiki.x2go.org/doku.php/wiki
         <translation type="obsolete">Alternativet är inte tillgängligt i denna version</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="8004"/>
+        <location filename="../../src/onmainwindow.cpp" line="8400"/>
         <source>Changelog</source>
         <translation>Ändringslogg</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="8014"/>
+        <location filename="../../src/onmainwindow.cpp" line="8410"/>
         <source>Git Info</source>
         <translation>Git-information</translation>
     </message>
@@ -3140,8 +3158,8 @@ Lämna en buggrapport enligt &lt;a href=&quot;http://wiki.x2go.org/doku.php/wiki
         <translation type="obsolete">Kunde ej skriva till fil:</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="5829"/>
-        <location filename="../../src/onmainwindow.cpp" line="11342"/>
+        <location filename="../../src/onmainwindow.cpp" line="6169"/>
+        <location filename="../../src/onmainwindow.cpp" line="11756"/>
         <source>Attach X2Go window</source>
         <translation>Koppla X2Go-fönster</translation>
     </message>
@@ -3158,29 +3176,29 @@ Lämna en buggrapport enligt &lt;a href=&quot;http://wiki.x2go.org/doku.php/wiki
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6262"/>
+        <location filename="../../src/onmainwindow.cpp" line="6605"/>
         <source>Finished</source>
         <translation>avslutad</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6302"/>
+        <location filename="../../src/onmainwindow.cpp" line="6647"/>
         <source>starting</source>
         <translation>startar</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6306"/>
+        <location filename="../../src/onmainwindow.cpp" line="6651"/>
         <source>resuming</source>
         <translation>återansluter</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6376"/>
-        <location filename="../../src/onmainwindow.cpp" line="6682"/>
-        <location filename="../../src/onmainwindow.cpp" line="6701"/>
+        <location filename="../../src/onmainwindow.cpp" line="6725"/>
+        <location filename="../../src/onmainwindow.cpp" line="7059"/>
+        <location filename="../../src/onmainwindow.cpp" line="7078"/>
         <source>Connection timeout, aborting</source>
         <translation>Anslutning passerade tidsgränsen, avbryter</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6377"/>
+        <location filename="../../src/onmainwindow.cpp" line="6726"/>
         <source>aborting</source>
         <translation>avbryter</translation>
     </message>
@@ -3191,20 +3209,20 @@ Unsaved documents will be lost</source>
 Data som ej sparats kommer att förloras</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6652"/>
+        <location filename="../../src/onmainwindow.cpp" line="7029"/>
         <source>Session</source>
         <translation>Session</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6654"/>
-        <location filename="../../src/onmainwindow.cpp" line="12255"/>
-        <location filename="../../src/onmainwindow.cpp" line="12277"/>
+        <location filename="../../src/onmainwindow.cpp" line="7031"/>
+        <location filename="../../src/onmainwindow.cpp" line="12670"/>
+        <location filename="../../src/onmainwindow.cpp" line="12697"/>
         <source>Display</source>
         <translation>Display</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="6656"/>
-        <location filename="../../src/onmainwindow.cpp" line="12266"/>
+        <location filename="../../src/onmainwindow.cpp" line="7033"/>
+        <location filename="../../src/onmainwindow.cpp" line="12686"/>
         <source>Creation time</source>
         <translation>Skapad</translation>
     </message>
@@ -3217,7 +3235,7 @@ Data som ej sparats kommer att förloras</translation>
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="7597"/>
+        <location filename="../../src/onmainwindow.cpp" line="7993"/>
         <source> (can&apos;t open file)</source>
         <translation> (kan inte öppna fil)</translation>
     </message>
@@ -3282,7 +3300,7 @@ Data som ej sparats kommer att förloras</translation>
         <translation type="obsolete">Kan inte öppna nyckel: </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="8739"/>
+        <location filename="../../src/onmainwindow.cpp" line="9148"/>
         <source>Support</source>
         <translation>Hjälp</translation>
     </message>
@@ -3311,7 +3329,7 @@ Data som ej sparats kommer att förloras</translation>
         <translation type="obsolete">Inget giltigt kort hittades</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9148"/>
+        <location filename="../../src/onmainwindow.cpp" line="9557"/>
         <source>Card not configured.</source>
         <translation>Kort ej konfigurerat.</translation>
     </message>
@@ -3354,8 +3372,8 @@ Please check your installation</source>
 Kontrollera installation</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9530"/>
-        <location filename="../../src/onmainwindow.cpp" line="9535"/>
+        <location filename="../../src/onmainwindow.cpp" line="9939"/>
+        <location filename="../../src/onmainwindow.cpp" line="9944"/>
         <source>Unable to execute: </source>
         <translation>Kunde ej exekvera: </translation>
     </message>
@@ -3378,12 +3396,12 @@ Uppdatera till en nyare version av x2goserver</translation>
 </translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9781"/>
+        <location filename="../../src/onmainwindow.cpp" line="10190"/>
         <source>WINDOWS-1252</source>
         <translation>WINDOWS-1252</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="9793"/>
+        <location filename="../../src/onmainwindow.cpp" line="10202"/>
         <source>ISO8859-1</source>
         <translation>ISO8859-1</translation>
     </message>
@@ -3392,7 +3410,7 @@ Uppdatera till en nyare version av x2goserver</translation>
         <translation type="obsolete">Ett fel uppstod när fönstergeometri hämtades (fönster stängt)?</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11429"/>
+        <location filename="../../src/onmainwindow.cpp" line="11843"/>
         <source>X2Go Session</source>
         <translation>X2Go-session</translation>
     </message>
@@ -3401,30 +3419,30 @@ Uppdatera till en nyare version av x2goserver</translation>
         <translation type="obsolete">fel värde för &quot;speed&quot;</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11810"/>
+        <location filename="../../src/onmainwindow.cpp" line="12224"/>
         <source>Password:</source>
         <translation>Lösenord:</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11811"/>
+        <location filename="../../src/onmainwindow.cpp" line="12225"/>
         <source>Keyboard layout:</source>
         <translatorcomment>Swenglish, but commonly used.</translatorcomment>
         <translation>Tangentbordslayout:</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11852"/>
+        <location filename="../../src/onmainwindow.cpp" line="12266"/>
         <source>Ok</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11854"/>
-        <location filename="../../src/onmainwindow.cpp" line="12178"/>
-        <location filename="../../src/onmainwindow.cpp" line="12180"/>
+        <location filename="../../src/onmainwindow.cpp" line="12268"/>
+        <location filename="../../src/onmainwindow.cpp" line="12592"/>
+        <location filename="../../src/onmainwindow.cpp" line="12594"/>
         <source>Cancel</source>
         <translation>Avbryt</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="11991"/>
+        <location filename="../../src/onmainwindow.cpp" line="12405"/>
         <source>&lt;b&gt;Session ID:&lt;br&gt;Server:&lt;br&gt;Username:&lt;br&gt;Display:&lt;br&gt;Creation time:&lt;br&gt;Status:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Sessions-ID:&lt;br&gt;Server:&lt;br&gt;Användare:&lt;br&gt;Display:&lt;br&gt;Skapad:&lt;br&gt;Status:&lt;/b&gt;</translation>
     </message>
@@ -3437,72 +3455,73 @@ Uppdatera till en nyare version av x2goserver</translation>
         <translation type="obsolete">&lt;/b&gt;&lt;br&gt; (&amp;copy; 2005-2016 &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing)&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12014"/>
+        <location filename="../../src/onmainwindow.cpp" line="12428"/>
         <source>Abort</source>
         <translation>Avbryt</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12026"/>
+        <location filename="../../src/onmainwindow.cpp" line="12440"/>
         <source>Show details</source>
         <translation>Visa detaljer</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12176"/>
+        <location filename="../../src/onmainwindow.cpp" line="12590"/>
         <source>Resume</source>
         <translation>Återanslut</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12188"/>
+        <location filename="../../src/onmainwindow.cpp" line="12602"/>
         <source>New</source>
         <translation>Ny</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12191"/>
+        <location filename="../../src/onmainwindow.cpp" line="12605"/>
         <source>Full access</source>
         <translation>Fullständig åtkomst</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12194"/>
+        <location filename="../../src/onmainwindow.cpp" line="12608"/>
         <source>View only</source>
         <translation>Endast visa</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12257"/>
+        <location filename="../../src/onmainwindow.cpp" line="12677"/>
         <source>Status</source>
         <translation>Status</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12259"/>
+        <location filename="../../src/onmainwindow.cpp" line="12679"/>
         <source>Command</source>
         <translation>Kommando</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12261"/>
+        <location filename="../../src/onmainwindow.cpp" line="12681"/>
         <source>Type</source>
         <translation>Typ</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12263"/>
+        <location filename="../../src/onmainwindow.cpp" line="12683"/>
         <source>Server</source>
         <translation>Server</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12268"/>
+        <location filename="../../src/onmainwindow.cpp" line="12688"/>
         <source>Client IP</source>
         <translation>Klient-IP</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12270"/>
+        <location filename="../../src/onmainwindow.cpp" line="12690"/>
         <source>Session ID</source>
         <translation>Sessions-ID</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12274"/>
+        <location filename="../../src/onmainwindow.cpp" line="12674"/>
+        <location filename="../../src/onmainwindow.cpp" line="12694"/>
         <source>User</source>
         <translation>Användare</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12305"/>
+        <location filename="../../src/onmainwindow.cpp" line="12725"/>
         <source>Only my desktops</source>
         <translation>Bara mina Skrivbord</translation>
     </message>
@@ -3515,12 +3534,12 @@ du kan installera sshd med (Debian/Ubuntu)
 &lt;b&gt;sudo apt-get install openssh-server&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12519"/>
+        <location filename="../../src/onmainwindow.cpp" line="12947"/>
         <source>Restore toolbar</source>
         <translation>Återställ verktygsrad</translation>
     </message>
     <message>
-        <location filename="../../src/onmainwindow.cpp" line="12565"/>
+        <location filename="../../src/onmainwindow.cpp" line="12993"/>
         <source>&lt;br&gt;&lt;b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;Click this button&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;to restore toolbar&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;br&gt;</source>
         <translation>&lt;br&gt;&lt;b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;Klicka denna knapp&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;för att återställa verktygsrad&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;br&gt;</translation>
     </message>
@@ -3670,7 +3689,7 @@ du kan installera sshd med (Debian/Ubuntu)
         <translation type="obsolete">Konfigurera utskriftsinställningar för klienten.&lt;br&gt;&lt;br&gt;Om du vill skriva ut den skapade filen så behöver du en extern applikation. Du kan oftast använda &lt;a href=&quot;http://pages.cs.wisc.edu/~ghost/doc/GPL/index.htm&quot;&gt;ghostprint&lt;/a&gt; och &lt;a href=&quot;http://pages.cs.wisc.edu/~ghost/gsview/&quot;&gt;ghostview&lt;/a&gt;&lt;br&gt;Mer information finns &lt;a href=&quot;http://www.x2go.org/index.php?id=49&quot;&gt;här&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../../src/printwidget.cpp" line="59"/>
+        <location filename="../../src/printwidget.cpp" line="60"/>
         <source>Please configure your client side printing settings.&lt;br&gt;&lt;br&gt;If you want to print the created file, you&apos;ll need an external application. Typically you can use &lt;a href=&quot;http://pages.cs.wisc.edu/~ghost/doc/GPL/index.htm&quot;&gt;ghostprint&lt;/a&gt; and &lt;a href=&quot;http://pages.cs.wisc.edu/~ghost/gsview/&quot;&gt;ghostview&lt;/a&gt;&lt;br&gt;You can find further information &lt;a href=&quot;http://www.x2go.org/index.php?id=49&quot;&gt;here&lt;/a&gt;.</source>
         <translation>Konfigurera utskriftsinställningar för klienten.&lt;br&gt;&lt;br&gt;Om du vill skriva ut den skapade filen så behöver du en extern applikation. Du kan oftast använda &lt;a href=&quot;http://pages.cs.wisc.edu/~ghost/doc/GPL/index.htm&quot;&gt;ghostprint&lt;/a&gt; och &lt;a href=&quot;http://pages.cs.wisc.edu/~ghost/gsview/&quot;&gt;ghostview&lt;/a&gt;&lt;br&gt;Mer information finns &lt;a href=&quot;http://www.x2go.org/index.php?id=49&quot;&gt;här&lt;/a&gt;.</translation>
     </message>
@@ -4021,86 +4040,88 @@ eller
     </message>
     <message>
         <location filename="../../src/sessionbutton.cpp" line="329"/>
+        <location filename="../../src/sessionbutton.cpp" line="350"/>
         <source>running</source>
         <translation>aktiv</translation>
     </message>
     <message>
         <location filename="../../src/sessionbutton.cpp" line="333"/>
+        <location filename="../../src/sessionbutton.cpp" line="346"/>
         <source>suspended</source>
         <translation>vilande</translation>
     </message>
     <message>
-        <location filename="../../src/sessionbutton.cpp" line="366"/>
+        <location filename="../../src/sessionbutton.cpp" line="385"/>
         <source>KDE</source>
         <translation>KDE</translation>
     </message>
     <message>
-        <location filename="../../src/sessionbutton.cpp" line="387"/>
-        <location filename="../../src/sessionbutton.cpp" line="466"/>
-        <location filename="../../src/sessionbutton.cpp" line="848"/>
+        <location filename="../../src/sessionbutton.cpp" line="406"/>
+        <location filename="../../src/sessionbutton.cpp" line="485"/>
+        <location filename="../../src/sessionbutton.cpp" line="867"/>
         <source>RDP connection</source>
         <translation>RDP-anslutning</translation>
     </message>
     <message>
-        <location filename="../../src/sessionbutton.cpp" line="388"/>
-        <location filename="../../src/sessionbutton.cpp" line="479"/>
-        <location filename="../../src/sessionbutton.cpp" line="854"/>
+        <location filename="../../src/sessionbutton.cpp" line="407"/>
+        <location filename="../../src/sessionbutton.cpp" line="498"/>
+        <location filename="../../src/sessionbutton.cpp" line="873"/>
         <source>XDMCP</source>
         <translation>XDMCP</translation>
     </message>
     <message>
-        <location filename="../../src/sessionbutton.cpp" line="389"/>
-        <location filename="../../src/sessionbutton.cpp" line="455"/>
-        <location filename="../../src/sessionbutton.cpp" line="842"/>
+        <location filename="../../src/sessionbutton.cpp" line="408"/>
+        <location filename="../../src/sessionbutton.cpp" line="474"/>
+        <location filename="../../src/sessionbutton.cpp" line="861"/>
         <source>Connection to local desktop</source>
         <translation>Anslutning till lokalt Skrivbord</translation>
     </message>
     <message>
-        <location filename="../../src/sessionbutton.cpp" line="390"/>
-        <location filename="../../src/sessionbutton.cpp" line="484"/>
-        <location filename="../../src/sessionbutton.cpp" line="905"/>
+        <location filename="../../src/sessionbutton.cpp" line="409"/>
+        <location filename="../../src/sessionbutton.cpp" line="503"/>
+        <location filename="../../src/sessionbutton.cpp" line="924"/>
         <source>Published applications</source>
         <translation>Publicerade applikationer</translation>
     </message>
     <message>
-        <location filename="../../src/sessionbutton.cpp" line="508"/>
-        <location filename="../../src/sessionbutton.cpp" line="533"/>
-        <location filename="../../src/sessionbutton.cpp" line="926"/>
+        <location filename="../../src/sessionbutton.cpp" line="527"/>
+        <location filename="../../src/sessionbutton.cpp" line="552"/>
+        <location filename="../../src/sessionbutton.cpp" line="945"/>
         <source>fullscreen</source>
         <translation>Fullskärm</translation>
     </message>
     <message>
-        <location filename="../../src/sessionbutton.cpp" line="513"/>
-        <location filename="../../src/sessionbutton.cpp" line="542"/>
-        <location filename="../../src/sessionbutton.cpp" line="546"/>
-        <location filename="../../src/sessionbutton.cpp" line="938"/>
-        <location filename="../../src/sessionbutton.cpp" line="941"/>
+        <location filename="../../src/sessionbutton.cpp" line="532"/>
+        <location filename="../../src/sessionbutton.cpp" line="561"/>
+        <location filename="../../src/sessionbutton.cpp" line="565"/>
+        <location filename="../../src/sessionbutton.cpp" line="957"/>
+        <location filename="../../src/sessionbutton.cpp" line="960"/>
         <source>Display </source>
         <translation>Display </translation>
     </message>
     <message>
-        <location filename="../../src/sessionbutton.cpp" line="528"/>
-        <location filename="../../src/sessionbutton.cpp" line="567"/>
+        <location filename="../../src/sessionbutton.cpp" line="547"/>
+        <location filename="../../src/sessionbutton.cpp" line="586"/>
         <source>window</source>
         <translation>fönster</translation>
     </message>
     <message>
-        <location filename="../../src/sessionbutton.cpp" line="574"/>
-        <location filename="../../src/sessionbutton.cpp" line="578"/>
-        <location filename="../../src/sessionbutton.cpp" line="579"/>
-        <location filename="../../src/sessionbutton.cpp" line="932"/>
+        <location filename="../../src/sessionbutton.cpp" line="593"/>
+        <location filename="../../src/sessionbutton.cpp" line="597"/>
+        <location filename="../../src/sessionbutton.cpp" line="598"/>
+        <location filename="../../src/sessionbutton.cpp" line="951"/>
         <source>Maximum</source>
         <translation>Maximerad</translation>
     </message>
     <message>
-        <location filename="../../src/sessionbutton.cpp" line="588"/>
-        <location filename="../../src/sessionbutton.cpp" line="764"/>
+        <location filename="../../src/sessionbutton.cpp" line="607"/>
+        <location filename="../../src/sessionbutton.cpp" line="783"/>
         <source>Enabled</source>
         <translation>På</translation>
     </message>
     <message>
-        <location filename="../../src/sessionbutton.cpp" line="590"/>
-        <location filename="../../src/sessionbutton.cpp" line="766"/>
+        <location filename="../../src/sessionbutton.cpp" line="609"/>
+        <location filename="../../src/sessionbutton.cpp" line="785"/>
         <source>Disabled</source>
         <translation>Av</translation>
     </message>
@@ -4206,50 +4227,50 @@ Använd dolt läge?</translation>
 <context>
     <name>SessionWidget</name>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="67"/>
+        <location filename="../../src/sessionwidget.cpp" line="75"/>
         <source>Session name:</source>
         <translation>Sessionsnamn:</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="72"/>
+        <location filename="../../src/sessionwidget.cpp" line="80"/>
         <source>&lt;&lt; change icon</source>
         <translation>&lt;&lt; klicka för att ändra ikon</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="78"/>
+        <location filename="../../src/sessionwidget.cpp" line="86"/>
         <source>Path:</source>
         <translation>Sökväg:</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="83"/>
+        <location filename="../../src/sessionwidget.cpp" line="91"/>
         <source>&amp;Server</source>
         <translation>&amp;Server</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="87"/>
+        <location filename="../../src/sessionwidget.cpp" line="95"/>
         <source>Values ranging from &lt;b&gt;0&lt;/b&gt; to &lt;b&gt;65535&lt;/b&gt; are allowed.&lt;br /&gt;A value of &lt;b&gt;0&lt;/b&gt; will either use the port specified in the SSH configuration file belonging to a host or shortname, or use the default of &lt;b&gt;22&lt;/b&gt;.</source>
         <translation>Värden mellan &lt;b&gt;0&lt;/b&gt; och &lt;b&gt;65535&lt;/b&gt; är tillåtna.&lt;br /&gt;Väljs &lt;b&gt;0&lt;/b&gt; så kommer antingen porten specificerad i SSH-konfigurationen eller standardporten &lt;b&gt;22&lt;/b&gt; att användas.</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="122"/>
-        <location filename="../../src/sessionwidget.cpp" line="186"/>
+        <location filename="../../src/sessionwidget.cpp" line="130"/>
+        <location filename="../../src/sessionwidget.cpp" line="194"/>
         <source>Host:</source>
         <translation>Servernamn:</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="123"/>
-        <location filename="../../src/sessionwidget.cpp" line="192"/>
+        <location filename="../../src/sessionwidget.cpp" line="131"/>
+        <location filename="../../src/sessionwidget.cpp" line="200"/>
         <source>Login:</source>
         <translation>Användare:</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="125"/>
-        <location filename="../../src/sessionwidget.cpp" line="416"/>
+        <location filename="../../src/sessionwidget.cpp" line="133"/>
+        <location filename="../../src/sessionwidget.cpp" line="436"/>
         <source>SSH port:</source>
         <translation>SSH-port:</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="140"/>
+        <location filename="../../src/sessionwidget.cpp" line="148"/>
         <source>Use RSA/DSA key for ssh connection:</source>
         <translation>Använd denna RSA-/DSA-nyckel för SSH-anslutning:</translation>
     </message>
@@ -4258,59 +4279,69 @@ Använd dolt läge?</translation>
         <translation type="obsolete">Prova automatisk inloggning (ssh-agent eller standard SSH-nyckel)</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="148"/>
-        <location filename="../../src/sessionwidget.cpp" line="180"/>
+        <location filename="../../src/sessionwidget.cpp" line="156"/>
+        <location filename="../../src/sessionwidget.cpp" line="188"/>
         <source>Kerberos 5 (GSSAPI) authentication</source>
         <translation>Kerberos 5 (GSSAPI)-autentisering</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="149"/>
+        <location filename="../../src/sessionwidget.cpp" line="157"/>
         <source>Delegation of GSSAPI credentials to the server</source>
         <translation>Delegering av GSSAPI autentiseringsuppgifter till server</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="153"/>
+        <location filename="../../src/sessionwidget.cpp" line="161"/>
         <source>Use Proxy server for SSH connection</source>
         <translation>Använd proxyserver för SSH-anslutning</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="154"/>
+        <location filename="../../src/sessionwidget.cpp" line="162"/>
         <source>Proxy server</source>
         <translation>Proxyserver</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="160"/>
+        <location filename="../../src/sessionwidget.cpp" line="168"/>
         <source>SSH</source>
         <translation>SSH</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="161"/>
+        <location filename="../../src/sessionwidget.cpp" line="169"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="170"/>
+        <location filename="../../src/sessionwidget.cpp" line="178"/>
         <source>Same login as on X2Go Server</source>
         <translation>Samma inloggning som för X2Go Server</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="172"/>
+        <location filename="../../src/sessionwidget.cpp" line="180"/>
         <source>Same password as on X2Go Server</source>
         <translation>Samma lösenord som för X2Go Server</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="174"/>
+        <location filename="../../src/sessionwidget.cpp" line="182"/>
         <source>RSA/DSA key:</source>
         <translation>RSA-/DSA-nyckel:</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="337"/>
-        <location filename="../../src/sessionwidget.cpp" line="467"/>
+        <location filename="../../src/sessionwidget.cpp" line="218"/>
+        <source>Run in X2GoKDrive (experimental)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/sessionwidget.cpp" line="236"/>
+        <source>X2Go/X11 Desktop Sharing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/sessionwidget.cpp" line="357"/>
+        <location filename="../../src/sessionwidget.cpp" line="487"/>
         <source>X2Go Client is running in portable mode. You should use a path on your USB device to be able to access your data wherever you are.</source>
         <translation>X2Go-klienten körs i portabelt läge. Du bör använda en sökväg till en USB-enhet för att möjliggöra flyttbara inställningar.</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="384"/>
+        <location filename="../../src/sessionwidget.cpp" line="404"/>
         <source>Direct XDMCP connection</source>
         <translation>Direktanslutning via XDMCP</translation>
     </message>
@@ -4319,22 +4350,22 @@ Använd dolt läge?</translation>
         <translation type="obsolete">ssh-agent eller standard SSH-nyckel</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="183"/>
+        <location filename="../../src/sessionwidget.cpp" line="191"/>
         <source>Type:</source>
         <translation>Typ:</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="187"/>
+        <location filename="../../src/sessionwidget.cpp" line="195"/>
         <source>Port:</source>
         <translation>Port:</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="203"/>
+        <location filename="../../src/sessionwidget.cpp" line="211"/>
         <source>&amp;Session type</source>
         <translation>&amp;Sessionstyp</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="208"/>
+        <location filename="../../src/sessionwidget.cpp" line="216"/>
         <source>Session type:</source>
         <translation>Sessionstyp:</translation>
     </message>
@@ -4343,46 +4374,45 @@ Använd dolt läge?</translation>
         <translation type="obsolete">Anslut till Windows Terminal Server (RDP)</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="226"/>
-        <location filename="../../src/sessionwidget.cpp" line="382"/>
+        <location filename="../../src/sessionwidget.cpp" line="235"/>
+        <location filename="../../src/sessionwidget.cpp" line="402"/>
         <source>XDMCP</source>
         <translation>XDMCP</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="227"/>
         <source>Connect to local desktop</source>
-        <translation>Anslut till lokalt Skrivbord</translation>
+        <translation type="vanished">Anslut till lokalt Skrivbord</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="228"/>
+        <location filename="../../src/sessionwidget.cpp" line="237"/>
         <source>Custom desktop</source>
         <translation>Anpassat Skrivbord</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="229"/>
+        <location filename="../../src/sessionwidget.cpp" line="238"/>
         <source>Single application</source>
         <translation>Applikation</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="230"/>
+        <location filename="../../src/sessionwidget.cpp" line="239"/>
         <source>Published applications</source>
         <translation>Publicerade applikationer</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="232"/>
-        <location filename="../../src/sessionwidget.cpp" line="487"/>
+        <location filename="../../src/sessionwidget.cpp" line="242"/>
+        <location filename="../../src/sessionwidget.cpp" line="507"/>
         <source>Command:</source>
         <translation>Kommando:</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="233"/>
+        <location filename="../../src/sessionwidget.cpp" line="243"/>
         <source>Advanced options...</source>
         <translation>Avancerade alternativ...</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="245"/>
-        <location filename="../../src/sessionwidget.cpp" line="819"/>
-        <location filename="../../src/sessionwidget.cpp" line="920"/>
+        <location filename="../../src/sessionwidget.cpp" line="255"/>
+        <location filename="../../src/sessionwidget.cpp" line="836"/>
+        <location filename="../../src/sessionwidget.cpp" line="939"/>
         <source>Path to executable</source>
         <translation>Sökväg till exekverbar fil</translation>
     </message>
@@ -4391,57 +4421,57 @@ Använd dolt läge?</translation>
         <translation type="obsolete">Direktanslutning via RDP</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="412"/>
+        <location filename="../../src/sessionwidget.cpp" line="432"/>
         <source>RDP port:</source>
         <translation>RDP-port:</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="431"/>
+        <location filename="../../src/sessionwidget.cpp" line="451"/>
         <source>Open picture</source>
         <translation>Öppna bild</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="433"/>
+        <location filename="../../src/sessionwidget.cpp" line="453"/>
         <source>Pictures</source>
         <translation>Bilder</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="324"/>
-        <location filename="../../src/sessionwidget.cpp" line="454"/>
+        <location filename="../../src/sessionwidget.cpp" line="344"/>
+        <location filename="../../src/sessionwidget.cpp" line="474"/>
         <source>Open key file</source>
         <translation>Öppna nyckelfil</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="147"/>
+        <location filename="../../src/sessionwidget.cpp" line="155"/>
         <source>Try auto login (via SSH Agent or default SSH key)</source>
         <translation>Prova automatisk inloggning (ssh-agent eller standard SSH-nyckel)</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="179"/>
+        <location filename="../../src/sessionwidget.cpp" line="187"/>
         <source>SSH Agent or default SSH key</source>
         <translation>ssh-agent eller standard SSH-nyckel</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="225"/>
-        <location filename="../../src/sessionwidget.cpp" line="547"/>
+        <location filename="../../src/sessionwidget.cpp" line="234"/>
+        <location filename="../../src/sessionwidget.cpp" line="567"/>
         <source>Connect to Windows Terminal Server</source>
         <translation>Anslut till Windows Terminal Server (RDP)</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="256"/>
-        <location filename="../../src/sessionwidget.cpp" line="389"/>
+        <location filename="../../src/sessionwidget.cpp" line="266"/>
+        <location filename="../../src/sessionwidget.cpp" line="409"/>
         <source>Direct RDP connection</source>
         <translation>Direktanslutning via RDP</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="326"/>
-        <location filename="../../src/sessionwidget.cpp" line="456"/>
+        <location filename="../../src/sessionwidget.cpp" line="346"/>
+        <location filename="../../src/sessionwidget.cpp" line="476"/>
         <source>All files</source>
         <translation>Alla filer</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="336"/>
-        <location filename="../../src/sessionwidget.cpp" line="466"/>
+        <location filename="../../src/sessionwidget.cpp" line="356"/>
+        <location filename="../../src/sessionwidget.cpp" line="486"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
@@ -4450,30 +4480,30 @@ Använd dolt läge?</translation>
         <translation type="obsolete">X2Go-klienten körs i portabelt läge. Du bör använda en sökväg till en USB-enhet för att möjliggöra flyttbara inställningar</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="514"/>
-        <location filename="../../src/sessionwidget.cpp" line="769"/>
+        <location filename="../../src/sessionwidget.cpp" line="534"/>
+        <location filename="../../src/sessionwidget.cpp" line="782"/>
         <source>Server:</source>
         <translation>Server:</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="523"/>
-        <location filename="../../src/sessionwidget.cpp" line="781"/>
+        <location filename="../../src/sessionwidget.cpp" line="543"/>
+        <location filename="../../src/sessionwidget.cpp" line="794"/>
         <source>XDMCP server:</source>
         <translation>XDMCP-server:</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="527"/>
+        <location filename="../../src/sessionwidget.cpp" line="547"/>
         <source>direct XDMCP connection</source>
         <translation>direktanslutning via XDMCP</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="548"/>
+        <location filename="../../src/sessionwidget.cpp" line="568"/>
         <source>rdesktop command line options:</source>
         <translation>rdesktop kommandoradsalternativ:</translation>
     </message>
     <message>
-        <location filename="../../src/sessionwidget.cpp" line="560"/>
-        <location filename="../../src/sessionwidget.cpp" line="797"/>
+        <location filename="../../src/sessionwidget.cpp" line="580"/>
+        <location filename="../../src/sessionwidget.cpp" line="810"/>
         <source>New session</source>
         <translation>Ny session</translation>
     </message>
@@ -4481,14 +4511,14 @@ Använd dolt läge?</translation>
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="46"/>
-        <location filename="../../src/settingswidget.cpp" line="49"/>
+        <location filename="../../src/settingswidget.cpp" line="48"/>
+        <location filename="../../src/settingswidget.cpp" line="51"/>
         <source>&amp;Display</source>
         <translation>&amp;Skärm</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="47"/>
-        <location filename="../../src/settingswidget.cpp" line="51"/>
+        <location filename="../../src/settingswidget.cpp" line="49"/>
+        <location filename="../../src/settingswidget.cpp" line="53"/>
         <source>&amp;Keyboard</source>
         <translation>&amp;Tangentbord</translation>
     </message>
@@ -4501,22 +4531,22 @@ Använd dolt läge?</translation>
         <translation type="obsolete">&amp;Urklippsläge</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="153"/>
+        <location filename="../../src/settingswidget.cpp" line="155"/>
         <source>Bidirectional copy and paste</source>
         <translation>Dubbelriktad klippa och klistra</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="154"/>
+        <location filename="../../src/settingswidget.cpp" line="156"/>
         <source>Copy and paste from client to server</source>
         <translation>Klippa och klistra från klient till server</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="155"/>
+        <location filename="../../src/settingswidget.cpp" line="157"/>
         <source>Copy and paste from server to client</source>
         <translation>Klippa och klistra från server till klient</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="156"/>
+        <location filename="../../src/settingswidget.cpp" line="158"/>
         <source>Disable clipboard completely</source>
         <translation>Deaktivera Urklipp helt</translation>
     </message>
@@ -4525,27 +4555,27 @@ Använd dolt läge?</translation>
         <translation type="obsolete">Detektera tangentbordsinställningar automatiskt</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="169"/>
+        <location filename="../../src/settingswidget.cpp" line="171"/>
         <source>Do not configure keyboard</source>
         <translation>Konfigurera inte tangentbordet</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="170"/>
+        <location filename="../../src/settingswidget.cpp" line="172"/>
         <source>Configure keyboard</source>
         <translation>Konfigurera tangentbordet</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="181"/>
+        <location filename="../../src/settingswidget.cpp" line="183"/>
         <source>Model: </source>
         <translation>Modell: </translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="184"/>
+        <location filename="../../src/settingswidget.cpp" line="186"/>
         <source>Layout: </source>
         <translation>Layout: </translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="187"/>
+        <location filename="../../src/settingswidget.cpp" line="189"/>
         <source>Variant: </source>
         <translation>Variant: </translation>
     </message>
@@ -4554,74 +4584,84 @@ Använd dolt läge?</translation>
         <translation type="obsolete">RDP-klient</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="50"/>
+        <location filename="../../src/settingswidget.cpp" line="52"/>
         <source>&amp;Clipboard mode</source>
         <translation>&amp;Urklippsläge</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="62"/>
+        <location filename="../../src/settingswidget.cpp" line="64"/>
         <source>Fullscreen</source>
         <translation>Fullskärm</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="64"/>
+        <location filename="../../src/settingswidget.cpp" line="66"/>
         <source>Custom</source>
         <translation>Anpassad</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="66"/>
+        <location filename="../../src/settingswidget.cpp" line="68"/>
         <source>Window</source>
         <translation>Fönster</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="68"/>
+        <location filename="../../src/settingswidget.cpp" line="70"/>
         <source>Use whole display</source>
         <translation>Använd hela skärmen</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="69"/>
+        <location filename="../../src/settingswidget.cpp" line="71"/>
         <source>Maximum available</source>
         <translation>Maximerad</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="77"/>
+        <location filename="../../src/settingswidget.cpp" line="79"/>
         <source>Set display DPI</source>
         <translation>Ange skärmupplösning (DPI)</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="82"/>
+        <location filename="../../src/settingswidget.cpp" line="84"/>
         <source>Xinerama extension (support for two or more physical displays)</source>
         <translation>Xinerama (stöd för två eller fler skärmar)</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="98"/>
+        <location filename="../../src/settingswidget.cpp" line="100"/>
         <source>Width:</source>
         <translation>Bredd:</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="101"/>
+        <location filename="../../src/settingswidget.cpp" line="103"/>
         <source>Height:</source>
         <translation>Höjd:</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="109"/>
+        <location filename="../../src/settingswidget.cpp" line="111"/>
         <source>&amp;Display:</source>
         <translation>&amp;Skärm:</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="111"/>
+        <location filename="../../src/settingswidget.cpp" line="113"/>
         <source>&amp;Identify all displays</source>
         <translation>&amp;Identifiera alla skärmar</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="168"/>
+        <location filename="../../src/settingswidget.cpp" line="170"/>
         <source>Auto-detect keyboard settings</source>
         <translation>Detektera tangentbordsinställningar automatiskt</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="204"/>
+        <location filename="../../src/settingswidget.cpp" line="206"/>
         <source>RDP client</source>
         <translation>RDP-klient</translation>
+    </message>
+    <message>
+        <location filename="../../src/settingswidget.cpp" line="210"/>
+        <source>FreeRDP/X11 (pre-2.x style options)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/settingswidget.cpp" line="211"/>
+        <source>FreeRDP/X11 (2.x style options)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keep current keyboard Settings</source>
@@ -4667,24 +4707,24 @@ ljudström genom brandväggar</translation>
         <translation type="obsolete">Stöd för utskrifter via klienten</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="219"/>
-        <location filename="../../src/settingswidget.cpp" line="248"/>
+        <location filename="../../src/settingswidget.cpp" line="221"/>
+        <location filename="../../src/settingswidget.cpp" line="250"/>
         <source>Additional parameters:</source>
         <translation>Extra parametrar:</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="220"/>
-        <location filename="../../src/settingswidget.cpp" line="249"/>
+        <location filename="../../src/settingswidget.cpp" line="222"/>
+        <location filename="../../src/settingswidget.cpp" line="251"/>
         <source>Command line:</source>
         <translation>Kommandorad:</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="233"/>
+        <location filename="../../src/settingswidget.cpp" line="235"/>
         <source>XDMCP client</source>
         <translation>XDMCP-klient</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="536"/>
+        <location filename="../../src/settingswidget.cpp" line="540"/>
         <source>us</source>
         <translation>se</translation>
     </message>
@@ -4693,8 +4733,8 @@ ljudström genom brandväggar</translation>
         <translation type="obsolete">pc105/se</translation>
     </message>
     <message>
-        <location filename="../../src/settingswidget.cpp" line="706"/>
-        <location filename="../../src/settingswidget.cpp" line="727"/>
+        <location filename="../../src/settingswidget.cpp" line="710"/>
+        <location filename="../../src/settingswidget.cpp" line="731"/>
         <source>password</source>
         <translation>lösenord</translation>
     </message>
@@ -4702,58 +4742,58 @@ ljudström genom brandväggar</translation>
 <context>
     <name>ShareWidget</name>
     <message>
-        <location filename="../../src/sharewidget.cpp" line="43"/>
+        <location filename="../../src/sharewidget.cpp" line="44"/>
         <source>&amp;Folders</source>
         <translation>&amp;Mappar</translation>
     </message>
     <message>
-        <location filename="../../src/sharewidget.cpp" line="53"/>
+        <location filename="../../src/sharewidget.cpp" line="54"/>
         <source>Path</source>
         <translation>Sökväg</translation>
     </message>
     <message>
-        <location filename="../../src/sharewidget.cpp" line="55"/>
-        <location filename="../../src/sharewidget.cpp" line="137"/>
+        <location filename="../../src/sharewidget.cpp" line="56"/>
+        <location filename="../../src/sharewidget.cpp" line="138"/>
         <source>Automount</source>
         <translation>Montera automatiskt</translation>
     </message>
     <message>
-        <location filename="../../src/sharewidget.cpp" line="64"/>
+        <location filename="../../src/sharewidget.cpp" line="65"/>
         <source>Add</source>
         <translation>Lägg till</translation>
     </message>
     <message>
-        <location filename="../../src/sharewidget.cpp" line="65"/>
+        <location filename="../../src/sharewidget.cpp" line="66"/>
         <source>Delete</source>
         <translation>Radera</translation>
     </message>
     <message>
-        <location filename="../../src/sharewidget.cpp" line="75"/>
+        <location filename="../../src/sharewidget.cpp" line="76"/>
         <source>Path:</source>
         <translation>Sökväg:</translation>
     </message>
     <message>
-        <location filename="../../src/sharewidget.cpp" line="82"/>
+        <location filename="../../src/sharewidget.cpp" line="83"/>
         <source>Filename encoding</source>
         <translation>Kodtabell för filnamn</translation>
     </message>
     <message>
-        <location filename="../../src/sharewidget.cpp" line="88"/>
+        <location filename="../../src/sharewidget.cpp" line="89"/>
         <source>local:</source>
         <translation>lokal:</translation>
     </message>
     <message>
-        <location filename="../../src/sharewidget.cpp" line="89"/>
+        <location filename="../../src/sharewidget.cpp" line="90"/>
         <source>remote:</source>
         <translation>fjärr:</translation>
     </message>
     <message>
-        <location filename="../../src/sharewidget.cpp" line="101"/>
+        <location filename="../../src/sharewidget.cpp" line="102"/>
         <source>Use SSH port forwarding to tunnel file system connections through firewalls</source>
         <translation>Använd SSH port forwarding för att tunnla filsystemsanslutningar genom brandväggar</translation>
     </message>
     <message>
-        <location filename="../../src/sharewidget.cpp" line="176"/>
+        <location filename="../../src/sharewidget.cpp" line="179"/>
         <source>X2Go Client is running in portable mode. You should use a path on your USB device to be able to access your data wherever you are.</source>
         <translation>X2Go-klienten körs i portabelt läge. Du bör använda en sökväg till en USB-enhet för att möjliggöra flyttbara inställningar.</translation>
     </message>
@@ -4762,12 +4802,12 @@ ljudström genom brandväggar</translation>
         <translation type="obsolete">Använd SSH port forwarding för att tunnla filsystemsanslutningar genom brandväggar</translation>
     </message>
     <message>
-        <location filename="../../src/sharewidget.cpp" line="164"/>
+        <location filename="../../src/sharewidget.cpp" line="167"/>
         <source>Select folder</source>
         <translation>Välj mapp</translation>
     </message>
     <message>
-        <location filename="../../src/sharewidget.cpp" line="175"/>
+        <location filename="../../src/sharewidget.cpp" line="178"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
@@ -4776,14 +4816,14 @@ ljudström genom brandväggar</translation>
         <translation type="obsolete">X2Go-klienten körs i portabelt läge. Du bör använda en sökväg till en USB-enhet för att möjliggöra flyttbara inställningar</translation>
     </message>
     <message>
-        <location filename="../../src/sharewidget.cpp" line="235"/>
-        <location filename="../../src/sharewidget.cpp" line="286"/>
+        <location filename="../../src/sharewidget.cpp" line="238"/>
+        <location filename="../../src/sharewidget.cpp" line="289"/>
         <source>WINDOWS-1252</source>
         <translation>WINDOWS-1252</translation>
     </message>
     <message>
-        <location filename="../../src/sharewidget.cpp" line="245"/>
-        <location filename="../../src/sharewidget.cpp" line="290"/>
+        <location filename="../../src/sharewidget.cpp" line="248"/>
+        <location filename="../../src/sharewidget.cpp" line="293"/>
         <source>ISO8859-1</source>
         <translation>ISO8859-1</translation>
     </message>
@@ -4795,18 +4835,18 @@ ljudström genom brandväggar</translation>
         <translation type="obsolete">Anslutningsfel SSH-proxy</translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="477"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="455"/>
         <source>SSH proxy connection error.</source>
         <translation>Anslutningsfel SSH-proxy.</translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="482"/>
-        <location filename="../../src/sshmasterconnection.cpp" line="491"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="460"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="469"/>
         <source>SSH proxy connection error: </source>
         <translation>Anslutningsfel SSH-proxy: </translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="507"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="483"/>
         <source>Failed to create SSH proxy tunnel.</source>
         <translation>Kunde ej skapa SSH-proxytunnel.</translation>
     </message>
@@ -4815,70 +4855,70 @@ ljudström genom brandväggar</translation>
         <translation type="obsolete">Kan ej initialisera libssh.</translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="204"/>
-        <location filename="../../src/sshmasterconnection.cpp" line="577"/>
-        <location filename="../../src/sshmasterconnection.cpp" line="885"/>
-        <location filename="../../src/sshmasterconnection.cpp" line="2120"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="207"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="565"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="844"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="2010"/>
         <source>Cannot create SSH session.</source>
         <translation>Kan ej skapa SSH-session.</translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="205"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="208"/>
         <source>Using environment-provided username.</source>
         <translation>Användarnamn från miljö används.</translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="616"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="600"/>
         <source>Cannot connect to proxy server.</source>
         <translation>Kan ej ansluta till proxyserver.</translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="770"/>
-        <location filename="../../src/sshmasterconnection.cpp" line="1208"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="737"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="1156"/>
         <source>Authentication failed.</source>
         <translation>Autentisering misslyckades.</translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="1667"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="1595"/>
         <source>Failed to start SSH client. Please check your installation and GSSApi configuration.</source>
         <translation>Start av SSH-klient misslyckades. Kontrollera din installation och GSSApi-konfiguration.</translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="1693"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="1617"/>
         <source>Check your GSSApi configuration or choose another authentication method.</source>
         <translation>Kontrollera din GSSApi-konfiguration eller välj en annan autentiseringsmetod.</translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="1834"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="1755"/>
         <source>Reconnect session</source>
         <translation>Återanslut session</translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="1944"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="1859"/>
         <source>Cannot open file </source>
         <translation>Kan inte öppna fil </translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="1956"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="1871"/>
         <source>Cannot create remote file </source>
         <translation>Kan inte skapa fjärrfil </translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="1971"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="1884"/>
         <source>Cannot write to remote file </source>
         <translation>Kan inte skriva till fjärrfil </translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="1732"/>
-        <location filename="../../src/sshmasterconnection.cpp" line="1742"/>
-        <location filename="../../src/sshmasterconnection.cpp" line="1751"/>
-        <location filename="../../src/sshmasterconnection.cpp" line="1760"/>
-        <location filename="../../src/sshmasterconnection.cpp" line="1769"/>
-        <location filename="../../src/sshmasterconnection.cpp" line="2090"/>
-        <location filename="../../src/sshmasterconnection.cpp" line="2168"/>
-        <location filename="../../src/sshmasterconnection.cpp" line="2190"/>
-        <location filename="../../src/sshmasterconnection.cpp" line="2199"/>
-        <location filename="../../src/sshmasterconnection.cpp" line="2334"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="1656"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="1664"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="1672"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="1680"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="1688"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="1986"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="2056"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="2072"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="2079"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="2188"/>
         <source>%1 failed.</source>
         <extracomment>Argument in this context will be a function name.</extracomment>
         <translation>%1 misslyckades.</translation>
@@ -4892,12 +4932,12 @@ ljudström genom brandväggar</translation>
         <translation type="obsolete">channel_open_session misslyckades.</translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="2278"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="2141"/>
         <source>Error writing to socket.</source>
         <translation>Ett fel uppstod vid skrivning till socket.</translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="2300"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="2159"/>
         <source>Error reading channel.</source>
         <translation>Ett fel uppstod när kanal skulle läsas.</translation>
     </message>
@@ -4906,7 +4946,7 @@ ljudström genom brandväggar</translation>
         <translation type="obsolete">channel_write misslyckades.</translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="2350"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="2200"/>
         <source>Error reading from TCP socket.</source>
         <translation>Ett fel uppstod när TCP-socket skulle läsas.</translation>
     </message>
@@ -4959,8 +4999,8 @@ ljudström genom brandväggar</translation>
         <translation type="obsolete">Kan inte skriva till fjärrfil </translation>
     </message>
     <message>
-        <location filename="../../src/sshmasterconnection.cpp" line="394"/>
-        <location filename="../../src/sshmasterconnection.cpp" line="647"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="378"/>
+        <location filename="../../src/sshmasterconnection.cpp" line="623"/>
         <source>Cannot connect to </source>
         <translation>kan inte ansluta till </translation>
     </message>

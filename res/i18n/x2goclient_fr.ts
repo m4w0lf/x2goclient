@@ -856,6 +856,10 @@ Vous la trouverez peut-être dans l&apos;un de ces emplacements standards :
         <source>Enables broker logout button.</source>
         <translation>Active le bouton de déconnexion du broker.</translation>
     </message>
+    <message>
+        <source>Disables X2Go Client&apos;s UNIX cleanup helper. This will prevent X2Go Client from terminating spawned processes after the main program terminates or crashes. Use with care and when in doubt, do not use this parameter at all.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HelpDialog</name>
@@ -2551,6 +2555,14 @@ Le chemin de recherche en vigueur est : </translation>
             <numerusform>Le serveur X.Org n&apos;a pas démarré correctement malgré %n essais.</numerusform>
         </translation>
     </message>
+    <message>
+        <source>A click displays the context menu.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X2GoKDrive session</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PrintDialog</name>
@@ -3142,7 +3154,7 @@ Utiliser le mode caché de X2Go Client ?</translation>
     </message>
     <message>
         <source>Connect to local desktop</source>
-        <translation>Se connecter au bureau local</translation>
+        <translation type="vanished">Se connecter au bureau local</translation>
     </message>
     <message>
         <source>Custom desktop</source>
@@ -3247,6 +3259,14 @@ Utiliser le mode caché de X2Go Client ?</translation>
     <message>
         <source>direct XDMCP connection</source>
         <translation>connexion XDMCP directe</translation>
+    </message>
+    <message>
+        <source>Run in X2GoKDrive (experimental)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X2Go/X11 Desktop Sharing</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3375,6 +3395,14 @@ Utiliser le mode caché de X2Go Client ?</translation>
     <message>
         <source>XDMCP client</source>
         <translation>client XDMCP</translation>
+    </message>
+    <message>
+        <source>FreeRDP/X11 (pre-2.x style options)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FreeRDP/X11 (2.x style options)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

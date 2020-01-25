@@ -871,6 +871,10 @@ Noen vanlige lokasjoner er:
         <source>Enables broker logout button.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Disables X2Go Client&apos;s UNIX cleanup helper. This will prevent X2Go Client from terminating spawned processes after the main program terminates or crashes. Use with care and when in doubt, do not use this parameter at all.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HelpDialog</name>
@@ -3016,6 +3020,14 @@ The current search path is: </source>
             <numerusform></numerusform>
         </translation>
     </message>
+    <message>
+        <source>A click displays the context menu.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X2GoKDrive session</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PrintDialog</name>
@@ -3636,7 +3648,7 @@ Use X2Go Client&apos;s hidden mode?</source>
     </message>
     <message>
         <source>Connect to local desktop</source>
-        <translation>Koble til lokalt skrivebord</translation>
+        <translation type="vanished">Koble til lokalt skrivebord</translation>
     </message>
     <message>
         <source>Custom desktop</source>
@@ -3750,6 +3762,14 @@ Use X2Go Client&apos;s hidden mode?</source>
     <message>
         <source>direct XDMCP connection</source>
         <translation>direkte XDMCP oppkobling</translation>
+    </message>
+    <message>
+        <source>Run in X2GoKDrive (experimental)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X2Go/X11 Desktop Sharing</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3935,6 +3955,14 @@ lydsystem forbindelser gjennom brannmurer</translation>
     <message>
         <source>XDMCP client</source>
         <translation>XDMCP klient</translation>
+    </message>
+    <message>
+        <source>FreeRDP/X11 (pre-2.x style options)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FreeRDP/X11 (2.x style options)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
