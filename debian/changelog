@@ -176,6 +176,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     + In x2goclient D, add x2gokdriveclient.
     + In x2goclient D, add hello as an alternative to x2gokdriveclient. Works
       around non-available x2gokdriveclient on Debian jessie.
+
   [ Tom Ruzicka ]
   * New upstream release (4.1.2.2):
     - Add new translation: Czech.
