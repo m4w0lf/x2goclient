@@ -318,6 +318,7 @@ void SshMasterConnection::addReverseTunnelConnections()
             while (SSH_AGAIN == rc) {
                 rc = ssh_channel_listen_forward(my_ssh_session, NULL, reverseTunnelRequest[i].forwardPort, NULL);
 #else
+            {
                 rc = ssh_forward_listen(my_ssh_session, NULL, reverseTunnelRequest[i].forwardPort, NULL);
 #endif
 
@@ -332,9 +333,7 @@ void SshMasterConnection::addReverseTunnelConnections()
                     x2goDebug<<"Forward port "<<reverseTunnelRequest[i].forwardPort<<" failed:"<<err;
                     emit reverseTunnelFailed(reverseTunnelRequest[i].creator, err);
                 }
-#if LIBSSH_VERSION_INT >= SSH_VERSION_INT (0, 7, 0)
             }
-#endif
         }
     }
     reverseTunnelRequestMutex.unlock();
