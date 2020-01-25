@@ -151,6 +151,9 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - Windows: Update PuTTY from 0.71 to 0.73. Fixes another round of issues
       discovered through the EU-funded bug bounty programme and other security
       problems.
+    - src/onmainwindow.cpp: stop PulseAudio from spamming logs after a client
+      disconnects. Fixes: #1425. Patch based on one submitted by Ville
+      Salmela.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:

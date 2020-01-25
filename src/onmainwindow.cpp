@@ -5721,6 +5721,10 @@ void ONMainWindow::slotRetResumeSess ( bool result,
                      "/.pulse-cookie"+
                      "\" >> \"${HOME}/.x2go/C-"+
                      resumingSession.sessionId+
+                     "/.pulse-client.conf\""
+                     ";echo \"autospawn=no\" >>"
+                     "\"${HOME}/.x2go/C-" +
+                     resumingSession.sessionId +
                      "/.pulse-client.conf\"";
             else
                 scmd="echo \"default-server=localhost:"+
@@ -5733,6 +5737,10 @@ void ONMainWindow::slotRetResumeSess ( bool result,
                      "/.pulse-cookie"+
                      "\" >> \"${HOME}/.x2go/C-"+
                      resumingSession.sessionId+
+                     "/.pulse-client.conf\""
+                     ";echo \"autospawn=no\" >>"
+                     "\"${HOME}/.x2go/C-" +
+                     resumingSession.sessionId +
                      "/.pulse-client.conf\"";
 
             sshConnection->executeCommand (scmd);
