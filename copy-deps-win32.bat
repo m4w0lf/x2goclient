@@ -11,7 +11,7 @@ xcopy /E /Y    %1\MinGW-DLLs\i686-4.8.2-release-posix-dwarf-rt_v3-rev3\libstdc++
 xcopy /E /Y    %1\MinGW-DLLs\i686-4.8.2-release-posix-dwarf-rt_v3-rev3\libwinpthread-1.dll %3\ || exit /b  %errorlevel%
 xcopy /E /Y    %1\MSVC-DLLs\2013-12.0.21005.1-x86\msvcr120.dll %3\ || exit /b  %errorlevel%
 xcopy /E /Y    %1\pulse\7.1-2.2_bin %3\ || exit /b  %errorlevel%
-xcopy /E /Y    %1\PuTTY\0.71_bin %3\ || exit /b  %errorlevel%
+xcopy /E /Y    %1\PuTTY\0.73_bin %3\ || exit /b  %errorlevel%
 xcopy /E /Y /I %1\VcXsrv\1.20.1.4_bin %3\VcXsrv || exit /b  %errorlevel%
 xcopy /E /Y /I %1\x3270-fonts\3.6ga4\misc %3\VcXsrv\fonts\misc || exit /b  %errorlevel%
 xcopy /E /Y    %1\x3270-fonts\3.6ga4\copyright-x3270-fonts %3\VcXsrv\ || exit /b  %errorlevel%

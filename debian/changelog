@@ -148,6 +148,9 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - src/sshmasterconnection.cpp: work around lupdate warning by adding
       another block in the #else preprocessor branch.
     - res/i18n/x2goclient_*.ts: update translation files.
+    - Windows: Update PuTTY from 0.71 to 0.73. Fixes another round of issues
+      discovered through the EU-funded bug bounty programme and other security
+      problems.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
