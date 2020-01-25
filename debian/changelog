@@ -140,6 +140,11 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       for pascp (PuTTY-based Windows solution for Kerberos support), but newer
       libssh versions with the CVE-2019-14889 also interpret paths as literal
       strings.
+    - src/SVGFrame.cpp: simplify implementation a lot. Only paint data onto
+      the widget in the paintEvent () function. Drop setting a palette based
+      upon the rendered SVG image, which has been very wrong to do from the
+      beginning and only lead to visual glitches. Correctly repaint
+      single-frame SVG files.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
