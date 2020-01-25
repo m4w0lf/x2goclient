@@ -154,6 +154,10 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - src/onmainwindow.cpp: stop PulseAudio from spamming logs after a client
       disconnects. Fixes: #1425. Patch based on one submitted by Ville
       Salmela.
+    - src/onmainwindow.cpp: instead of searching for "sftp-binary", try to
+      look for "sftp-server" in the Qt 5.x code path. Luckily this only
+      affects cases where we bundle sftp-server (which we don't) or where
+      sftp-server is actually part of $PATH (which it usually shouldn't be).
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:

@@ -10870,12 +10870,12 @@ void ONMainWindow::generateEtcFiles()
     QStringList search_paths;
     search_paths << appDir;
 
-    sftp_binary = QStandardPaths::findExecutable ("sftp-binary", search_paths);
+    sftp_binary = QStandardPaths::findExecutable ("sftp-server", search_paths);
 
     if (sftp_binary.isEmpty ()) {
       search_paths = QStringList ();
 
-      sftp_binary = QStandardPaths::findExecutable ("sftp-binary", search_paths);
+      sftp_binary = QStandardPaths::findExecutable ("sftp-server", search_paths);
 
       if (sftp_binary.isEmpty ()) {
         search_paths = common_sftp_dirs;
