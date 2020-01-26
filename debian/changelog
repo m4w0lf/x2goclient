@@ -159,6 +159,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       affects cases where we bundle sftp-server (which we don't) or where
       sftp-server is actually part of $PATH (which it usually shouldn't be).
     - Windows: upgrade bundled VcXsrv to 1.20.6.0.
+    - Windows: upgrade PulseAudio from 7.1 to 13.0.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
