@@ -858,7 +858,7 @@ Vous la trouverez peut-Ãªtre dans l&apos;un de ces emplacements standards :
     </message>
     <message>
         <source>Disables X2Go Client&apos;s UNIX cleanup helper. This will prevent X2Go Client from terminating spawned processes after the main program terminates or crashes. Use with care and when in doubt, do not use this parameter at all.</source>
-        <translation type="unfinished"></translation>
+        <translation>Désactive l&apos;assistant de nettoyage UNIX de X2Go Client. Ceci empêchera X2Go Client d&apos;arrêter les processus enfants après l&apos;arrêt ou le plantage du programme principal.</translation>
     </message>
 </context>
 <context>
@@ -2557,11 +2557,11 @@ Le chemin de recherche en vigueur est : </translation>
     </message>
     <message>
         <source>A click displays the context menu.</source>
-        <translation type="unfinished"></translation>
+        <translation>Un clic affiche le menu contextuel.</translation>
     </message>
     <message>
         <source>X2GoKDrive session</source>
-        <translation type="unfinished"></translation>
+        <translation>Session X2GoKDrive</translation>
     </message>
 </context>
 <context>
@@ -3262,11 +3262,11 @@ Utiliser le mode cachÃ© de X2Go Client ?</translation>
     </message>
     <message>
         <source>Run in X2GoKDrive (experimental)</source>
-        <translation type="unfinished"></translation>
+        <translation>Démarrer dans X2GoKDrive (expérimental)</translation>
     </message>
     <message>
         <source>X2Go/X11 Desktop Sharing</source>
-        <translation type="unfinished"></translation>
+        <translation>Bureau X2Go/X11 Partagé</translation>
     </message>
 </context>
 <context>
@@ -3398,11 +3398,11 @@ Utiliser le mode cachÃ© de X2Go Client ?</translation>
     </message>
     <message>
         <source>FreeRDP/X11 (pre-2.x style options)</source>
-        <translation type="unfinished"></translation>
+        <translation>FreeRDP/X11 (style d&apos;options pre-2.x)</translation>
     </message>
     <message>
         <source>FreeRDP/X11 (2.x style options)</source>
-        <translation type="unfinished"></translation>
+        <translation>FreeRDP/X11 (style d&apos;options 2.x)</translation>
     </message>
 </context>
 <context>
