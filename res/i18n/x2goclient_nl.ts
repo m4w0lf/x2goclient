@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="nl_NL">
+<TS version="2.0" language="nl_NL">
 <context>
     <name>AppDialog</name>
     <message>
@@ -1041,7 +1041,7 @@ Locaties voor installatie kunnen de volgende zijn:
     <message>
         <location filename="../../src/help.cpp" line="168"/>
         <source>Enables broker logout button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schakel broker uitlog knop in.</translation>
     </message>
     <message>
         <location filename="../../src/help.cpp" line="169"/>
@@ -1056,7 +1056,7 @@ Locaties voor installatie kunnen de volgende zijn:
     <message>
         <location filename="../../src/help.cpp" line="177"/>
         <source>Disables X2Go Client&apos;s UNIX cleanup helper. This will prevent X2Go Client from terminating spawned processes after the main program terminates or crashes. Use with care and when in doubt, do not use this parameter at all.</source>
-        <translation type="unfinished"></translation>
+        <translation>Schakeld de X2Go Clients UNIX opruim assistent uit. Dit verhinderd de X2Go Client om hangende sessies of processen te beeindigen nadat de werkelijke toepassing is gestopt of gecrashed is. Gebruik deze optie met de nodige voorzichtigheid en wanneer u twijfelt, gebruik deze instelling dan helemaal niet.</translation>
     </message>
 </context>
 <context>
@@ -1177,7 +1177,7 @@ Publieke sleutel hash: </translation>
     <message>
         <location filename="../../src/httpbrokerclient.cpp" line="234"/>
         <source>Enter user account password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Geef gebruikers wachtwoord in:</translation>
     </message>
     <message>
         <location filename="../../src/httpbrokerclient.cpp" line="271"/>
@@ -1448,11 +1448,11 @@ A.u.b upgraden naar PulseAudio.</translation>
     </message>
     <message>
         <source>Share folder...</source>
-        <translation type="vanished">Gedeelde map...</translation>
+        <translation>Gedeelde map...</translation>
     </message>
     <message>
         <source>Applications...</source>
-        <translation type="vanished">Applicaties...</translation>
+        <translation>Applicaties...</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="1138"/>
@@ -1470,7 +1470,7 @@ A.u.b upgraden naar PulseAudio.</translation>
     </message>
     <message>
         <source>Reconnect</source>
-        <translation type="vanished">Opnieuw verbinden</translation>
+        <translation>Opnieuw verbinden</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="11781"/>
@@ -1788,7 +1788,7 @@ A.u.b upgraden naar PulseAudio.</translation>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="1176"/>
         <source>A click displays the context menu.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hier klikken zal een context menu tonen.</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="1178"/>
@@ -1828,7 +1828,7 @@ A.u.b upgraden naar PulseAudio.</translation>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="3095"/>
         <source>Enter user account password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Geef gebruikers account wachtwoord in:</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="3162"/>
@@ -1915,7 +1915,7 @@ Wilt u de verbinding verbreken?
     <message>
         <location filename="../../src/onmainwindow.cpp" line="4922"/>
         <source>X2GoKDrive session</source>
-        <translation type="unfinished"></translation>
+        <translation>X2GoKDrive sessie</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="4957"/>
@@ -2182,7 +2182,8 @@ Niet opgeslagen documenten zullen verloren gaan.</translation>
         <location filename="../../src/onmainwindow.cpp" line="9435"/>
         <source>Check whether the package providing &quot;pcsc_scan&quot; is installed.
 The current search path is: </source>
-        <translation type="unfinished"></translation>
+        <translation>Controleer of het pakket dat voorziet in &quot;pcsc_scan&quot; geinstalleerd is.
+Het huidige zoek pad is: </translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="10051"/>
@@ -2213,21 +2214,21 @@ The current search path is: </source>
         <location filename="../../src/onmainwindow.cpp" line="10529"/>
         <location filename="../../src/onmainwindow.cpp" line="10612"/>
         <source>Can&apos;t start X.Org Server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan X.Org Server niet starten.</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="10531"/>
         <location filename="../../src/onmainwindow.cpp" line="10562"/>
         <location filename="../../src/onmainwindow.cpp" line="10614"/>
         <source>Please check your installation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Controleer aub uw installatie.</translation>
     </message>
     <message numerus="yes">
         <location filename="../../src/onmainwindow.cpp" line="10560"/>
         <source>X.Org Server did not launch correctly after %n tries.</source>
         <comment>%n will be substituted with the current number of tries</comment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>X.Org Server is niet juist gestart na %n pogingen.</numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -2496,7 +2497,7 @@ X2Goclient in verborgen modus gebruiken?</translation>
     </message>
     <message>
         <source> to </source>
-        <translation type="vanished"> naar </translation>
+        <translation> naar </translation>
     </message>
     <message>
         <source>Connection Error(</source>
@@ -2943,7 +2944,7 @@ Niet opgeslagen documenten zullen verloren gaan</translation>
     </message>
     <message>
         <source>&lt;br&gt;X2Go Plugin mode was sponsored by &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</source>
-        <translation type="vanished">&lt;br&gt;X2Go Plugin mode is gesponsord door &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
+        <translation>&lt;br&gt;X2Go Plugin mode is gesponsord door &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>&lt;br&gt;This is a client to access the X2Go network-based computing environment. This client will be able to connect to X2Go Server(s) and start, stop, resume and terminate (running) desktop sessions. X2Go Client stores different server connections and may automatically request authentication data from LDAP directories. Furthermore, it can be used as a fullscreen login screen (replacement for login managers like XDM). Please visit &lt;a href=&quot;http://www.x2go.org&quot;&gt;the project home page at x2go.org&lt;/a&gt; for further information.</source>
@@ -2963,7 +2964,7 @@ Niet opgeslagen documenten zullen verloren gaan</translation>
     <message>
         <source>Check whether the package providing &quot;scdaemon&quot; is installed.
 The current search path is: </source>
-        <translation type="vanished">Controleer of het pakket dat voorziet in &quot;scdaemon&quot; geïnstalleerd is.
+        <translation>Controleer of het pakket dat voorziet in &quot;scdaemon&quot; geïnstalleerd is.
 Huidige pad verwijzing is: </translation>
     </message>
     <message>
@@ -3307,7 +3308,7 @@ authoized_keys file.</source>
     </message>
     <message>
         <source>Unable to create file: </source>
-        <translation type="vanished">Bestand aanmaken niet mogelijk: </translation>
+        <translation>Bestand aanmaken niet mogelijk: </translation>
     </message>
     <message>
         <source>Can&apos;t connect to X server
@@ -4230,7 +4231,7 @@ X2Go Client in verborgen modus gebruiken?</translation>
     <message>
         <location filename="../../src/sessionwidget.cpp" line="218"/>
         <source>Run in X2GoKDrive (experimental)</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitvoeren in X2GoKDrive (experimenteel)</translation>
     </message>
     <message>
         <location filename="../../src/sessionwidget.cpp" line="234"/>
@@ -4241,7 +4242,7 @@ X2Go Client in verborgen modus gebruiken?</translation>
     <message>
         <location filename="../../src/sessionwidget.cpp" line="236"/>
         <source>X2Go/X11 Desktop Sharing</source>
-        <translation type="unfinished"></translation>
+        <translation>X2Go/X11 desktop delen</translation>
     </message>
     <message>
         <location filename="../../src/sessionwidget.cpp" line="266"/>
@@ -4296,7 +4297,7 @@ X2Go Client in verborgen modus gebruiken?</translation>
     </message>
     <message>
         <source>Connect to local desktop</source>
-        <translation type="vanished">Verbinden met lokale bureaublad</translation>
+        <translation>Verbinden met lokale bureaublad</translation>
     </message>
     <message>
         <location filename="../../src/sessionwidget.cpp" line="237"/>
@@ -4517,12 +4518,12 @@ maar bent</translation>
     <message>
         <location filename="../../src/settingswidget.cpp" line="210"/>
         <source>FreeRDP/X11 (pre-2.x style options)</source>
-        <translation type="unfinished"></translation>
+        <translation>FreeRDP/X11 (pre-2.x stijl opties)</translation>
     </message>
     <message>
         <location filename="../../src/settingswidget.cpp" line="211"/>
         <source>FreeRDP/X11 (2.x style options)</source>
-        <translation type="unfinished"></translation>
+        <translation>FreeRDP/X11 (2.x stijl opties)</translation>
     </message>
     <message>
         <source>Auto detect keyboard settings</source>
