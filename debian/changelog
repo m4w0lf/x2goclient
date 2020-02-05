@@ -162,6 +162,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - Windows: upgrade PulseAudio from 7.1 to 13.0.
     - Windows: remove libz. Was previously used by libzip, which has not been
       shipped for quite some time.
+    - Windows: Update Win32 OpenSSL from 1.0.2n to 1.0.2u. Implicit.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
