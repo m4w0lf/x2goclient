@@ -163,6 +163,8 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - Windows: remove libz. Was previously used by libzip, which has not been
       shipped for quite some time.
     - Windows: Update Win32 OpenSSL from 1.0.2n to 1.0.2u. Implicit.
+    - Windows: Upgrade libssh from 0.7.4 to 0.9.3 (while maintaining Pageant
+      support). Drop libssh_threads library not provided (or used) any longer.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
