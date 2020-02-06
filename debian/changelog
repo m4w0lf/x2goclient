@@ -168,6 +168,8 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - x2goclient.pro: update comment mentioning that libssh does not provide
       pkgconfig files on non-UNIX/Windows platforms any longer and drop
       libssh_thread linkage.
+    - res/i18n/x2goclient_nl.ts: add missing singular form to a multi-form
+      entry.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:

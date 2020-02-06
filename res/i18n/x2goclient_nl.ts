@@ -2228,8 +2228,8 @@ Het huidige zoek pad is: </translation>
         <source>X.Org Server did not launch correctly after %n tries.</source>
         <comment>%n will be substituted with the current number of tries</comment>
         <translation>
+            <numerusform>X.Org Server is na %n poging niet correct gestart.</numerusform>
             <numerusform>X.Org Server is niet juist gestart na %n pogingen.</numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
     <message>
