@@ -974,7 +974,7 @@ Některá standardní umístění:
     <message>
         <location filename="../../src/help.cpp" line="177"/>
         <source>Disables X2Go Client&apos;s UNIX cleanup helper. This will prevent X2Go Client from terminating spawned processes after the main program terminates or crashes. Use with care and when in doubt, do not use this parameter at all.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vypnutí X2Go UNIX cleanup helper(u). Tím zabráníte klientovi X2Go ukončit vzniklé procesy po ukončení nebo havárii hlavního programu. Používejte opatrně, případě pochybností tento parametr nepoužívejte.</translation>
     </message>
 </context>
 <context>
@@ -1609,7 +1609,7 @@ Aktualizujte systém na PulseAudio.</translation>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="1176"/>
         <source>A click displays the context menu.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kliknutím zobrazíte kontextové menu.</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="1178"/>
@@ -1891,7 +1891,7 @@ Hodnota hash veřejného klíče: </translation>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="4922"/>
         <source>X2GoKDrive session</source>
-        <translation type="unfinished"></translation>
+        <translation>X2GoKDrive relace</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="4956"/>
@@ -2455,8 +2455,7 @@ Prosím zaktualizujte X2Go Server.</translation>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="10893"/>
         <source>Unable to find the sftp-server binary. Neither bundled, nor found in $PATH nor additional directories.</source>
-        <translatorcomment>Please also specify the &quot;bundled, $PATH, ...&quot; stuff in the second sentence.</translatorcomment>
-        <translation type="unfinished">Nepoařilo se nalézt program sftp-server.</translation>
+        <translation>Nepodařilo se nalézt program sftp-server v $PATH, ani v dalších adresářích.</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="10894"/>
@@ -2553,8 +2552,7 @@ Je-li program sftp-server ve vašem systému nainstalován, vytvořte prosím ch
     <message>
         <location filename="../../src/onmainwindow.cpp" line="11555"/>
         <source>Error getting window geometry. (Did you close the window?)</source>
-        <translatorcomment>Please keep/also translate the second sentence.</translatorcomment>
-        <translation type="unfinished">Nepodařilo se načíst vlastnosti okna.</translation>
+        <translation>Nepodařilo se načíst vlastnosti okna.(Zavřeli jste okno?)</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="11781"/>
@@ -3520,7 +3518,7 @@ Přepnout X2Go Client do skrytého režimu?</translation>
     <message>
         <location filename="../../src/sessionwidget.cpp" line="218"/>
         <source>Run in X2GoKDrive (experimental)</source>
-        <translation type="unfinished"></translation>
+        <translation>Spustit v X2GoKDrive (experimentální)</translation>
     </message>
     <message>
         <location filename="../../src/sessionwidget.cpp" line="234"/>
@@ -3683,7 +3681,7 @@ Přepnout X2Go Client do skrytého režimu?</translation>
         <location filename="../../src/settingswidget.cpp" line="66"/>
         <source>Custom</source>
         <translatorcomment>Doesn&apos;t that mean window? Something&apos;s weird here... it refers to a custom window size.</translatorcomment>
-        <translation type="unfinished">Okno</translation>
+        <translation type="unfinished">Vlastní okno</translation>
     </message>
     <message>
         <location filename="../../src/settingswidget.cpp" line="68"/>
