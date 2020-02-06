@@ -2552,7 +2552,7 @@ Je-li program sftp-server ve vašem systému nainstalován, vytvořte prosím ch
     <message>
         <location filename="../../src/onmainwindow.cpp" line="11555"/>
         <source>Error getting window geometry. (Did you close the window?)</source>
-        <translation>Nepodařilo se načíst vlastnosti okna.(Zavřeli jste okno?)</translation>
+        <translation>Nepodařilo se načíst vlastnosti okna. (Zavřeli jste okno?)</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="11781"/>
@@ -3680,8 +3680,7 @@ Přepnout X2Go Client do skrytého režimu?</translation>
     <message>
         <location filename="../../src/settingswidget.cpp" line="66"/>
         <source>Custom</source>
-        <translatorcomment>Doesn&apos;t that mean window? Something&apos;s weird here... it refers to a custom window size.</translatorcomment>
-        <translation type="unfinished">Vlastní okno</translation>
+        <translation>Vlastní okno</translation>
     </message>
     <message>
         <location filename="../../src/settingswidget.cpp" line="68"/>
