@@ -858,7 +858,7 @@ Vous la trouverez peut-Ãªtre dans l&apos;un de ces emplacements standards :
     </message>
     <message>
         <source>Disables X2Go Client&apos;s UNIX cleanup helper. This will prevent X2Go Client from terminating spawned processes after the main program terminates or crashes. Use with care and when in doubt, do not use this parameter at all.</source>
-        <translation>Désactive l&apos;assistant de nettoyage UNIX de X2Go Client. Ceci empêchera X2Go Client d&apos;arrêter les processus enfants après l&apos;arrêt ou le plantage du programme principal.</translation>
+        <translation>DÃ©sactive l&apos;assistant de nettoyage UNIX de X2Go Client. Ceci empÃªchera X2Go Client d&apos;arrÃªter les processus enfants aprÃ¨s l&apos;arrÃªt ou le plantage du programme principal. Ã€ utiliser avec prÃ©caution et dans le doute, ne pas utiliser ce paramÃ¨tre du tout.</translation>
     </message>
 </context>
 <context>
@@ -3262,11 +3262,11 @@ Utiliser le mode cachÃ© de X2Go Client ?</translation>
     </message>
     <message>
         <source>Run in X2GoKDrive (experimental)</source>
-        <translation>Démarrer dans X2GoKDrive (expérimental)</translation>
+        <translation>DÃ©marrer dans X2GoKDrive (expÃ©rimental)</translation>
     </message>
     <message>
         <source>X2Go/X11 Desktop Sharing</source>
-        <translation>Bureau X2Go/X11 Partagé</translation>
+        <translation>Bureau X2Go/X11 PartagÃ©</translation>
     </message>
 </context>
 <context>
