@@ -165,6 +165,9 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - Windows: Update Win32 OpenSSL from 1.0.2n to 1.0.2u. Implicit.
     - Windows: Upgrade libssh from 0.7.4 to 0.9.3 (while maintaining Pageant
       support). Drop libssh_threads library not provided (or used) any longer.
+    - x2goclient.pro: update comment mentioning that libssh does not provide
+      pkgconfig files on non-UNIX/Windows platforms any longer and drop
+      libssh_thread linkage.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:

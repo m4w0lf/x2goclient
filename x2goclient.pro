@@ -157,10 +157,11 @@ unix {
   }
 }
 else:win32 {
-  # pkgconfig is... tricky on Windows.
+  # pkgconfig is... tricky on Windows. Additionally, libssh 0.7.x stopped
+  # distributing pkgconfig files on non-UNIX platforms, including Windows.
   # We'll hardcode stuff here. Make sure that it's consistent with the
   # libraries we use on Windows.
-  LIBS += -lssh -lssh_threads
+  LIBS += -lssh
 }
 else {
   # For backwards-compatibility.
