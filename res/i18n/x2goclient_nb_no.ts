@@ -789,7 +789,7 @@ Noen vanlige lokasjoner er:
     </message>
     <message>
         <source>Sets default pack method. Default: &quot;16m-jpeg-9&quot;.</source>
-        <translation>Setter standard kompresjonsmetode. Standard:&quot;16m-jpeg-9&quot;.</translation>
+        <translation>Setter standard kompresjonsmetode. Standard: &quot;16m-jpeg-9&quot;.</translation>
     </message>
     <message>
         <source>Sets the default clipboard mode. Default: &quot;both&quot;.</source>
@@ -813,7 +813,7 @@ Noen vanlige lokasjoner er:
     </message>
     <message>
         <source>Automatically launches the application(s) &quot;app&quot;, &quot;app2&quot;, ... on session start in Published Applications mode.</source>
-        <translation>Starter autonatisk applikasjon &quot;app&quot;, &quot;app2&quot;, ... når X2GO klient er startet i såkalt Published Applications mode. </translation>
+        <translation>Starter autonatisk applikasjon &quot;app&quot;, &quot;app2&quot;, ... når X2Go klient er startet i såkalt Published Applications mode. </translation>
     </message>
     <message>
         <source>Defines an alternative session config file path.</source>
@@ -845,7 +845,7 @@ Noen vanlige lokasjoner er:
     </message>
     <message>
         <source>Does not ask for user credentials during session broker authentication. This can be useful if you are using an HTTP(S) session broker without authentication. If you run an HTTP(S) server without authentication, but with user-specific profiles, then put the user name into the broker URL (refer to --broker-url.) The user name then will be extracted from the broker URL and be sent to the session broker. The client&apos;s behavior is undefined if this flag is used for non-HTTP(S) session brokers.</source>
-        <translation>Spør ikke om brukerens legitimasjon ved autentisering mot broker. Dette kan være nyttig om du bruker HTTP(S) session-broker uten autentisering.Om du bruker en HTTP(S) uten autentisering, men med bruker-spesifikke profiler, så putter du brukernavnet inn i broker URL(se --broker-url). Brukernavnet vil så bli hentet fra broker-url, og sendt til session-broker. Dette valget har ingen effekt om du ikke benytter deg av en HTTP(S) session-broker.</translation>
+        <translation>Spør ikke om brukerens legitimasjon ved autentisering mot broker. Dette kan være nyttig om du bruker HTTP(S) session-broker uten autentisering. Om du bruker en HTTP(S) uten autentisering, men med bruker-spesifikke profiler, så putter du brukernavnet inn i broker URL (se --broker-url). Brukernavnet vil så bli hentet fra broker-url, og sendt til session-broker. Dette valget har ingen effekt om du ikke benytter deg av en HTTP(S) session-broker.</translation>
     </message>
     <message>
         <source>Disable PulseAudio.</source>
@@ -873,7 +873,7 @@ Noen vanlige lokasjoner er:
     </message>
     <message>
         <source>Disables X2Go Client&apos;s UNIX cleanup helper. This will prevent X2Go Client from terminating spawned processes after the main program terminates or crashes. Use with care and when in doubt, do not use this parameter at all.</source>
-        <translation>Skrur av X2GO klienten sin UNIX ryddehjelper. Dette vil forhindre X2GO klienten fra å avslutte prosesser selv om hovedprogrammet avsluttes eller krasjer. Må brukes med forsiktighet, og er du i tvil, så ikke bruk dette parameteret.</translation>
+        <translation>Skrur av X2Go klienten sin UNIX ryddehjelper. Dette vil forhindre X2GO klienten fra å avslutte prosesser selv om hovedprogrammet avsluttes eller krasjer. Må brukes med forsiktighet, og er du i tvil, så ikke bruk dette parameteret.</translation>
     </message>
 </context>
 <context>
@@ -1383,7 +1383,7 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>suspended</source>
-        <translation>Hengende</translation>
+        <translation>hengende</translation>
     </message>
     <message>
         <source>Unable to create Folder:</source>
@@ -2613,7 +2613,7 @@ Vennligst oppdater til en nyere x2goserver pakke.</translation>
     </message>
     <message>
         <source>Error getting window geometry. (Did you close the window?)</source>
-        <translation>Feil under henting av vindusgeometrien (Er vinduet lukket?)</translation>
+        <translation>Feil under henting av vindusgeometrien. (Er vinduet lukket?)</translation>
     </message>
     <message>
         <source>Invalid value for argument &quot;speed&quot;</source>
@@ -3017,8 +3017,8 @@ Søkebanen som er i bruk er: </translation>
         <source>X.Org Server did not launch correctly after %n tries.</source>
         <comment>%n will be substituted with the current number of tries</comment>
         <translation>
-            <numerusform>X.org serveren startet ikke etter %n forsøk.</numerusform>
-            <numerusform></numerusform>
+            <numerusform>X.Org serveren startet ikke etter %n forsøk.</numerusform>
+            <numerusform>X.Org serveren startet ikke etter %n forsøk.</numerusform>
         </translation>
     </message>
     <message>

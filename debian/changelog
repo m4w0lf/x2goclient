@@ -172,6 +172,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       entry.
     - res/i18n/x2goclient_cs.ts: fix up whitespace and mark actually finished
       translation string as such, also removing my previous comment.
+    - res/i18n/x2goclient_nb_no.ts: fix up whitespace and typos.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
