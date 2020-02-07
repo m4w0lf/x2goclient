@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="nb_NO">
+<TS version="2.0" language="nb_NO">
 <context>
     <name>AppDialog</name>
     <message>
@@ -118,7 +118,7 @@
     </message>
     <message>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation>Skjema</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -212,7 +212,7 @@
     </message>
     <message>
         <source>Socket operation timed out.</source>
-        <translation>Sokkel handlingen ble tidsavbrutt.</translation>
+        <translation>Socket handlingen ble tidsavbrutt.</translation>
     </message>
 </context>
 <context>
@@ -235,11 +235,11 @@
     </message>
     <message>
         <source>Hide to system tray after connection is established</source>
-        <translation>Skjul til systemkurven etter tilkoblingen er opprettet</translation>
+        <translation>Skjul til systemkurven etter at tilkoblingen er opprettet</translation>
     </message>
     <message>
         <source>Restore from system tray after session is disconnected</source>
-        <translation>Gjenopprett fra systemkurven etter at sesjonen er frakoblet</translation>
+        <translation>Gjenopprett fra systemkurven etter at økten er frakoblet</translation>
     </message>
     <message>
         <source>Use LDAP</source>
@@ -275,7 +275,7 @@
     </message>
     <message>
         <source>Find X11 application</source>
-        <translation>Finn X11 applikasjon</translation>
+        <translation>Søk X11 applikasjon</translation>
     </message>
     <message>
         <source>Clientside SSH port for file system export usage:</source>
@@ -283,7 +283,7 @@
     </message>
     <message>
         <source>Start session embedded inside website</source>
-        <translation>Start sesjonen innebygd i websiden</translation>
+        <translation>Start økt innebygd i nettsiden</translation>
     </message>
     <message>
         <source>Advanced options</source>
@@ -419,7 +419,7 @@ Noen vanlige lokasjoner er:
     </message>
     <message>
         <source>Disable sound input</source>
-        <translation>Skru av lydinngang</translation>
+        <translation>Skru av lydopptak</translation>
     </message>
     <message>
         <source>Disable PulseAudio</source>
@@ -516,7 +516,7 @@ Noen vanlige lokasjoner er:
     <name>EditConnectionDialog</name>
     <message>
         <source>&amp;Session</source>
-        <translation>&amp;Sesjon</translation>
+        <translation>&amp;Økt</translation>
     </message>
     <message>
         <source>&amp;Connection</source>
@@ -544,7 +544,7 @@ Noen vanlige lokasjoner er:
     </message>
     <message>
         <source>Session preferences - </source>
-        <translation>Sesjonsinnstillinger - </translation>
+        <translation>Øktinnstillinger - </translation>
     </message>
     <message>
         <source>&amp;Input/Output</source>
@@ -595,7 +595,7 @@ Noen vanlige lokasjoner er:
     <name>FolderButton</name>
     <message>
         <source>Sessions folder</source>
-        <translation>Sesjonsmappe</translation>
+        <translation>Øktmappe</translation>
     </message>
 </context>
 <context>
@@ -689,11 +689,11 @@ Noen vanlige lokasjoner er:
     </message>
     <message>
         <source>Shows git information as used at compile time. [Deprecated: please use --version.]</source>
-        <translation>Hvis git informasjon som ble brukt ved kompilering. [Avlegs: bruk heller --version.]</translation>
+        <translation>Vis git informasjon som ble brukt ved kompilering. [Avlegs: bruk heller --version.]</translation>
     </message>
     <message>
         <source>Shows available pack methods.</source>
-        <translation>Viser tilgjengelige pakke-metoder.</translation>
+        <translation>Viser tilgjengelige pakkemetoder.</translation>
     </message>
     <message>
         <source>Do not resume sessions automatically.</source>
@@ -729,7 +729,7 @@ Noen vanlige lokasjoner er:
     </message>
     <message>
         <source>Allows client side printing in LDAP mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillatt klientside utskriftsstøtte i LDAP-modus.</translation>
     </message>
     <message>
         <source>Enables thinclient mode. Starts without a window manager.</source>
@@ -765,7 +765,7 @@ Noen vanlige lokasjoner er:
     </message>
     <message>
         <source>Sets the default command. Default: &apos;KDE&apos; (Desktop Session)</source>
-        <translation>Setter standard kommando. Standard er &apos;KDE&apos; (Skriverbordsøkt)</translation>
+        <translation>Setter standard-kommando. Standard er &apos;KDE&apos; (Skriverbordsøkt)</translation>
     </message>
     <message>
         <source>Starts the session named &quot;session&quot;.</source>
@@ -773,11 +773,11 @@ Noen vanlige lokasjoner er:
     </message>
     <message>
         <source>Sets the user name for connecting to the remote SSH server to &quot;username&quot;.</source>
-        <translation>Setter brukernavnet som brukes for å koble til SSH-server til &quot;username&quot;</translation>
+        <translation>Setter brukernavnet som brukes for å koble til SSH-server til &quot;username&quot;.</translation>
     </message>
     <message>
         <source>Sets the default window geometry. Default: 800x600.</source>
-        <translation>Setter størrelsen på standardvindu. Stamdard: 800x600.</translation>
+        <translation>Setter størrelsen på standardvindu. Standard: 800x600.</translation>
     </message>
     <message>
         <source>Sets the remote X2Go Agent&apos;s DPI value to &quot;dpi&quot;. Default: same as local display.</source>
@@ -789,7 +789,7 @@ Noen vanlige lokasjoner er:
     </message>
     <message>
         <source>Sets default pack method. Default: &quot;16m-jpeg-9&quot;.</source>
-        <translation>Setter standard kompresjons metode. Standard:&quot;16m-jpeg-9&quot;.</translation>
+        <translation>Setter standard kompresjonsmetode. Standard:&quot;16m-jpeg-9&quot;.</translation>
     </message>
     <message>
         <source>Sets the default clipboard mode. Default: &quot;both&quot;.</source>
@@ -797,7 +797,7 @@ Noen vanlige lokasjoner er:
     </message>
     <message>
         <source>Sets the default keyboard layout to &quot;layout&quot;. &quot;layout&quot; may be a comma-separated list.</source>
-        <translation type="unfinished"></translation>
+        <translation>Setter standard tastaturtype til &quot;layout&quot;, dette kan være en kommaseparert liste.</translation>
     </message>
     <message>
         <source>Sets the default keyboard type.</source>
@@ -805,19 +805,19 @@ Noen vanlige lokasjoner er:
     </message>
     <message>
         <source>Sets the user&apos;s home directory.</source>
-        <translation>Setter brukerens hjemområde.</translation>
+        <translation>Setter brukerens hjemmeområde.</translation>
     </message>
     <message>
         <source>Enables or disables overwriting the current keyboard settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktiverer eller deaktiverer muligheten for å overstyre gjeldendene tastaturoppsett.</translation>
     </message>
     <message>
         <source>Automatically launches the application(s) &quot;app&quot;, &quot;app2&quot;, ... on session start in Published Applications mode.</source>
-        <translation type="unfinished"></translation>
+        <translation>Starter autonatisk applikasjon &quot;app&quot;, &quot;app2&quot;, ... når X2GO klient er startet i såkalt Published Applications mode. </translation>
     </message>
     <message>
         <source>Defines an alternative session config file path.</source>
-        <translation>Definerer stien til en alternativ økt-konfigurasfil.</translation>
+        <translation>Definerer stien til en alternativ øktkonfigurasjonsfil.</translation>
     </message>
     <message>
         <source>Force-enables session system tray icon.</source>
@@ -837,15 +837,15 @@ Noen vanlige lokasjoner er:
     </message>
     <message>
         <source>Sets the path to an SSH key to use for authentication against an SSH session broker. The client&apos;s behavior is undefined if this flag is used for non-SSH session brokers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sett stien til SSH-nøkkelen som skal brukes ved autentisering mot en såkalt SSH session broker. Dette valget har kun betydning ved faktisk autentisering mot en SSH session broker.</translation>
     </message>
     <message>
         <source>Enables the use of the default SSH key or SSH agent for authentication against an SSH session broker. The client&apos;s behavior is undefined if this flag is used for non-SSH session brokers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktiverer bruken av standard SSH-nøkkel eller SSH-agent ved autentisering mot en såkalt SSH session broker. Dette valget har kun betydning ved faktisk autentisering mot en SSH session broker.</translation>
     </message>
     <message>
         <source>Does not ask for user credentials during session broker authentication. This can be useful if you are using an HTTP(S) session broker without authentication. If you run an HTTP(S) server without authentication, but with user-specific profiles, then put the user name into the broker URL (refer to --broker-url.) The user name then will be extracted from the broker URL and be sent to the session broker. The client&apos;s behavior is undefined if this flag is used for non-HTTP(S) session brokers.</source>
-        <translation type="unfinished"></translation>
+        <translation>Spør ikke om brukerens legitimasjon ved autentisering mot broker. Dette kan være nyttig om du bruker HTTP(S) session-broker uten autentisering.Om du bruker en HTTP(S) uten autentisering, men med bruker-spesifikke profiler, så putter du brukernavnet inn i broker URL(se --broker-url). Brukernavnet vil så bli hentet fra broker-url, og sendt til session-broker. Dette valget har ingen effekt om du ikke benytter deg av en HTTP(S) session-broker.</translation>
     </message>
     <message>
         <source>Disable PulseAudio.</source>
@@ -853,27 +853,27 @@ Noen vanlige lokasjoner er:
     </message>
     <message>
         <source>Disable sound input.</source>
-        <translation>Skru av lydinngang.</translation>
+        <translation>Skru av lydopptak.</translation>
     </message>
     <message>
         <source>Use broker credentials as session user/password credentials when using broker mode with broker authentication. Currently only affects direct RDP sessions.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bruk broker legitimasjon som brukernavn/passord for en økt når du bruker broker med broker-autentisering. Dette valget gjelder foreløpig kun for RDP økter.</translation>
     </message>
     <message>
         <source>Use a custom/branded background image (SVG format) for X2Go Client&apos;s main window. If a directory is given, will randomly pick an SVG file inside of it.</source>
-        <translation>Bruk et eget bakgrunnsbild (SVG format) for egenreklame i X2Go klienten sitt hovedvindu. Hvis en mappe oppgis, så vil en tilfldig valgt SVG fil bli brukt.</translation>
+        <translation>Bruk et eget bakgrunnsbilde (SVG format) i X2Go klienten sitt hovedvindu. Hvis en mappe oppgis, så vil en tilfeldig valgt SVG fil bli brukt.</translation>
     </message>
     <message>
         <source>Use a custom icon (SVG format) for additional branding to replace the default in the lower left corner of X2Go Client&apos;s main window.</source>
-        <translation>Bruk et eget ikon (SVG format) for egenreklame, bytter ut ikonet som er nede i venstre hjørne i X2Go klienten sitt hovedvindu.</translation>
+        <translation>Bruk et eget ikon (SVG format), bytter ut ikonet som er nede i venstre hjørne i X2Go klienten sitt hovedvindu.</translation>
     </message>
     <message>
         <source>Enables broker logout button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktiverer logut-knappen i broker.</translation>
     </message>
     <message>
         <source>Disables X2Go Client&apos;s UNIX cleanup helper. This will prevent X2Go Client from terminating spawned processes after the main program terminates or crashes. Use with care and when in doubt, do not use this parameter at all.</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrur av X2GO klienten sin UNIX ryddehjelper. Dette vil forhindre X2GO klienten fra å avslutte prosesser selv om hovedprogrammet avsluttes eller krasjer. Må brukes med forsiktighet, og er du i tvil, så ikke bruk dette parameteret.</translation>
     </message>
 </context>
 <context>
@@ -960,7 +960,7 @@ Offentlig nøkkel: </translation>
     <message>
         <source>Issued to:
 </source>
-        <translation>Utstedet til:
+        <translation>Utstedt til:
 </translation>
     </message>
     <message>
@@ -982,7 +982,7 @@ Offentlig nøkkel: </translation>
     <message>
         <source>Issued by:
 </source>
-        <translation>Utstedet av:
+        <translation>Utstedt av:
 </translation>
     </message>
     <message>
@@ -993,7 +993,7 @@ Offentlig nøkkel: </translation>
     </message>
     <message>
         <source>Issued on	</source>
-        <translation>Utstedet den	</translation>
+        <translation>Utstedt den	</translation>
     </message>
     <message>
         <source>expires on	</source>
@@ -1015,7 +1015,7 @@ Offentlig nøkkel: </translation>
     </message>
     <message>
         <source>Exit X2Go Client</source>
-        <translation>Avlsutt X2Go Klienten</translation>
+        <translation>Avslutt X2Go Klienten</translation>
     </message>
     <message>
         <source>Add exception</source>
@@ -1031,7 +1031,7 @@ Offentlig nøkkel: </translation>
     </message>
     <message>
         <source>For security reasons, the connection attempt will be aborted.</source>
-        <translation>Av hensyn til sikkerheten vil tilkoblingen bli stoppet.</translation>
+        <translation>Av sikkerhetshensyn, vil tilkoblingen bli stoppet.</translation>
     </message>
     <message>
         <source>The host key for this server was not found but another type of key exists. An attacker might have changed the default server key to trick your client into thinking the key does not exist yet.</source>
@@ -1059,7 +1059,7 @@ Offentlig nøkkel: </translation>
     </message>
     <message>
         <source>Enter user account password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Oppgi passordet til brukerkontoen:</translation>
     </message>
 </context>
 <context>
@@ -1107,7 +1107,7 @@ lydsystem forbindelser gjennom brannmurer</translation>
     </message>
     <message>
         <source>Sound port:</source>
-        <translation>Lyd port:</translation>
+        <translation>Lydport:</translation>
     </message>
     <message>
         <source>Client side printing support</source>
@@ -1150,7 +1150,7 @@ Oppgradert til PulseAudio.</translation>
     </message>
     <message>
         <source>Session:</source>
-        <translation>Sesjon:</translation>
+        <translation>Økt:</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
@@ -1198,7 +1198,7 @@ Oppgradert til PulseAudio.</translation>
     </message>
     <message>
         <source>Session</source>
-        <translation>Sesjon</translation>
+        <translation>Økt</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
@@ -1207,7 +1207,7 @@ Oppgradert til PulseAudio.</translation>
     </message>
     <message>
         <source>&amp;Session</source>
-        <translation>&amp;Sesjon</translation>
+        <translation>&amp;Økt</translation>
     </message>
     <message>
         <source>&amp;Options</source>
@@ -1251,11 +1251,11 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>New session started</source>
-        <translation>Ny sesjon startet</translation>
+        <translation>Ny økt startet</translation>
     </message>
     <message>
         <source>Session resumed</source>
-        <translation>Sesjon gjenopptatt</translation>
+        <translation>Økt gjenopptatt</translation>
     </message>
     <message>
         <source>Unable to create folder: </source>
@@ -1315,7 +1315,7 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>Applications...</source>
-        <translation type="vanished">Applikasjoner...</translation>
+        <translation>Applikasjoner...</translation>
     </message>
     <message>
         <source>Invalid reply from broker</source>
@@ -1339,7 +1339,7 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>Select session:</source>
-        <translation>Velg sesjon:</translation>
+        <translation>Velg økt:</translation>
     </message>
     <message>
         <source>Resume</source>
@@ -1347,7 +1347,7 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>Suspend</source>
-        <translation>Koble fra</translation>
+        <translation>Hvilemodus</translation>
     </message>
     <message>
         <source>Terminate</source>
@@ -1383,7 +1383,7 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>suspended</source>
-        <translation>Frakoblet</translation>
+        <translation>Hengende</translation>
     </message>
     <message>
         <source>Unable to create Folder:</source>
@@ -1421,7 +1421,7 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>aborting</source>
-        <translation>Avbryter</translation>
+        <translation>avbryter</translation>
     </message>
     <message>
         <source>&lt;b&gt;Session ID:&lt;br&gt;Server:&lt;br&gt;Username:&lt;br&gt;Display:&lt;br&gt;Creation Time:&lt;br&gt;Status:&lt;/b&gt;</source>
@@ -1493,7 +1493,7 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>no X2Go Server found in LDAP </source>
-        <translation>Inge X2Go server ble funnet i LDAP </translation>
+        <translation>ingen X2Go server ble funnet i LDAP </translation>
     </message>
     <message>
         <source>Are you sure you want to delete this Session?</source>
@@ -1511,15 +1511,15 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>Session ID</source>
-        <translation>Sesjons ID</translation>
+        <translation>Økt ID</translation>
     </message>
     <message>
         <source>suspending</source>
-        <translation>Kobler fra</translation>
+        <translation>utsetter</translation>
     </message>
     <message>
         <source>terminating</source>
-        <translation>Avslutter</translation>
+        <translation>avslutter</translation>
     </message>
     <message>
         <source>&lt;b&gt;Connection failed&lt;/b&gt;
@@ -1609,7 +1609,7 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>Unable to create file: </source>
-        <translation type="vanished">Klarer ikke å opprette filen: </translation>
+        <translation>Klarer ikke å lage filen: </translation>
     </message>
     <message>
         <source>No valid card found</source>
@@ -1713,7 +1713,7 @@ Vennligst sjekk instillingene dine</translation>
     </message>
     <message>
         <source>shadow session</source>
-        <translation>skygge sesjonen</translation>
+        <translation>skyggeøkt</translation>
     </message>
     <message>
         <source>&lt;br&gt;Sudo configuration error</source>
@@ -1737,7 +1737,7 @@ Vennligst sjekk instillingene dine</translation>
     </message>
     <message>
         <source>&amp;New session ...</source>
-        <translation>&amp;Ny sesjon ...</translation>
+        <translation>&amp;Ny økt ...</translation>
     </message>
     <message>
         <source>Session management...</source>
@@ -1785,11 +1785,11 @@ Vennligst sjekk instillingene dine</translation>
     </message>
     <message>
         <source>Enter passphrase to decrypt a key</source>
-        <translation>Oppgi passordfrase for dekryptere en nøkkel</translation>
+        <translation>Oppgi passordfrase for å dekryptere en nøkkel</translation>
     </message>
     <message>
         <source>No X2Go sessions found, closing.</source>
-        <translation>Ingen X2Go sesjoner ble funnet, lukker.</translation>
+        <translation>Ingen X2Go økter ble funnet, lukker.</translation>
     </message>
     <message>
         <source>Starting connection to server: </source>
@@ -1797,7 +1797,7 @@ Vennligst sjekk instillingene dine</translation>
     </message>
     <message>
         <source> to </source>
-        <translation type="vanished"> til </translation>
+        <translation> til </translation>
     </message>
     <message>
         <source>Connection Error(</source>
@@ -1871,11 +1871,11 @@ Offentlig nøkkel: </translation>
     </message>
     <message>
         <source>&lt;b&gt;Session ID:&lt;br&gt;Server:&lt;br&gt;Username:&lt;br&gt;Display:&lt;br&gt;Creation time:&lt;br&gt;Status:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Sesjons ID:&lt;br&gt;Server:&lt;br&gt;Brukernavn:&lt;br&gt;Skjerm:&lt;br&gt;Opprettet:&lt;br&gt;Status:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Økt ID:&lt;br&gt;Server:&lt;br&gt;Brukernavn:&lt;br&gt;Skjerm:&lt;br&gt;Opprettet:&lt;br&gt;Status:&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Share folder...</source>
-        <translation type="vanished">Del mappe...</translation>
+        <translation>Del mappe...</translation>
     </message>
     <message>
         <source>Show details</source>
@@ -2071,7 +2071,7 @@ Vennligst sjekk din installasjon</translation>
     </message>
     <message>
         <source>X2Go Session</source>
-        <translation>X2Go sesjon</translation>
+        <translation>X2Go økt</translation>
     </message>
     <message>
         <source>Minimize toolbar</source>
@@ -2135,7 +2135,7 @@ Du kan installere sshd med:
     </message>
     <message>
         <source>Reconnect</source>
-        <translation type="vanished">Gjenoppkoble</translation>
+        <translation>Gjenoppkoble</translation>
     </message>
     <message>
         <source>Connecting to broker</source>
@@ -2281,15 +2281,15 @@ authoized_keys file.</source>
     </message>
     <message>
         <source>Session management ...</source>
-        <translation>Sesjonshåndtering ...</translation>
+        <translation>Økthåndtering ...</translation>
     </message>
     <message>
         <source>&amp;Create session icon on desktop ...</source>
-        <translation>&amp;Opprett sesjonsikon på skrivebordet ...</translation>
+        <translation>&amp;Opprett øktikon på skrivebordet ...</translation>
     </message>
     <message>
         <source>&amp;Set broker password ...</source>
-        <translation>&amp;Sett megler passord ...</translation>
+        <translation>&amp;Sett meglerpassord ...</translation>
     </message>
     <message>
         <source>&amp;Connectivity test ...</source>
@@ -2369,7 +2369,7 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>Server not available.</source>
-        <translation>Ingen tilgjengelig server.</translation>
+        <translation>Serveren er ikke tilgjengelig.</translation>
     </message>
     <message>
         <source>No accessible desktop found.</source>
@@ -2386,7 +2386,7 @@ Vil du avbryte tilkoblingen?
     <message>
         <source>Unable to create SSH tunnel for X2Go session (NX) startup:
 </source>
-        <translation>Klarte ikke å opprette SSH tunnel for X2Go sesjon (NX) oppstart:
+        <translation>Klarte ikke å opprette SSH tunnel for X2Go økt (NX) oppstart:
 </translation>
     </message>
     <message>
@@ -2464,7 +2464,7 @@ Rapporter en feilrapport slik det er beskrevet på &lt;a href=&quot;http://wiki.
     <message>
         <source>Are you sure you want to terminate this session?
 Unsaved documents will be lost.</source>
-        <translation>Er du sikker på at du vil avslutte denne sesjonen?
+        <translation>Er du sikker på at du vil avslutte denne økten?
 Ulagrede data vil gå tapt.</translation>
     </message>
     <message>
@@ -2529,11 +2529,11 @@ Ulagrede data vil gå tapt.</translation>
     </message>
     <message>
         <source>Option is not available in this build.</source>
-        <translation>Valget er ikke aktivet i denne versjonen.</translation>
+        <translation>Valget er ikke aktivert i denne versjonen.</translation>
     </message>
     <message>
         <source>Unable to create directory:</source>
-        <translation>Klarer ikke å opprette katalogen:</translation>
+        <translation>Klarer ikke å lage katalogen:</translation>
     </message>
     <message>
         <source>Cannot open key: </source>
@@ -2545,11 +2545,11 @@ Ulagrede data vil gå tapt.</translation>
     </message>
     <message>
         <source>&lt;br&gt;X2Go Plugin mode was sponsored by &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</source>
-        <translation type="vanished">&lt;br&gt;X2Go plugin modusen ble sponset av &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
+        <translation>&lt;br&gt;X2Go plugin modusen ble sponset av &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>&lt;br&gt;This is a client to access the X2Go network-based computing environment. This client will be able to connect to X2Go Server(s) and start, stop, resume and terminate (running) desktop sessions. X2Go Client stores different server connections and may automatically request authentication data from LDAP directories. Furthermore, it can be used as a fullscreen login screen (replacement for login managers like XDM). Please visit &lt;a href=&quot;http://www.x2go.org&quot;&gt;the project home page at x2go.org&lt;/a&gt; for further information.</source>
-        <translation>&lt;br&gt;Dette er en klient for å få tilgang til et X2Go nettverksbasert datasystem. Denne klienten kan koble seg til X2Go servere og starte, stoppe, gjennoppta og avslutte kjørende desktop sesjoner. X2Go klienten lagrer de forskjellige forbindelsene til servere, og kan automatisk be om autentisering fra LDAP kataloger. Den kan også bli brukt som en påloggingsskjerm i fullskjermmodus (kan brukes istedenfor loginhåndtere slik som XDM). Vennligst besøk &lt;a href=&quot;http://www.x2go.org&quot;&gt;prosjektets hjemmeside på x2go.org&lt;/a&gt; for mer informasjon.</translation>
+        <translation>&lt;br&gt;Dette er en klient for å få tilgang til et X2Go nettverksbasert datasystem. Denne klienten kan koble seg til X2Go servere og starte, stoppe, gjennoppta og avslutte kjørende desktop økter. X2Go klienten lagrer de forskjellige forbindelsene til servere, og kan automatisk be om autentisering fra LDAP kataloger. Den kan også bli brukt som en påloggingsskjerm i fullskjermmodus (kan brukes istedenfor loginhåndtere slik som XDM). Vennligst besøk &lt;a href=&quot;http://www.x2go.org&quot;&gt;prosjektets hjemmeside på x2go.org&lt;/a&gt; for mer informasjon.</translation>
     </message>
     <message>
         <source>&lt;b&gt;X2Go Client v. </source>
@@ -2562,7 +2562,7 @@ Ulagrede data vil gå tapt.</translation>
     <message>
         <source>Check whether the package providing &quot;scdaemon&quot; is installed.
 The current search path is: </source>
-        <translation type="vanished">Sjekk om pakken som tilbyr &quot;scdaemon&quot; er installert.
+        <translation>Sjekk om pakken som tilbyr &quot;scdaemon&quot; er installert.
 Søkebanen som er i bruk er: </translation>
     </message>
     <message>
@@ -2613,11 +2613,11 @@ Vennligst oppdater til en nyere x2goserver pakke.</translation>
     </message>
     <message>
         <source>Error getting window geometry. (Did you close the window?)</source>
-        <translation>Feil under uthenting av vindusgeometrien (Er vinduet lukket?)</translation>
+        <translation>Feil under henting av vindusgeometrien (Er vinduet lukket?)</translation>
     </message>
     <message>
         <source>Invalid value for argument &quot;speed&quot;</source>
-        <translation>ugyldig verdi for parameteren &quot;speed&quot;</translation>
+        <translation>Ugyldig verdi for parameteren &quot;speed&quot;</translation>
     </message>
     <message>
         <source>Applications ...</source>
@@ -2711,7 +2711,7 @@ Vennligst rapporter denne feilen på:
     </message>
     <message>
         <source>Disabling Remote Printing or File Sharing support in the session settings will get rid of this message.</source>
-        <translation>Ved å skru av utskrift til ekstern, eller fildeling i denne sesjonen, så vil du bli kvitt denne meldingen.</translation>
+        <translation>Ved å skru av utskrift til ekstern, eller fildeling i denne økten, så vil du bli kvitt denne meldingen.</translation>
     </message>
     <message>
         <source>SSH daemon failed to open its public host key.</source>
@@ -2795,7 +2795,7 @@ authorized_keys fil.</translation>
     </message>
     <message>
         <source>Unable to create or append to file: </source>
-        <translation>Kunne ikke opprette, eller legge til fil: </translation>
+        <translation>Kunne ikke lage, eller legge til fil: </translation>
     </message>
     <message>
         <source>Unable to change the permissions of file: </source>
@@ -2803,7 +2803,7 @@ authorized_keys fil.</translation>
     </message>
     <message>
         <source>This is an error because sshd would deny such a file.</source>
-        <translation>Dette er en feil, fordi sshd ville ikke tillatt en slik fil.</translation>
+        <translation>Dette er en feil, fordi sshd ikke ville tillatt en slik fil.</translation>
     </message>
     <message>
         <source>Unable to change the permissions of directory: </source>
@@ -2997,36 +2997,37 @@ Rapporter dette som en feil på:
     </message>
     <message>
         <source>Enter user account password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Oppgi passordet til brukerkontoen:</translation>
     </message>
     <message>
         <source>Check whether the package providing &quot;pcsc_scan&quot; is installed.
 The current search path is: </source>
-        <translation type="unfinished"></translation>
+        <translation>Sjekk om pakken som tilbyr &quot;pcsc_scan&quot; er installert.
+Søkebanen som er i bruk er: </translation>
     </message>
     <message>
         <source>Can&apos;t start X.Org Server.</source>
-        <translation type="unfinished"></translation>
+        <translation>Klarte ikke å starte X.Org serveren.</translation>
     </message>
     <message>
         <source>Please check your installation.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vennligst sjekk din installasjon.</translation>
     </message>
     <message numerus="yes">
         <source>X.Org Server did not launch correctly after %n tries.</source>
         <comment>%n will be substituted with the current number of tries</comment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>X.org serveren startet ikke etter %n forsøk.</numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
     <message>
         <source>A click displays the context menu.</source>
-        <translation type="unfinished"></translation>
+        <translation>Et klikk viser hurtigmenyen.</translation>
     </message>
     <message>
         <source>X2GoKDrive session</source>
-        <translation type="unfinished"></translation>
+        <translation>X2GoKDrive økt</translation>
     </message>
 </context>
 <context>
@@ -3063,7 +3064,7 @@ The current search path is: </source>
     </message>
     <message>
         <source>You may reactivate this dialog using the X2Go Client settings dialog. To do so, follow this path in the menu bar: Options -&gt; Settings</source>
-        <translation>Du kan reaktivere denne dialogen ved å benytte X2Go Client innstillingene (Innstillinger -&gt; Innstillinger)</translation>
+        <translation>Du kan reaktivere denne dialogen ved å benytte X2Go klient innstillingene (Innstillinger -&gt; Innstillinger)</translation>
     </message>
 </context>
 <context>
@@ -3117,7 +3118,7 @@ The current search path is: </source>
         <source>Print using default Windows PDF Viewer
 (Viewer application needs to be installed)</source>
         <translation>Skriv ut via standard Windows PDF leser
-(lese programmet må være installert)</translation>
+(programmet må være installert)</translation>
     </message>
     <message>
         <source>Printer command:</source>
@@ -3225,7 +3226,7 @@ Eksempel:
     <name>PulseManager</name>
     <message>
         <source>Could not allocate buffer for getting current working directory!</source>
-        <translation>Kunne ikke allokere nok buffer for å finne gjeldene arbeidsmappe!</translation>
+        <translation>Kunne ikke allokere nok buffer til å finne gjeldene arbeidsmappe!</translation>
     </message>
     <message>
         <source>getcwd() failed!</source>
@@ -3296,7 +3297,7 @@ Eksempel:
     <name>QObject</name>
     <message>
         <source>No response received from the remote server. Do you want to terminate the current session?</source>
-        <translation>Ingen respons mottatt fra serveren. Ønsker du å avslutte gjeldende sesjon?</translation>
+        <translation>Ingen respons mottatt fra serveren. Ønsker du å avslutte gjeldende økt?</translation>
     </message>
     <message>
         <source>X2Go Client could not find any suitable X11 server.</source>
@@ -3373,11 +3374,11 @@ eller
     </message>
     <message>
         <source>Delete session</source>
-        <translation>Slett sesjon</translation>
+        <translation>Slett økt</translation>
     </message>
     <message>
         <source>Session actions</source>
-        <translation>Sesjonshandlinger</translation>
+        <translation>Økthandlinger</translation>
     </message>
     <message>
         <source>Select type</source>
@@ -3393,7 +3394,7 @@ eller
     </message>
     <message>
         <source>New Session</source>
-        <translation>Ny sesjon</translation>
+        <translation>Ny økt</translation>
     </message>
     <message>
         <source>running</source>
@@ -3449,11 +3450,11 @@ eller
     </message>
     <message>
         <source>Session preferences ...</source>
-        <translation>Sesjonsinnstillinger ...</translation>
+        <translation>Øktinnstillinger ...</translation>
     </message>
     <message>
         <source>Create session icon on desktop ...</source>
-        <translation>Opprett sesjonsikon på skrivebordet ...</translation>
+        <translation>Opprett øktikon på skrivebordet ...</translation>
     </message>
 </context>
 <context>
@@ -3476,23 +3477,23 @@ Use x2goclient hidden mode?</source>
     </message>
     <message>
         <source>Show session tray icon when running</source>
-        <translation>Hvis sesjonsikon i systemkurven når sesjonen kjører</translation>
+        <translation>Hvis øktikon i systemkurven når økt kjører</translation>
     </message>
     <message>
         <source>New Session</source>
-        <translation>Ny sesjon</translation>
+        <translation>Ny økt</translation>
     </message>
     <message>
         <source>X2Go Link to session </source>
-        <translation>X2Go kobling til sesjon </translation>
+        <translation>X2Go kobling til økt </translation>
     </message>
     <message>
         <source>Are you sure you want to delete this session?</source>
-        <translation>Er du sikker på at du ønsker å fjerne denne sesjonen?</translation>
+        <translation>Er du sikker på at du ønsker å fjerne denne økten?</translation>
     </message>
     <message>
         <source>Create session icon on desktop.</source>
-        <translation>Opprett sesjonsikon på skrivebordet.</translation>
+        <translation>Opprett øktikon på skrivebordet.</translation>
     </message>
     <message>
         <source>Desktop icons can be configured not to show X2Go Client (hidden mode.) If you like to use this feature you&apos;ll need to configure login via a GPG key or GPG Smart Card.
@@ -3520,15 +3521,15 @@ Use X2Go Client&apos;s hidden mode?</source>
     </message>
     <message>
         <source>&amp;New session</source>
-        <translation>&amp;Ny sesjon</translation>
+        <translation>&amp;Ny økt</translation>
     </message>
     <message>
         <source>&amp;Session preferences</source>
-        <translation>&amp;Sesjonsinnstillinger</translation>
+        <translation>&amp;Øktinnstillinger</translation>
     </message>
     <message>
         <source>&amp;Delete session</source>
-        <translation>S&amp;lett sesjon</translation>
+        <translation>S&amp;lett økt</translation>
     </message>
     <message>
         <source>&amp;Create session icon on desktop...</source>
@@ -3541,18 +3542,18 @@ Use X2Go Client&apos;s hidden mode?</source>
     </message>
     <message>
         <source>Session management</source>
-        <translation>Sesjonshåndtering</translation>
+        <translation>Økthåndtering</translation>
     </message>
     <message>
         <source>&amp;Create session icon on desktop ...</source>
-        <translation>&amp;Opprett sesjonsikon på skrivebordet ...</translation>
+        <translation>&amp;Opprett øktikon på skrivebordet ...</translation>
     </message>
 </context>
 <context>
     <name>SessionWidget</name>
     <message>
         <source>Session name:</source>
-        <translation>Sesjonsnavn:</translation>
+        <translation>Øktnavn:</translation>
     </message>
     <message>
         <source>&lt;&lt; change icon</source>
@@ -3632,11 +3633,11 @@ Use X2Go Client&apos;s hidden mode?</source>
     </message>
     <message>
         <source>&amp;Session type</source>
-        <translation>&amp;Sesjontype</translation>
+        <translation>&amp;Økttype</translation>
     </message>
     <message>
         <source>Session type:</source>
-        <translation>Sesjontype:</translation>
+        <translation>Økttype:</translation>
     </message>
     <message>
         <source>Connect to Windows terminal server</source>
@@ -3648,7 +3649,7 @@ Use X2Go Client&apos;s hidden mode?</source>
     </message>
     <message>
         <source>Connect to local desktop</source>
-        <translation type="vanished">Koble til lokalt skrivebord</translation>
+        <translation>Koble til lokalt skrivebord</translation>
     </message>
     <message>
         <source>Custom desktop</source>
@@ -3720,7 +3721,7 @@ Use X2Go Client&apos;s hidden mode?</source>
     </message>
     <message>
         <source>New session</source>
-        <translation>Ny sesjon</translation>
+        <translation>Ny økt</translation>
     </message>
     <message>
         <source>Path:</source>
@@ -3765,11 +3766,11 @@ Use X2Go Client&apos;s hidden mode?</source>
     </message>
     <message>
         <source>Run in X2GoKDrive (experimental)</source>
-        <translation type="unfinished"></translation>
+        <translation>Kjør i X2GoKDrive (eksperimentelt)</translation>
     </message>
     <message>
         <source>X2Go/X11 Desktop Sharing</source>
-        <translation type="unfinished"></translation>
+        <translation>X2Go/X11 Skrivebords-deling</translation>
     </message>
 </context>
 <context>
@@ -3958,11 +3959,11 @@ lydsystem forbindelser gjennom brannmurer</translation>
     </message>
     <message>
         <source>FreeRDP/X11 (pre-2.x style options)</source>
-        <translation type="unfinished"></translation>
+        <translation>FreeRDP/X11 (før 2.X versjonsvalg)</translation>
     </message>
     <message>
         <source>FreeRDP/X11 (2.x style options)</source>
-        <translation type="unfinished"></translation>
+        <translation>FreeRDP/X11 (2.X versjonsvalg)</translation>
     </message>
 </context>
 <context>
@@ -4145,7 +4146,7 @@ lydsystem forbindelser gjennom brannmurer</translation>
     </message>
     <message>
         <source>Cannot create SSH session.</source>
-        <translation>Klarer ikke å opprette ssh sesjon.</translation>
+        <translation>Klarer ikke å opprette ssh økt.</translation>
     </message>
     <message>
         <source>Cannot connect to proxy server.</source>
