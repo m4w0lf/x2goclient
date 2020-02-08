@@ -1425,7 +1425,7 @@ sound system connections through firewalls</source>
     <message>
         <location filename="../../src/help.cpp" line="177"/>
         <source>Disables X2Go Client&apos;s UNIX cleanup helper. This will prevent X2Go Client from terminating spawned processes after the main program terminates or crashes. Use with care and when in doubt, do not use this parameter at all.</source>
-        <translation>Deaktiviert den Unix-Cleanup-Helper des X2GoClients. Dies verhindert, dass X2GoClient Kindsprozesse töten kann, nachdem sich das Hauptprogramm beendet hat oder abgestürzt ist. Bitte mit Vorsicht verwenden, und im Zweifelsfall diesen Parameter nicht benutzen.</translation>
+        <translation>Deaktiviert den UNIX-Aufräum-Helfer des X2GoClients. Dies verhindert, dass X2GoClient Kindsprozesse töten kann, nachdem sich das Hauptprogramm beendet hat oder abgestürzt ist. Bitte mit Vorsicht verwenden, und im Zweifelsfall diesen Parameter nicht benutzen.</translation>
     </message>
 </context>
 <context>
@@ -3054,7 +3054,7 @@ Please check your settings</source>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="194"/>
         <source>X2Go Client</source>
-        <translation>X2Go Client</translation>
+        <translation>X2GoClient</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="229"/>
