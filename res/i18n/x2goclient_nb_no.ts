@@ -837,15 +837,15 @@ Noen vanlige lokasjoner er:
     </message>
     <message>
         <source>Sets the path to an SSH key to use for authentication against an SSH session broker. The client&apos;s behavior is undefined if this flag is used for non-SSH session brokers.</source>
-        <translation>Sett stien til SSH-nøkkelen som skal brukes ved autentisering mot en såkalt SSH session broker. Dette valget har kun betydning ved faktisk autentisering mot en SSH session broker.</translation>
+        <translation>Sett stien til SSH-nøkkelen som skal brukes ved autentisering mot en såkalt SSH session broker. Dette valget kan ha en udefinert virkemåte om du ikke autentisering mot en SSH session broker.</translation>
     </message>
     <message>
         <source>Enables the use of the default SSH key or SSH agent for authentication against an SSH session broker. The client&apos;s behavior is undefined if this flag is used for non-SSH session brokers.</source>
-        <translation>Aktiverer bruken av standard SSH-nøkkel eller SSH-agent ved autentisering mot en såkalt SSH session broker. Dette valget har kun betydning ved faktisk autentisering mot en SSH session broker.</translation>
+        <translation>Aktiverer bruken av standard SSH-nøkkel eller SSH-agent ved autentisering mot en såkalt SSH session broker. Dette valget kan ha en udefinert virkemåte om du ikke autentisering mot en SSH session broker.</translation>
     </message>
     <message>
         <source>Does not ask for user credentials during session broker authentication. This can be useful if you are using an HTTP(S) session broker without authentication. If you run an HTTP(S) server without authentication, but with user-specific profiles, then put the user name into the broker URL (refer to --broker-url.) The user name then will be extracted from the broker URL and be sent to the session broker. The client&apos;s behavior is undefined if this flag is used for non-HTTP(S) session brokers.</source>
-        <translation>Spør ikke om brukerens legitimasjon ved autentisering mot broker. Dette kan være nyttig om du bruker HTTP(S) session-broker uten autentisering. Om du bruker en HTTP(S) uten autentisering, men med bruker-spesifikke profiler, så putter du brukernavnet inn i broker URL (se --broker-url). Brukernavnet vil så bli hentet fra broker-url, og sendt til session-broker. Dette valget har ingen effekt om du ikke benytter deg av en HTTP(S) session-broker.</translation>
+        <translation>Spør ikke om brukerens legitimasjon ved autentisering mot broker. Dette kan være nyttig om du bruker HTTP(S) session-broker uten autentisering. Om du bruker en HTTP(S) uten autentisering, men med bruker-spesifikke profiler, så putter du brukernavnet inn i broker URL (se --broker-url). Brukernavnet vil så bli hentet fra broker-url, og sendt til session-broker. Dette valget kan ha en udefinert virkemåte om du ikke benytter deg av en HTTP(S) session-broker.</translation>
     </message>
     <message>
         <source>Disable PulseAudio.</source>
@@ -1383,7 +1383,7 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>suspended</source>
-        <translation>hengende</translation>
+        <translation>i hvilemodus</translation>
     </message>
     <message>
         <source>Unable to create Folder:</source>
@@ -1515,7 +1515,7 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>suspending</source>
-        <translation>utsetter</translation>
+        <translation>setter i hvilemodus</translation>
     </message>
     <message>
         <source>terminating</source>
@@ -3402,7 +3402,7 @@ eller
     </message>
     <message>
         <source>suspended</source>
-        <translation>frakoblet</translation>
+        <translation>i hvilemodus</translation>
     </message>
     <message>
         <source>KDE</source>
