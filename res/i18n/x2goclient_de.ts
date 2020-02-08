@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de">
+<TS version="2.0" language="de">
 <context>
     <name>AppDialog</name>
     <message>
@@ -1425,7 +1425,7 @@ sound system connections through firewalls</source>
     <message>
         <location filename="../../src/help.cpp" line="177"/>
         <source>Disables X2Go Client&apos;s UNIX cleanup helper. This will prevent X2Go Client from terminating spawned processes after the main program terminates or crashes. Use with care and when in doubt, do not use this parameter at all.</source>
-        <translation type="unfinished"></translation>
+        <translation>Deaktiviert den Unix-Cleanup-Helper des X2GoClients. Dies verhindert, dass X2GoClient Kindsprozesse töten kann, nachdem sich das Hauptprogramm beendet hat oder abgestürzt ist. Bitte mit Vorsicht verwenden, und im Zweifelsfall diesen Parameter nicht benutzen.</translation>
     </message>
 </context>
 <context>
@@ -1996,7 +1996,7 @@ Möchten Sie die Verbindung abbrechen?</translation>
     </message>
     <message>
         <source>Applications...</source>
-        <translation type="vanished">Anwendungen...</translation>
+        <translation>Anwendungen...</translation>
     </message>
     <message>
         <source>Invalid reply from broker</source>
@@ -2239,7 +2239,7 @@ Möchten Sie die Verbindung abbrechen?</translation>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="1176"/>
         <source>A click displays the context menu.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ein Klick aktiviert das Kontextmenü.</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="1178"/>
@@ -2922,7 +2922,7 @@ der Anwendung nicht öffnen.</translation>
     </message>
     <message>
         <source>Unable to create file: </source>
-        <translation type="vanished">Datei konnte nicht erzeugt werden: </translation>
+        <translation>Datei konnte nicht erzeugt werden: </translation>
     </message>
     <message>
         <source>No valid card found</source>
@@ -3152,7 +3152,7 @@ Please check your settings</source>
     </message>
     <message>
         <source> to </source>
-        <translation type="vanished"> auf </translation>
+        <translation> auf </translation>
     </message>
     <message>
         <source>Connection Error(</source>
@@ -3243,7 +3243,7 @@ Hash des öffentlichen Schlüssels: </translation>
     </message>
     <message>
         <source>Share folder...</source>
-        <translation type="vanished">Ordner freigeben...</translation>
+        <translation>Ordner freigeben...</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="12440"/>
@@ -3711,7 +3711,7 @@ Sie können SSHD über folgenden Befehl installieren:
     <message>
         <location filename="../../src/onmainwindow.cpp" line="4922"/>
         <source>X2GoKDrive session</source>
-        <translation type="unfinished"></translation>
+        <translation>X2GoKDrive-Sitzung</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="4956"/>
@@ -3867,7 +3867,7 @@ Ungespeicherte Dokumente gehen verloren.</translation>
     </message>
     <message>
         <source>&lt;br&gt;X2Go Plugin mode was sponsored by &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</source>
-        <translation type="vanished">&lt;br&gt;X2GoPlugin-Modus wurde gefördert durch &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
+        <translation>&lt;br&gt;X2GoPlugin-Modus wurde gefördert durch &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="9156"/>
@@ -3887,7 +3887,7 @@ Ungespeicherte Dokumente gehen verloren.</translation>
     <message>
         <source>Check whether the package providing &quot;scdaemon&quot; is installed.
 The current search path is: </source>
-        <translation type="vanished">Bitte überprüfen Sie, ob das Paket, das &quot;scdaemon&quot; bereitstellt, installiert ist.
+        <translation>Bitte überprüfen Sie, ob das Paket, das &quot;scdaemon&quot; bereitstellt, installiert ist.
 Der aktuelle Suchpfad lautet: </translation>
     </message>
     <message>
@@ -3991,7 +3991,7 @@ Bitte installieren Sie dort eine neuere Version des X2GoServer-Pakets.</translat
     </message>
     <message>
         <source>Reconnect</source>
-        <translation type="vanished">Neu verbinden</translation>
+        <translation>Neu verbinden</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="1009"/>
@@ -4917,7 +4917,7 @@ Wollen Sie den versteckten Modus verwenden?</translation>
     <message>
         <location filename="../../src/sessionwidget.cpp" line="218"/>
         <source>Run in X2GoKDrive (experimental)</source>
-        <translation type="unfinished"></translation>
+        <translation>In X2GoKDrive starten (experimentell)</translation>
     </message>
     <message>
         <location filename="../../src/sessionwidget.cpp" line="234"/>
@@ -4928,7 +4928,7 @@ Wollen Sie den versteckten Modus verwenden?</translation>
     <message>
         <location filename="../../src/sessionwidget.cpp" line="236"/>
         <source>X2Go/X11 Desktop Sharing</source>
-        <translation type="unfinished"></translation>
+        <translation>X2Go-/X11-Desktop-Sharing</translation>
     </message>
     <message>
         <location filename="../../src/sessionwidget.cpp" line="266"/>
@@ -4977,7 +4977,7 @@ Wollen Sie den versteckten Modus verwenden?</translation>
     </message>
     <message>
         <source>Connect to local desktop</source>
-        <translation type="vanished">Zugriff auf lokalen Desktop</translation>
+        <translation>Zugriff auf lokalen Desktop</translation>
     </message>
     <message>
         <location filename="../../src/sessionwidget.cpp" line="543"/>
@@ -5150,12 +5150,12 @@ Wollen Sie den versteckten Modus verwenden?</translation>
     <message>
         <location filename="../../src/settingswidget.cpp" line="210"/>
         <source>FreeRDP/X11 (pre-2.x style options)</source>
-        <translation type="unfinished"></translation>
+        <translation>FreeRDP/X11 (Parameterformat für Versionen älter als 2.x)</translation>
     </message>
     <message>
         <location filename="../../src/settingswidget.cpp" line="211"/>
         <source>FreeRDP/X11 (2.x style options)</source>
-        <translation type="unfinished"></translation>
+        <translation>FreeRDP/X11 (Parameterformat ab Version 2.x)</translation>
     </message>
     <message>
         <source>Keep current keyboard Settings</source>
