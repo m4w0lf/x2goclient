@@ -2848,7 +2848,7 @@ Unsaved documents will be lost.</source>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="9153"/>
-        <source>&lt;br&gt;(C) 2005-2019 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</source>
+        <source>&lt;br&gt;(C) 2005-2020 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

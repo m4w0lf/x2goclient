@@ -2477,8 +2477,8 @@ Veuillez rapporter le bug sur :
 </translation>
     </message>
     <message>
-        <source>&lt;br&gt;(C) 2005-2019 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</source>
-        <translation>&lt;br&gt;(C) 2005-2019 par &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</translation>
+        <source>&lt;br&gt;(C) 2005-2020 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</source>
+        <translation>&lt;br&gt;(C) 2005-2020 par &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</translation>
     </message>
     <message>
         <source>Your current color depth is different from the session&apos;s color depth. This may cause problems reconnecting to this session and in most cases &lt;b&gt;you will lose the session&lt;/b&gt; and have to start a new one! </source>

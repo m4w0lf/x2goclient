@@ -2164,8 +2164,8 @@ Tallentamattomat tiedot katoavat.</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="9153"/>
-        <source>&lt;br&gt;(C) 2005-2019 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</source>
-        <translation>&lt;br&gt;(C) 2005-2019 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;
+        <source>&lt;br&gt;(C) 2005-2020 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</source>
+        <translation>&lt;br&gt;(C) 2005-2020 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;
 Suomenkielinen versio: Martti Pitkänen, martti@aplcomp.fi&lt;br&gt;</translation>
     </message>
     <message>
