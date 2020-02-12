@@ -184,6 +184,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - res/i18n/x2goclient_nb_no.ts: fix up whitespace and typos.
     - res/i18n/x2goclient_de.ts: better translate UNIX cleanup helper and fix
       "X2Go Client" as "X2GoClient" globally.
+    - misc: pre-release copyright update.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
