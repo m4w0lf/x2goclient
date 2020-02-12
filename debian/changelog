@@ -1,4 +1,4 @@
-x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
+x2goclient (4.1.2.2-0x2go1) unstable; urgency=medium
 
   [ Oleksandr Shneyder ]
   * New upstream version (4.1.2.2):
@@ -266,7 +266,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
   * New upstream release (4.1.2.2):
     - res/i18n/x2goclient_de.ts: update German translation file.
 
- -- X2Go Release Manager <git-admin@x2go.org>  Tue, 26 Jun 2018 00:39:28 +0200
+ -- X2Go Release Manager <git-admin@x2go.org>  Wed, 12 Feb 2020 22:42:00 +0100
 
 x2goclient (4.1.2.1-0x2go1) unstable; urgency=medium
 
