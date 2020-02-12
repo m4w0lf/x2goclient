@@ -9147,6 +9147,30 @@ void ONMainWindow::slotSupport()
 
 void ONMainWindow::slotAbout()
 {
+    /*
+     * This (extra) comment (for translators) looks fucked up, and it is, but
+     * this can't be changed.
+     *
+     * Adding asterisks in front of a line will cause them to literally appear
+     * in the comment, so I'd rather just drop them.
+     *
+     * Adding any whitespace in front of a line will lead to one whitespace
+     * character surviving the lupdate scan, so we have to drop them as well.
+     *
+     * NOT adding an escape character to the end of a line will make lupdate
+     * stupidly replace the newline character with a whitespace character.
+     */
+    /*:
+Translators, feel free to add a localized version of your translation
+including a copyright notice and your name(s). Remember to keep a <br>
+at the end, though.\n\n\
+\
+English example for a potential translation:\n\n\
+\
+<br>(C) 2005-2020 by <b>obviously nice</b>: \
+Oleksandr Shneyder, Heinz-Markus Graesing<br>\
+English version: (C) 20AB-20CD Trans Lator <trans@la.tor><br>
+     */
     QString aboutStr=tr ("<br>(C) 2005-2020 by <b>obviously nice</b>: "
                          "Oleksandr Shneyder, Heinz-Markus Graesing<br>" );
     aboutStr+=
