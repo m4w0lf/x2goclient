@@ -2152,7 +2152,7 @@ Avatud failid ei salvestu.</translation>
 English example for a potential translation:
 
 &lt;br&gt;(C) 2005-2020 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;English version: (C) 20AB-20CD Trans Lator &lt;trans@la.tor&gt;&lt;br&gt;</extracomment>
-        <translation>&lt;b&gt;(C) 2005-2020 &lt;b&gt;tublid&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</translation>
+        <translation type="unfinished">&lt;b&gt;(C) 2005-2020 &lt;b&gt;tublid&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="9177"/>
