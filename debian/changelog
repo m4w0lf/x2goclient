@@ -190,6 +190,8 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
       manually.
     - src/onmainwindow.cpp: add comment for translators encouraging them to
       add themselves to copyright notice.
+    - res/i18n/x2goclient_*.ts: update after source code changes and comment
+      addition.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:

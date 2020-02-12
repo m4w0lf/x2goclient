@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="nb_NO">
+<TS version="2.1" language="nb_NO">
 <context>
     <name>AppDialog</name>
     <message>
@@ -1315,7 +1315,7 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>Applications...</source>
-        <translation>Applikasjoner...</translation>
+        <translation type="vanished">Applikasjoner...</translation>
     </message>
     <message>
         <source>Invalid reply from broker</source>
@@ -1609,7 +1609,7 @@ Vil du avbryte tilkoblingen?
     </message>
     <message>
         <source>Unable to create file: </source>
-        <translation>Klarer ikke å lage filen: </translation>
+        <translation type="vanished">Klarer ikke å lage filen: </translation>
     </message>
     <message>
         <source>No valid card found</source>
@@ -1797,7 +1797,7 @@ Vennligst sjekk instillingene dine</translation>
     </message>
     <message>
         <source> to </source>
-        <translation> til </translation>
+        <translation type="vanished"> til </translation>
     </message>
     <message>
         <source>Connection Error(</source>
@@ -1875,7 +1875,7 @@ Offentlig nøkkel: </translation>
     </message>
     <message>
         <source>Share folder...</source>
-        <translation>Del mappe...</translation>
+        <translation type="vanished">Del mappe...</translation>
     </message>
     <message>
         <source>Show details</source>
@@ -2135,7 +2135,7 @@ Du kan installere sshd med:
     </message>
     <message>
         <source>Reconnect</source>
-        <translation>Gjenoppkoble</translation>
+        <translation type="vanished">Gjenoppkoble</translation>
     </message>
     <message>
         <source>Connecting to broker</source>
@@ -2545,7 +2545,7 @@ Ulagrede data vil gå tapt.</translation>
     </message>
     <message>
         <source>&lt;br&gt;X2Go Plugin mode was sponsored by &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</source>
-        <translation>&lt;br&gt;X2Go plugin modusen ble sponset av &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
+        <translation type="vanished">&lt;br&gt;X2Go plugin modusen ble sponset av &lt;a href=&quot;http://www.foss-group.de/&quot;&gt;FOSS-Group GmbH (Freiburg)&lt;/a&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>&lt;br&gt;This is a client to access the X2Go network-based computing environment. This client will be able to connect to X2Go Server(s) and start, stop, resume and terminate (running) desktop sessions. X2Go Client stores different server connections and may automatically request authentication data from LDAP directories. Furthermore, it can be used as a fullscreen login screen (replacement for login managers like XDM). Please visit &lt;a href=&quot;http://www.x2go.org&quot;&gt;the project home page at x2go.org&lt;/a&gt; for further information.</source>
@@ -2562,7 +2562,7 @@ Ulagrede data vil gå tapt.</translation>
     <message>
         <source>Check whether the package providing &quot;scdaemon&quot; is installed.
 The current search path is: </source>
-        <translation>Sjekk om pakken som tilbyr &quot;scdaemon&quot; er installert.
+        <translation type="vanished">Sjekk om pakken som tilbyr &quot;scdaemon&quot; er installert.
 Søkebanen som er i bruk er: </translation>
     </message>
     <message>
@@ -2945,6 +2945,11 @@ Rapporter dette som en feil på:
     </message>
     <message>
         <source>&lt;br&gt;(C) 2005-2020 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</source>
+        <extracomment>Translators, feel free to add a localized version of your translation including a copyright notice and your name(s). Remember to keep a &lt;br&gt; at the end, though.
+
+English example for a potential translation:
+
+&lt;br&gt;(C) 2005-2020 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;English version: (C) 20AB-20CD Trans Lator &lt;trans@la.tor&gt;&lt;br&gt;</extracomment>
         <translation>&lt;br&gt;(C) 2005-2020 av &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</translation>
     </message>
     <message>
@@ -3649,7 +3654,7 @@ Use X2Go Client&apos;s hidden mode?</source>
     </message>
     <message>
         <source>Connect to local desktop</source>
-        <translation>Koble til lokalt skrivebord</translation>
+        <translation type="vanished">Koble til lokalt skrivebord</translation>
     </message>
     <message>
         <source>Custom desktop</source>
