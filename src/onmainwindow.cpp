@@ -9147,7 +9147,7 @@ void ONMainWindow::slotSupport()
 
 void ONMainWindow::slotAbout()
 {
-    QString aboutStr=tr ("<br>(C) 2005-2019 by <b>obviously nice</b>: "
+    QString aboutStr=tr ("<br>(C) 2005-2020 by <b>obviously nice</b>: "
                          "Oleksandr Shneyder, Heinz-Markus Graesing<br>" );
     aboutStr+=
         tr (
