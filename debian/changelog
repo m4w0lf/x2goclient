@@ -2,44 +2,53 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
 
   [ Oleksandr Shneyder ]
   * New upstream version (4.1.2.2):
-    - Add SSH instruction to list of errors if keyboard-interactive auth has failed.
+    - Add SSH instruction to list of errors if keyboard-interactive auth has
+      failed.
     - Add new brocker feature. Broker can send to client some configuration in
-      the section START_CLIENT_CONFIG - END_CLIENT_CONFIG. For the moment is supported
-      option events=bool. If true, client sending to broker events: CONNECTING,
-      CONNECTED, SUSPENDING, TERMINATING, FINISHED. It's not a real session state,
-      but rather the state of X2Go Client.
+      the section START_CLIENT_CONFIG - END_CLIENT_CONFIG. For the moment is
+      supported option events=bool. If true, client sending to broker events:
+      CONNECTING, CONNECTED, SUSPENDING, TERMINATING, FINISHED. It's not a real
+      session state, but rather the state of X2Go Client.
     - Save session command in resumingSession.command.
     - Send in broker event the duration of session on client.
     - If client is configured to send events, the broker can ask client to send
-      ALIVE events. To do this, broker should send config option "liveevent" (int).
-      It means, if liveevent=10, client will send ALIVE event to broker every 10
-      seconds when the client connected to X2Go Session.
-    - Broker can send to client command to suspend or terminate the session as an
-      answer to the client event message. For this broker should send to client
-      SUSPEND ID or TERMINATE ID.
+      ALIVE events. To do this, broker should send config option "liveevent"
+      (int).
+      It means, if liveevent=10, client will send ALIVE event to broker every
+      10 seconds when the client connected to X2Go Session.
+    - Broker can send to client command to suspend or terminate the session as
+      an answer to the client event message. For this broker should send to
+      client SUSPEND ID or TERMINATE ID.
     - Client now sends "login" parameter to the broker when executing task
-      "selectsession". Before client just sent a username on the broker and it was
-      imposiible to find out user name on X2Go server, which is not always the
-      same as broker username. This won't break a compatibility with previous
-      broker as they just will ignore this parameter.
+      "selectsession". Before client just sent a username on the broker and it
+      was imposiible to find out user name on X2Go server, which is not always
+      the same as broker username. This won't break a compatibility with
+      previous broker as they just will ignore this parameter.
     - X2Gokdrive support for X2GoClient.
     - Fix authentification on http broker when sending event.
     - Fix resuming sessions on multiple servers.
-    - Initializing sessionId, command and display for direct RDP to complay with standard sessions.
-    - Direct RDP sesion send to broker event CONNECTED instead of CONNECTING at start of RDP client.
+    - Initializing sessionId, command and display for direct RDP to complay
+      with standard sessions.
+    - Direct RDP sesion send to broker event CONNECTED instead of CONNECTING at
+      start of RDP client.
     - Fixing setting correct session command when resuming the session.
     - Don't exit if sending event to http broker has failed.
-    - If using x2go broker and ssh proxy check for the option "usebrokeruserforproxy" in the session
-      file. If it's "true", use the same username for the proxy as broker login.
-    - Broker can send to client the number of suspended and running sessions for each session type.
+    - If using x2go broker and ssh proxy check for the option
+      "usebrokeruserforproxy" in the session file. If it's "true", use the same
+      username for the proxy as broker login.
+    - Broker can send to client the number of suspended and running sessions
+      for each session type.
       Client will display this information to user on session button.
     - update copyright years in about dialog.
     - Do not show password in debug output of HTTP broker.
-    - Fix crashing if the path for automount in the session config file in wrong
-      format. Supporting both Windows and Linux path in automount format. Check if path exists before mounting.
-    - Do not show Pulseaudio warning on Windows, if Pulseaudio is disabled in settings or by command line.
+    - Fix crashing if the path for automount in the session config file in
+      wrong format. Supporting both Windows and Linux path in automount format.
+      Check if path exists before mounting.
+    - Do not show Pulseaudio warning on Windows, if Pulseaudio is disabled in
+      settings or by command line.
     - Improve request handling in HTTP broker.
-    - Add possibility to suspend and terminate sessions from session selection dialog in broker mode.
+    - Add possibility to suspend and terminate sessions from session selection
+      dialog in broker mode.
     - Do not delete session from list if terminating of session is canceled.
 
   [ Mihai Moldovan ]
@@ -199,8 +208,8 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - Update qt_<lang>.qm files from Qt5 v5.11.2.
     - Rename radion button lables for xfreerdp options' style.
   * debian/control:
-    + In x2goclient R, prefer freerdp2-x11 over rdesktop over freerdp-x11 (which
-      is broken these days anyway).
+    + In x2goclient R, prefer freerdp2-x11 over rdesktop over freerdp-x11
+      (which is broken these days anyway).
     + In x2goclient D, add x2gokdriveclient.
     + In x2goclient D, add hello as an alternative to x2gokdriveclient. Works
       around non-available x2gokdriveclient on Debian jessie.
