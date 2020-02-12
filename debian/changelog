@@ -195,6 +195,7 @@ x2goclient (4.1.2.2-0x2go1) UNRELEASED; urgency=medium
     - res/i18n/x2goclient_*.ts: mark copyright translation string as
       unfinished for already translated languages (but Finnish) to alert
       translators of the new comment.
+    - man/man1/x2goclient.1: pre-release date update.
   * debian/control:
     + Add build-depend on pkg-config.
   * x2goclient.spec:
