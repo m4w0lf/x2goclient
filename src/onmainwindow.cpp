@@ -372,8 +372,9 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
 #endif
     //bgFrame=new SVGFrame((QString)"/home/admin/test.svg",false,fr);
 
+    QString x2gologopath=images_resource_path("/svg/x2gologo.svg");
 
-    SVGFrame* x2g=new SVGFrame ( ( QString ) images_resource_path("/svg/x2gologo.svg"),
+    SVGFrame* x2g=new SVGFrame ( ( QString ) x2gologopath,
                                  false,fr );
 
     QPalette pl=x2g->palette();
@@ -381,17 +382,34 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
     pl.setColor ( QPalette::Window, QColor ( 255,255,255,0 ) );
     x2g->setPalette ( pl );
 
-    if (OnFile.size())
-        on=new SVGFrame ( ( QString ) OnFile,false,fr );
-    else
-        on=new SVGFrame ( ( QString ) images_resource_path ("/svg/onlogo.svg"),false,fr );
+    QString onlogopath;
 
+    if (OnFile.size())
+    {
+        onlogopath=OnFile;
+    }
+    else
+    {
+        onlogopath=images_resource_path ("/svg/onlogo.svg");
+    }
+
+
+    on=new SVGFrame ( onlogopath,false,fr );
     on->setPalette ( pl );
 
     if ( !miniMode )
     {
-        x2g->setFixedSize ( 100,100 );
-        on->setFixedSize ( 100,100 );
+        QImage im(onlogopath);
+        if(im.width()&&im.height())
+        {
+            on->setFixedSize ( 100*im.width()/im.height(),100 );
+        }
+
+        QImage im1(x2gologopath);
+        if(im1.width()&&im1.height())
+        {
+            x2g->setFixedSize ( 100*im1.width()/im1.height(),100 );
+        }
     }
     else
     {
