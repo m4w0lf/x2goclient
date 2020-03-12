@@ -329,7 +329,7 @@ ConfigDialog::ConfigDialog ( QWidget * parent,  Qt::WindowFlags f )
     tabWidg->addTab ( pwid,tr ( "Printing" ) );
 
 #if defined ( Q_OS_WIN) && defined (CFGCLIENT )
-    xsetWidg=new XSettingsWidget(this);
+    xsetWidg=new XSettingsWidget(( ONMainWindow* ) parent, this);
     tabWidg->addTab(xsetWidg, tr("X.Org Server settings"));
 #endif
 

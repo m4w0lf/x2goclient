@@ -576,9 +576,16 @@ void SessionWidget::readConfig()
     sessName->setText (name);
 
     sessIcon = wrap_legacy_resource_URIs (st.setting ()->value (sessionId+"/icon",
-                                                                (QVariant) ":/img/icons/128x128/x2gosession.png"
+                                                                (QVariant) parent->iconsPath("/128x128/x2gosession.png")
                                                                ).toString ().trimmed ());
+
+
     sessIcon = expandHome (sessIcon);
+    if(sessIcon == ":/img/icons/128x128/x2gosession.png")
+    {
+        sessIcon=parent->iconsPath("/128x128/x2gosession.png");
+    }
+
     icon->setIcon ( QIcon ( sessIcon ) );
 
     server->setText ( st.setting()->value (
@@ -819,7 +826,7 @@ void SessionWidget::setDefaults()
     cmdCombo->lineEdit()->selectAll();
     slot_changeCmd ( 0 );
     cmd->setEnabled ( false );
-    sessIcon=":/img/icons/128x128/x2gosession.png";
+    sessIcon=parent->iconsPath("/128x128/x2gosession.png");
     icon->setIcon ( QIcon ( sessIcon ) );
     sshPort->setValue (
         mainWindow->getDefaultSshPort().toInt() );
@@ -988,7 +995,7 @@ void SessionWidget::slot_krbChecked()
 
 void SessionWidget::slot_openFolder()
 {
-    FolderExplorer explorer(lPath->text(), parent->getSessionExplorer(), this);
+    FolderExplorer explorer(lPath->text(), parent->getSessionExplorer(), parent);
     if(explorer.exec()==QDialog::Accepted)
     {
         lPath->setText(explorer.getCurrentPath());

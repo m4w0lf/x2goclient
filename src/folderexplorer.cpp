@@ -18,18 +18,20 @@
 #include "x2gologdebug.h"
 #include "sessionexplorer.h"
 #include "folderbutton.h"
+#include "onmainwindow.h"
 #include <QMenu>
 #include <QFileDialog>
 #include <QInputDialog>
 #include <QMessageBox>
 
-FolderExplorer::FolderExplorer(QString path, SessionExplorer* explorer, QWidget* parent):QDialog(parent)
+FolderExplorer::FolderExplorer(QString path, SessionExplorer* explorer, ONMainWindow* mainw):QDialog((QWidget*)mainw)
 {
     setupUi(this);
+    mw=(ONMainWindow*)mainw;
     this->explorer=explorer;
     root=new QTreeWidgetItem(treeWidget);
     root->setText(0,"/");
-    root->setIcon(0,QIcon(":/img/icons/128x128/folder.png"));
+//     root->setIcon(0,QIcon(mw->iconsPath("/128x128/folder.png")));
     currentPath=path;
     initFolders(root, "");
     root->setExpanded(true);
@@ -144,7 +146,7 @@ void FolderExplorer::slotNewFolder()
     QTreeWidgetItem* it=new QTreeWidgetItem(menuItem);
     QString name=tr("New Folder");
     it->setText(0,name);
-    it->setIcon(0, QIcon(":/img/icons/128x128/folder.png"));
+    it->setIcon(0, QIcon(mw->iconsPath("/128x128/folder.png")));
     QString normPath=(menuItem->data(0,Qt::UserRole).toString()+"/"+name).split("/",QString::SkipEmptyParts).join("/");
     it->setData(0,Qt::UserRole, normPath+"/");
     treeWidget->clearSelection();

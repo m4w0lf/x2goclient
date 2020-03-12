@@ -366,14 +366,14 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
     if (BGFile.size())
         bgFrame=new SVGFrame ( ( QString ) BGFile,true,fr );
     else
-        bgFrame=new SVGFrame ( ( QString ) ":/img/svg/bg.svg",true,fr );
+        bgFrame=new SVGFrame ( ( QString ) images_resource_path("/svg/bg.svg"),true,fr );
 #else
-    bgFrame=new SVGFrame ( ( QString ) ":/img/svg/bg_hildon.svg",true,fr );
+    bgFrame=new SVGFrame ( ( QString ) images_resource_path("/svg/bg_hildon.svg"),true,fr );
 #endif
     //bgFrame=new SVGFrame((QString)"/home/admin/test.svg",false,fr);
 
 
-    SVGFrame* x2g=new SVGFrame ( ( QString ) ":/img/svg/x2gologo.svg",
+    SVGFrame* x2g=new SVGFrame ( ( QString ) images_resource_path("/svg/x2gologo.svg"),
                                  false,fr );
 
     QPalette pl=x2g->palette();
@@ -384,7 +384,7 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
     if (OnFile.size())
         on=new SVGFrame ( ( QString ) OnFile,false,fr );
     else
-        on=new SVGFrame ( ( QString ) ":/img/svg/onlogo.svg",false,fr );
+        on=new SVGFrame ( ( QString ) images_resource_path ("/svg/onlogo.svg"),false,fr );
 
     on->setPalette ( pl );
 
@@ -434,7 +434,7 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
 
     }
 
-    act_abclient=new QAction ( QIcon ( ":/img/icons/32x32/x2goclient.png" ),
+    act_abclient=new QAction ( QIcon ( iconsPath("/32x32/x2goclient.png" )),
                                tr ( "About X2Go Client" ),this );
 
 
@@ -466,7 +466,7 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
 #endif
     initPassDlg();
     initStatusDlg();
-    interDlg=new InteractionDialog(bgFrame);
+    interDlg=new InteractionDialog(this, bgFrame);
     connect(interDlg, SIGNAL(closeInterractionDialog()), this, SLOT(slotCloseInteractionDialog()));
     username->addWidget ( interDlg );
 
@@ -507,7 +507,7 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
     if (showHaltBtn)
     {
         QPushButton* bHalt=new QPushButton(bgFrame);
-        QPixmap p(":/img/png/power-button.png");
+        QPixmap p(images_resource_path("/png/power-button.png"));
         bHalt->setIcon(p);
         bHalt->setFocusPolicy(Qt::NoFocus);
         bHalt->setFixedSize(32,32);
@@ -518,7 +518,7 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
 
 
     bBrokerLogout = new QPushButton (bgFrame);
-    QPixmap p (":/img/png/broker-logout-button.png");
+    QPixmap p (images_resource_path("/png/broker-logout-button.png"));
     bBrokerLogout->setIcon (p);
     bBrokerLogout->setFocusPolicy (Qt::NoFocus);
     bBrokerLogout->setFixedSize (32,32);
@@ -746,7 +746,7 @@ void ONMainWindow::initWidgetsNormal()
     username->setSpacing ( 10 );
     username->addStretch();
     username->addStretch();
-    ln=new SVGFrame ( ( QString ) ":/img/svg/line.svg",true,fr );
+    ln=new SVGFrame ( ( QString ) images_resource_path("/svg/line.svg"),true,fr );
     ln->setFixedWidth ( ln->sizeHint().width() );
     uname=new QLineEdit ( bgFrame );
     setWidgetStyle ( uname );
@@ -823,7 +823,7 @@ void ONMainWindow::initWidgetsNormal()
     act_new->setShortcut ( tr ( "Ctrl+N" ) );
 
 
-    setWindowIcon ( QIcon ( ":/img/icons/128x128/x2go.png" ) );
+    setWindowIcon ( QIcon ( iconsPath("/128x128/x2go.png" )) );
     act_edit=new QAction ( QIcon ( iconsPath ( "/32x32/edit.png" ) ),
                            tr ( "Session management ..." ),this );
     act_edit->setShortcut ( tr ( "Ctrl+E" ) );
@@ -1028,7 +1028,7 @@ void ONMainWindow::slotGetBrokerAuth()
 {
     pass->clear();
     login->clear();
-    QString pixFile=":/img/icons/128x128/x2gosession.png";
+    QString pixFile=iconsPath("/128x128/x2gosession.png");
     if (SPixFile!=QString::null)
         pixFile=SPixFile;
     QPixmap pix(pixFile);
@@ -1109,27 +1109,27 @@ void ONMainWindow::trayIconInit()
             trayIconActiveConnectionMenu = trayIconMenu->addMenu(tr("Not connected"));
 
             appMenu[Application::MULTIMEDIA]=initTrayAppMenu(tr("Multimedia"),
-                                             QPixmap(":/img/icons/22x22/applications-multimedia.png"));
+                                             QPixmap(iconsPath("/22x22/applications-multimedia.png")));
             appMenu[Application::DEVELOPMENT]=initTrayAppMenu(tr("Development"),
-                                              QPixmap(":/img/icons/22x22/applications-development.png"));
+                                                              QPixmap(iconsPath("/22x22/applications-development.png")));
             appMenu[Application::EDUCATION]=initTrayAppMenu(tr("Education"),
-                                            QPixmap(":/img/icons/22x22/applications-education.png"));
+                                                            QPixmap(iconsPath("/22x22/applications-education.png")));
             appMenu[Application::GAME]=initTrayAppMenu(tr("Game"),
-                                       QPixmap(":/img/icons/22x22/applications-games.png"));
+                                                       QPixmap(iconsPath("/22x22/applications-games.png")));
             appMenu[Application::GRAPHICS]=initTrayAppMenu(tr("Graphics"),
-                                           QPixmap(":/img/icons/22x22/applications-graphics.png"));
+                                                           QPixmap(iconsPath("/22x22/applications-graphics.png")));
             appMenu[Application::NETWORK]=initTrayAppMenu(tr("Network"),
-                                          QPixmap(":/img/icons/22x22/applications-internet.png"));
+                                                          QPixmap(iconsPath("/22x22/applications-internet.png")));
             appMenu[Application::OFFICE]=initTrayAppMenu(tr("Office"),
-                                         QPixmap(":/img/icons/22x22/applications-office.png"));
+                                                         QPixmap(iconsPath("/22x22/applications-office.png")));
             appMenu[Application::SETTINGS]=initTrayAppMenu(tr("Settings"),
-                                           QPixmap(":/img/icons/22x22/preferences-system.png"));
+                                                           QPixmap(iconsPath("/22x22/preferences-system.png")));
             appMenu[Application::SYSTEM]=initTrayAppMenu(tr("System"),
-                                         QPixmap(":/img/icons/22x22/applications-system.png"));
+                                                         QPixmap(iconsPath("/22x22/applications-system.png")));
             appMenu[Application::UTILITY]=initTrayAppMenu(tr("Utility"),
-                                          QPixmap(":/img/icons/22x22/applications-utilities.png"));
+                                                          QPixmap(iconsPath("/22x22/applications-utilities.png")));
             appMenu[Application::OTHER]=initTrayAppMenu(tr("Other"),
-                                        QPixmap(":/img/icons/22x22/applications-other.png"));
+                                                        QPixmap(iconsPath("/22x22/applications-other.png")));
             appSeparator=trayIconActiveConnectionMenu->addSeparator();
 
 
@@ -1171,7 +1171,7 @@ void ONMainWindow::trayIconInit()
             connect(trayIcon, SIGNAL(messageClicked()), this, SLOT(trayMessageClicked()));
 
             trayIcon->setContextMenu(trayIconMenu);
-            trayIcon->setIcon(QIcon ( ":/img/icons/128x128/x2go.png") );
+            trayIcon->setIcon(QIcon ( iconsPath("/128x128/x2go.png")) );
 #ifdef Q_OS_DARWIN
             trayIcon->setToolTip(tr("A click displays the context menu."));
 #else
@@ -1652,7 +1652,15 @@ QString ONMainWindow::iconsPath ( const QString &fname ) const
 }
 
 QString ONMainWindow::images_resource_path (const QString &filename, const QString &base) const {
-  QString ret = ":/img";
+
+    if(resourceDir.length()>0)
+    {
+        if(QFile::exists(resourceDir+"/img/"+base+"/"+filename))
+            return resourceDir+"/img/"+base+"/"+filename;
+//         x2goDebug<<"not exists: "<<resourceDir+"/img/"+base+"/"+filename;
+    }
+
+    QString ret = ":/img";
 
   /*
    * The base parameter is optional and might be empty.
@@ -1689,9 +1697,9 @@ void ONMainWindow::displayUsers()
 
     QPixmap pix;
     if ( !miniMode )
-        pix=QPixmap ( ":/img/png/ico.png" );
+        pix=QPixmap ( images_resource_path("/png/ico.png" ));
     else
-        pix=QPixmap ( ":/img/png/ico_mini.png" );
+        pix=QPixmap ( images_resource_path("/png/ico_mini.png" ));
     QPixmap foto=QPixmap ( iconsPath ( "/64x64/personal.png" ) );
 
     QPalette pal=palette();
@@ -2683,7 +2691,7 @@ void ONMainWindow::slotSelectedFromList ( SessionButton* session )
 
 
         sessIcon = wrap_legacy_resource_URIs (st->setting()->value (sid+"/icon",
-                                                                    (QVariant) ":/img/icons/128x128/x2gosession.png"
+                                                                    (QVariant) iconsPath("/128x128/x2gosession.png")
                                                                    ).toString ());
         sessIcon = expandHome(sessIcon);
 
@@ -2741,7 +2749,7 @@ void ONMainWindow::slotSelectedFromList ( SessionButton* session )
         server=config.server;
         userName=config.user;
         sshPort=config.sshport;
-        sessIcon=":/img/icons/128x128/x2gosession.png";
+        sessIcon=iconsPath("/128x128/x2gosession.png");
         sessionName=config.session;
         currentKey=config.key;
     }
@@ -4839,7 +4847,7 @@ void ONMainWindow::setTrayIconToSessionIcon(QString info) {
             sid="embedded";
 
         if (!keepTrayIcon) {
-            QString imagePath = wrap_legacy_resource_URIs (expandHome(st->setting()->value(sid + "/icon", (QVariant) QString(":/img/icons/128x128/x2go.png")).toString()));
+            QString imagePath = wrap_legacy_resource_URIs (expandHome(st->setting()->value(sid + "/icon", (QVariant) QString(iconsPath("/128x128/x2go.png"))).toString()));
             trayIcon->setIcon(QIcon (imagePath));
         }
 
@@ -6441,7 +6449,7 @@ void ONMainWindow::slotProxyFinished ( int,QProcess::ExitStatus )
 #endif
     //set tray icon to default
     if (trayIcon && !keepTrayIcon)
-        trayIcon->setIcon(QIcon ( ":/img/icons/128x128/x2go.png") );
+        trayIcon->setIcon(QIcon ( iconsPath("/128x128/x2go.png") ));
 
 
     if ( embedMode )
@@ -8065,6 +8073,10 @@ bool ONMainWindow::parseParameter ( QString param )
         }
         OnFile=value;
         return true;
+    }
+    if( setting == "--resources")
+    {
+        return parseResourceUrl(value);
     }
 #if defined(Q_OS_WIN)
     if ("--xserver-start-limit" == setting) {
@@ -11775,7 +11787,7 @@ void ONMainWindow::slotDetachProxyWindow()
     bgFrame->show();
     setStatStatus();
     act_embedContol->setText ( tr ( "Attach X2Go window" ) );
-    act_embedContol->setIcon ( QIcon ( ":/img/icons/32x32/attach.png" ) );
+    act_embedContol->setIcon ( QIcon ( iconsPath("/32x32/attach.png" ) ));
 #ifdef Q_OS_LINUX
     //if QX11EmbedContainer cannot embed window, check if window exists
     //and reconnect
@@ -11801,7 +11813,7 @@ void ONMainWindow::slotAttachProxyWindow()
         setStatStatus();
         act_embedContol->setText ( tr ( "Detach X2Go window" ) );
         act_embedContol->setIcon (
-            QIcon ( ":/img/icons/32x32/detach.png" ) );
+            QIcon ( iconsPath("/32x32/detach.png" ) ));
         QTimer::singleShot ( 100, this, SLOT ( slotEmbedWindow() ) );
     }
     else
@@ -12199,7 +12211,7 @@ void ONMainWindow::slotChangeKbdLayout(const QString& layout)
 
 void ONMainWindow::initPassDlg()
 {
-    passForm = new SVGFrame ( ":/img/svg/passform.svg",
+    passForm = new SVGFrame (images_resource_path( "/svg/passform.svg"),
                               false,bgFrame );
 #ifdef Q_OS_WIN
     passForm->setMainWidget ( ( QWidget* ) this );
@@ -12391,7 +12403,7 @@ void ONMainWindow::initPassDlg()
 
 void ONMainWindow::initStatusDlg()
 {
-    sessionStatusDlg = new SVGFrame ( ":/img/svg/passform.svg",
+    sessionStatusDlg = new SVGFrame ( images_resource_path("/svg/passform.svg"),
                                       false,bgFrame );
     sessionStatusDlg->hide();
     if ( !miniMode )
@@ -12434,25 +12446,25 @@ void ONMainWindow::initStatusDlg()
 
     sbApps=new QToolButton (sessionStatusDlg );
     sbApps->setToolTip(tr ( "Applications ..." ));
-    sbApps->setIcon(QPixmap(":/img/icons/32x32/apps.png"));
+    sbApps->setIcon(QPixmap(iconsPath("/32x32/apps.png")));
     sbApps->setAutoRaise(true);
     sbApps->setFocusPolicy(Qt::NoFocus);
 
     sbExp=new QToolButton (sessionStatusDlg );
-    sbExp->setIcon(QPixmap(":/img/icons/32x32/open_dir.png"));
+    sbExp->setIcon(QPixmap(iconsPath("/32x32/open_dir.png")));
     sbExp->setToolTip (tr ("Share folder ..." ));
     sbExp->setAutoRaise(true);
     sbExp->setFocusPolicy(Qt::NoFocus);
 
     sbSusp=new QToolButton (sessionStatusDlg );
-    sbSusp->setIcon(QPixmap(":/img/icons/32x32/suspend_session.png"));
+    sbSusp->setIcon(QPixmap(iconsPath("/32x32/suspend_session.png")));
     sbSusp->setToolTip(tr ( "Abort" ));
     sbSusp->setAutoRaise(true);
     sbSusp->setFocusPolicy(Qt::NoFocus);
 
 
     sbTerm=new QToolButton (sessionStatusDlg );
-    sbTerm->setIcon(QPixmap(":/img/icons/32x32/stop_session.png"));
+    sbTerm->setIcon(QPixmap(iconsPath("/32x32/stop_session.png")));
     sbTerm->setToolTip(tr ( "Terminate" ));
     sbTerm->setAutoRaise(true);
     sbTerm->setFocusPolicy(Qt::NoFocus);
@@ -12575,7 +12587,7 @@ void ONMainWindow::initStatusDlg()
 
 void ONMainWindow::initSelectSessDlg()
 {
-    selectSessionDlg = new SVGFrame ( ":/img/svg/passform.svg",
+    selectSessionDlg = new SVGFrame (images_resource_path( "/svg/passform.svg"),
                                       false,bgFrame );
     username->addWidget ( selectSessionDlg );
     setWidgetStyle ( selectSessionDlg );
@@ -12960,7 +12972,7 @@ void ONMainWindow::slotEmbedToolBar()
     {
         stb->clear();
         act_embedToolBar->setIcon (
-            QIcon ( ":/img/icons/16x16/tbshow.png" ) );
+            QIcon ( iconsPath("/16x16/tbshow.png" )) );
         stb->addAction ( act_embedToolBar );
         stb->setToolButtonStyle ( Qt::ToolButtonIconOnly );
         stb->widgetForAction (
@@ -12976,7 +12988,7 @@ void ONMainWindow::slotEmbedToolBar()
     {
         initEmbedToolBar();
         act_embedToolBar->setIcon (
-            QIcon ( ":/img/icons/32x32/tbhide.png" ) );
+            QIcon ( iconsPath("/32x32/tbhide.png" )) );
         act_embedToolBar->setText ( tr ( "Minimize toolbar" ) );
     }
     embedTbVisible=!embedTbVisible;
@@ -13295,4 +13307,31 @@ void ONMainWindow::slotInitLibssh () {
                              tr ("Unable to initialize libssh."));
       trayQuit ();
   }
+}
+
+bool ONMainWindow::parseResourceUrl(const QString& url)
+{
+    x2goDebug<<"parsing resource url:"<<url;
+    if((url.indexOf("http://")!=-1) ||(url.indexOf("https://")!=-1))
+    {
+        printError("HTTP(S) protocol for resources is not yet supported");
+        return true;
+    }
+
+    resourceDir=url;
+    if(url.indexOf("file://")==0)
+    {
+        resourceDir.replace("file://","");
+    }
+    QDir d(resourceDir);
+    if(!d.exists())
+    {
+        resourceDir=QString::null;
+        printError(tr("Directory not exists:")+" "+url+". "+tr("Using built in resources"));
+    }
+    else
+    {
+        x2goDebug<<"Using alternative resource directory:"<<resourceDir;
+    }
+    return true;
 }

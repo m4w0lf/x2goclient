@@ -34,10 +34,10 @@
 #endif
 #endif
 
-InteractionDialog::InteractionDialog(QWidget* parent): SVGFrame(":/img/svg/passform.svg",
+InteractionDialog::InteractionDialog(ONMainWindow* mainw, QWidget* parent): SVGFrame(mainw->images_resource_path("/svg/passform.svg"),
             false,parent )
 {
-    mw=(ONMainWindow*)parent;
+    mw=mainw;
 
     if ( !mw->retMiniMode() )
         setFixedSize ( this->sizeHint().width(),this->sizeHint().height()*1.5 );

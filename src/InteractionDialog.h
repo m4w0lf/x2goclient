@@ -32,7 +32,7 @@ class InteractionDialog: public SVGFrame
     Q_OBJECT
 public:
     enum IMode {SESSION,BROKER};
-    InteractionDialog ( QWidget* parent=0);
+    InteractionDialog (ONMainWindow* mainw, QWidget* parent);
     virtual ~InteractionDialog();
     void reset();
     void appendText(QString txt);

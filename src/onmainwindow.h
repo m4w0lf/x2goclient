@@ -544,6 +544,7 @@ public:
     SshMasterConnection* findServerSshConnection(QString host);
     void cleanServerSshConnections();
 
+    bool parseResourceUrl(const QString& url);
     void showHelp();
     void showVersion();
     void showTextFile(QString file, QString title);
@@ -632,6 +633,7 @@ private:
     QString sshPort;
     QString clientSshPort;
     QString defaultSshPort;
+    QString resourceDir;
 #ifdef Q_OS_WIN
     QString sshLog;
 #endif

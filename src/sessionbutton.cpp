@@ -42,7 +42,7 @@
 
 
 SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
-    : SVGFrame ( ":/img/svg/sessionbut.svg",false,parent )
+    : SVGFrame ( mw->images_resource_path("/svg/sessionbut.svg"),false,parent )
 {
     editable=mw->sessionEditEnabled();
 
@@ -353,13 +353,17 @@ void SessionButton::redraw()
     }
 
     QString sessIcon = wrap_legacy_resource_URIs (st->setting()->value (sid+"/icon",
-                       (QVariant) ":/img/icons/128x128/x2gosession.png"
+                       (QVariant) par->iconsPath("/128x128/x2gosession.png")
                                                                        ).toString ());
     sessIcon = expandHome(sessIcon);
     QPixmap* pix;
 
+    if(sessIcon == ":/img/icons/128x128/x2gosession.png")
+    {
+        sessIcon=par->iconsPath("/128x128/x2gosession.png");
+    }
     x2goDebug << "Creating QPixmap with session icon: " << sessIcon.toLatin1 () << ".";
-    if (!par->brokerMode || sessIcon == ":/img/icons/128x128/x2gosession.png")
+    if (!par->brokerMode || sessIcon == par->iconsPath("/128x128/x2gosession.png"))
         pix=new QPixmap( sessIcon );
     else
     {
@@ -622,13 +626,13 @@ void SessionButton::redraw()
 void SessionButton::mousePressEvent ( QMouseEvent * event )
 {
     SVGFrame::mousePressEvent ( event );
-    loadBg ( ":/img/svg/sessionbut_grey.svg" );
+    loadBg ( par->images_resource_path("/svg/sessionbut_grey.svg" ));
 }
 
 void SessionButton::mouseReleaseEvent ( QMouseEvent * event )
 {
     SVGFrame::mouseReleaseEvent ( event );
-    loadBg ( ":/img/svg/sessionbut.svg" );
+    loadBg ( par->images_resource_path("/svg/sessionbut.svg" ));
 
     QPoint click_pos (event->x (), event->y ());
 

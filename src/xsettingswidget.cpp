@@ -18,9 +18,9 @@
 #include "x2gosettings.h"
 #include "x2goutils.h"
 #include <QFileDialog>
-
+#include "onmainwindow.h"
 #ifdef Q_OS_WIN
-XSettingsWidget::XSettingsWidget(QWidget* parent)
+XSettingsWidget::XSettingsWidget(ONMainWindow* mw, QWidget* parent)
 {
     UNUSED (parent);
     setupUi(this);
@@ -41,7 +41,7 @@ XSettingsWidget::XSettingsWidget(QWidget* parent)
     leWholeDisplay->setText (st.setting ()->value ("optionswholedisplay", "-nodecoration -notrayicon -clipboard -screen 0 @").toString ());
 
 //     spDelay->setValue(st.setting()->value("delay",3).toInt());
-    pbExec->setIcon( QPixmap ( ":/img/icons/16x16/file-open.png" ) );
+    pbExec->setIcon( QPixmap ( mw->iconsPath( "/16x16/file-open.png" )) );
 }
 
 XSettingsWidget::~XSettingsWidget()

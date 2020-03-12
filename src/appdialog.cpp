@@ -99,57 +99,57 @@ void AppDialog::loadApps()
         {
         case Application::MULTIMEDIA:
             if (!media)
-                media=initTopItem(tr("Multimedia"), QPixmap(":/img/icons/22x22/applications-multimedia.png"));
+                media=initTopItem(tr("Multimedia"), QPixmap(mw->iconsPath("/22x22/applications-multimedia.png")));
             parent=media;
             break;
         case Application::DEVELOPMENT:
             if (!dev)
-                dev=initTopItem(tr("Development"), QPixmap(":/img/icons/22x22/applications-development.png"));
+                dev=initTopItem(tr("Development"), QPixmap(mw->iconsPath("/22x22/applications-development.png")));
             parent=dev;
             break;
         case Application::EDUCATION:
             if (!edu)
-                edu=initTopItem(tr("Education"), QPixmap(":/img/icons/22x22/applications-education.png"));
+                edu=initTopItem(tr("Education"), QPixmap(mw->iconsPath("/22x22/applications-education.png")));
             parent=edu;
             break;
         case Application::GAME:
             if (!game)
-                game=initTopItem(tr("Game"), QPixmap(":/img/icons/22x22/applications-games.png"));
+                game=initTopItem(tr("Game"), QPixmap(mw->iconsPath("/22x22/applications-games.png")));
             parent=game;
             break;
         case Application::GRAPHICS:
             if (!graph)
-                graph=initTopItem(tr("Graphics"), QPixmap(":/img/icons/22x22/applications-graphics.png"));
+                graph=initTopItem(tr("Graphics"), QPixmap(mw->iconsPath("/22x22/applications-graphics.png")));
             parent=graph;
             break;
         case Application::NETWORK:
             if (!net)
-                net=initTopItem(tr("Network"), QPixmap(":/img/icons/22x22/applications-internet.png"));
+                net=initTopItem(tr("Network"), QPixmap(mw->iconsPath("/22x22/applications-internet.png")));
             parent=net;
             break;
         case Application::OFFICE:
             if (!office)
-                office=initTopItem(tr("Office"), QPixmap(":/img/icons/22x22/applications-office.png"));
+                office=initTopItem(tr("Office"), QPixmap(mw->iconsPath("/22x22/applications-office.png")));
             parent=office;
             break;
         case Application::SETTINGS:
             if (!set)
-                set=initTopItem(tr("Settings"), QPixmap(":/img/icons/22x22/preferences-system.png"));
+                set=initTopItem(tr("Settings"), QPixmap(mw->iconsPath("/22x22/preferences-system.png")));
             parent=set;
             break;
         case Application::SYSTEM:
             if (!sys)
-                sys=initTopItem(tr("System"), QPixmap(":/img/icons/22x22/applications-system.png"));
+                sys=initTopItem(tr("System"), QPixmap(mw->iconsPath("/22x22/applications-system.png")));
             parent=sys;
             break;
         case Application::UTILITY:
             if (!util)
-                util=initTopItem(tr("Utility"), QPixmap(":/img/icons/22x22/applications-utilities.png"));
+                util=initTopItem(tr("Utility"), QPixmap(mw->iconsPath("/22x22/applications-utilities.png")));
             parent=util;
             break;
         case Application::OTHER:
             if (!other)
-                other=initTopItem(tr("Other"), QPixmap(":/img/icons/22x22/applications-other.png"));
+                other=initTopItem(tr("Other"), QPixmap(mw->iconsPath("/22x22/applications-other.png")));
             parent=other;
             break;
         default:

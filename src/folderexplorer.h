@@ -18,11 +18,12 @@
 #define FOLDEREXPLORER_H
 #include "ui_folderexplorer.h"
 class SessionExplorer;
+class ONMainWindow;
 class FolderExplorer: public QDialog, Ui_FolderExplorer
 {
     Q_OBJECT
 public:
-    FolderExplorer(QString path, SessionExplorer* explorer, QWidget* parent=0);
+    FolderExplorer(QString path, SessionExplorer* explorer, ONMainWindow* mainw);
     QString getCurrentPath()
     {
         return currentPath;
@@ -31,6 +32,7 @@ private:
     SessionExplorer* explorer;
     QTreeWidgetItem* root;
     QTreeWidgetItem* menuItem;
+    ONMainWindow* mw;
     QString currentPath;
     void initFolders(QTreeWidgetItem* parent, QString path);
 private slots:

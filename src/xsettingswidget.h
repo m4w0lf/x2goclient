@@ -23,11 +23,13 @@
 #ifdef Q_OS_WIN
 #include "ui_xsettingsui.h"
 
+class ONMainWindow;
+
 class XSettingsWidget : public QWidget, private Ui_XSettingsWidgetUI
 {
     Q_OBJECT
 public:
-    XSettingsWidget(QWidget* parent = 0);
+    XSettingsWidget(ONMainWindow* mw, QWidget* parent);
     virtual ~XSettingsWidget();
     void setDefaults();
     void saveSettings();
