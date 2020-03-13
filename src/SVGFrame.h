@@ -22,6 +22,7 @@
 
 #include <QFrame>
 #include <QtSvg/QSvgRenderer>
+#include <QPixmap>
 
 class SVGFrame: public QFrame
 {
@@ -37,7 +38,8 @@ class SVGFrame: public QFrame
 		void loadBg ( QString fl );
 		virtual QSize sizeHint() const;
 	private:
-		QSvgRenderer* renderer;
+        QPixmap pix;
+        QSvgRenderer* renderer;
 		bool repaint;
 		bool drawImg;
 		bool empty;

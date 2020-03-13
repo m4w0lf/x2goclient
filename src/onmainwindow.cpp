@@ -283,7 +283,6 @@ void ONMainWindow::initUI()
 {
 //set homedir as portable,etc
 
-    showNormal();
 #ifdef Q_OS_WIN
     QString u3Path=u3DataPath();
 //we have U3 System
@@ -385,7 +384,16 @@ void ONMainWindow::initUI()
     if (BGFile.size())
         bgFrame=new SVGFrame ( ( QString ) BGFile,true,fr );
     else
-        bgFrame=new SVGFrame ( ( QString ) images_resource_path("/svg/bg.svg"),true,fr );
+    {
+        if(QFile::exists(images_resource_path("/svg/bg.png")))
+        {
+            bgFrame=new SVGFrame ( ( QString ) images_resource_path("/svg/bg.png"),true,fr );
+        }
+        else
+        {
+            bgFrame=new SVGFrame ( ( QString ) images_resource_path("/svg/bg.svg"),true,fr );
+        }
+    }
 #else
     bgFrame=new SVGFrame ( ( QString ) images_resource_path("/svg/bg_hildon.svg"),true,fr );
 #endif
@@ -1079,12 +1087,10 @@ void ONMainWindow::slotGetBrokerAuth()
         fotoLabel->setFixedSize ( 48,48 );
     }
 
-    if(users->isVisible())
-    {
-        users->hide();
-        ln->hide();
-        bgLay->insertStretch(3);
-    }
+    users->hide();
+    ln->hide();
+    bgLay->insertStretch(3);
+
     QString text=tr("<b>Authentication</b>");
     /* if(config.brokerName.length()>0)
        text+=config.brokerName;
@@ -13418,7 +13424,6 @@ bool ONMainWindow::parseResourceUrl(const QString& url)
     if((url.indexOf("http://")!=-1) ||(url.indexOf("https://")!=-1))
     {
         resourcesLoaded=false;
-        showMinimized();
         resourceLoader=new QNetworkAccessManager ( this );
 
         connect ( resourceLoader,SIGNAL ( finished (QNetworkReply*) ),this,

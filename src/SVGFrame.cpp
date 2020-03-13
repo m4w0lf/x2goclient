@@ -29,6 +29,7 @@ SVGFrame::SVGFrame ( QString fname,bool st,QWidget* parent,
                      Qt::WindowFlags f ) :QFrame ( parent,f )
 {
 	empty=false;
+    renderer=0;
 #ifdef Q_OS_WIN
 	parentWidget=0;
 #endif
@@ -38,8 +39,15 @@ SVGFrame::SVGFrame ( QString fname,bool st,QWidget* parent,
 	{
 		repaint=true;
 		drawImg=st;
-		renderer=new QSvgRenderer ( this );
-		renderer->load ( fname );
+        if(fname.indexOf("png")==-1)
+        {
+		   renderer=new QSvgRenderer ( this );
+		   renderer->load ( fname );
+        }
+        else
+        {
+            pix.load(fname);
+        }
 
 		if ( drawImg )
 		{
@@ -70,7 +78,10 @@ void SVGFrame::paintEvent ( QPaintEvent* event )
 	if ( repaint && !empty )
 	{
 		QPainter p ( this );
-		renderer->render ( &p );
+        if(renderer)
+            renderer->render ( &p );
+        else
+            p.drawPixmap(0,0,width(), height(),pix);
 	}
 	QFrame::paintEvent ( event );
 }
@@ -85,14 +96,19 @@ void SVGFrame::resizeEvent ( QResizeEvent* event )
 
 QSize SVGFrame::sizeHint() const
 {
-	if ( !empty )
-		return renderer->defaultSize();
+	if ( !empty)
+    {
+        if(renderer)
+		  return renderer->defaultSize();
+        return pix.size();
+    }
 	return QFrame::sizeHint();
 }
 
 void SVGFrame::loadBg ( QString fl )
 {
-	renderer->load ( fl );
+    if(renderer)
+	   renderer->load ( fl );
 	update();
 }
 
