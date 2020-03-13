@@ -77,7 +77,8 @@ class HttpBrokerClient;
 class QMenu;
 class QComboBox;
 class InteractionDialog;
-
+class QNetworkAccessManager;
+class QNetworkReply;
 class SessionExplorer;
 struct user
 {
@@ -634,6 +635,9 @@ private:
     QString clientSshPort;
     QString defaultSshPort;
     QString resourceDir;
+    QString resourceURL;
+    QDir* resourceTmpDir;
+    QList<QNetworkReply*> resReply;
 #ifdef Q_OS_WIN
     QString sshLog;
 #endif
@@ -919,6 +923,8 @@ private:
     bool trayMinCon;
     bool trayMaxDiscon;
     bool trayAutoHidden;
+    bool resourcesLoaded;
+    QNetworkAccessManager* resourceLoader;
 
     //server connection type
     // DEFAULT - start X2GO session
@@ -930,6 +936,7 @@ private:
     QString suspendTerminateHostFromBroker;
     QString suspendTerminateSessionFromBroker;
 
+    void initUI();
     void sendEventToBroker(client_events ev);
     void suspendFromBroker(const QString& sid);
     void terminateFromBroker(const QString& sid);
@@ -1062,6 +1069,7 @@ private slots:
     void slotShutdownThinClient();
     void slotBrokerLogoutButton ();
     void slotReadApplications(bool result, QString output, int pid );
+    void slotResLoadRequestFinished( QNetworkReply*  reply );
 
 public slots:
     void slotConfig();

@@ -70,6 +70,8 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
     libssh_debugging = false;
     libssh_packetlog = false;
 
+    resourceTmpDir=0;
+
     setFocusPolicy ( Qt::NoFocus );
     installTranslator();
     autoresume=true;
@@ -213,6 +215,7 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
 #endif /* defined(Q_OS_DARWIN) */
     ldapOnly=false;
     embedControlChanged=false;
+    resourcesLoaded=true;
     statusString=tr ( "connecting" );
 
 #if defined (Q_OS_DARWIN) || defined (Q_OS_WIN)
@@ -251,6 +254,7 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
         args=cmdLine.split(";",QString::SkipEmptyParts);
         args.push_front(QCoreApplication::arguments()[0]);
     }
+
     for ( int i=1; i<args.size(); ++i )
     {
         if ( !parseParameter ( args[i] ) )
@@ -261,10 +265,25 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
     }
 #endif
 
+    if(resourcesLoaded)
+        initUI();
+}
 
+
+ONMainWindow::~ONMainWindow()
+{
+    x2goDebug<<"Destroying X2Go Client's main window.";
+    if ( !closeEventSent )
+        closeClient();
+    x2goDebug<<"Finished destructor hooks for X2Go Client's main window.";
+}
+
+
+void ONMainWindow::initUI()
+{
 //set homedir as portable,etc
 
-
+    showNormal();
 #ifdef Q_OS_WIN
     QString u3Path=u3DataPath();
 //we have U3 System
@@ -600,16 +619,9 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
     }
 
     QTimer::singleShot (200, this, SLOT (slotInitLibssh ()));
+
 }
 
-
-ONMainWindow::~ONMainWindow()
-{
-    x2goDebug<<"Destroying X2Go Client's main window.";
-    if ( !closeEventSent )
-        closeClient();
-    x2goDebug<<"Finished destructor hooks for X2Go Client's main window.";
-}
 
 void ONMainWindow::slotShutdownThinClient()
 {
@@ -1528,6 +1540,12 @@ void ONMainWindow::closeClient()
         cleanPortable();
     }
 
+    if(resourceTmpDir)
+    {
+        removeDir(resourceTmpDir->path());
+        delete resourceTmpDir;
+    }
+
     if (ssh_finalize ()) {
         x2goDebug << "Unable to finalize libssh. Something may be wrong!";
     }
@@ -1539,6 +1557,7 @@ void ONMainWindow::closeClient()
 
     x2goInfof(7)<<tr("Finished X2Go Client closing hooks.");
 }
+
 
 void ONMainWindow::closeEvent ( QCloseEvent* event )
 {
@@ -13327,12 +13346,86 @@ void ONMainWindow::slotInitLibssh () {
   }
 }
 
+
+void ONMainWindow::slotResLoadRequestFinished(QNetworkReply* reply)
+{
+    if(reply->error()!=QNetworkReply::NoError)
+    {
+        x2goDebug<<"Failed to load resource file "<<reply->url()<<reply->errorString();
+        if(resReply.length()==1)
+        {
+            reply->deleteLater();
+            resourcesLoaded=true;
+            initUI();
+            return;
+        }
+    }
+    else
+    {
+//         x2goDebug<<reply->url().toString()<<" ...OK";
+        if(resReply.length()==1)
+        {
+            QTemporaryFile fl;
+            fl.open();
+            resourceTmpDir= new QDir(fl.fileName()+"_d");
+            fl.close();
+            resourceDir=resourceTmpDir->path();
+            x2goDebug<<"resources path:"<<resourceDir;
+            resourceTmpDir->mkpath(resourceTmpDir->path());
+            QString data=reply->readAll();
+            QStringList lines=data.split("\n");
+            foreach(QString line, lines)
+            {
+                if((line.indexOf("<file>")!=-1 )&&(line.indexOf("</file>")!=-1))
+                {
+                    line.replace("<file>","");
+                    line.replace("</file>","");
+                    line=line.trimmed();
+                    resReply<<resourceLoader->get (QNetworkRequest(QUrl(resourceURL+"/"+line)));
+                }
+            }
+        }
+        else
+        {
+            QString fpath=resourceDir+reply->url().toString().replace(resourceURL,"");
+            QStringList parts=fpath.split("/",QString::SkipEmptyParts);
+            QString fname=parts.takeLast();
+            QString path="/"+parts.join("/");
+            resourceTmpDir->mkpath(path);
+            QFile file(path+"/"+fname);
+            file.open(QIODevice::WriteOnly);
+            file.write(reply->readAll());
+            file.close();
+        }
+    }
+    foreach(QNetworkReply* r, resReply)
+    {
+        if(!r->isFinished())
+        {
+            return;
+        }
+    }
+    foreach(QNetworkReply* r, resReply)
+        r->deleteLater();
+    resourcesLoaded=true;
+    initUI();
+    return;
+}
+
 bool ONMainWindow::parseResourceUrl(const QString& url)
 {
     x2goDebug<<"parsing resource url:"<<url;
     if((url.indexOf("http://")!=-1) ||(url.indexOf("https://")!=-1))
     {
-        printError("HTTP(S) protocol for resources is not yet supported");
+        resourcesLoaded=false;
+        showMinimized();
+        resourceLoader=new QNetworkAccessManager ( this );
+
+        connect ( resourceLoader,SIGNAL ( finished (QNetworkReply*) ),this,
+                  SLOT ( slotResLoadRequestFinished (QNetworkReply*) ) );
+        x2goDebug<<"downloading:"<<url+"/resources.qrc";
+        resReply<<resourceLoader->get (QNetworkRequest(QUrl(url+"/resources.qrc")));
+        resourceURL=url;
         return true;
     }
 
