@@ -236,6 +236,7 @@ macx {
 
   !isEmpty(OSX_STDLIB) {
     QMAKE_CXXFLAGS += -stdlib=$${OSX_STDLIB}
+    QMAKE_LFLAGS += -stdlib=$${OSX_STDLIB}
   }
 
   !isEmpty(MACPORTS_INCLUDE_PATH) {
