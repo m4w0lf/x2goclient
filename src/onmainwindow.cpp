@@ -316,6 +316,9 @@ void ONMainWindow::initUI()
 
     trayIconInit();
 
+    if(brokerMode)
+        statusBar()->show();
+
 
     if ( embedMode )
     {
@@ -1101,6 +1104,7 @@ void ONMainWindow::slotGetBrokerAuth()
     config.brokerAuthenticated = false;
     bBrokerLogout->setEnabled (false);
 
+    statusBar()->showMessage(config.brokerurl);
     if(config.brokerUser.length()>0)
     {
         login->setText(config.brokerUser);
@@ -1110,6 +1114,17 @@ void ONMainWindow::slotGetBrokerAuth()
         slotSessEnter();
     else if(config.brokerurl.indexOf("ssh://")==0 && (config.brokerAutologin || config.brokerKrbLogin|| config.brokerSshKey.length()>0))
         slotSessEnter();
+}
+
+void ONMainWindow::setBrokerStatus(const QString& text, bool error)
+{
+    QPalette p=statusBar()->palette();
+    if(error)
+        p.setColor(QPalette::WindowText, QColor(204,54,54));
+    else
+        p.setColor(QPalette::WindowText, QColor(22,103,39));
+    statusBar()->setPalette(p);
+    statusBar()->showMessage(text);
 }
 
 
@@ -7032,8 +7047,11 @@ void ONMainWindow::setStatStatus ( QString status )
     }
     if ( !embedMode || !proxyWinEmbedded )
     {
-        statusBar()->showMessage ( "");
-        statusBar()->hide();
+        if(!brokerMode)
+        {
+            statusBar()->showMessage ( "");
+            statusBar()->hide();
+        }
         QString srv;
         if ( brokerMode )
         {
@@ -13024,7 +13042,8 @@ void ONMainWindow::slotEmbedToolBar()
         statusLabel=new QLabel;
         stb->addWidget ( statusLabel );
 #ifndef Q_OS_WIN
-        statusBar()->hide();
+        if(!brokerMode)
+            statusBar()->hide();
 #endif
     }
     else
@@ -13195,7 +13214,8 @@ QSize ONMainWindow::getEmbedAreaSize()
         statusBar()->show();
     QSize sz=bgFrame->size();
 //     sz.setHeight(sz.height()-statusBar()->size().height());
-    statusBar()->hide();
+    if(!brokerMode)
+        statusBar()->hide();
     return sz;
 }
 

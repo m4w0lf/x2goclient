@@ -37,6 +37,7 @@
 #include <QTemporaryFile>
 #include <QInputDialog>
 #include "InteractionDialog.h"
+#include <QStatusBar>
 
 
 HttpBrokerClient::HttpBrokerClient ( ONMainWindow* wnd, ConfigFile* cfg )
@@ -414,12 +415,14 @@ void HttpBrokerClient::slotEventSent(bool success, QString answer, int)
     if(!success)
     {
         x2goDebug<<answer;
+        mainWindow->setBrokerStatus(tr("Disconnected from broker: ")+answer, true);
         QMessageBox::critical(0,tr("Error"),answer);
         emit fatalHttpError();
         return;
     }
     if(!checkAccess(answer))
         return;
+    mainWindow->setBrokerStatus(tr("Connected to broker"));
     x2goDebug<<"event sent:"<<answer;
     if(answer.indexOf("SUSPEND")!=-1)
     {
@@ -591,8 +594,12 @@ void HttpBrokerClient::slotListSessions(bool success, QString answer, int)
         emit fatalHttpError();
         return;
     }
+
     if(!checkAccess(answer))
         return;
+
+    mainWindow->setBrokerStatus(tr("Connected to broker"));
+
     createIniFile(answer);
     emit sessionsLoaded();
 }
@@ -632,6 +639,7 @@ void HttpBrokerClient::slotRequestFinished ( QNetworkReply*  reply )
     if(reply->error() != QNetworkReply::NoError)
     {
         x2goDebug<<"Broker HTTP request failed with error: "<<reply->errorString();
+        mainWindow->setBrokerStatus(tr("Disconnected from broker: ")+reply->errorString(), true);
         if(reply == eventRequest)
         {
             reply->deleteLater();

@@ -570,6 +570,7 @@ public:
     void setEmbedSessionActionsEnabled ( bool enable );
     bool startSshd (key_types key_type = RSA_KEY_TYPE);
     QSize getEmbedAreaSize();
+    void setBrokerStatus(const QString& text, bool error=false);
 #ifdef Q_OS_WIN
     static QString cygwinPath ( const QString& winPath );
     void startXOrg(std::size_t start_offset = 0);
