@@ -52,6 +52,14 @@ public:
     {
         this->path=path;
     }
+    void setNotUpdated()
+    {
+        updated=false;
+    }
+    bool isUpdated()
+    {
+        return updated;
+    }
 
 private:
     QString nameofSession;
@@ -79,6 +87,7 @@ private:
     bool rootless;
     bool published;
     bool editable;
+    bool updated;
 
 private slots:
     void slotClicked();

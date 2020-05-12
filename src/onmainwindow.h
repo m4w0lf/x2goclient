@@ -173,6 +173,7 @@ struct ConfigFile
     bool brokerKrbLogin;
     bool brokerEvents; //Send events to broker and get control commands
     uint brokerLiveEventsTimeout; //(seconds)How often send alive events, 0 - do not send
+    uint brokerSyncTimeout; //(seconds)How often synchronize with broker, 0 - not synchronize
     QString brokerSshKey;
     QString brokerCaCertFile;
     QString iniFile;
@@ -571,6 +572,8 @@ public:
     bool startSshd (key_types key_type = RSA_KEY_TYPE);
     QSize getEmbedAreaSize();
     void setBrokerStatus(const QString& text, bool error=false);
+    bool isPassFormHidden();
+    bool isSelectFormHidden();
 #ifdef Q_OS_WIN
     static QString cygwinPath ( const QString& winPath );
     void startXOrg(std::size_t start_offset = 0);
@@ -738,6 +741,7 @@ private:
     QTimer *proxyWinTimer;
     QTimer *xineramaTimer;
     QTimer *brokerAliveTimer;
+    QTimer *brokerSyncTimer;
     short xinSizeInc;
     QRect lastDisplayGeometry;
     QList <QRect> xineramaScreens;
@@ -1049,7 +1053,6 @@ private slots:
     void readUsers();
     void slotSelectedFromList ( UserButton* user );
     void slotUnameEntered();
-    void slotClosePass();
     void slotReadSessions();
     void slotManage();
     void displayToolBar ( bool );
@@ -1080,6 +1083,8 @@ public slots:
     void slotActivateWindow();
     void setFocus();
     void slotEnableBrokerLogoutButton ();
+    void slotClosePass();
+    void slotCloseSelectDlg();
 
 private slots:
     void slotSendBrokerAlive();
@@ -1087,7 +1092,6 @@ private slots:
     void slotSnameChanged ( const QString& );
     void slotSelectedFromList ( SessionButton* session );
     void slotSessEnter();
-    void slotCloseSelectDlg();
     void slotActivated ( const QModelIndex& index );
     void slotResumeSess();
     void slotSuspendSess();

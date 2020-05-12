@@ -63,6 +63,7 @@ public:
     void createNewFolder(QString path);
     void renameFolder(QString oldPath, QString currentPath);
     void deleteFolder(QString path);
+    void updateSessions(QStringList slst);
 
     QString getCurrentPath()
     {
@@ -94,6 +95,8 @@ private:
     int findFolder(QString path);
     void createFolder(QString path);
     void getFoldersFromConfig();
+    SessionButton* findSession( const QString& id);
+    void checkPath(SessionButton* s);
 
 public slots:
     void slotDeleteButton ( SessionButton * bt );

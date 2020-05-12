@@ -501,7 +501,8 @@ void HttpBrokerClient::processClientConfig(const QString& raw_content)
 {
     X2goSettings st(raw_content, QSettings::IniFormat);
     mainWindow->config.brokerEvents=st.setting()->value("events",false).toBool();
-    mainWindow->config.brokerLiveEventsTimeout=st.setting()->value("liveevent",false).toUInt();
+    mainWindow->config.brokerLiveEventsTimeout=st.setting()->value("liveevent",0).toUInt();
+    mainWindow->config.brokerSyncTimeout=st.setting()->value("syncinterval",0).toUInt();
     if(mainWindow->config.brokerEvents)
     {
         x2goDebug<<"sending client events to broker";
@@ -509,6 +510,10 @@ void HttpBrokerClient::processClientConfig(const QString& raw_content)
         {
             x2goDebug<<"sending alive events to broker every "<<mainWindow->config.brokerLiveEventsTimeout<<" seconds";
         }
+    }
+    if(mainWindow->config.brokerSyncTimeout)
+    {
+        x2goDebug<<"synchronizing with broker every "<<mainWindow->config.brokerSyncTimeout<<" seconds";
     }
 }
 
@@ -518,7 +523,7 @@ void HttpBrokerClient::createIniFile(const QString& raw_content)
     QString content;
     content = raw_content;
     content.replace("<br>","\n");
-    x2goDebug<<"Inifile content: "<<content<<endl;
+//     x2goDebug<<"Inifile content: "<<content<<endl;
     QString cont;
     QStringList lines=content.split("START_USER_SESSIONS\n");
     if (lines.count()>1)
@@ -543,7 +548,7 @@ void HttpBrokerClient::createIniFile(const QString& raw_content)
 
 bool HttpBrokerClient::checkAccess(QString answer )
 {
-    x2goDebug<<"Called checkAccess - answer was: "<<answer;
+//     x2goDebug<<"Called checkAccess - answer was: "<<answer;
     if (answer.indexOf("Access granted")==-1)
     {
         QMessageBox::critical (
@@ -653,7 +658,7 @@ void HttpBrokerClient::slotRequestFinished ( QNetworkReply*  reply )
     }
 
     QString answer ( reply->readAll() );
-    x2goDebug<<"A http request returned. Result was: "<<answer;
+//     x2goDebug<<"A http request returned. Result was: "<<answer;
     if (reply == testConRequest)
     {
         testConRequest=0l;

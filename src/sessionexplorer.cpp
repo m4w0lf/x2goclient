@@ -67,6 +67,55 @@ SessionExplorer::~SessionExplorer()
 {
 }
 
+SessionButton * SessionExplorer::findSession(const QString& id)
+{
+    foreach (SessionButton* s, sessions)
+    {
+        if(s->id()==id)
+            return s;
+    }
+    return 0;
+}
+
+
+void SessionExplorer::updateSessions(QStringList slst)
+{
+    foreach (SessionButton* s, sessions)
+    {
+        s->setNotUpdated();
+    }
+    for ( int i=0; i<slst.size(); ++i )
+    {
+        if ( slst[i]=="embedded" )
+            continue;
+        SessionButton* s=findSession(slst[i]);
+        if(!s)
+        {
+            s=createBut ( slst[i] );
+        }
+        else
+            checkPath(s);
+        s->redraw();
+    }
+    foreach (SessionButton* s, sessions)
+    {
+        if(!s->isUpdated())
+        {
+            sessions.removeOne(s);
+            if(s==lastSession)
+            {
+                lastSession=0;
+                parent->slotCloseSelectDlg();
+                parent->slotClosePass();
+            }
+            delete s;
+        }
+    }
+
+    placeButtons();
+}
+
+
 void SessionExplorer::resize()
 {
     pathLabel->setMaximumWidth(parent->getUsersArea()->width()-backButton->width());
@@ -242,6 +291,17 @@ void SessionExplorer::slotCreateDesktopIcon ( SessionButton* bt )
 #endif
 }
 
+void SessionExplorer::checkPath(SessionButton* s)
+{
+    if(s->getPath()!="")
+    {
+        if(findFolder(s->getPath())==-1)
+        {
+            createFolder(s->getPath());
+        }
+    }
+}
+
 
 SessionButton* SessionExplorer::createBut ( const QString& id )
 {
@@ -257,13 +317,7 @@ SessionButton* SessionExplorer::createBut ( const QString& id )
     connect ( l,SIGNAL ( sessionSelected ( SessionButton* ) ),parent,
               SLOT ( slotSelectedFromList ( SessionButton* ) ) );
 
-    if(l->getPath()!="")
-    {
-        if(findFolder(l->getPath())==-1)
-        {
-            createFolder(l->getPath());
-        }
-    }
+    checkPath(l);
 
     return l;
 }
@@ -281,7 +335,7 @@ void SessionExplorer::placeButtons()
 
     for ( int i=0; i<folders.size(); ++i )
     {
-        if(folders[i]->getPath() != currentPath)
+        if((folders[i]->getPath() != currentPath)||(getFolderChildren(folders[i]).length()<=0))
         {
             folders[i]->hide();
             continue;
@@ -302,6 +356,12 @@ void SessionExplorer::placeButtons()
 
         folders[i]->show();
         folders[i]->setChildrenList(getFolderChildren(folders[i]));
+    }
+
+    if(parent->isPassFormHidden() && parent->isSelectFormHidden())
+    {
+        lastSession=0;
+        parent->slotClosePass();
     }
 
     for ( int i=0; i<sessions.size(); ++i )
@@ -332,7 +392,12 @@ void SessionExplorer::placeButtons()
                 currentVerticalPosition+=230;
             }
         }
+//         x2goDebug<<"last session"<<(void*)lastSession<<"current"<<(void*)sessions[i];
         sessions[i]->show();
+        if(lastSession == sessions[i])
+        {
+            sessions[i]->hide();
+        }
     }
 
     if ( currentVerticalPosition )
@@ -340,6 +405,11 @@ void SessionExplorer::placeButtons()
         parent->getUsersFrame()->setFixedHeight (
             currentVerticalPosition);
     }
+    int id=findFolder(currentPath);
+    if(id<0)
+        return;
+    if(getFolderChildren(folders[id]).length()<=0)
+        slotLevelUp();
 }
 
 QStringList SessionExplorer::getFolderChildren(FolderButton* folder)
@@ -388,6 +458,7 @@ void SessionExplorer::setNavigationVisible(bool value)
 
 void SessionExplorer::createFolder(QString path)
 {
+    x2goDebug<<"Create Folder:"<<path;
     QStringList tails=path.split("/");
     QStringList currentPath;
     for(int i=0; i<tails.count()-1; ++i)

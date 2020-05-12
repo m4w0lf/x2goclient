@@ -209,6 +209,7 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
     readExportsFrom=QString::null;
     spoolTimer=0l;
     brokerAliveTimer=0l;
+    brokerSyncTimer=0l;
 #ifdef Q_OS_DARWIN
     modMapTimer = NULL;
     kbMap = QString ();
@@ -607,6 +608,8 @@ void ONMainWindow::initUI()
         brokerAliveTimer=new QTimer(this);
         connect ( brokerAliveTimer, SIGNAL ( timeout() ), this,
                   SLOT ( slotSendBrokerAlive() ) );
+        brokerSyncTimer=new QTimer(this);
+        connect ( brokerSyncTimer, SIGNAL( timeout()), broker , SLOT(getUserSessions()));
     }
 
     initSelectSessDlg();
@@ -1002,6 +1005,7 @@ void ONMainWindow::initWidgetsNormal()
             QTimer::singleShot ( 1, this, SLOT ( slotReadSessions() ) );
         else
         {
+            bgLay->insertStretch(3);
             QTimer::singleShot(1, this,SLOT(slotGetBrokerAuth()));
         }
     }
@@ -1092,7 +1096,6 @@ void ONMainWindow::slotGetBrokerAuth()
 
     users->hide();
     ln->hide();
-    bgLay->insertStretch(3);
 
     QString text=tr("<b>Authentication</b>");
     /* if(config.brokerName.length()>0)
@@ -1852,6 +1855,17 @@ void ONMainWindow::slotSelectedFromList ( UserButton* user )
     showPass ( user );
 }
 
+
+bool ONMainWindow::isPassFormHidden()
+{
+    return passForm->isHidden();
+}
+
+bool ONMainWindow::isSelectFormHidden()
+{
+    return selectSessionDlg->isHidden();
+}
+
 void ONMainWindow::slotClosePass()
 {
     if (brokerMode)
@@ -1882,6 +1896,7 @@ void ONMainWindow::slotClosePass()
                 sessionExplorer->getLastSession()->show();
                 uname->setText ( sessionExplorer->getLastSession()->name() );
             }
+            sessionExplorer->setLastSession(0);
         }
         uname->setEnabled ( true );
         u->setEnabled ( true );
@@ -2296,13 +2311,11 @@ void ONMainWindow::slotReadSessions()
 
     if(brokerMode)
     {
-        bgLay->removeItem(bgLay->itemAt(3));
+//         bgLay->removeItem(bgLay->itemAt(3));
         slotResize(QSize(width(), height()));
     }
 
     X2goSettings *st;
-    sessionExplorer->cleanSessions();
-    sessionExplorer->setLastSession(0);
 
     if (brokerMode)
     {
@@ -2311,18 +2324,22 @@ void ONMainWindow::slotReadSessions()
         config.key=QString::null;
         config.user=QString::null;
         config.sessiondata=QString::null;
-        for (int i=sessionExplorer->getSessionsList()->count()-1; i>=0; --i)
-        {
-            SessionButton* but=sessionExplorer->getSessionsList()->takeAt(i);
-            if (but)
-                delete but;
-        }
 
         st=new X2goSettings(config.iniFile,QSettings::IniFormat);
         sessionStatusDlg->hide();
-        selectSessionDlg->hide();
         setEnabled ( true );
-        slotClosePass();
+        if(config.brokerSyncTimeout*1000!=brokerSyncTimer->interval())
+        {
+            brokerSyncTimer->setInterval(config.brokerSyncTimeout*1000);
+        }
+        if(config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
+        {
+            brokerSyncTimer->start();
+        }
+        if(!config.brokerSyncTimeout)
+        {
+            brokerSyncTimer->stop();
+        }
     }
     else
         st= new X2goSettings( "sessions" );
@@ -2341,12 +2358,7 @@ void ONMainWindow::slotReadSessions()
         close();
         return;
     }
-    for ( int i=0; i<slst.size(); ++i )
-    {
-        if ( slst[i]!="embedded" )
-            sessionExplorer->createBut ( slst[i] );
-    }
-    sessionExplorer->placeButtons();
+    sessionExplorer->updateSessions(slst);
     if ( slst.size() ==0 )
         slotNewSession();
     uname->setText ( "" );
@@ -3730,6 +3742,9 @@ bool ONMainWindow::startSession ( const QString& sid, CONTYPE conType )
     QString proxyKey;
     bool proxyAutologin=false;
     bool proxyKrbLogin=false;
+
+    if(brokerMode)
+        brokerSyncTimer->stop();
 
     user=getCurrentUname();
     runRemoteCommand=true;

@@ -58,6 +58,7 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
     setPalette(pal);
 
 
+    updated=false;
 
     QFont fnt=font();
     if ( mw->retMiniMode() )
@@ -293,6 +294,8 @@ void SessionButton::slotRemove()
 
 void SessionButton::redraw()
 {
+
+    updated=true;
     bool snd;
 
 
@@ -322,6 +325,7 @@ void SessionButton::redraw()
     sessName->setText (elName);
     sessName->setToolTip(nameofSession);
 
+    sessStatus->setText("");
     QString status=st->setting()->value ( sid+"/status",
                                           ( QVariant ) QString::null ).toString();
     if (status == "R")
@@ -362,7 +366,7 @@ void SessionButton::redraw()
     {
         sessIcon=par->iconsPath("/128x128/x2gosession.png");
     }
-    x2goDebug << "Creating QPixmap with session icon: " << sessIcon.toLatin1 () << ".";
+//     x2goDebug << "Creating QPixmap with session icon: " << sessIcon.toLatin1 () << ".";
     if (!par->brokerMode || sessIcon == par->iconsPath("/128x128/x2gosession.png"))
         pix=new QPixmap( sessIcon );
     else

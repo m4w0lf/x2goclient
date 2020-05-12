@@ -7,6 +7,8 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - Download alternative resource files from http server.
     - Support for PNG background images.
     - Display state of broker connection in status bar.
+    - Client can synchronize sessions with broker. Broker need to send syncinterval
+      value in the client config section.
 
   [ Ryan Schmidt ]
   * New upstream version (4.1.2.3):
