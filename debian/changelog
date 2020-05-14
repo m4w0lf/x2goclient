@@ -9,6 +9,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - Display state of broker connection in status bar.
     - Client can synchronize sessions with broker. Broker need to send syncinterval
       value in the client config section.
+    - Set min width of session status label.
 
   [ Ryan Schmidt ]
   * New upstream version (4.1.2.3):

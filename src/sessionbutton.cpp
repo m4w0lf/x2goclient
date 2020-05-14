@@ -219,6 +219,7 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
         icon->move(10,30);
         sessName->move(90,50);
         sessStatus->move(90,70);
+        sessStatus->setMinimumWidth(220);
         setFixedHeight(120);
     }
 
