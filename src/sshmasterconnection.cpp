@@ -435,19 +435,16 @@ int SshMasterConnection::startTunnel(const QString& forwardHost, uint forwardPor
     return proc->pid;
 }
 
-void SshMasterConnection::slotSshProxyInteractionFinish(SshMasterConnection* connection)
-{
+void SshMasterConnection::slotSshProxyInteractionFinish (SshMasterConnection* connection /* unused */) {
     x2goDebug<<"SSH proxy interaction finished";
     slotSshProxyUserAuthError("NO_ERROR");
 }
 
-void SshMasterConnection::slotSshProxyInteractionStart(SshMasterConnection* connection, QString prompt)
-{
+void SshMasterConnection::slotSshProxyInteractionStart (SshMasterConnection* connection /* unused */, QString prompt) {
     emit startInteraction(this, prompt);
 }
 
-void SshMasterConnection::slotSshProxyInteractionUpdate(SshMasterConnection* connection, QString output)
-{
+void SshMasterConnection::slotSshProxyInteractionUpdate (SshMasterConnection* connection /* unused */, QString output) {
     emit updateInteraction(this, output);
 }
 
