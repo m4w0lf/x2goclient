@@ -22,6 +22,8 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       execution failed.
     - src/sshmasterconnection: refactor some of the channel loop and fix
       channel/session closes.
+    - src/sshmasterconnection: fix 'when not' password auth. Avoids double
+      error messages.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Thu, 13 Feb 2020 12:31:20 +0100
 
