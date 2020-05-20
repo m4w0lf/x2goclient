@@ -1988,8 +1988,7 @@ void SshMasterConnection::channelLoop()
         delete [] read_chan;
         delete [] out_chan;
 
-        if ( retval == -1 )
-        {
+        if (SSH_OK != retval) {
             x2goDebug<<"select() error.";
             continue;
         }
