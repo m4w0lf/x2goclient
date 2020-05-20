@@ -1686,6 +1686,7 @@ bool SshMasterConnection::checkLogin()
         QString errorMsg=tr ( "%1 failed." ).arg ("ssh_channel_request_exec");
         x2goDebug<<errorMsg.left (errorMsg.size () - 1)<<": "<<err<<endl;
         ssh_channel_free(channel);
+        return false;
     }
     else
     {
