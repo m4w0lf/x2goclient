@@ -20,8 +20,13 @@ ETCDIR=/etc/x2go
 BINDIR=$(PREFIX)/bin
 SHAREDIR=$(PREFIX)/share
 MANDIR=$(SHAREDIR)/man
-QMAKE_BINARY=qmake-qt4
-LRELEASE_BINARY=lrelease-qt4
+ifeq ($(shell type -a qmake-qt4 ; echo $? ),0)
+	QMAKE_BINARY=qmake-qt4
+	LRELEASE_BINARY=lrelease-qt4
+else
+	QMAKE_BINARY=qmake
+	LRELEASE_BINARY=lrelease
+endif
 QMAKE_OPTS=
 
 LDFLAGS=
