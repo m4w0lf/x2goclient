@@ -1753,8 +1753,8 @@ bool SshMasterConnection::checkLogin()
             sshProcErrString=tr("Reconnect session");
             x2goDebug<<"Reconnect session";
         }
-        ssh_channel_close(channel);
         ssh_channel_send_eof(channel);
+        ssh_channel_close(channel);
         ssh_channel_free(channel);
 	return retVal;
 
