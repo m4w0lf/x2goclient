@@ -17,15 +17,15 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
 
   [ Melroy van den Berg ]
   * New upstream version (4.1.2.3):
-    - src/sshmasterconnection: send EOF before closing channel.
-    - src/sshmasterconnection: return false if login check remote command
+    - src/sshmasterconnection.c: send EOF before closing channel.
+    - src/sshmasterconnection.c: return false if login check remote command
       execution failed.
-    - src/sshmasterconnection: refactor some of the channel loop and fix
+    - src/sshmasterconnection.c: refactor some of the channel loop and fix
       channel/session closes.
-    - src/sshmasterconnection: fix 'when not' password auth. Avoids double
+    - src/sshmasterconnection.c: fix 'when not' password auth. Avoids double
       error messages.
-    - src/sshmasterconnection: correct retval check.
-    - src/sshmasterconnection: explicitly mark function parameters as unused.
+    - src/sshmasterconnection.c: correct retval check.
+    - src/sshmasterconnection.c: explicitly mark function parameters as unused.
     - .gitignore: ignore Visual Studio temporary files. Fixes: #1469.
 
   [ Mihai Moldovan ]
