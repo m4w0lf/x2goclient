@@ -58,9 +58,6 @@ const QString SshMasterConnection::challenge_auth_code_prompts_[] = {
 };
 
 
-static bool SshMasterConnection::createChannelConnection (int i, int &maxsock, fd_set &rfds, ssh_channel *read_chan);
-
-
 #ifdef Q_OS_WIN
 #include <QSettings>
 // parse known_hosts file from libssh and export keys in registry to use with plink.exe
@@ -2106,7 +2103,7 @@ void SshMasterConnection::channelLoop()
 /**
  * Create SSH channel connection (used within a loop of channels)
  */
-static bool SshMasterConnection::createChannelConnection (int i, int &maxsock, fd_set &rfds, ssh_channel *read_chan) {
+bool SshMasterConnection::createChannelConnection (int i, int &maxsock, fd_set &rfds, ssh_channel *read_chan) {
     int tcpSocket=channelConnections.at ( i ).sock;
     if ( tcpSocket>0 )
         FD_SET ( tcpSocket, &rfds );

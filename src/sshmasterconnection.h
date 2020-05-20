@@ -134,6 +134,7 @@ private:
     bool userAuthKrb();
     bool userAuthKeyboardInteractive(QString prompt);
     void channelLoop();
+    bool createChannelConnection (int i, int &maxsock, fd_set &rfds, ssh_channel *read_chan);
     void finalize(int arg1);
     void copy();
     int serverAuth(QString& errorMsg);

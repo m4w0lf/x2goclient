@@ -28,6 +28,11 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - src/sshmasterconnection: explicitly mark function parameters as unused.
     - .gitignore: ignore Visual Studio temporary files. Fixes: #1469.
 
+  [ Mihai Moldovan ]
+  * New upstream version (4.1.2.3):
+    - src/sshmasterconnection.{c,h}: fix builds, new function should have been
+      registered and not static, but private.
+
  -- X2Go Release Manager <git-admin@x2go.org>  Thu, 13 Feb 2020 12:31:20 +0100
 
 x2goclient (4.1.2.2-0x2go1) unstable; urgency=medium
