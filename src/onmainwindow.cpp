@@ -6149,6 +6149,7 @@ void ONMainWindow::slotTunnelOk(int)
         QString height;
         bool multidisp=false;
         QString dispNumber="1";
+        QString clipboard="both";
 
         if (!embedMode )
         {
@@ -6177,6 +6178,9 @@ void ONMainWindow::slotTunnelOk(int)
 
                 width=st->setting()->value ( sid+"/width", ( QVariant ) "800").toString();
                 height=st->setting()->value ( sid+"/height", ( QVariant ) "600").toString();
+                clipboard=st->setting()->value ( sid+"/clipboard", ( QVariant ) "both").toString();
+
+
 
 
                 if (st->setting()->value ( sid+"/multidisp", ( QVariant ) false ).toBool())
@@ -6196,7 +6200,7 @@ void ONMainWindow::slotTunnelOk(int)
 #endif
         proxyCmd="x2gokdriveclient";
         options<<"--connect"<<"localhost"<<"--port"<<localGraphicPort<<"--title"<<resumingSession.sessionId<<"-S"<<"nx/nx,options="+dirpath+
-        "/options:"+resumingSession.display;
+        "/options:"+resumingSession.display<<"--selection"<<clipboard;
         if(randr)
         {
             options<<"--randr";
