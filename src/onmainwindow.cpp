@@ -627,7 +627,11 @@ void ONMainWindow::initUI()
     if (thinMode)
     {
         x2goDebug<<"Thin Mode is active.";
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        resize(QGuiApplication::primaryScreen()->size());
+#else
         showMaximized();
+#endif
         activateWindow();
         raise();
     }

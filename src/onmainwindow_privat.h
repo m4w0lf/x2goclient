@@ -72,6 +72,9 @@
 #include <QLocalSocket>
 #if QT_VERSION < 0x050000
 #include <QPlastiqueStyle>
+#else
+#include <QGuiApplication>
+#include <QScreen>
 #endif
 #include "imgframe.h"
 #include <QToolTip>

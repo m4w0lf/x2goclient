@@ -11,6 +11,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       value in the client config section.
     - Set min width of session status label.
     - set clipboard mode of x2gokdriveclient in cmd line option.
+    - Fix maximizing client window in thinclient mode with Qt5 (bullseye).
 
   [ Ryan Schmidt ]
   * New upstream version (4.1.2.3):
