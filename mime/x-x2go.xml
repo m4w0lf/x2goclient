@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+    <mime-type type="application/x-x2go">
+        <comment>X2Go session file</comment>
+        <glob pattern="*.x2go"/>
+        <generic-icon name="x2goclient"/>
+    </mime-type>
+</mime-info>

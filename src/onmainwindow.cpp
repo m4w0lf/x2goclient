@@ -2406,7 +2406,7 @@ void ONMainWindow::slotReadSessions()
                 }
             }
         }
-        else
+        else if(defaultSessionName.length() > 0)
         {
             QString normalDefaultSName=defaultSessionName.split("/",QString::SkipEmptyParts).join("/");
             for ( int i=0; i<sessionExplorer->getSessionsList()->size(); ++i )
@@ -2425,6 +2425,19 @@ void ONMainWindow::slotReadSessions()
                     slotSnameChanged ( defaultSessionName );
                     break;
                 }
+            }
+        }
+        //no session name or id provided
+        //started with ".x2go" session file.
+        //if this file has only one session, chose it automatically
+        else
+        {
+            if(sessionExplorer->getSessionsList()->size()==1)
+            {
+                sessionExplorer->setCurrrentPath(sessionExplorer->getSessionsList()->at(0)->getPath());
+                sessionExplorer->placeButtons();
+                sfound=true;
+                slotSelectedFromList ( sessionExplorer->getSessionsList()->at(0) );
             }
         }
         if ( !sfound && startHidden )
@@ -7681,6 +7694,14 @@ bool ONMainWindow::parseParameter ( QString param )
         return (true);
     }
 #endif /* defined (Q_OS_UNIX) */
+
+//open session file with .x2go extension
+    if ( param.endsWith(".x2go", Qt::CaseInsensitive) )
+    {
+        ONMainWindow::sessionCfg=expandHome(param);
+        defaultSession=true;
+        return true;
+    }
 
     if ( param=="--help" )
     {
