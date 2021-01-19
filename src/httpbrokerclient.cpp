@@ -38,6 +38,7 @@
 #include <QInputDialog>
 #include "InteractionDialog.h"
 #include <QStatusBar>
+#include "version.h"
 
 
 HttpBrokerClient::HttpBrokerClient ( ONMainWindow* wnd, ConfigFile* cfg )
@@ -386,6 +387,7 @@ void HttpBrokerClient::sendEvent(const QString& ev, const QString& id, const QSt
                              "display="<<QUrl::toPercentEncoding(display)<<"&"<<
                              "start="<<QUrl::toPercentEncoding(start)<<"&"<<
                              "elapsed="<<QString::number(connectionTime)<<"&"<<
+                             "version="<<QUrl::toPercentEncoding(VERSION)<<"&"<<
                              "authid="<<nextAuthId;
         x2goDebug << "sending request: "<< scramblePwd(req.toUtf8());
         QNetworkRequest request(QUrl(config->brokerurl));
@@ -398,12 +400,12 @@ void HttpBrokerClient::sendEvent(const QString& ev, const QString& id, const QSt
         if (nextAuthId.length() > 0) {
             sshConnection->executeCommand ( config->sshBrokerBin+" --user "+ brokerUser +" --authid "+nextAuthId+
             " --task clientevent --sid \""+id+"\" --event "+ev+" --server \""+server+"\" --client \""+client+"\" --login "+"\""+
-            login+"\" --cmd \""+cmd+"\" --display \""+display+"\" --start \""+start+"\" --elapsed "+QString::number(connectionTime),
+            login+"\" --cmd \""+cmd+"\" --display \""+display+"\" --start \""+start+"\" --elapsed "+QString::number(connectionTime)+" --version \""+VERSION+"\"",
             this,SLOT ( slotEventSent(bool,QString,int)));
         } else {
             sshConnection->executeCommand ( config->sshBrokerBin+" --user "+ brokerUser +
             " --task clientevent --sid \""+id+"\" --event "+ev+" --server \""+server+"\" --client \""+client+"\" --login "+"\""+
-            login+"\" --cmd \""+cmd+"\" --display \""+display+"\" --start \""+start+"\" --elapsed "+QString::number(connectionTime),
+            login+"\" --cmd \""+cmd+"\" --display \""+display+"\" --start \""+start+"\" --elapsed "+QString::number(connectionTime)+" --version \""+VERSION+"\"",
             this,SLOT ( slotEventSent(bool,QString,int)));
         }
     }
