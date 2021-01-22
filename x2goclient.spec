@@ -144,7 +144,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %post
 /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
-
+/usr/bin/update-mime-database /usr/share/mime &>/dev/null || :
 
 %postun
 if [ $1 -eq 0 ] ; then
@@ -161,6 +161,7 @@ fi
 %doc AUTHORS COPYING LICENSE
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/mime/packages/x-x2go.xml
 %dir %{_datadir}/icons/hicolor
 %dir %{_datadir}/icons/hicolor/128x128
 %dir %{_datadir}/icons/hicolor/128x128/apps

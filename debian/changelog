@@ -44,6 +44,9 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       extension.
   * debian/x2gocient.install:
     + Install x-x2go.xml into bin:pkg x2goclient.
+  * x2goclient.spec:
+    + Install x-x2go.xml into bin:pkg and run update-mime-database during
+      postinst.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Thu, 13 Feb 2020 12:31:20 +0100
 
