@@ -44,6 +44,10 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       extension.
   * debian/x2gocient.install:
     + Install x-x2go.xml into bin:pkg x2goclient.
+  * debian/{,-qt4,-qt5}:
+    + Add a Qt5-based debian(-qt5)/ packaging folder and make it easy to switch
+      between Qt4 and Qt5 build by simply changing the symlink target of
+      debian/ (which is, yes indeed, a symlink, not a directory anymore).
   * x2goclient.spec:
     + Install x-x2go.xml into bin:pkg and run update-mime-database during
       postinst.
