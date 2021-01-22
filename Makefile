@@ -96,6 +96,7 @@ install: install_client install_man
 install_client:
 	$(INSTALL_DIR) $(DESTDIR)$(BINDIR)/
 	$(INSTALL_DIR) $(DESTDIR)$(SHAREDIR)/applications
+	$(INSTALL_DIR) $(DESTDIR)$(SHAREDIR)/mime/packages
 	$(INSTALL_DIR) $(DESTDIR)$(SHAREDIR)/x2goclient/icons
 	$(INSTALL_DIR) $(DESTDIR)$(SHAREDIR)/icons/hicolor/128x128/apps
 	$(INSTALL_DIR) $(DESTDIR)$(SHAREDIR)/icons/hicolor/16x16/apps
@@ -103,6 +104,7 @@ install_client:
 	$(INSTALL_DIR) $(DESTDIR)$(SHAREDIR)/icons/hicolor/32x32/apps
 	$(INSTALL_PROGRAM) $(CLIENT_DIR)/x2goclient $(DESTDIR)$(BINDIR)/x2goclient
 	$(INSTALL_FILE) desktop/x2goclient.desktop    $(DESTDIR)$(SHAREDIR)/applications/x2goclient.desktop
+	$(INSTALL_FILE) mime/x-x2go.xml                       $(DESTDIR)$(SHAREDIR)/mime/packages/x-x2go.xml
 	$(INSTALL_FILE) res/img/icons/x2goclient.xpm          $(DESTDIR)$(SHAREDIR)/x2goclient/icons/x2goclient.xpm
 	$(INSTALL_FILE) res/img/icons/128x128/x2goclient.png  $(DESTDIR)$(SHAREDIR)/x2goclient/icons/x2goclient.png
 	$(INSTALL_FILE) res/img/icons/128x128/x2gosession.png $(DESTDIR)$(SHAREDIR)/x2goclient/icons/x2gosession.png
