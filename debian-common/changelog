@@ -7,14 +7,15 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - Download alternative resource files from http server.
     - Support for PNG background images.
     - Display state of broker connection in status bar.
-    - Client can synchronize sessions with broker. Broker need to send syncinterval
-      value in the client config section.
+    - Client can synchronize sessions with broker. Broker need to send
+      syncinterval value in the client config section.
     - Set min width of session status label.
     - set clipboard mode of x2gokdriveclient in cmd line option.
     - Fix maximizing client window in thinclient mode with Qt5 (bullseye).
     - Add mime type application/x-x2go. X2Go Client can now automatically open
       session files with .x2go extension.
-    - X2Go Client will send it's version to the broker when sending client event.
+    - X2Go Client will send it's version to the broker when sending client
+      event.
 
   [ Ryan Schmidt ]
   * New upstream version (4.1.2.3):
