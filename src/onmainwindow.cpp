@@ -2265,7 +2265,13 @@ void ONMainWindow::slotConfig()
 #endif /* defined (Q_OS_WIN) || defined (Q_OS_DARWIN) */
 
         if ( passForm->isVisible() && !embedMode )
+        {
+            if (brokerMode  && (!config.brokerAuthenticated))
+            {
+                return;
+            }
             slotClosePass();
+        }
         if ( sessionStatusDlg->isVisible() || embedMode )
         {
             trayIconInit();

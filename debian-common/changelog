@@ -16,6 +16,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       session files with .x2go extension.
     - X2Go Client will send it's version to the broker when sending client
       event.
+    - Don't close X2Go Client if settings dialog is called before broker auth.
 
   [ Ryan Schmidt ]
   * New upstream version (4.1.2.3):
