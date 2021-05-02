@@ -1,3 +1,0 @@
-version=3
-opts=pgpsigurlmangle=s/$/.asc/ \
-https://code.x2go.org/releases/source/x2goclient/x2goclient-(\d+\.\d+\.\d+\.\d+)\.tar\.gz

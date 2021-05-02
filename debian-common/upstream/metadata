@@ -1,8 +1,0 @@
-Name: X2Go Client
-Bug-Database: https://bugs.x2go.org/src:x2goclient
-Bug-Submit: https://bugs.x2go.org/Reporting.html
-Contact: x2go-dev@lists.x2go.org
-Donation: https://wiki.x2go.org/doku.php/doc:sponsors
-Repository: git://code.x2go.org/x2goclient.git
-Repository-Browse: https://code.x2go.org/gitweb?p=x2goclient.git;a=summary
-Security-Contact: security@lists.x2go.org
