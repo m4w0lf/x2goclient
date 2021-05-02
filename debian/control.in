@@ -51,43 +51,6 @@ Description: X2Go Client application (Qt4)
  X2Go Client is a graphical client (Qt4) for the X2Go system.
  You can use it to connect to running sessions and start new sessions.
 
-Package: x2goplugin
-Architecture: all
-Depends:
- ${misc:Depends},
-Description: X2Go Client (Qt4) as browser plugin (dummy package)
- X2Go is a serverbased computing environment with
-    - session resuming
-    - low bandwidth support
-    - session brokerage support
-    - client-side mass storage mounting support
-    - client-side printing support
-    - audio support
-    - authentication by smartcard and USB stick
- .
- X2Go Client is a graphical client (qt4) for the X2Go system.
- You can use it to connect to running sessions and start new sessions.
- .
- This package can be safely removed. Since X2Go Client 4.1.2.0,
- the X2Go Plugin has been removed without a replacement.
-
-Package: x2goplugin-provider
-Architecture: all
-Depends:
- ${misc:Depends},
-Description: Provide X2Go Plugin via Apache webserver (dummy package)
- X2Go is a serverbased computing environment with
-    - session resuming
-    - low bandwidth support
-    - session brokerage support
-    - client-side mass storage mounting support
-    - client-side printing support
-    - audio support
-    - authentication by smartcard and USB stick
- .
- This package can be safely removed. Since X2Go Client 4.1.2.0,
- the X2Go Plugin has been removed without a replacement.
-
 Package: x2goclient-dbg
 Section: debug
 Architecture: any
@@ -104,28 +67,7 @@ Description: X2Go Client application (Qt4), debug symbols (client)
     - audio support
     - authentication by smartcard and USB stick
  .
- X2Go Client is a graphical client (Qt4) for the X2Go system.
+ X2Go Client is a graphical client (Qt@@QT_VERSION@@) for the X2Go system.
  You can use it to connect to running sessions and start new sessions
  .
  This package provides the debug symbols for the X2Go Client application.
-
-Package: x2goplugin-dbg
-Section: debug
-Architecture: all
-Depends:
- ${misc:Depends},
-Description: X2Go Client application (Qt4), debug symbols (plugin) (dummy package)
- X2Go is a serverbased computing environment with
-    - session resuming
-    - low bandwidth support
-    - session brokerage support
-    - client-side mass storage mounting support
-    - client-side printing support
-    - audio support
-    - authentication by smartcard and USB stick
- .
- X2Go Client is a graphical client (Qt4) for the X2Go system.
- You can use it to connect to running sessions and start new sessions
- .
- This package can be safely removed. Since X2Go Client 4.1.2.0,
- the X2Go Plugin has been removed without a replacement.
