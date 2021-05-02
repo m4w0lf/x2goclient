@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: x2goclient
-Upstream-Contact: Oleksandr Shneyder <oleksandr.shneyder@obviously-nice.de>
+Upstream-Contact: Mihai Moldovan <ionic@ionic.de>
 Source: https://wiki.x2go.org
 
 Files: *
