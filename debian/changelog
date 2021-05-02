@@ -39,6 +39,8 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
   * New upstream version (4.1.2.3):
     - src/sshmasterconnection.{c,h}: fix builds, new function should have been
       registered and not static, but private.
+  * debian/control:
+    + Move to debian/control.in.
 
   [ Mike Gabriel ]
   * New upstream version (4.1.2.3):
