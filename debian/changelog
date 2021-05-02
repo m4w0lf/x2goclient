@@ -50,6 +50,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       including the OpenSSL exception and use that where appropriate. Pulled
       from Mike's changes.
     + Move GPL-3 definition out-of-line. Pulled from Mike's changes.
+    + Update notices.
   * debian/:
     + New file "watch". We won't need this per se (since we're upstream and
       there cannot be a newer version of the Debian package without releasing
