@@ -41,6 +41,9 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       registered and not static, but private.
   * debian/control:
     + Move to debian/control.in.
+  * debian/control.in:
+    + Switch to priority: optional. "extra" has been deprecated long ago.
+      Pulled from Mike's changes.
 
   [ Mike Gabriel ]
   * New upstream version (4.1.2.3):
