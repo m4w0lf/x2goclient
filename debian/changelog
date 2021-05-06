@@ -60,6 +60,8 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       changes.
     + New file "upstream/metadata". Same reasoning as for "watch". Pulled from
       Mike's changes.
+    + New file "preprocessor.pl". Simple text file preprocessor supporting
+      basic condition logic.
 
   [ Mike Gabriel ]
   * New upstream version (4.1.2.3):
