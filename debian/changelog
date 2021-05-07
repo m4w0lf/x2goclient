@@ -62,6 +62,8 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       Mike's changes.
     + New file "preprocessor.pl". Simple text file preprocessor supporting
       basic condition logic.
+    + New file "proprocess.sh". Used to apply replacement tokens and run our
+      new preprocessor.
 
   [ Mike Gabriel ]
   * New upstream version (4.1.2.3):
