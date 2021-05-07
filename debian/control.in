@@ -8,7 +8,14 @@ Uploaders:
  Mihai Moldovan <ionic@ionic.de>,
 Build-Depends:
  debhelper (>= 7.0.50~),
+@?@@QT_VERSION@@ == 4
  libqt4-dev,
+@!
+ libqt5svg5-dev,
+ libqt5x11extras5-dev,
+ qtbase5-dev,
+ qttools5-dev-tools,
+@/
  libldap2-dev,
  libssh-dev (>= 0.5.4-2~),
  libcups2-dev,
@@ -32,13 +39,15 @@ Depends:
 Recommends:
  openssh-server,
  freerdp2-x11 | rdesktop | freerdp-x11,
+@?@@QT_VERSION@@ == 4
 Suggests:
  pinentry-x2go,
+@/
 Conflicts:
  x2goclient-gtk,
 Replaces:
  x2goclient-gtk,
-Description: X2Go Client application (Qt4)
+Description: X2Go Client application (Qt@@QT_VERSION@@)
  X2Go is a serverbased computing environment with
     - session resuming
     - low bandwidth support
@@ -48,7 +57,7 @@ Description: X2Go Client application (Qt4)
     - audio support
     - authentication by smartcard and USB stick
  .
- X2Go Client is a graphical client (Qt4) for the X2Go system.
+ X2Go Client is a graphical client (Qt@@QT_VERSION@@) for the X2Go system.
  You can use it to connect to running sessions and start new sessions.
 
 Package: x2goclient-dbg
@@ -57,7 +66,7 @@ Architecture: any
 Depends:
  ${misc:Depends},
  x2goclient (= ${binary:Version}),
-Description: X2Go Client application (Qt4), debug symbols (client)
+Description: X2Go Client application (Qt@@QT_VERSION@@), debug symbols (client)
  X2Go is a serverbased computing environment with
     - session resuming
     - low bandwidth support
