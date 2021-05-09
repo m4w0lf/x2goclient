@@ -23,6 +23,7 @@ Build-Depends:
  libxpm-dev,
  man2html-base | man2html,
  pkg-config,
+ lsb-release,
 Standards-Version: 3.9.5
 Homepage: https://code.x2go.org/releases/source/x2goclient
 Vcs-Git: git://code.x2go.org/x2goclient.git
