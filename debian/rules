@@ -5,6 +5,54 @@ export CFLAGS:=$(shell dpkg-buildflags --get CFLAGS)
 export CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS)
 export LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
 
+RELEASE_VER := 0
+RELEASE_VER_MAJOR := 0
+RELEASE_VER_MINOR := 0
+VENDOR_DEBIAN :=
+VENDOR_UBUNTU :=
+
+QT_VERSION := 4
+
+VENDOR_DEBIAN := $(shell { dpkg-vendor --is 'Debian' && echo 'yes'; } || { dpkg-vendor --is 'Raspbian' && echo 'yes'; })
+
+ifeq ($(VENDOR_DEBIAN),yes)
+  RELEASE_VER := $(shell /usr/bin/lsb_release -r | /bin/sed -e 's/[	 ]*//g' | /usr/bin/cut -d ':' -f '2' | /usr/bin/cut -d '.' -f '1')
+  # Let's fake testing's and unstable's "release version"...
+  ifeq ($(RELEASE_VER),testing)
+    RELEASE_VER := 999
+  endif
+  ifeq ($(RELEASE_VER),unstable)
+    RELEASE_VER := 9999
+  endif
+else
+  VENDOR_UBUNTU := $(shell dpkg-vendor --is 'Ubuntu' && echo 'yes')
+
+  ifeq ($(VENDOR_UBUNTU),yes)
+    RELEASE_VER_MAJOR := $(shell /usr/bin/lsb_release -r | /bin/sed -e 's/[	 ]*//g' | /usr/bin/cut -d ':' -f '2' | /usr/bin/cut -d '.' -f '1')
+    RELEASE_VER_MINOR := $(shell /usr/bin/lsb_release -r | /bin/sed -e 's/[	 ]*//g' | /usr/bin/cut -d ':' -f '2' | /usr/bin/cut -d '.' -f '2')
+  endif
+endif
+
+# Actual version switch.
+ifeq ($(VENDOR_DEBIAN),yes)
+  ifeq ($(shell /bin/bash -c '(( $(RELEASE_VER) >= 11 )) && echo '"'"'yes'"'"),yes)
+    QT_VERSION = 5
+  endif
+else
+  ifeq ($(VENDOR_UBUNTU),yes)
+    # Example of how to use major and minor as a selector, we currently won't need
+    # this as the transition happened on a major version.
+    #ifeq ($(shell /bin/bash -c '(( $(RELEASE_VER_MAJOR) == 20 )) && echo '"'"'yes'"'"),yes)
+      #ifeq ($(shell /bin/bash -c '(( $(RELEASE_VER_MINOR) >= 4 )) && echo '"'"'yes'"'"),yes)
+        #QT_VERSION = 5
+      #endif
+    #else
+    ifeq ($(shell /bin/bash -c '(( $(RELEASE_VER_MAJOR) >= 20 )) && echo '"'"'yes'"'"),yes)
+      QT_VERSION = 5
+    endif
+  endif
+endif
+
 # The preprocessing magic is highly inspired by the firefox package.
 IN_FILES := $(wildcard debian/*.in)
 preprocessed_filename = $(1:.in=)
@@ -17,7 +65,7 @@ $(foreach f,$(IN_FILES),$(eval $(call preprocess, $(f))))
 $(PREPROCESSED_FILES): VARS = QT_VERSION
 
 $(PREPROCESSED_FILES):
-	debian/preprocess.sh $< $(foreach var,$(VARS),-D$(var)="$($(var))" )
+	debian/preprocess.sh $< $(foreach var,$(VARS),'$(var)=$($(var))' )
 
 %:
 	dh $@ --parallel
