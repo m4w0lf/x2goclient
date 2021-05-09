@@ -5,6 +5,20 @@ export CFLAGS:=$(shell dpkg-buildflags --get CFLAGS)
 export CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS)
 export LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
 
+# The preprocessing magic is highly inspired by the firefox package.
+IN_FILES := $(wildcard debian/*.in)
+preprocessed_filename = $(1:.in=)
+define preprocess
+$(call preprocessed_filename,$(1)): $(1)
+PREPROCESSED_FILES += $(call preprocessed_filename,$(1))
+endef
+$(foreach f,$(IN_FILES),$(eval $(call preprocess, $(f))))
+
+$(PREPROCESSED_FILES): VARS = QT_VERSION
+
+$(PREPROCESSED_FILES):
+	debian/preprocess.sh $< $(foreach var,$(VARS),-D$(var)="$($(var))" )
+
 %:
 	dh $@ --parallel
 
