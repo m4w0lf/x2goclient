@@ -13,23 +13,42 @@ VENDOR_UBUNTU :=
 
 QT_VERSION := 4
 
-VENDOR_DEBIAN := $(shell { dpkg-vendor --is 'Debian' && echo 'yes'; } || { dpkg-vendor --is 'Raspbian' && echo 'yes'; })
+# Setting these disables autodetection.
+FORCE_VENDOR :=
+FORCE_RELEASE_VER :=
 
-ifeq ($(VENDOR_DEBIAN),yes)
-  RELEASE_VER := $(shell /usr/bin/lsb_release -r | /bin/sed -e 's/[	 ]*//g' | /usr/bin/cut -d ':' -f '2' | /usr/bin/cut -d '.' -f '1')
-  # Let's fake testing's and unstable's "release version"...
-  ifeq ($(RELEASE_VER),testing)
-    RELEASE_VER := 999
-  endif
-  ifeq ($(RELEASE_VER),unstable)
-    RELEASE_VER := 9999
+ifneq ($(FORCE_VENDOR),)
+  ifneq ($(FORCE_RELEASE_VER),)
+    VENDOR_DEBIAN := $(shell if [ 'debian' = '$(FORCE_VENDOR)' ] || [ '$(FORCE_VENDOR)' = 'raspbian' ]; then echo 'yes'; fi)
+    VENDOR_UBUNTU := $(shell if [ 'ubuntu' = '$(FORCE_VENDOR)' ]; then echo 'yes'; fi)
+    RELEASE_VER := $(FORCE_RELEASE_VER)
+
+    ifeq ($(VENDOR_UBUNTU),yes)
+      RELEASE_VER_MAJOR := $(shell printf '%s\n' '$(RELEASE_VER)' | /usr/bin/cut -d '.' -f '1')
+      RELEASE_VER_MINOR := $(shell printf '%s\n' '$(RELEASE_VER)' | /usr/bin/cut -d '.' -f '2')
+    endif
+  else
+    $(error FORCE_VENDOR passed, but FORCE_RELEASEVER empty.)
   endif
 else
-  VENDOR_UBUNTU := $(shell dpkg-vendor --is 'Ubuntu' && echo 'yes')
+  VENDOR_DEBIAN := $(shell { dpkg-vendor --is 'Debian' && echo 'yes'; } || { dpkg-vendor --is 'Raspbian' && echo 'yes'; })
 
-  ifeq ($(VENDOR_UBUNTU),yes)
-    RELEASE_VER_MAJOR := $(shell /usr/bin/lsb_release -r | /bin/sed -e 's/[	 ]*//g' | /usr/bin/cut -d ':' -f '2' | /usr/bin/cut -d '.' -f '1')
-    RELEASE_VER_MINOR := $(shell /usr/bin/lsb_release -r | /bin/sed -e 's/[	 ]*//g' | /usr/bin/cut -d ':' -f '2' | /usr/bin/cut -d '.' -f '2')
+  ifeq ($(VENDOR_DEBIAN),yes)
+    RELEASE_VER := $(shell /usr/bin/lsb_release -r | /bin/sed -e 's/[	 ]*//g' | /usr/bin/cut -d ':' -f '2' | /usr/bin/cut -d '.' -f '1')
+    # Let's fake testing's and unstable's "release version"...
+    ifeq ($(RELEASE_VER),testing)
+      RELEASE_VER := 999
+    endif
+    ifeq ($(RELEASE_VER),unstable)
+      RELEASE_VER := 9999
+    endif
+  else
+    VENDOR_UBUNTU := $(shell dpkg-vendor --is 'Ubuntu' && echo 'yes')
+
+    ifeq ($(VENDOR_UBUNTU),yes)
+      RELEASE_VER_MAJOR := $(shell /usr/bin/lsb_release -r | /bin/sed -e 's/[	 ]*//g' | /usr/bin/cut -d ':' -f '2' | /usr/bin/cut -d '.' -f '1')
+      RELEASE_VER_MINOR := $(shell /usr/bin/lsb_release -r | /bin/sed -e 's/[	 ]*//g' | /usr/bin/cut -d ':' -f '2' | /usr/bin/cut -d '.' -f '2')
+    endif
   endif
 endif
 
