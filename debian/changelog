@@ -60,6 +60,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       adapted from the firefox package.
     + Add Qt 4/5 switching, based upon the base system definition. Mostly
       adapted from x2gomatebindings.
+    + Force re-generation of debian/control in clean rule.
   * debian/:
     + New file "watch". We won't need this per se (since we're upstream and
       there cannot be a newer version of the Debian package without releasing

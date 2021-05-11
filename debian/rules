@@ -76,6 +76,9 @@ override_dh_auto_configure:
 	dh_auto_configure
 
 override_dh_auto_clean:
+	# Force regenration of debian/control - we need this for architecture checks.
+	touch debian/control.in
+	debian/rules 'debian/control'
 	dh_auto_clean
 	rm -f res/txt/changelog
 
