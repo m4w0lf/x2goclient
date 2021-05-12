@@ -18,3 +18,4 @@ Steps to generate the debian/control file:
   - git checkout --theirs debian/control
   - git add debian/control
   - git commit ...
+  - git stash drop
