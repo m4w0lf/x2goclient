@@ -94,6 +94,9 @@ override_dh_auto_configure:
 	if [ -f ChangeLog.gitlog ]; then cp ChangeLog.gitlog res/txt/git-info; fi
 	dh_auto_configure
 
+override_dh_auto_build:
+	dh_auto_build -- 'QT_VERSION=$(QT_VERSION)'
+
 override_dh_auto_clean:
 	# Try to regenerate debian/control if necessary, but don't force it.
 	# sbuild will run the clean operation non-chrooted before building the
