@@ -6,6 +6,10 @@ CLIENT_BINARY=$(CLIENT_DIR)/x2goclient
 
 SHELL=/bin/bash
 
+# Default to Qt 4.
+# We'll change this to Qt 5 as soon as Qt-4-based platforms go EOL.
+QT_VERSION ?= 4
+
 INSTALL_DIR=install -d -o root -g root -m 755
 INSTALL_FILE=install -o root -g root -m 644
 INSTALL_SYMLINK=ln -s -f
@@ -20,8 +24,17 @@ ETCDIR=/etc/x2go
 BINDIR=$(PREFIX)/bin
 SHAREDIR=$(PREFIX)/share
 MANDIR=$(SHAREDIR)/man
-QMAKE_BINARY=qmake-qt4
-LRELEASE_BINARY=lrelease-qt4
+ifeq ($(QT_VERSION),4)
+  QMAKE_BINARY := qmake-qt4
+  LRELEASE_BINARY := lrelease-qt4
+else
+  ifeq ($(QT_VERSION),5)
+    QMAKE_BINARY := qmake
+    LRELEASE_BINARY := lrelease
+  else
+    $(error Unsupported Qt version "$(QT_VERSION)" passed.)
+  endif
+endif
 QMAKE_OPTS=
 
 LDFLAGS=
