@@ -14,8 +14,8 @@ VENDOR_UBUNTU :=
 QT_VERSION := 4
 
 # Setting these disables autodetection.
-FORCE_VENDOR :=
-FORCE_RELEASE_VER :=
+FORCE_VENDOR ?=
+FORCE_RELEASE_VER ?=
 
 ifneq ($(FORCE_VENDOR),)
   ifneq ($(FORCE_RELEASE_VER),)
