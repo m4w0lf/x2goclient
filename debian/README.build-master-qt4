@@ -1,0 +1,20 @@
+This branch should ONLY ever include this README file and the debian/control
+file that has been generated for Qt4 usage.
+
+Likewise, this branch should ONLY ever be used for building packages on
+launchpad - it's supposed to be merged into the master branch. Since the master
+branch MUST NOT contain any of these files, a merge should always happen
+conflict-free.
+
+Steps to generate the debian/control file:
+  - git checkout master
+  - touch debian/control.in
+  - debian/rules FORCE_VENDOR='ubuntu' FORCE_RELEASE_VER='19.10' \
+    'debian/control' (though any version < 20.0 will do)
+  - git add -f debian/control
+  - git stash
+  - git checkout build-master-qt4
+  - git stash apply
+  - git checkout --theirs debian/control
+  - git add debian/control
+  - git commit ...
