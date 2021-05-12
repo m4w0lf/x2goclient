@@ -95,8 +95,10 @@ override_dh_auto_configure:
 	dh_auto_configure
 
 override_dh_auto_clean:
-	# Force regenration of debian/control - we need this for architecture checks.
-	touch debian/control.in
+	# Try to regenerate debian/control if necessary, but don't force it.
+	# sbuild will run the clean operation non-chrooted before building the
+	# source package, meaning that we're not running in the target system,
+	# so forcefully regenerating it will lead to wrong results.
 	debian/rules 'debian/control'
 	dh_auto_clean
 	rm -f res/txt/changelog

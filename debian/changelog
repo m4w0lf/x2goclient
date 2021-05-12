@@ -64,6 +64,10 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     + Force re-generation of debian/control in clean rule.
     + Add force variables to bypass autodetection via lsb-release. This will
       be used by our buildscripts.
+    + Do not force re-generation of debian/control in clean rule. Its executed
+      non-chrooted by sbuild before building the source package, so forcing
+      will overwrite the file our buildscripts generated with something not
+      matching the target system.
   * debian/:
     + New file "watch". We won't need this per se (since we're upstream and
       there cannot be a newer version of the Debian package without releasing
