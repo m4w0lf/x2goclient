@@ -1,0 +1,75 @@
+Source: x2goclient
+Section: x11
+Priority: optional
+Maintainer: X2Go Developers <x2go-dev@lists.x2go.org>
+Uploaders:
+ Oleksandr Shneyder <oleksandr.shneyder@obviously-nice.de>,
+ Mike Gabriel <mike.gabriel@das-netzwerkteam.de>,
+ Mihai Moldovan <ionic@ionic.de>,
+Build-Depends:
+ debhelper (>= 7.0.50~),
+ libqt5svg5-dev,
+ libqt5x11extras5-dev,
+ qtbase5-dev,
+ qttools5-dev-tools,
+ libldap2-dev,
+ libssh-dev (>= 0.5.4-2~),
+ libcups2-dev,
+ libx11-dev,
+ libxpm-dev,
+ man2html-base | man2html,
+ pkg-config,
+ lsb-release,
+Standards-Version: 3.9.5
+Homepage: https://code.x2go.org/releases/source/x2goclient
+Vcs-Git: git://code.x2go.org/x2goclient.git
+Vcs-Browser: https://code.x2go.org/gitweb?p=x2goclient.git;a=summary
+
+Package: x2goclient
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ openssh-client,
+ nxproxy | qvd-nxproxy,
+ x2gokdriveclient | hello,
+Recommends:
+ openssh-server,
+ freerdp2-x11 | rdesktop | freerdp-x11,
+Conflicts:
+ x2goclient-gtk,
+Replaces:
+ x2goclient-gtk,
+Description: X2Go Client application (Qt5)
+ X2Go is a serverbased computing environment with
+    - session resuming
+    - low bandwidth support
+    - session brokerage support
+    - client-side mass storage mounting support
+    - client-side printing support
+    - audio support
+    - authentication by smartcard and USB stick
+ .
+ X2Go Client is a graphical client (Qt5) for the X2Go system.
+ You can use it to connect to running sessions and start new sessions.
+
+Package: x2goclient-dbg
+Section: debug
+Architecture: any
+Depends:
+ ${misc:Depends},
+ x2goclient (= ${binary:Version}),
+Description: X2Go Client application (Qt5), debug symbols (client)
+ X2Go is a serverbased computing environment with
+    - session resuming
+    - low bandwidth support
+    - session brokerage support
+    - client-side mass storage mounting support
+    - client-side printing support
+    - audio support
+    - authentication by smartcard and USB stick
+ .
+ X2Go Client is a graphical client (Qt5) for the X2Go system.
+ You can use it to connect to running sessions and start new sessions
+ .
+ This package provides the debug symbols for the X2Go Client application.
