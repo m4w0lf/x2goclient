@@ -25,6 +25,7 @@ Build-Depends:
  pkg-config,
  lsb-release,
  libencode-locale-perl,
+ m4,
 Standards-Version: 3.9.5
 Homepage: https://code.x2go.org/releases/source/x2goclient
 Vcs-Git: git://code.x2go.org/x2goclient.git
