@@ -48,6 +48,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       defined.
     - Makefile: allow passing down variables that are safe to pass via the
       environment.
+    - x2goclient.spec: fix condition with maybe-undefined macro.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:
