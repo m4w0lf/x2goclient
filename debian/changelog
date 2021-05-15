@@ -42,6 +42,8 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - .gitignore: add debian/control, since it's now auto-generated.
     - Makefile: support version switching through a QT_VERSION variable -
       might be overridden via environment variables or the make call.
+    - x2goclient.spec: add version switching support. Use Qt 5 for FC31+, RHEL
+      8 and *SuSE 15.3+.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:

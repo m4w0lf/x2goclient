@@ -1,7 +1,17 @@
 Name:           x2goclient
 Version:        4.1.2.3
 Release:        0.0x2go1%{?dist}
-Summary:        X2Go Client application (Qt4)
+
+# Default to Qt 4 for now.
+%define         qt_version 4
+# FC31+ or EPEL 8.
+# Tumbleweed or *SuSE 15.3+.
+%if ( "%{?_vendor}" == "redhat" && ( 0%{?fedora} > 31 || 0%{?el8} ) ) || ( "%{?_vedor}" == "suse" && ( 0%{?suse_version} > 1500 || 0%{?sle_version} >= 150200 ) )
+%define         qt_version 5
+%endif
+
+
+Summary:        X2Go Client application (Qt%{qt_version})
 
 %if 0%{?suse_version}
 Group:          Production/Networking/Remote Desktop
@@ -19,18 +29,34 @@ BuildRequires:  cups-devel
 BuildRequires:  desktop-file-utils
 
 %if 0%{?suse_version}
-BuildRequires:  openldap2-devel
+buildrequires:  openldap2-devel
+%else
+BuildRequires:  openldap-devel
+%endif
+
+%if 0%{?suse_version}
+%if %{qt_version} == 4
 BuildRequires:  libqt4-devel
 %if 0%{?suse_version} >= 1310
 BuildRequires:  libqt4-linguist
 %endif
 %else
+%if %{qt_version} == 5
+BuildRequires:  libqt5-qtbase-devel
+%endif
+%endif
+%else
+%if %{qt_version} == 4
 %if 0%{?el5} || 0%{?el6}
 BuildRequires:  qt4-devel
 %else
 BuildRequires:  qt-devel
 %endif
-BuildRequires:  openldap-devel
+%else
+%if %{qt_version} == 5
+BuildRequires:  qt5-devel
+%endif
+%endif
 %endif
 
 %if "%{?_vendor}" == "redhat"
@@ -107,7 +133,7 @@ X2Go is a server-based computing environment with
     - audio support
     - authentication by smartcard and USB stick
 
-X2Go Client is a graphical client (Qt4) for the X2Go system.
+X2Go Client is a graphical client (Qt%{qt_version}) for the X2Go system.
 You can use it to connect to running sessions and start new sessions.
 
 
@@ -117,19 +143,26 @@ You can use it to connect to running sessions and start new sessions.
 sed -i -e 's/-o root -g root//' Makefile
 test -f ChangeLog && cp ChangeLog res/txt/changelog || test -f debian/changelog && cp debian/changelog res/txt/changelog || true
 test -f ChangeLog.gitlog && cp ChangeLog.gitlog res/txt/git-info || true
-%if 0%{?el5}
-sed -i -e '/^QMAKE_BINARY=/s@qmake-qt4@%{_libdir}/qt4/bin/qmake@' Makefile
-sed -i -e '/^LRELEASE_BINARY=/s@lrelease-qt4@%{_libdir}/qt4/bin/lrelease@' Makefile
-%endif
-%if 0%{?suse_version}
-sed -i -e '/^QMAKE_BINARY=/s@qmake-qt4@%{_bindir}/qmake@' Makefile
-sed -i -e '/^LRELEASE_BINARY=/s@lrelease-qt4@%{_bindir}/lrelease@' Makefile
-%endif
 
 
 %build
+%define make_call make %{?_smp_mflags} CXXFLAGS='%{optflags}' QMAKE_OPTS='QMAKE_STRIP=:' QT_VERSION='%{qt_version}'
+%if %{qt_version} == 4
 export PATH=%{_qt4_bindir}:$PATH
-make %{?_smp_mflags} CXXFLAGS="%{optflags}" QMAKE_OPTS="QMAKE_STRIP=:"
+%if 0%{?el5}
+%{make_call} QMAKE_BINARY='%{_libdir}/qt4/bin/qmake' LRELEASE_BINARY='%{_libdir}/qt4/bin/lrelease'
+%else
+%if 0%{?suse_version}
+%{make_call} QMAKE_BINARY='%{_bindir}/qmake' LRELEASE_BINARY='%{_bindir}/lrelease'
+%else
+%{make_call}
+%endif
+%endif
+%else
+%if %{qt_version} == 5
+%{make_call}
+%endif
+%endif
 
 
 %install
