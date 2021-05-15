@@ -6,7 +6,7 @@ Release:        0.0x2go1%{?dist}
 %define         qt_version 4
 # FC31+ or EPEL 8.
 # Tumbleweed or *SuSE 15.3+.
-%if ( "%{?_vendor}" == "redhat" && ( 0%{?fedora} > 31 || 0%{?el8} ) ) || ( "%{?_vedor}" == "suse" && ( 0%{?suse_version} > 1500 || 0%{?sle_version} >= 150200 ) )
+%if ( "%{?_vendor}" == "redhat" && ( 0%{?fedora} > 31 || 0%{?el8} ) ) || ( "%{?_vendor}" == "suse" && ( 0%{?suse_version} > 1500 || 0%{?sle_version} >= 150200 ) )
 %define         qt_version 5
 %endif
 
