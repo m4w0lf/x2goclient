@@ -50,6 +50,9 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       environment.
     - x2goclient.spec: fix condition with maybe-undefined macro.
     - x2goclient.spec: typo fix in vendor macro.
+    - x2goclient.spec: expand %{_qt4_bindir} to integer if it's set, instead
+      of using it as a string in the condition (which then leads to parsing
+      error).
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:

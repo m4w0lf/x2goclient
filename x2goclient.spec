@@ -148,7 +148,7 @@ test -f ChangeLog.gitlog && cp ChangeLog.gitlog res/txt/git-info || true
 %build
 %define make_call make %{?_smp_mflags} CXXFLAGS='%{optflags}' QMAKE_OPTS='QMAKE_STRIP=:' QT_VERSION='%{qt_version}'
 %if %{qt_version} == 4
-%if 0%{?_qt4_bindir}
+%if 0%{?_qt4_bindir:1}
 export PATH=%{_qt4_bindir}:$PATH
 %endif
 %if 0%{?el5}
