@@ -44,6 +44,8 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       might be overridden via environment variables or the make call.
     - x2goclient.spec: add version switching support. Use Qt 5 for FC31+, RHEL
       8 and *SuSE 15.3+.
+    - x2goclient.spec: don't try to prepend %{_qt4_bindir} if the macro is not
+      defined.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:
