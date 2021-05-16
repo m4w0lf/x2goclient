@@ -10,35 +10,35 @@ SHELL=/bin/bash
 # We'll change this to Qt 5 as soon as Qt-4-based platforms go EOL.
 QT_VERSION ?= 4
 
-INSTALL_DIR=install -d -o root -g root -m 755
-INSTALL_FILE=install -o root -g root -m 644
-INSTALL_SYMLINK=ln -s -f
-INSTALL_PROGRAM=install -o root -g root -m 755
+INSTALL_DIR ?= install -d -o root -g root -m 755
+INSTALL_FILE ?= install -o root -g root -m 644
+INSTALL_SYMLINK ?= ln -s -f
+INSTALL_PROGRAM ?= install -o root -g root -m 755
 
-RM_FILE=rm -f
-RM_DIR=rmdir -p --ignore-fail-on-non-empty
+RM_FILE ?= rm -f
+RM_DIR ?= rmdir -p --ignore-fail-on-non-empty
 
-DESTDIR=
-PREFIX=/usr/local
-ETCDIR=/etc/x2go
-BINDIR=$(PREFIX)/bin
-SHAREDIR=$(PREFIX)/share
-MANDIR=$(SHAREDIR)/man
+DESTDIR ?=
+PREFIX ?= /usr/local
+ETCDIR ?= /etc/x2go
+BINDIR ?= $(PREFIX)/bin
+SHAREDIR ?= $(PREFIX)/share
+MANDIR ?= $(SHAREDIR)/man
 ifeq ($(QT_VERSION),4)
-  QMAKE_BINARY := qmake-qt4
-  LRELEASE_BINARY := lrelease-qt4
+  QMAKE_BINARY ?= qmake-qt4
+  LRELEASE_BINARY ?= lrelease-qt4
 else
   ifeq ($(QT_VERSION),5)
-    QMAKE_BINARY := qmake
-    LRELEASE_BINARY := lrelease
+    QMAKE_BINARY ?= qmake
+    LRELEASE_BINARY ?= lrelease
   else
     $(error Unsupported Qt version "$(QT_VERSION)" passed.)
   endif
 endif
-QMAKE_OPTS=
+QMAKE_OPTS ?=
 
-LDFLAGS=
-LIBS=
+LDFLAGS ?=
+LIBS ?=
 
 
 #####################################################################

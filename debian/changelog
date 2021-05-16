@@ -56,6 +56,8 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - x2goclient.spec: rework Qt5 dependencies. Use a common set of
       PkgConfig()-based dependencies for the Qt 5 libraries themselves and
       only make the linguist tools (lrelease) conditional.
+    - Makefile: make controllable variables default-if-not-set to allow
+      overriding via the environment.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:
