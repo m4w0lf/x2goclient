@@ -34,19 +34,13 @@ buildrequires:  openldap2-devel
 BuildRequires:  openldap-devel
 %endif
 
-%if 0%{?suse_version}
 %if %{qt_version} == 4
+%if 0%{?suse_version}
 BuildRequires:  libqt4-devel
 %if 0%{?suse_version} >= 1310
 BuildRequires:  libqt4-linguist
 %endif
 %else
-%if %{qt_version} == 5
-BuildRequires:  libqt5-qtbase-devel
-%endif
-%endif
-%else
-%if %{qt_version} == 4
 %if 0%{?el5} || 0%{?el6}
 BuildRequires:  qt4-devel
 %else
@@ -54,7 +48,14 @@ BuildRequires:  qt-devel
 %endif
 %else
 %if %{qt_version} == 5
-BuildRequires:  qt5-devel
+BuildRequires:  pkgconfig(Qt5Core)
+BuildRequires:  pkgconfig(Qt5Gui)
+BuildRequires:  pkgconfig(Qt5Svg)
+BuildRequires:  pkgconfig(Qt5Widgets)
+%if 0%{?suse_version}
+BuildRequires:  libqt5-linguist
+%else
+BuildRequires:  qt5-linguist
 %endif
 %endif
 %endif
