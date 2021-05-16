@@ -46,6 +46,7 @@ BuildRequires:  qt4-devel
 %else
 BuildRequires:  qt-devel
 %endif
+%endif
 %else
 %if %{qt_version} == 5
 BuildRequires:  pkgconfig(Qt5Core)
