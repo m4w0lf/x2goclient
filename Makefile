@@ -102,7 +102,7 @@ clean_client:
 	rm -fr $(CLIENT_DIR)
 
 clean_man:
-	make -f Makefile.man2html clean
+	$(MAKE) -f Makefile.man2html clean
 
 install: install_client install_man
 
