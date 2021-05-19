@@ -164,6 +164,9 @@ export PATH=%{_qt4_bindir}:$PATH
 %endif
 %else
 %if %{qt_version} == 5
+%if 0%{?_qt5_bindir:1}
+export PATH=%{_qt5_bindir}:$PATH
+%endif
 %{make_call}
 %endif
 %endif
