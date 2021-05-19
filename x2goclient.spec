@@ -151,7 +151,7 @@ test -f ChangeLog.gitlog && cp ChangeLog.gitlog res/txt/git-info || true
 %define make_call make %{?_smp_mflags} CXXFLAGS='%{optflags}' QMAKE_OPTS='QMAKE_STRIP=:' QT_VERSION='%{qt_version}'
 %if %{qt_version} == 4
 %if 0%{?_qt4_bindir:1}
-export PATH=%{_qt4_bindir}:$PATH
+export 'PATH=%{_qt4_bindir}:'"${PATH}"
 %endif
 %if 0%{?el5}
 %{make_call} QMAKE_BINARY='%{_libdir}/qt4/bin/qmake' LRELEASE_BINARY='%{_libdir}/qt4/bin/lrelease'
@@ -165,7 +165,7 @@ export PATH=%{_qt4_bindir}:$PATH
 %else
 %if %{qt_version} == 5
 %if 0%{?_qt5_bindir:1}
-export PATH=%{_qt5_bindir}:$PATH
+export 'PATH=%{_qt5_bindir}:'${PATH}"
 %endif
 %{make_call}
 %endif
