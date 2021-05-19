@@ -62,6 +62,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - x2goclient.spec: fix missing %endif in Qt-4-BuildRequires section.
     - x2goclient.spec: use %{_qt5_bindir} macro analogous to the Qt 4 variant.
     - x2goclient.spec: correctly quote PATH overrides.
+    - x2goclient.spec: fix syntax error in Qt 5 PATH override.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:
