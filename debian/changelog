@@ -66,6 +66,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - x2goclient.spec: correctly quote PATH overrides.
     - x2goclient.spec: fix syntax error in Qt 5 PATH override.
     - x2goclient.spec: add BuildRequires on Qt5X11Extras.
+    - x2goclient.spec: also use/handle %{_libqt5_bindir}, as used by *SuSE.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:

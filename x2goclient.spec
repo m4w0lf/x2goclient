@@ -168,6 +168,9 @@ export 'PATH=%{_qt4_bindir}:'"${PATH}"
 %if 0%{?_qt5_bindir:1}
 export 'PATH=%{_qt5_bindir}:'"${PATH}"
 %endif
+%if 0%{?_libqt5_bindir:1}
+export 'PATH=%{_libqt5_bindir}:'"${PATH}"
+%endif
 %{make_call}
 %endif
 %endif
