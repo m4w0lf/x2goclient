@@ -67,6 +67,12 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - x2goclient.spec: fix syntax error in Qt 5 PATH override.
     - x2goclient.spec: add BuildRequires on Qt5X11Extras.
     - x2goclient.spec: also use/handle %{_libqt5_bindir}, as used by *SuSE.
+    - x2goclient.spec: add BuildRequires on Qt5Network. OpenSuSE Tumbleweed
+      split the pkgconfig files up into individual packages, while older
+      versions ship all of them in libqt5-qtbase-devel. The former does not
+      automatically use that package any longer and hence will not pull in all
+      library packages automatically. That's not a bad change, since it forces
+      us to spell out the dependencies correctly.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:
