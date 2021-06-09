@@ -655,10 +655,13 @@ void HttpBrokerClient::slotRequestFinished ( QNetworkReply*  reply )
     {
         x2goDebug<<"Broker HTTP request failed with error: "<<reply->errorString();
         mainWindow->setBrokerStatus(tr("Disconnected from broker: ")+reply->errorString(), true);
-        if(reply == eventRequest)
+        if(reply == eventRequest || reply == sessionsRequest)
         {
             reply->deleteLater();
-            eventRequest=0l;
+            if(reply == eventRequest)
+                eventRequest=0l;
+            else
+                sessionsRequest=0l;
             //do not exit, just return the function
             return;
         }

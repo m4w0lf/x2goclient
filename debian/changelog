@@ -19,6 +19,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - Don't close X2Go Client if settings dialog is called before broker auth.
     - X2Go Client will send it's OS name to the broker when sending client
       event.
+    - Don't exit if connection to HTTP broker is failed when sync sessions.
 
   [ Ryan Schmidt ]
   * New upstream version (4.1.2.3):
