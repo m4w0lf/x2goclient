@@ -57,6 +57,8 @@ private:
     QNetworkReply* chPassRequest;
     QNetworkReply* testConRequest;
     QNetworkReply* eventRequest;
+    //List of replies with http resources (icons)
+    QList<QNetworkReply*> resReplies;
     QString nextAuthId;
     QString newBrokerPass;
     ConfigFile* config;
@@ -72,6 +74,10 @@ private:
     void createSshConnection();
     bool checkAccess(QString answer);
     QString scramblePwd(const QString& req);
+    QString getResource(QString resURL);
+    QString resourceFname(const QUrl& url);
+    bool isResRequested(const QUrl& url);
+    void clearResRequests();
 
 private slots:
     void slotRequestFinished ( QNetworkReply*  reply );

@@ -106,24 +106,25 @@ void FolderButton::loadIcon()
     else
         st= new X2goSettings( "sessions" );
 
-    QString sessIcon=par->iconsPath("/128x128/folder.png");
-    QPixmap* pix;
+    QPixmap* pix=new QPixmap();
 
     QString normPath=(path+"/"+name).split("/",QString::SkipEmptyParts).join("::");
-
-    QByteArray picture = QByteArray::fromBase64( st->setting()->value ( "icon_"+normPath,
-                       ( QVariant )QString()).toString().toLocal8Bit());
-    if(!picture.size())
+    QString picURL=st->setting()->value ( "icon_"+normPath, ( QVariant )QString()).toString();
+    if(picURL.indexOf("file://")!=-1)
     {
-        pix=new QPixmap( sessIcon );
+        //load icon from file URL
+        pix->load(picURL.replace("file://",""));
     }
     else
     {
-        pix=new QPixmap();
-        pix->loadFromData(picture);
+        pix->loadFromData(QByteArray::fromBase64( picURL.toLocal8Bit()));
+    }
+    if(pix->isNull())
+    {
+        //loading icon has failed, load default icon
+        pix->load(par->iconsPath("/128x128/folder.png"));
     }
     bool miniMode=par->retMiniMode();
-
     if ( !miniMode )
     {
         icon->setPixmap ( pix->scaled ( 64,64,Qt::IgnoreAspectRatio,

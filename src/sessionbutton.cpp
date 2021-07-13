@@ -373,7 +373,18 @@ void SessionButton::redraw()
     else
     {
         pix=new QPixmap;
-        pix->loadFromData(QByteArray::fromBase64(sessIcon.toLatin1()));
+        if(sessIcon.indexOf("file://")!=-1)
+        {
+            //load icon from file URL
+            pix->load(sessIcon.replace("file://",""));
+        }
+        else
+            pix->loadFromData(QByteArray::fromBase64(sessIcon.toLatin1()));
+        if(pix->isNull())
+        {
+            //loading icon has failed, load default icon
+            pix->load(par->iconsPath("/128x128/x2gosession.png"));
+        }
     }
     if ( !par->retMiniMode() )
         icon->setPixmap ( pix->scaled ( 64,64,Qt::IgnoreAspectRatio,

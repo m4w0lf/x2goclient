@@ -19,6 +19,7 @@
 #include <QNetworkAccessManager>
 #include <QUrl>
 #include <QNetworkRequest>
+#include <QNetworkDiskCache>
 #include <QNetworkReply>
 #include <QUuid>
 #include <QTextStream>
@@ -74,7 +75,12 @@ HttpBrokerClient::HttpBrokerClient ( ONMainWindow* wnd, ConfigFile* cfg )
             x2goDebug<<"Custom CA certificate file loaded into HTTPS broker client: "<<config->brokerCaCertFile;
         }
 
+        QDir dr;
+        dr.mkpath(mainWindow->getHomeDirectory()+"/.x2go");
         http=new QNetworkAccessManager ( this );
+        QNetworkDiskCache *cache = new QNetworkDiskCache(this);
+        cache->setCacheDirectory(mainWindow->getHomeDirectory()+"/.x2go/cache");
+        http->setCache(cache);
         x2goDebug<<"Setting up connection to broker: "<<config->brokerurl;
 
         connect ( http, SIGNAL ( sslErrors ( QNetworkReply*, const QList<QSslError>& ) ),this,
@@ -541,7 +547,39 @@ void HttpBrokerClient::createIniFile(const QString& raw_content)
         cont=lines[1];
         cont=cont.split("END_USER_SESSIONS\n")[0];
     }
-    mainWindow->config.iniFile=cont;
+
+    if(!sshBroker)
+    {
+        QStringList iniLines=cont.split("\n");
+        cont.clear();
+        clearResRequests();
+        //check if some of the icon or icon_foldername values are URLs and need to be downloaded
+        foreach(QString ln, iniLines)
+        {
+            ln=ln.trimmed();
+            if(ln.indexOf("icon")==0)
+            {
+                QStringList lnParts=ln.split("=");
+                QString iconUrl=lnParts.last().trimmed();
+                if((iconUrl.indexOf("http://")!=-1)||(iconUrl.indexOf("https://")!=-1))
+                {
+                    ln=lnParts[0]+"=file://"+getResource(iconUrl);
+                }
+            }
+            cont+=ln+"\n";
+        }
+        mainWindow->config.iniFile=cont;
+        if(resReplies.count()==0)
+        {
+            //we didn't request any resources, all session info is loaded
+            emit sessionsLoaded();
+        }
+    }
+    else
+    {
+        mainWindow->config.iniFile=cont;
+        emit sessionsLoaded();
+    }
     lines=content.split("START_CLIENT_CONFIG\n");
     if (lines.count()>1)
     {
@@ -555,6 +593,52 @@ void HttpBrokerClient::createIniFile(const QString& raw_content)
     }
 }
 
+
+//get the fname on disk from resource URL
+QString HttpBrokerClient::resourceFname(const QUrl& url)
+{
+    QString fname=url.toString();
+    fname.replace("http://","");
+    fname.replace("https://","");
+    fname.replace("/","_");
+    QDir dr;
+    dr.mkdir(mainWindow->getHomeDirectory()+"/.x2go/res");
+    return mainWindow->getHomeDirectory()+"/.x2go/res/"+fname;
+}
+
+//return true if the URL is already requested
+bool HttpBrokerClient::isResRequested(const QUrl& url)
+{
+    foreach(QNetworkReply* reply, resReplies)
+    {
+        if(reply->url().toString()==url.toString())
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+//download resource if needed and return the name on the disk
+QString HttpBrokerClient::getResource(QString resURL)
+{
+    QUrl url(resURL);
+    if(!isResRequested(url))
+    {
+        resReplies << http->get(QNetworkRequest(url));
+    }
+    return resourceFname(url);
+}
+
+//clear list of res requests
+void HttpBrokerClient::clearResRequests()
+{
+    foreach(QNetworkReply* reply, resReplies)
+    {
+        reply->deleteLater();
+    }
+    resReplies.clear();
+}
 
 bool HttpBrokerClient::checkAccess(QString answer )
 {
@@ -616,7 +700,6 @@ void HttpBrokerClient::slotListSessions(bool success, QString answer, int)
     mainWindow->setBrokerStatus(tr("Connected to broker"));
 
     createIniFile(answer);
-    emit sessionsLoaded();
 }
 
 void HttpBrokerClient::slotPassChanged(bool success, QString answer, int)
@@ -651,6 +734,30 @@ void HttpBrokerClient::slotSelectSession(bool success, QString answer, int)
 
 void HttpBrokerClient::slotRequestFinished ( QNetworkReply*  reply )
 {
+    if(resReplies.indexOf(reply) != -1)
+    {
+        if(reply->error() != QNetworkReply::NoError)
+        {
+            x2goDebug<<"Download request for "<<reply->url().toString()<< " failed with error: "<<reply->errorString();
+        }
+        else
+        {
+//             x2goDebug<<"saving to "<<resourceFname(reply->url().toString())<<" from cache: "<<reply->attribute(QNetworkRequest::SourceIsFromCacheAttribute).toBool();
+            QFile file(resourceFname(reply->url().toString()));
+            file.open(QIODevice::WriteOnly);
+            file.write(reply->readAll());
+            file.close();
+        }
+        foreach(QNetworkReply* r, resReplies)
+        {
+            if(!r->isFinished())
+            {
+                return;
+            }
+        }
+        emit sessionsLoaded();
+        return;
+    }
     if(reply->error() != QNetworkReply::NoError)
     {
         x2goDebug<<"Broker HTTP request failed with error: "<<reply->errorString();
@@ -697,6 +804,7 @@ void HttpBrokerClient::slotRequestFinished ( QNetworkReply*  reply )
         eventRequest=0l;
         slotEventSent(true,answer,0);
     }
+
 
     // We receive ownership of the reply object
     // and therefore need to handle deletion.
