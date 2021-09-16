@@ -4943,8 +4943,29 @@ void ONMainWindow::setTrayIconToSessionIcon(QString info) {
             sid="embedded";
 
         if (!keepTrayIcon) {
-            QString imagePath = wrap_legacy_resource_URIs (expandHome(st->setting()->value(sid + "/icon", (QVariant) QString(iconsPath("/128x128/x2go.png"))).toString()));
-            trayIcon->setIcon(QIcon (imagePath));
+            QString sessIcon = wrap_legacy_resource_URIs (expandHome(st->setting()->value(sid + "/icon",
+                                        (QVariant) QString(iconsPath("/128x128/x2go.png"))).toString()));
+            if (!brokerMode || sessIcon == iconsPath("/128x128/x2gosession.png"))
+            {
+                trayIcon->setIcon(QIcon (sessIcon));
+            }
+            else
+            {
+                QPixmap pix;
+                if(sessIcon.indexOf("file://")!=-1)
+                {
+                    //load icon from file URL
+                    pix.load(sessIcon.replace("file://",""));
+                }
+                else
+                    pix.loadFromData(QByteArray::fromBase64(sessIcon.toLatin1()));
+                if(pix.isNull())
+                {
+                    //loading icon has failed, load default icon
+                    pix.load(iconsPath("/128x128/x2gosession.png"));
+                }
+                trayIcon->setIcon(QIcon (pix));
+            }
         }
 
         QString name=st->setting()->value ( sid +"/name").toString() ;
