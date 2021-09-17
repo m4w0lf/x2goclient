@@ -22,6 +22,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - Don't exit if connection to HTTP broker is failed when sync sessions.
     - Support for HTTP(S) urls in the session icons when using http broker.
     - Fix loading session icon to system tray when using broker.
+    - Add --debug argument to x2gokdriveclient in debug mode.
 
   [ Ryan Schmidt ]
   * New upstream version (4.1.2.3):

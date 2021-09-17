@@ -6243,6 +6243,10 @@ void ONMainWindow::slotTunnelOk(int)
         dirpath=nxroot+"/S-"+resumingSession.sessionId;
 #endif
         proxyCmd="x2gokdriveclient";
+        if(ONMainWindow::debugging)
+        {
+            options <<"--debug";
+        }
         options<<"--connect"<<"localhost"<<"--port"<<localGraphicPort<<"--title"<<resumingSession.sessionId<<"-S"<<"nx/nx,options="+dirpath+
         "/options:"+resumingSession.display<<"--selection"<<clipboard;
         if(randr)
