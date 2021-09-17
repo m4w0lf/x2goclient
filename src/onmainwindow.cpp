@@ -21,6 +21,11 @@
 
 #include <QStyleFactory>
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 2, 0)
+#include <QLoggingCategory>
+#endif
+
+
 void x2goSession::operator = ( const x2goSession& s )
 {
     agentPid=s.agentPid;
@@ -7767,6 +7772,9 @@ bool ONMainWindow::parseParameter ( QString param )
     if (param == "--debug")
     {
         ONMainWindow::debugging = true;
+#if QT_VERSION >= QT_VERSION_CHECK(5, 2, 0)
+        QLoggingCategory::setFilterRules("default.debug=true");
+#endif
         return true;
     }
 
