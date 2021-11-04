@@ -44,6 +44,9 @@ SessionExplorer::SessionExplorer(ONMainWindow* p):QObject(p)
     runButton=new QPushButton(tr("Running"),parent->getCentralFrame());
     favButton=new QPushButton(tr("Favorites"),parent->getCentralFrame());
     allButton=new QPushButton(tr("All Sessions"),parent->getCentralFrame());
+    runButton->hide();
+    allButton->hide();
+    favButton->hide();
     allButton->setFlat(true);
     runButton->setFocusPolicy ( Qt::NoFocus );
     favButton->setFocusPolicy ( Qt::NoFocus );
@@ -171,6 +174,10 @@ void SessionExplorer::updateView()
     {
         viewMode=ALL;
     }
+    allButton->setFlat(viewMode==ALL);
+    runButton->setFlat(viewMode==RUN);
+    favButton->setFlat(viewMode==FAV);
+
     placeButtons();
 }
 
@@ -768,26 +775,17 @@ void SessionExplorer::setEnable(bool enable)
 void SessionExplorer::slotShowAll()
 {
     viewMode=ALL;
-    allButton->setFlat(true);
-    runButton->setFlat(false);
-    favButton->setFlat(false);
     updateView();
 }
 
 void SessionExplorer::slotShowRun()
 {
     viewMode=RUN;
-    allButton->setFlat(false);
-    runButton->setFlat(true);
-    favButton->setFlat(false);
     updateView();
 }
 
 void SessionExplorer::slotShowFav()
 {
     viewMode=FAV;
-    allButton->setFlat(false);
-    runButton->setFlat(false);
-    favButton->setFlat(true);
     updateView();
 }
