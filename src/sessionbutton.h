@@ -72,6 +72,7 @@ public:
     {
         return suspended;
     }
+    void showAdvInfo(bool show);
 
 private:
     void setFav(bool fav);
@@ -79,6 +80,7 @@ private:
     QString nameofSession;
     QString sid;
     QString path;
+    QLabel* pathLabel;
     QLabel* sessName;
     QLabel* sessStatus;
     QLabel* icon;

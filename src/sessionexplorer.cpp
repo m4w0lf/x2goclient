@@ -458,6 +458,7 @@ void SessionExplorer::placeButtons()
 
         sessions[i]->move ( horizontalPosition,
                             currentVerticalPosition+5 );
+        sessions[i]->showAdvInfo(viewMode!=ALL);
 
         if(parent->getBrokerMode())
         {

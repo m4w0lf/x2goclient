@@ -100,6 +100,12 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
     geomBox->update();
     geomBox->setPalette ( cpal );
 
+    pathLabel=new QLabel ( this );
+    QFont lfnt=fnt;
+    lfnt.setWeight(QFont::Thin);
+    lfnt.setPointSize(lfnt.pointSize()-2);
+    pathLabel->setFont(lfnt);
+
     sessName=new QLabel ( this );
     sessStatus=new QLabel ( this );
     fnt=sessName->font();
@@ -194,6 +200,8 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
 
     if ( !miniMode )
     {
+        pathLabel->move(80,10);
+        pathLabel->setMaximumWidth(224);
         sessName->move ( 80,34 );
         sessStatus->move(80,50);
         editBut->move ( 307,156 );
@@ -211,10 +219,11 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
     }
     else
     {
+        pathLabel->move(64,6);
+        pathLabel->setMaximumWidth(154);
         editBut->move ( 218,113 );
         favButton->move ( 218,10 );
-        sessName->move ( 64,11 );
-        sessStatus->hide();
+        sessName->move ( 64,22 );
         serverIcon->move ( 66,44 );
         server->move ( 88,44 );
         cmdIcon->move ( 66,68 );
@@ -229,6 +238,11 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
 
     if (mw->brokerMode)
     {
+        pathLabel->move(10,10);
+        if(miniMode)
+            pathLabel->setMaximumWidth(204);
+        else
+            pathLabel->setMaximumWidth(294);
         icon->move(10,30);
         sessName->move(90,50);
         sessStatus->move(90,70);
@@ -378,9 +392,12 @@ void SessionButton::redraw()
         name=tails.last();
         tails.pop_back();
         path=tails.join("/");
+        if(path.length())
+        {
+            toolTip<<path;
+        }
     }
 
-    toolTip<<path;
     QFontMetrics metr(sessName->font());
     nameofSession=name;
 
@@ -771,6 +788,23 @@ void SessionButton::mouseMoveEvent ( QMouseEvent * event )
 {
 
     SVGFrame::mouseMoveEvent ( event );
+    if ( favButton->isFlat() )
+    {
+        if ( event->x() > favButton->x() && event->x() < favButton->x() +
+            favButton->width() &&
+            event->y() >favButton->y() && event->y() <favButton->y() +
+            favButton->height() )
+            favButton->setFlat ( false );
+    }
+    else
+    {
+        if ( event->x() < favButton->x() || event->x() > favButton->x() +
+            favButton->width() ||
+            event->y() <favButton->y() || event->y() >favButton->y() +
+            favButton->height() )
+            favButton->setFlat ( true );
+    }
+
     if (!editable)
         return;
     if ( cmd->isVisible() )
@@ -834,24 +868,6 @@ void SessionButton::mouseMoveEvent ( QMouseEvent * event )
                 event->y() <editBut->y() || event->y() >editBut->y() +
                 editBut->height() )
             editBut->setFlat ( true );
-    }
-
-
-    if ( favButton->isFlat() )
-    {
-        if ( event->x() > favButton->x() && event->x() < favButton->x() +
-            favButton->width() &&
-            event->y() >favButton->y() && event->y() <favButton->y() +
-            favButton->height() )
-            favButton->setFlat ( false );
-    }
-    else
-    {
-        if ( event->x() < favButton->x() || event->x() > favButton->x() +
-            favButton->width() ||
-            event->y() <favButton->y() || event->y() >favButton->y() +
-            favButton->height() )
-            favButton->setFlat ( true );
     }
 
     if ( geom->isVisible() )
@@ -1086,8 +1102,8 @@ void SessionButton::slot_geom_change ( const QString& new_g )
 bool SessionButton::lessThen ( const SessionButton* b1,
                                const SessionButton* b2 )
 {
-    return b1->sessName->text().toLower().localeAwareCompare (
-               b2->sessName->text().toLower() ) <0;
+    return (b1->path+"/"+b1->sessName->text()).toLower().localeAwareCompare (
+               (b2->path+"/"+b2->sessName->text()).toLower() ) <0;
 }
 
 QString SessionButton::name()
@@ -1106,6 +1122,12 @@ void SessionButton::slotShowMenu()
 {
     sessMenu->popup ( mapToGlobal ( QPoint ( editBut->x() +editBut->width(),
                                     editBut->y() +editBut->height() ) ) );
+}
+
+void SessionButton::showAdvInfo(bool show)
+{
+    pathLabel->setText(path);
+    pathLabel->setVisible((show && path.length()));
 }
 
 
