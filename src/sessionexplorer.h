@@ -26,6 +26,7 @@ class SessionButton;
 class FolderButton;
 class ONMainWindow;
 class QToolButton;
+class QPushButton;
 class QLabel;
 class QHBoxLayout;
 
@@ -57,6 +58,10 @@ public:
     {
         return navigationLayout;
     }
+    QHBoxLayout* getSelectLayout()
+    {
+        return selectLayout;
+    }
     bool isFolderEmpty(QString path);
     void resize();
     void setFolderIcon(QString path, QString icon);
@@ -85,9 +90,15 @@ private:
     SessionButton* lastSession;
     ONMainWindow* parent;
     QToolButton* backButton;
+    QPushButton* favButton;
+    QPushButton* runButton;
+    QPushButton* allButton;
     QLabel* pathLabel;
     QHBoxLayout* navigationLayout;
+    QHBoxLayout* selectLayout;
     QString currentPath;
+    enum {ALL, FAV, RUN} viewMode;
+    bool initUpdate;
 
 //functions
 private:
@@ -107,6 +118,10 @@ private slots:
     void slotFolderSelected(FolderButton* bt);
     void slotLevelUp();
     QStringList getFolderChildren(FolderButton* folder);
+    void slotShowAll();
+    void slotShowRun();
+    void slotShowFav();
+    void updateView();
 };
 
 #endif

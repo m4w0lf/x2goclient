@@ -46,6 +46,7 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
 {
     editable=mw->sessionEditEnabled();
 
+    running=suspended=0;
 
     QPalette pal=palette();
     pal.setColor ( QPalette::Active, QPalette::WindowText, QPalette::Mid );
@@ -59,6 +60,7 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
 
 
     updated=false;
+    fav=false;
 
     QFont fnt=font();
     if ( mw->retMiniMode() )
@@ -146,6 +148,15 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
     editBut->setPalette ( cpal );
     sessMenu=new QMenu ( this );
 
+
+    favButton=new QPushButton (this);
+    favButton->setIcon(QIcon(mw->iconsPath ( "/16x16/fav.png" )));
+    favButton->setFlat(true);
+    favButton->setFixedSize(24,24);
+    favButton->setMouseTracking(true);
+    favButton->setPalette ( cpal );
+    connect( favButton, SIGNAL(clicked()), this, SLOT(slotFavClick()));
+
     connect ( sessMenu,SIGNAL ( aboutToHide() ),this,
               SLOT ( slotMenuHide() ) );
 
@@ -175,6 +186,7 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
 #endif
 
     editBut->setToolTip ( tr ( "Session actions" ) );
+    favButton->setToolTip(tr("Add to favorites"));
     cmdBox->setToolTip ( tr ( "Select type" ) );
 
     geomBox->setToolTip ( tr ( "Select resolution" ) );
@@ -186,6 +198,7 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
         sessName->move ( 80,34 );
         sessStatus->move(80,50);
         editBut->move ( 307,156 );
+        favButton->move ( 307,10 );
         serverIcon->move ( 58,84 );
         server->move ( 80,84 );
         cmdIcon->move ( 58,108 );
@@ -200,6 +213,7 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
     else
     {
         editBut->move ( 218,113 );
+        favButton->move ( 218,10 );
         sessName->move ( 64,11 );
         sessStatus->hide();
         serverIcon->move ( 66,44 );
@@ -248,6 +262,7 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
               SLOT ( slot_geom_change ( const QString& ) ) );
 
     editBut->setFocusPolicy ( Qt::NoFocus );
+    favButton->setFocusPolicy ( Qt::NoFocus );
     sound->setFocusPolicy ( Qt::NoFocus );
     cmdBox->setFocusPolicy ( Qt::NoFocus );
     geomBox->setFocusPolicy ( Qt::NoFocus );
@@ -276,6 +291,52 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
 
 SessionButton::~SessionButton()
 {}
+
+bool SessionButton::getFavFromConfig()
+{
+    X2goSettings st( "favorits" );
+    return st.setting()->value("favorites").toStringList().contains(sid);
+}
+
+void SessionButton::slotFavClick()
+{
+    setFav(!fav);
+    X2goSettings st( "favorits" );
+    QStringList favs=st.setting()->value("favorites").toStringList();
+    if(fav)
+    {
+        if(! favs.contains(sid))
+        {
+            favs.append(sid);
+            st.setting()->setValue("favorites",favs);
+        }
+    }
+    else
+    {
+        if(favs.contains(sid))
+        {
+            favs.removeAll(sid);
+            st.setting()->setValue("favorites",favs);
+        }
+    }
+    st.setting()->sync();
+    emit favClicked();
+}
+
+void SessionButton::setFav(bool fav)
+{
+    this->fav=fav;
+    if(fav)
+    {
+        favButton->setIcon(QIcon(par->iconsPath ( "/16x16/fav1.png" )));
+        favButton->setToolTip(tr("Remove from favorites"));
+    }
+    else
+    {
+        favButton->setIcon(QIcon(par->iconsPath ( "/16x16/fav.png" )));
+        favButton->setToolTip(tr("Add to favorites"));
+    }
+}
 
 void SessionButton::slotClicked()
 {
@@ -338,10 +399,10 @@ void SessionButton::redraw()
         sessStatus->setText("("+tr("suspended")+")");
     }
 
-    int suspended=st->setting()->value ( sid+"/suspended",
+    suspended=st->setting()->value ( sid+"/suspended",
                                          ( QVariant ) QString::null ).toUInt();
 
-    int running=st->setting()->value ( sid+"/running",
+    running=st->setting()->value ( sid+"/running",
                                          ( QVariant ) QString::null ).toUInt();
     if(suspended || running)
     {
@@ -637,6 +698,7 @@ void SessionButton::redraw()
     cmd->setMinimumSize ( cmd->sizeHint() );
     server->setMinimumSize ( server->sizeHint() );
     delete st;
+    setFav(getFavFromConfig());
 }
 
 void SessionButton::mousePressEvent ( QMouseEvent * event )
@@ -768,6 +830,24 @@ void SessionButton::mouseMoveEvent ( QMouseEvent * event )
                 event->y() <editBut->y() || event->y() >editBut->y() +
                 editBut->height() )
             editBut->setFlat ( true );
+    }
+
+
+    if ( favButton->isFlat() )
+    {
+        if ( event->x() > favButton->x() && event->x() < favButton->x() +
+            favButton->width() &&
+            event->y() >favButton->y() && event->y() <favButton->y() +
+            favButton->height() )
+            favButton->setFlat ( false );
+    }
+    else
+    {
+        if ( event->x() < favButton->x() || event->x() > favButton->x() +
+            favButton->width() ||
+            event->y() <favButton->y() || event->y() >favButton->y() +
+            favButton->height() )
+            favButton->setFlat ( true );
     }
 
     if ( geom->isVisible() )

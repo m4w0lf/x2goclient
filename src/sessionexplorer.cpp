@@ -33,11 +33,25 @@
 #include "x2gologdebug.h"
 #include <QBuffer>
 #include <QDir>
+#include <QPushButton>
 
 SessionExplorer::SessionExplorer(ONMainWindow* p):QObject(p)
 {
     parent=p;
     lastSession=0;
+    initUpdate=true;
+    viewMode=ALL;
+    runButton=new QPushButton(tr("Running"),parent->getCentralFrame());
+    favButton=new QPushButton(tr("Favorites"),parent->getCentralFrame());
+    allButton=new QPushButton(tr("All Sessions"),parent->getCentralFrame());
+    allButton->setFlat(true);
+    runButton->setFocusPolicy ( Qt::NoFocus );
+    favButton->setFocusPolicy ( Qt::NoFocus );
+    allButton->setFocusPolicy ( Qt::NoFocus );
+    selectLayout=new QHBoxLayout();
+    selectLayout->addWidget(runButton);
+    selectLayout->addWidget(favButton);
+    selectLayout->addWidget(allButton);
     backButton=new QToolButton(parent->getCentralFrame());
     backButton->setIcon(QIcon( parent->iconsPath ( "/32x32/tbhide.png" )));
     backButton->setAutoRaise(true);
@@ -54,6 +68,14 @@ SessionExplorer::SessionExplorer(ONMainWindow* p):QObject(p)
 
     backButton->setPalette(pal);
     backButton->setAutoFillBackground(true);
+
+    runButton->setPalette(pal);
+    runButton->setAutoFillBackground(true);
+    favButton->setPalette(pal);
+    favButton->setAutoFillBackground(true);
+    allButton->setPalette(pal);
+    allButton->setAutoFillBackground(true);
+
     pal=pathLabel->palette();
     pal.setBrush ( QPalette::Window, QColor ( 110,112,127,255 ) );
     pal.setBrush ( QPalette::WindowText, QColor ( 200,200,200,255 ) );
@@ -61,6 +83,9 @@ SessionExplorer::SessionExplorer(ONMainWindow* p):QObject(p)
     pathLabel->setAutoFillBackground(true);
     setNavigationVisible(false);
     connect(backButton,SIGNAL(clicked(bool)), this, SLOT(slotLevelUp()));
+    connect(runButton,SIGNAL(clicked(bool)), this, SLOT(slotShowRun()));
+    connect(allButton,SIGNAL(clicked(bool)), this, SLOT(slotShowAll()));
+    connect(favButton,SIGNAL(clicked(bool)), this, SLOT(slotShowFav()));
 }
 
 SessionExplorer::~SessionExplorer()
@@ -111,10 +136,43 @@ void SessionExplorer::updateSessions(QStringList slst)
             delete s;
         }
     }
-
-    placeButtons();
+    updateView();
 }
 
+void SessionExplorer::updateView()
+{
+    bool hasFavs=false;
+    bool hasRun=0;
+    foreach (SessionButton* s, sessions)
+    {
+        if(s->isFav())
+        {
+            hasFavs=true;
+        }
+        if(s->getRunning()||s->getSuspended())
+            hasRun=true;
+    }
+    runButton->setVisible(hasRun);
+    favButton->setVisible(hasFavs);
+    allButton->setVisible(hasRun||hasFavs);
+    if(initUpdate)
+    {
+        initUpdate=false;
+        if(hasRun)
+        {
+            viewMode=RUN;
+        }
+        else if(hasFavs)
+        {
+            viewMode=FAV;
+        }
+    }
+    if((!hasRun && viewMode==RUN)||(!hasFavs && viewMode==FAV))
+    {
+        viewMode=ALL;
+    }
+    placeButtons();
+}
 
 void SessionExplorer::resize()
 {
@@ -316,6 +374,7 @@ SessionButton* SessionExplorer::createBut ( const QString& id )
 
     connect ( l,SIGNAL ( sessionSelected ( SessionButton* ) ),parent,
               SLOT ( slotSelectedFromList ( SessionButton* ) ) );
+    connect(l, SIGNAL( favClicked()), this, SLOT(updateView()));
 
     checkPath(l);
 
@@ -325,9 +384,10 @@ SessionButton* SessionExplorer::createBut ( const QString& id )
 
 void SessionExplorer::placeButtons()
 {
+
     getFoldersFromConfig();
 
-    setNavigationVisible(currentPath.length()>0);
+    setNavigationVisible((currentPath.length()>0)&&(viewMode==ALL));
     resize();
     int currentVerticalPosition=0;
     qSort ( sessions.begin(),sessions.end(),SessionButton::lessThen );
@@ -335,6 +395,11 @@ void SessionExplorer::placeButtons()
 
     for ( int i=0; i<folders.size(); ++i )
     {
+        if(viewMode!=ALL)
+        {
+            folders[i]->hide();
+            continue;
+        }
         if((folders[i]->getPath() != currentPath)||(getFolderChildren(folders[i]).length()<=0))
         {
             folders[i]->hide();
@@ -366,7 +431,17 @@ void SessionExplorer::placeButtons()
 
     for ( int i=0; i<sessions.size(); ++i )
     {
-        if(sessions[i]->getPath() != currentPath)
+        if((viewMode==ALL) && ( sessions[i]->getPath() != currentPath))
+        {
+            sessions[i]->hide();
+            continue;
+        }
+        if((viewMode==FAV) && (! sessions[i]->isFav()))
+        {
+            sessions[i]->hide();
+            continue;
+        }
+        if((viewMode==RUN) && (! (sessions[i]->getRunning() || sessions[i]->getSuspended())))
         {
             sessions[i]->hide();
             continue;
@@ -688,4 +763,31 @@ void SessionExplorer::deleteFolder(QString path)
 void SessionExplorer::setEnable(bool enable)
 {
     backButton->setEnabled(enable);
+}
+
+void SessionExplorer::slotShowAll()
+{
+    viewMode=ALL;
+    allButton->setFlat(true);
+    runButton->setFlat(false);
+    favButton->setFlat(false);
+    updateView();
+}
+
+void SessionExplorer::slotShowRun()
+{
+    viewMode=RUN;
+    allButton->setFlat(false);
+    runButton->setFlat(true);
+    favButton->setFlat(false);
+    updateView();
+}
+
+void SessionExplorer::slotShowFav()
+{
+    viewMode=FAV;
+    allButton->setFlat(false);
+    runButton->setFlat(false);
+    favButton->setFlat(true);
+    updateView();
 }

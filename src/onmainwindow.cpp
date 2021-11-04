@@ -840,6 +840,7 @@ void ONMainWindow::initWidgetsNormal()
 
 
     users=new QScrollArea ( fr );
+    vblay->addLayout(sessionExplorer->getSelectLayout());
     vblay->addLayout(sessionExplorer->getNavigationLayout());
     vblay->addWidget(users);
 

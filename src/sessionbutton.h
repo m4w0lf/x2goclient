@@ -60,8 +60,22 @@ public:
     {
         return updated;
     }
+    bool isFav()
+    {
+        return fav;
+    }
+    int getRunning()
+    {
+        return running;
+    }
+    int getSuspended()
+    {
+        return suspended;
+    }
 
 private:
+    void setFav(bool fav);
+    bool getFavFromConfig();
     QString nameofSession;
     QString sid;
     QString path;
@@ -75,6 +89,7 @@ private:
     QLabel* cmdIcon;
     QLabel* server;
     QPushButton* editBut;
+    QPushButton* favButton;
     QLabel* geom;
     QMenu* sessMenu;
     QComboBox* geomBox;
@@ -88,6 +103,9 @@ private:
     bool published;
     bool editable;
     bool updated;
+    bool fav;
+    int running;
+    int suspended;
 
 private slots:
     void slotClicked();
@@ -99,11 +117,13 @@ private slots:
     void slotMenuHide();
     void slotShowMenu();
     void slotCreateSessionIcon();
+    void slotFavClick();
 signals:
     void sessionSelected ( SessionButton* );
     void signal_edit ( SessionButton* );
     void signal_remove ( SessionButton* );
     void clicked();
+    void favClicked();
 protected:
     virtual void mouseMoveEvent ( QMouseEvent * event );
     virtual void mousePressEvent ( QMouseEvent * event );
