@@ -58,7 +58,6 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
 
     setPalette(pal);
 
-
     updated=false;
     fav=false;
 
@@ -360,6 +359,7 @@ void SessionButton::redraw()
     updated=true;
     bool snd;
 
+    QStringList toolTip;
 
     X2goSettings *st;
 
@@ -380,6 +380,7 @@ void SessionButton::redraw()
         path=tails.join("/");
     }
 
+    toolTip<<path;
     QFontMetrics metr(sessName->font());
     nameofSession=name;
 
@@ -471,6 +472,7 @@ void SessionButton::redraw()
     published=st->setting()->value ( sid+"/published",
                                      false ).toBool();
 
+    toolTip<<uname+"@"+sv;
 
     cmdBox->clear();
     cmdBox->addItem ( "KDE" );
@@ -603,6 +605,7 @@ void SessionButton::redraw()
     cmdIcon->setPixmap ( cmdpix );
     cmd->setText ( command );
 
+    toolTip<<command;
 
     geomBox->clear();
     geomBox->addItem ( tr ( "fullscreen" ) );
@@ -699,6 +702,7 @@ void SessionButton::redraw()
     server->setMinimumSize ( server->sizeHint() );
     delete st;
     setFav(getFavFromConfig());
+    setToolTip(toolTip.join("\n"));
 }
 
 void SessionButton::mousePressEvent ( QMouseEvent * event )
