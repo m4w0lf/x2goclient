@@ -2857,11 +2857,31 @@ void ONMainWindow::slotSelectedFromList ( SessionButton* session )
     command=transAppName ( command );
     login->setText ( userName );
     x2goDebug << "Creating QPixmap with session icon: '" << sessIcon << "'.";
-    QPixmap pix ( sessIcon );
+    QPixmap* pix;
+
+    if (!brokerMode || sessIcon == iconsPath("/128x128/x2gosession.png"))
+        pix=new QPixmap( sessIcon );
+    else
+    {
+        pix=new QPixmap;
+        if(sessIcon.indexOf("file://")!=-1)
+        {
+            //load icon from file URL
+            pix->load(sessIcon.replace("file://",""));
+        }
+        else
+            pix->loadFromData(QByteArray::fromBase64(sessIcon.toLatin1()));
+        if(pix->isNull())
+        {
+            //loading icon has failed, load default icon
+            pix->load(iconsPath("/128x128/x2gosession.png"));
+        }
+    }
+
     if ( !miniMode )
     {
         fotoLabel->setPixmap (
-            pix.scaled ( 64,64,
+            pix->scaled ( 64,64,
                          Qt::IgnoreAspectRatio,
                          Qt::SmoothTransformation ) );
         fotoLabel->setFixedSize ( 64,64 );
@@ -2869,12 +2889,13 @@ void ONMainWindow::slotSelectedFromList ( SessionButton* session )
     else
     {
         fotoLabel->setPixmap (
-            pix.scaled ( 48,48,
+            pix->scaled ( 48,48,
                          Qt::IgnoreAspectRatio,
                          Qt::SmoothTransformation ) );
         fotoLabel->setFixedSize ( 48,48 );
     }
 
+    delete pix;
     if(currentKey.length()<=0)
     {
         currentKey=findSshKeyForServer(userName, server, sshPort);

@@ -30,6 +30,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - Set toolTip with detailed information for session button.
     - Show session path in session button in Favorite and Running views.
     - Improve synchronisation in broker mode.
+    - Fix loading HTTP icon in pass dialog in broker mode.
 
   [ Ryan Schmidt ]
   * New upstream version (4.1.2.3):
