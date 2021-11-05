@@ -102,7 +102,7 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
 
     pathLabel=new QLabel ( this );
     QFont lfnt=fnt;
-    lfnt.setWeight(QFont::Thin);
+    lfnt.setWeight(0);
     lfnt.setPointSize(lfnt.pointSize()-2);
     pathLabel->setFont(lfnt);
 
