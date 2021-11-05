@@ -3261,6 +3261,10 @@ void ONMainWindow::slotSshServerAuthError ( int error, QString sshMessage, SshMa
         activateWindow();
         raise();
     }
+    if(brokerMode && config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
+    {
+            brokerSyncTimer->start();
+    }
     QString errMsg;
     switch ( error )
     {
@@ -3395,10 +3399,11 @@ void ONMainWindow::slotSshUserAuthError ( QString error )
     slotShowPassForm();
     pass->setFocus();
     pass->selectAll();
-
-
-
     passForm->setEnabled ( true );
+    if(brokerMode && config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
+    {
+            brokerSyncTimer->start();
+    }
 }
 
 void ONMainWindow::slotSessEnter()
@@ -3803,6 +3808,21 @@ bool ONMainWindow::startSession ( const QString& sid, CONTYPE conType )
             host=suspendTerminateHostFromBroker;
         sshPort=config.sshport;
         x2goDebug<<"Server: "<<host;
+        if(host.indexOf("No servers available")!=-1)
+        {
+            x2goDebug<<"There are no available X2Go servers for this connection";
+            QMessageBox::critical (0l,tr("Error"),
+                               tr ("There are no available X2Go Servers for this connection. Please try again later or choose another session."), QMessageBox::Ok,
+                               QMessageBox::NoButton);
+
+            setEnabled(true);
+            passForm->setEnabled(true);
+            if(config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
+            {
+                brokerSyncTimer->start();
+            }
+            return false;
+        }
     }
     else if (embedMode)
     {
@@ -5450,6 +5470,13 @@ void ONMainWindow::slotRetSuspSess ( bool result, QString output,
     {
         slotResumeSess();
     }
+    else
+    {
+        if(brokerMode && config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
+        {
+            brokerSyncTimer->start();
+        }
+    }
 }
 
 
@@ -5546,6 +5573,11 @@ void ONMainWindow::slotRetTermSess ( bool result,  QString output,
     }
     if ( selectSessionDlg->isVisible() )
         selectSessionDlg->setEnabled ( true );
+    if(brokerMode && config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
+    {
+            brokerSyncTimer->start();
+    }
+
 }
 
 void ONMainWindow::slotRetResumeSess ( bool result,
