@@ -12885,7 +12885,7 @@ void ONMainWindow::initSelectSessDlg()
 
 
 
-    sOk->setEnabled ( true );
+    sOk->setEnabled (false);
     sCancel->setEnabled ( true );
     selectSessionDlg->setEnabled ( true );
     setEnabled ( true );
@@ -12943,7 +12943,6 @@ void ONMainWindow::initSelectSessDlg()
     bSusp->setPalette ( pal );
     bTerm->setPalette ( pal );
     sessTv->setFrameStyle ( QFrame::StyledPanel|QFrame::Plain );
-    sOk->setEnabled ( false );
     bSusp->setEnabled ( false );
     bTerm->setEnabled ( false );
     bShadow->setEnabled ( false );
