@@ -12499,6 +12499,7 @@ void ONMainWindow::initPassDlg()
     setWidgetStyle ( ok );
     cancel=new QPushButton ( tr ( "Cancel" ),passForm );
     setWidgetStyle ( cancel );
+    cancel->setShortcut (QKeySequence::Cancel);
     ok->hide();
     cancel->hide();
 
