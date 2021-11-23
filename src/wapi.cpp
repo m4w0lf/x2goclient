@@ -26,8 +26,11 @@
 #include <windows.h>
 #include <winerror.h>
 #include <sddl.h>
+#include <AccCtrl.h>
+#include <aclapi.h>
 #include "wapi.h"
 #include "x2gologdebug.h"
+
 
 
 long wapiSetFSWindow ( HWND hWnd, const QRect& desktopGeometry )
@@ -518,4 +521,72 @@ QString wapiGetUserName()
         return QString::null;
     return QString::fromUtf16 ( ( const ushort* ) infoBuf);
 }
+
+
+//copied this function from https://docs.microsoft.com/en-us/windows/win32/secauthz/modifying-the-acls-of-an-object-in-c--
+DWORD AddAceToObjectsSecurityDescriptor (
+    LPTSTR pszObjName,          // name of object
+    SE_OBJECT_TYPE ObjectType,  // type of object
+    LPTSTR pszTrustee,          // trustee for new ACE
+    TRUSTEE_FORM TrusteeForm,   // format of trustee structure
+    DWORD dwAccessRights,       // access mask for new ACE
+    ACCESS_MODE AccessMode,     // type of ACE
+    DWORD dwInheritance         // inheritance flags for new ACE
+)
+{
+    DWORD dwRes = 0;
+    PACL pOldDACL = NULL, pNewDACL = NULL;
+    PSECURITY_DESCRIPTOR pSD = NULL;
+    EXPLICIT_ACCESS ea;
+    if (NULL == pszObjName)
+        return ERROR_INVALID_PARAMETER;
+
+    // Get a pointer to the existing DACL.
+    dwRes = GetNamedSecurityInfo(pszObjName, ObjectType,
+                                 DACL_SECURITY_INFORMATION,
+                                 NULL, NULL, &pOldDACL, NULL, &pSD);
+    if (ERROR_SUCCESS != dwRes) {
+        goto Cleanup;
+    }
+    // Initialize an EXPLICIT_ACCESS structure for the new ACE.
+    ZeroMemory(&ea, sizeof(EXPLICIT_ACCESS));
+    ea.grfAccessPermissions = dwAccessRights;
+    ea.grfAccessMode = AccessMode;
+    ea.grfInheritance= dwInheritance;
+    ea.Trustee.TrusteeForm = TrusteeForm;
+    ea.Trustee.ptstrName = pszTrustee;
+    // Create a new ACL that merges the new ACE
+    // into the existing DACL.
+    dwRes = SetEntriesInAcl(1, &ea, pOldDACL, &pNewDACL);
+    if (ERROR_SUCCESS != dwRes)  {
+        goto Cleanup;
+    }
+
+    // Attach the new ACL as the object's DACL.
+    dwRes = SetNamedSecurityInfo(pszObjName, ObjectType,
+                                 DACL_SECURITY_INFORMATION,
+                                 NULL, NULL, pNewDACL, NULL);
+    if (ERROR_SUCCESS != dwRes)  {
+        goto Cleanup;
+    }
+Cleanup:
+    if(pSD != NULL)
+        LocalFree((HLOCAL) pSD);
+    if(pNewDACL != NULL)
+        LocalFree((HLOCAL) pNewDACL);
+    return dwRes;
+}
+
+void wapiSetFilePermissions(const QString& path)
+{
+    AddAceToObjectsSecurityDescriptor(
+        (wchar_t*) path.toStdWString().c_str(),
+        SE_FILE_OBJECT,
+        (wchar_t*) wapiGetUserName().toStdWString().c_str(),
+        TRUSTEE_IS_NAME,
+        ACCESS_SYSTEM_SECURITY | READ_CONTROL | WRITE_DAC | GENERIC_ALL,
+        GRANT_ACCESS,
+        CONTAINER_INHERIT_ACE);
+}
+
 #endif

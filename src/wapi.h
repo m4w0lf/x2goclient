@@ -75,7 +75,7 @@ long wapiSetFSWindow ( HWND hWnd, const QRect& desktopGeometry );
 void wapiRestoreWindow ( HWND hWnd, long style, const QRect& desktopGeometry );
 QString wapiGetDriveByLabel(const QString& label);
 QString wapiGetUserName();
-
+void wapiSetFilePermissions(const QString& path);
 
 #endif
 #endif

@@ -32,6 +32,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - Improve synchronisation in broker mode.
     - Fix loading HTTP icon in pass dialog in broker mode.
     - Replace QFont::Thin with 0 to keep compatibility with Qt4.
+    - Add special ACL for exported directories in Windows client.
 
   [ Ryan Schmidt ]
   * New upstream version (4.1.2.3):

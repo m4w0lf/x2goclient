@@ -9015,13 +9015,14 @@ void ONMainWindow::exportDefaultDirs()
             }
         }
         spoolDir=path;
+        QFile::setPermissions (
+            path,QFile::ReadOwner|QFile::WriteOwner|QFile::ExeOwner );
 #ifdef Q_OS_WIN
+        wapiSetFilePermissions(path);
         path=cygwinPath (
                  wapiShortFileName (
                      path ) );
 #endif
-        QFile::setPermissions (
-            path,QFile::ReadOwner|QFile::WriteOwner|QFile::ExeOwner );
 
         path+="__PRINT_SPOOL_";
         dirs+=path;
