@@ -12831,6 +12831,7 @@ void ONMainWindow::initSelectSessDlg()
     setWidgetStyle ( sOk );
     sCancel=new QPushButton ( tr ( "Cancel" ),selectSessionDlg );
     setWidgetStyle ( sCancel );
+    sCancel->setShortcut (QKeySequence::Cancel);
     bCancel=new QPushButton ( tr ( "Cancel" ),selectSessionDlg );
     setWidgetStyle ( bCancel );
 
