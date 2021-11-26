@@ -682,6 +682,7 @@ private:
 
 
     QLabel* selectSessionLabel;
+    QLabel* running_label;
     SessTreeView* sessTv;
 
     QLineEdit* desktopFilter;

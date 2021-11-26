@@ -5215,17 +5215,20 @@ void ONMainWindow::slotActivated ( const QModelIndex& index )
         {
             bSusp->setEnabled ( true );
             sOk->setEnabled ( false );
+            running_label->show ();
         }
         else
         {
             bSusp->setEnabled ( false );
             sOk->setEnabled ( true );
+            running_label->hide ();
         }
         bTerm->setEnabled ( true );
         if ( status==QString::null )
         {
             sOk->setEnabled ( false );
             bTerm->setEnabled ( false );
+            running_label->hide ();
         }
     }
     else
@@ -5482,7 +5485,7 @@ void ONMainWindow::slotRetSuspSess ( bool result, QString output,
                       Qt::DisplayRole );
             bSusp->setEnabled ( false );
             sOk->setEnabled ( true );
-
+            running_label->hide ();
         }
     }
     if ( selectSessionDlg->isVisible() )
@@ -12820,6 +12823,10 @@ void ONMainWindow::initSelectSessDlg()
     selectSessionDlg->setFont ( fnt );
     selectSessionLabel=new QLabel ( tr ( "Select session:" ),
                                     selectSessionDlg );
+    running_label = new QLabel (tr ("<b>Note:</b> the currently selected session "
+                                     "is already running.<br />To forcefully "
+                                     "resume it, suspend it first."),
+                                 selectSessionDlg);
     sOk=new QPushButton ( tr ( "Resume" ),selectSessionDlg );
     setWidgetStyle ( sOk );
     sCancel=new QPushButton ( tr ( "Cancel" ),selectSessionDlg );
@@ -12947,6 +12954,7 @@ void ONMainWindow::initSelectSessDlg()
     bTerm->setEnabled ( false );
     bShadow->setEnabled ( false );
     selectSessionLabel->hide();
+    running_label->hide ();
     bCancel->setPalette ( pal );
     bCancel->hide();
 
@@ -12969,6 +12977,9 @@ void ONMainWindow::initSelectSessDlg()
     layout->addWidget ( selectSessionLabel );
     layout->addLayout ( filterLay );
     layout->addLayout ( tvlay );
+    layout->addStretch ();
+    layout->addWidget (running_label);
+    layout->addStretch ();
     layout->addLayout ( blay );
 
     filterLay->addWidget ( desktopFilter );
