@@ -97,6 +97,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       Grenzflächenforschung Potsdam.
     - src/onmainwindow.cpp: add Cancel standard shortcut to cancel button in
       session selection view.
+    - src/onmainwindow.cpp: set word wrapping on running label.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:

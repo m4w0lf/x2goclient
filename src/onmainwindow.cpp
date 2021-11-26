@@ -12827,6 +12827,7 @@ void ONMainWindow::initSelectSessDlg()
                                      "is already running.<br />To forcefully "
                                      "resume it, suspend it first."),
                                  selectSessionDlg);
+    running_label->setWordWrap (true);
     sOk=new QPushButton ( tr ( "Resume" ),selectSessionDlg );
     setWidgetStyle ( sOk );
     sCancel=new QPushButton ( tr ( "Cancel" ),selectSessionDlg );
