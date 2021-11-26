@@ -12797,7 +12797,7 @@ void ONMainWindow::initSelectSessDlg()
     if ( !miniMode )
         selectSessionDlg->setFixedSize ( selectSessionDlg->sizeHint() );
     else
-        selectSessionDlg->setFixedSize ( 310,180 );
+        selectSessionDlg->setFixedSize ( 310,240 );
     QPalette pal=selectSessionDlg->palette();
     pal.setBrush ( QPalette::Window, QColor ( 255,255,255,0 ) );
     pal.setColor ( QPalette::Active, QPalette::WindowText, QPalette::Mid );

@@ -98,6 +98,8 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - src/onmainwindow.cpp: add Cancel standard shortcut to cancel button in
       session selection view.
     - src/onmainwindow.cpp: set word wrapping on running label.
+    - src/onmainwindow.cpp: increase height of session selection dialog in
+      mini mode.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:
