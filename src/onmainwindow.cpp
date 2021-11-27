@@ -12506,7 +12506,12 @@ void ONMainWindow::initPassDlg()
     cancel->setShortcut (QKeySequence::Cancel);
 #else /* QT_VERSION >= QT_VERSION_CHECK(5, 6, 0) */
 #ifdef Q_OS_DARWIN
-    cancel->setShortCuts (QList<QKeySequence> { Qt::Key_Escape, Qt::CTRL + Qt::Key_Period });
+    QAction *cancel_action = new QAction (passForm);
+    QList<QKeySequence> tmp_shortcuts;
+    tmp_shortcuts << Qt::Key_Escape << (Qt::CTRL + Qt::Key_Period);
+    cancel_action->setShortcuts (tmp_shortcuts);
+    connect (cancel_action, SIGNAL (triggered ()), cancel, SLOT (animateClick ()));
+    cancel->addAction (cancel_action);
 #else /* defined (Q_OS_DARWIN) */
     cancel->setShortcut (QKeySequence (Qt::Key_Escape));
 #endif /* defined (Q_OS_DARWIN) */
@@ -12847,7 +12852,12 @@ void ONMainWindow::initSelectSessDlg()
     sCancel->setShortcut (QKeySequence::Cancel);
 #else /* QT_VERSION >= QT_VERSION_CHECK(5, 6, 0) */
 #ifdef Q_OS_DARWIN
-    sCancel->setShortCuts (QList<QKeySequence> { Qt::Key_Escape, Qt::CTRL + Qt::Key_Period });
+    QAction *cancel_action = new QAction (selectSessionDlg);
+    QList<QKeySequence> tmp_shortcuts;
+    tmp_shortcuts << Qt::Key_Escape << (Qt::CTRL + Qt::Key_Period);
+    cancel_action->setShortcuts (tmp_shortcuts);
+    connect (cancel_action, SIGNAL (triggered ()), sCancel, SLOT (animateClick ()));
+    sCancel->addAction (cancel_action);
 #else /* defined (Q_OS_DARWIN) */
     sCancel->setShortcut (QKeySequence (Qt::Key_Escape));
 #endif /* defined (Q_OS_DARWIN) */

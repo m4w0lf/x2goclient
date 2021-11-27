@@ -103,6 +103,11 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - src/onmainwindow.cpp: increase fixed height of session selection dialog
       in normal mode and also set as minimum height.
     - src/onmainwindow.cpp: unbreak on Qt 4 by emulating QKeySequence::Cancel.
+    - src/onmainwindow.cpp: unbreak more and make sure that the code actually
+      works on older systems. A very important part of the magic is using the
+      old Qt4 SIGNAL/SLOT syntax and making sure to drop parameters on both
+      sides, so that the default slot parameter is used, which animates the
+      button for 150 ms.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:
