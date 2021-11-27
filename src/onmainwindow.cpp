@@ -12794,8 +12794,11 @@ void ONMainWindow::initSelectSessDlg()
                                       false,bgFrame );
     username->addWidget ( selectSessionDlg );
     setWidgetStyle ( selectSessionDlg );
-    if ( !miniMode )
-        selectSessionDlg->setFixedSize ( selectSessionDlg->sizeHint() );
+    if ( !miniMode ) {
+        QSize hint_size = selectSessionDlg->sizeHint ();
+        selectSessionDlg->setMinimumSize (QSize (hint_size.width (), (hint_size.height () + 100)));
+        selectSessionDlg->setFixedSize (selectSessionDlg->minimumSize ());
+    }
     else
         selectSessionDlg->setFixedSize ( 310,240 );
     QPalette pal=selectSessionDlg->palette();
