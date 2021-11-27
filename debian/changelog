@@ -102,6 +102,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       mini mode.
     - src/onmainwindow.cpp: increase fixed height of session selection dialog
       in normal mode and also set as minimum height.
+    - src/onmainwindow.cpp: unbreak on Qt 4 by emulating QKeySequence::Cancel.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:

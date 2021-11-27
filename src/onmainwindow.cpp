@@ -12502,7 +12502,15 @@ void ONMainWindow::initPassDlg()
     setWidgetStyle ( ok );
     cancel=new QPushButton ( tr ( "Cancel" ),passForm );
     setWidgetStyle ( cancel );
+#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
     cancel->setShortcut (QKeySequence::Cancel);
+#else /* QT_VERSION >= QT_VERSION_CHECK(5, 6, 0) */
+#ifdef Q_OS_DARWIN
+    cancel->setShortCuts (QList<QKeySequence> { Qt::Key_Escape, Qt::CTRL + Qt::Key_Period });
+#else /* defined (Q_OS_DARWIN) */
+    cancel->setShortcut (QKeySequence (Qt::Key_Escape));
+#endif /* defined (Q_OS_DARWIN) */
+#endif /* QT_VERSION >= QT_VERSION_CHECK(5, 6, 0) */
     ok->hide();
     cancel->hide();
 
@@ -12835,7 +12843,15 @@ void ONMainWindow::initSelectSessDlg()
     setWidgetStyle ( sOk );
     sCancel=new QPushButton ( tr ( "Cancel" ),selectSessionDlg );
     setWidgetStyle ( sCancel );
+#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
     sCancel->setShortcut (QKeySequence::Cancel);
+#else /* QT_VERSION >= QT_VERSION_CHECK(5, 6, 0) */
+#ifdef Q_OS_DARWIN
+    sCancel->setShortCuts (QList<QKeySequence> { Qt::Key_Escape, Qt::CTRL + Qt::Key_Period });
+#else /* defined (Q_OS_DARWIN) */
+    sCancel->setShortcut (QKeySequence (Qt::Key_Escape));
+#endif /* defined (Q_OS_DARWIN) */
+#endif /* QT_VERSION >= QT_VERSION_CHECK(5, 6, 0) */
     bCancel=new QPushButton ( tr ( "Cancel" ),selectSessionDlg );
     setWidgetStyle ( bCancel );
 
