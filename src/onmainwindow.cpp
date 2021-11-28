@@ -3725,7 +3725,7 @@ void ONMainWindow::startDirectRDP()
     resumingSession.sessionId += "_stRRDP_dp24";
     resumingSession.display="RDP";
     resumingSession.command="RDP";
-    resumingSession.crTime=QDateTime::currentDateTime().toString("dd.MM.yy HH:mm:ss");
+    resumingSession.crTime=QDateTime::currentDateTime().toString(Qt::ISODate);
     showSessionStatus();
     if(brokerMode)
     {
@@ -5777,7 +5777,7 @@ void ONMainWindow::slotRetResumeSess ( bool result,
         }
         resumingSession.server=host;
         resumingSession.crTime=QDateTime::currentDateTime().toString (
-                                   "dd.MM.yy HH:mm:ss" );
+                                   Qt::ISODate );
         if ( managedMode )
         {
             //replace session data for future resuming
@@ -7169,9 +7169,7 @@ void ONMainWindow::setStatStatus ( QString status )
         statusLabel->setText ( QString::null );
     if ( resumingSession.sessionId!=QString::null )
     {
-        QString f="dd.MM.yy HH:mm:ss";
-        QDateTime dt=QDateTime::fromString ( resumingSession.crTime,f );
-        dt=dt.addYears ( 100 );
+        QDateTime dt=QDateTime::fromString ( resumingSession.crTime, Qt::ISODate );
         tstr=dt.toString();
     }
     if ( !embedMode || !proxyWinEmbedded )

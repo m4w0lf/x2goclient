@@ -108,6 +108,10 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       old Qt4 SIGNAL/SLOT syntax and making sure to drop parameters on both
       sides, so that the default slot parameter is used, which animates the
       button for 150 ms.
+    - src/onmainwindow.cpp: fix session creation date/time display. The data
+      returned by the server was changed to an ISO-date-formatted one in 2011,
+      but that change was not carried over to the client. We've had silly
+      dates for more than 10 years and nobody noticed. Go figure.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:
