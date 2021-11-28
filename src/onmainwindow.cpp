@@ -5094,7 +5094,8 @@ void ONMainWindow::selectSession ( QStringList& sessions )
             item= new QStandardItem ( type );
             model->setItem ( row,S_TYPE,item );
 
-            item= new QStandardItem ( s.crTime );
+            QString formatted_time = QDateTime::fromString (s.crTime, Qt::ISODate).toString ();
+            item = new QStandardItem (formatted_time);
             model->setItem ( row,S_CRTIME,item );
             item= new QStandardItem ( s.server );
             model->setItem ( row,S_SERVER,item );
