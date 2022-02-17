@@ -4204,6 +4204,10 @@ x2goSession ONMainWindow::getSessionFromString ( const QString& string )
         {
             s.sessionType=x2goSession::KDRIVE;
         }
+        if ( st=='A')
+        {
+            s.sessionType=x2goSession::ROOTLESSKDRIVE;
+        }
         QString command=cmdinfo.mid ( 1 );
         if ( command.length() >0 )
             s.command=command;
@@ -4632,6 +4636,10 @@ void ONMainWindow::startNewSession()
     }
     if(kdrive)
         sessTypeStr="K ";
+    if((rootless||resumingSession.published) && kdrive)
+    {
+        sessTypeStr="A ";
+    }
     QString dpiEnv;
     QString xdmcpEnv;
     QString xinerama_env = "X2GO_XINERAMA=";
@@ -4844,12 +4852,12 @@ void ONMainWindow::resumeSession ( const x2goSession& s )
         xorgMode=SAPP;
     xorgWidth=QString::number(width);
     xorgHeight=QString::number(height);
-    if(s.sessionType == x2goSession::KDRIVE)
+    if(s.sessionType == x2goSession::KDRIVE || s.sessionType == x2goSession::ROOTLESSKDRIVE)
     {
         x2goDebug<<"KDRIVE session, don't start X-Server";
         slotSetWinServersReady();
     }
-    if (! startXorgOnStart  && (s.sessionType != x2goSession::KDRIVE))
+    if (! startXorgOnStart  && (s.sessionType != x2goSession::KDRIVE) && (s.sessionType != x2goSession::ROOTLESSKDRIVE))
         startXOrg();
 // #endif
 #else /* defined (Q_OS_WIN) */
@@ -4917,7 +4925,7 @@ void ONMainWindow::resumeSession ( const x2goSession& s )
     type="query";
 #endif
 
-    if (s.sessionId.indexOf("RPUBLISHED")!=-1)
+    if (s.sessionId.indexOf("RPUBLISHED")!=-1 || s.sessionId.indexOf("APUBLISHED")!=-1)
     {
         resumingSession.published=true;
         sbApps->setDisabled(true);
@@ -5089,6 +5097,8 @@ void ONMainWindow::selectSession ( QStringList& sessions )
                 type=tr ( "shadow session" );
             if ( s.sessionType==x2goSession::KDRIVE )
                 type=tr ( "X2GoKDrive session" );
+            if ( s.sessionType==x2goSession::ROOTLESSKDRIVE )
+                type=tr ( "X2GoKDrive single application" );
 
 
             item= new QStandardItem ( type );
@@ -5646,6 +5656,7 @@ void ONMainWindow::slotRetResumeSess ( bool result,
 
     bool sound=true;
     bool kdrive=false;
+    bool rootless=false;
     int sndSystem=PULSE;
     QString sndPort;
 #if !defined (Q_OS_WIN) && !defined (Q_OS_DARWIN)
@@ -5686,6 +5697,10 @@ void ONMainWindow::slotRetResumeSess ( bool result,
 
         kdrive=st->setting()->value ( sid+"/kdrive",
                                      ( QVariant ) false ).toBool();
+
+        rootless=st->setting()->value ( sid+"/rootless",
+                                     ( QVariant ) false ).toBool();
+
         sound=st->setting()->value ( sid+"/sound",
                                      ( QVariant ) true ).toBool();
         QString sndsys=st->setting()->value (
@@ -5776,6 +5791,10 @@ void ONMainWindow::slotRetResumeSess ( bool result,
         {
             resumingSession.sessionType=x2goSession::KDRIVE;
         }
+        if(kdrive&&(rootless||resumingSession.published))
+        {
+            resumingSession.sessionType=x2goSession::ROOTLESSKDRIVE;
+        }
         resumingSession.server=host;
         resumingSession.crTime=QDateTime::currentDateTime().toString (
                                    Qt::ISODate );
@@ -5809,7 +5828,7 @@ void ONMainWindow::slotRetResumeSess ( bool result,
     else
     {
 
-        if(resumingSession.sessionType==x2goSession::KDRIVE)
+        if(resumingSession.sessionType==x2goSession::KDRIVE||resumingSession.sessionType==x2goSession::ROOTLESSKDRIVE)
         {
             qDebug()<<"resuming kdrive session";
         }
@@ -6150,7 +6169,7 @@ void ONMainWindow::slotTunnelOk(int)
     xmodExecuted=false;
 
 
-    qDebug()<<"RESUMING SESSION is KDRIVE: "<<(resumingSession.sessionType== x2goSession::KDRIVE);
+    qDebug()<<"RESUMING SESSION is KDRIVE: "<<((resumingSession.sessionType== x2goSession::KDRIVE)||(resumingSession.sessionType== x2goSession::ROOTLESSKDRIVE));
 
     nxproxy=new QProcess;
     proxyErrString="";
@@ -6177,7 +6196,7 @@ void ONMainWindow::slotTunnelOk(int)
     // the provided one.
 
     QString disp="0";
-    if(resumingSession.sessionType!= x2goSession::KDRIVE)
+    if(resumingSession.sessionType!= x2goSession::KDRIVE && resumingSession.sessionType!= x2goSession::ROOTLESSKDRIVE)
     {
         disp=getXDisplay();
         if ( disp==QString::null )
@@ -6248,7 +6267,7 @@ void ONMainWindow::slotTunnelOk(int)
 #endif //Q_OS_DARWIN
 
 
-    if(resumingSession.sessionType==x2goSession::KDRIVE)
+    if(resumingSession.sessionType==x2goSession::KDRIVE || resumingSession.sessionType==x2goSession::ROOTLESSKDRIVE)
     {
         bool randr=false;
         bool fs=false;
@@ -6312,6 +6331,10 @@ void ONMainWindow::slotTunnelOk(int)
         }
         options<<"--connect"<<"localhost"<<"--port"<<localGraphicPort<<"--title"<<resumingSession.sessionId<<"-S"<<"nx/nx,options="+dirpath+
         "/options:"+resumingSession.display<<"--selection"<<clipboard;
+        if(resumingSession.sessionType==x2goSession::ROOTLESSKDRIVE)
+        {
+            options << "--rootless";
+        }
         if(randr)
         {
             options<<"--randr";
@@ -6349,7 +6372,9 @@ void ONMainWindow::slotTunnelOk(int)
 #ifdef Q_OS_WIN
     if (xorgMode==WIN) {
 #endif
-        proxyWinTimer->start ( 300 );
+//don't search proxy for kdrive sessions
+        if(!(resumingSession.sessionType==x2goSession::KDRIVE || resumingSession.sessionType==x2goSession::ROOTLESSKDRIVE))
+            proxyWinTimer->start ( 300 );
 #ifdef Q_OS_WIN
     }
 #endif
@@ -11879,7 +11904,7 @@ void ONMainWindow::slotFindProxyWin()
 
         setProxyWinTitle();
         proxyWinTimer->stop();
-        if (!embedMode && !(resumingSession.sessionType==x2goSession::KDRIVE))
+        if (!embedMode && !(resumingSession.sessionType==x2goSession::KDRIVE) && !(resumingSession.sessionType==x2goSession::ROOTLESSKDRIVE))
         {
             if (!useLdap)
             {
@@ -11947,7 +11972,7 @@ void ONMainWindow::slotFindProxyWin()
 #ifdef Q_OS_WIN
         x2goDebug<<"Maximize proxy window: "<<maximizeProxyWin;
 
-        if ( !startEmbedded &&!(resumingSession.sessionType==x2goSession::KDRIVE))
+        if ( !startEmbedded &&!(resumingSession.sessionType==x2goSession::KDRIVE)&&!(resumingSession.sessionType==x2goSession::ROOTLESSKDRIVE))
         {
             if ( maximizeProxyWin )
             {

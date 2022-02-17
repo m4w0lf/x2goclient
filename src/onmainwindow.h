@@ -152,7 +152,7 @@ struct x2goSession
     bool published;
     int colorDepth;
     bool fullscreen;
-    enum {DESKTOP,ROOTLESS,SHADOW, KDRIVE} sessionType;
+    enum {DESKTOP,ROOTLESS,SHADOW, KDRIVE, ROOTLESSKDRIVE} sessionType;
     QString command;
     void operator = ( const x2goSession& s );
 };
