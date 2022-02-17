@@ -31,7 +31,9 @@
 #include "wapi.h"
 #include "x2gologdebug.h"
 
-
+#if QT_VERSION > 0x050000
+#include <QtWin>
+#endif
 
 long wapiSetFSWindow ( HWND hWnd, const QRect& desktopGeometry )
 {
@@ -224,9 +226,13 @@ void wapiSetWindowIcon ( HWND wnd, const QPixmap& icon)
     HICON largeIcon=0;
     HICON smallIcon=0;
 
+#if QT_VERSION > 0x050000
+    largeIcon=QtWin::toHICON(icon.scaled(iconx,icony, Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
+    smallIcon=QtWin::toHICON(icon.scaled(smallx,smally, Qt::IgnoreAspectRatio,Qt::SmoothTransformation));
+#else
     largeIcon=icon.scaled(iconx,icony, Qt::IgnoreAspectRatio,Qt::SmoothTransformation).toWinHICON ();
     smallIcon=icon.scaled(smallx,smally, Qt::IgnoreAspectRatio,Qt::SmoothTransformation).toWinHICON ();
-
+#endif
     x2goDebug<<"Large icon: "<<largeIcon<<iconx<<"x"<<icony;
     x2goDebug<<"Small icon: "<<smallIcon<<smallx<<"x"<<smally;
     int rez=SetClassLong(wnd,GCL_HICON, (LONG)largeIcon);
