@@ -35,6 +35,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - Add special ACL for exported directories in Windows client.
     - Support for rootless X2GoKdrive sessions.
     - Fixed build with Qt5 on Windows.
+    - Do not show empty folders in session explorer.
 
   [ Ryan Schmidt ]
   * New upstream version (4.1.2.3):

@@ -407,7 +407,7 @@ void SessionExplorer::placeButtons()
             folders[i]->hide();
             continue;
         }
-        if((folders[i]->getPath() != currentPath)||(getFolderChildren(folders[i]).length()<=0))
+        if((folders[i]->getPath() != currentPath)||(getFolderChildren(folders[i]).length()<=0) || isFolderEmpty(folders[i]))
         {
             folders[i]->hide();
             continue;
@@ -494,6 +494,26 @@ void SessionExplorer::placeButtons()
     if(getFolderChildren(folders[id]).length()<=0)
         slotLevelUp();
 }
+
+//Folder is not empty if it has sessions or not empty subfdolders
+bool SessionExplorer::isFolderEmpty(FolderButton* folder)
+{
+    QString normPath=(folder->getPath()+"/"+folder->getName()).split("/",QString::SkipEmptyParts).join("/");
+    for(int i=0; i<folders.count(); ++i)
+    {
+        if(folders[i]->getPath()==normPath)
+            if(! isFolderEmpty(folders[i]))
+                return false;
+    }
+
+    for(int i=0; i<sessions.count(); ++i)
+    {
+        if(sessions[i]->getPath()==normPath)
+            return false;
+    }
+    return true;
+}
+
 
 QStringList SessionExplorer::getFolderChildren(FolderButton* folder)
 {

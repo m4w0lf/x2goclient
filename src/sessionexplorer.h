@@ -108,6 +108,7 @@ private:
     void getFoldersFromConfig();
     SessionButton* findSession( const QString& id);
     void checkPath(SessionButton* s);
+    bool isFolderEmpty(FolderButton* folder);
 
 public slots:
     void slotDeleteButton ( SessionButton * bt );
