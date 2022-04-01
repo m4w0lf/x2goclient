@@ -820,6 +820,8 @@ void HttpBrokerClient::parseSession(QString sinfo)
     int keyStartPos=sinfo.indexOf("-----BEGIN DSA PRIVATE KEY-----");
     if(keyStartPos==-1)
         keyStartPos=sinfo.indexOf("-----BEGIN RSA PRIVATE KEY-----");
+    if(keyStartPos==-1)
+        keyStartPos=sinfo.indexOf("-----BEGIN OPENSSH PRIVATE KEY-----");
     QString endStr="-----END DSA PRIVATE KEY-----";
     int keyEndPos=sinfo.indexOf(endStr);
     if(keyEndPos==-1)
@@ -827,8 +829,16 @@ void HttpBrokerClient::parseSession(QString sinfo)
         endStr="-----END RSA PRIVATE KEY-----";
         keyEndPos=sinfo.indexOf(endStr);
     }
+    if(keyEndPos==-1)
+    {
+        endStr="-----END OPENSSH PRIVATE KEY-----";
+        keyEndPos=sinfo.indexOf(endStr);
+    }
     if (! (keyEndPos == -1 || keyStartPos == -1 || lst.size()==0))
+    {
+        x2goDebug<<"Found key for authentication";
         config->key=sinfo.mid(keyStartPos, keyEndPos+endStr.length()-keyStartPos);
+    }
     QString serverLine=(lst[1].split("\n"))[0];
     QStringList words=serverLine.split(":",QString::SkipEmptyParts);
     config->serverIp=words[0];

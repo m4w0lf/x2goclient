@@ -36,6 +36,8 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - Support for rootless X2GoKdrive sessions.
     - Fixed build with Qt5 on Windows.
     - Do not show empty folders in session explorer.
+    - Support for OPENSSH PRIVATE KEY format sent from broker.
+    - Do not show client in broker mode if startet in "hidden" mode.
 
   [ Ryan Schmidt ]
   * New upstream version (4.1.2.3):

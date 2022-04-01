@@ -2951,7 +2951,7 @@ void ONMainWindow::slotSelectedFromList ( SessionButton* session )
         slotSessEnter();
         return;
     }
-    if ( startHidden && nopass==false )
+    if ( startHidden && nopass==false && (!brokerMode) )
     {
         startHidden=false;
         slotResize();
@@ -12131,7 +12131,8 @@ void ONMainWindow::processSessionConfig()
         line.remove(QRegExp("\\s+$"));
 
         if ( ( line=="-----BEGIN DSA PRIVATE KEY-----" ) ||
-                ( line=="-----BEGIN RSA PRIVATE KEY-----" ) )
+                ( line=="-----BEGIN RSA PRIVATE KEY-----" ) ||
+                ( line=="-----BEGIN OPENSSH PRIVATE KEY-----" ))
         {
             while ( i<lines.count() )
                 config.key+=lines[i++] +"\n";
