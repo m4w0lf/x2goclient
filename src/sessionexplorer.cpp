@@ -791,6 +791,9 @@ void SessionExplorer::deleteFolder(QString path)
 void SessionExplorer::setEnable(bool enable)
 {
     backButton->setEnabled(enable);
+    runButton->setEnabled(enable);
+    favButton->setEnabled(enable);
+    allButton->setEnabled(enable);
 }
 
 void SessionExplorer::slotShowAll()
