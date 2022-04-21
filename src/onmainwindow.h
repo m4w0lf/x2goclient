@@ -80,6 +80,7 @@ class InteractionDialog;
 class QNetworkAccessManager;
 class QNetworkReply;
 class SessionExplorer;
+class QSplashScreen;
 struct user
 {
     int uin;
@@ -600,6 +601,8 @@ private:
     bool startMaximized;
     bool closeDisconnect;
     bool startHidden;
+    QString splashPix;
+    QSplashScreen* splash;
     bool keepTrayIcon;
     bool hideFolderSharing;
     bool brokerNoauthWithSessionUsername;
@@ -943,6 +946,8 @@ private:
     QString suspendTerminateSessionFromBroker;
 
     void initUI();
+    void initSplash();
+    void destroySplash();
     void sendEventToBroker(client_events ev);
     void suspendFromBroker(const QString& sid);
     void terminateFromBroker(const QString& sid);

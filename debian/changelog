@@ -39,6 +39,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - Support for OPENSSH PRIVATE KEY format sent from broker.
     - Do not show client in broker mode if startet in "hidden" mode.
     - Enable/Disable session view buttons inside of sessions explorer.
+    - Add splash screen option when starting in hidden mode.
 
   [ Ryan Schmidt ]
   * New upstream version (4.1.2.3):

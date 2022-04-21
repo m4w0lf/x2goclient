@@ -136,6 +136,7 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
     changeBrokerPass=false;
     resumeAfterSuspending=false;
     forceToShowTrayicon=false;
+    splash=0;
 
     /* Initialize at least these variables before they get filled via loadSettings()
      * They have to be initialized as they are used in closeEvent() and closeClient()...
@@ -284,6 +285,32 @@ ONMainWindow::~ONMainWindow()
     x2goDebug<<"Finished destructor hooks for X2Go Client's main window.";
 }
 
+void ONMainWindow::initSplash()
+{
+    if(!startHidden)
+        return;
+    if(splashPix.length()<1)
+        return;
+    QPixmap px(splashPix);
+    if(px.isNull())
+    {
+        x2goDebug<<"Can't load "<<splashPix<<" not showing splash screen";
+        return;
+    }
+    splash=new QSplashScreen(px,  Qt::WindowStaysOnTopHint);
+    splash->show();
+}
+
+void ONMainWindow::destroySplash()
+{
+    if(splash)
+    {
+        splash->close();
+        delete splash;
+        splash=0;
+    }
+}
+
 
 void ONMainWindow::initUI()
 {
@@ -299,6 +326,8 @@ void ONMainWindow::initUI()
         setWindowTitle ( "X2Go Client - U3" );
     }
 #endif
+
+    initSplash();
 
     if ( ONMainWindow::portable )
     {
@@ -1138,6 +1167,10 @@ void ONMainWindow::setBrokerStatus(const QString& text, bool error)
         p.setColor(QPalette::WindowText, QColor(22,103,39));
     statusBar()->setPalette(p);
     statusBar()->showMessage(text);
+    if(splash)
+    {
+        splash->showMessage(text, Qt::AlignLeft|Qt::AlignBottom, Qt::white);
+    }
 }
 
 
@@ -1425,6 +1458,7 @@ void ONMainWindow::slotResize ( const QSize sz )
 
 void ONMainWindow::closeClient()
 {
+    destroySplash();
     x2goInfof(6)<<tr("Closing X2Go Client ...");
     if(trayIcon)
         trayIcon->hide();
@@ -2394,6 +2428,7 @@ void ONMainWindow::slotReadSessions()
     if ( !defaultSession&& startHidden )
     {
         startHidden=false;
+        destroySplash();
         slotResize();
         show();
         activateWindow();
@@ -2455,6 +2490,7 @@ void ONMainWindow::slotReadSessions()
         if ( !sfound && startHidden )
         {
             startHidden=false;
+            destroySplash();
             slotResize();
             show();
             activateWindow();
@@ -2954,6 +2990,7 @@ void ONMainWindow::slotSelectedFromList ( SessionButton* session )
     if ( startHidden && nopass==false && (!brokerMode) )
     {
         startHidden=false;
+        destroySplash();
         slotResize();
         show();
         activateWindow();
@@ -3277,6 +3314,7 @@ void ONMainWindow::slotSshServerAuthError ( int error, QString sshMessage, SshMa
     if ( startHidden )
     {
         startHidden=false;
+        destroySplash();
         slotResize();
         show();
         activateWindow();
@@ -6878,6 +6916,7 @@ void ONMainWindow::slotProxyStderr()
             sendEventToBroker(CONNECTED);
         }
         setStatStatus ( tr ( "running" ) );
+        destroySplash();
         if (trayEnabled)
         {
             if (!useLdap)
@@ -7263,6 +7302,10 @@ void ONMainWindow::setStatStatus ( QString status )
             }
         }
         sessionStatusDlg->hide();
+    }
+    if(splash)
+    {
+        splash->showMessage(status, Qt::AlignLeft|Qt::AlignBottom, Qt::white);
     }
 }
 
@@ -8154,6 +8197,11 @@ bool ONMainWindow::parseParameter ( QString param )
         brokerMode=true;
         noSessionEdit=true;
         config.brokerurl=value;
+        return true;
+    }
+    if( setting == "--splash")
+    {
+        splashPix=value;
         return true;
     }
     if ( setting == "--broker-cacertfile")

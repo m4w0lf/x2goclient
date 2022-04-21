@@ -168,7 +168,8 @@ help::params_t help::build_params () {
   ADD_OPT ("--broker-logoutbt", QT_TRANSLATE_NOOP ("Help", "Enables broker logout button."));
   ADD_OPT ("--background=<svg-file|dir>", QT_TRANSLATE_NOOP ("Help", "Use a custom/branded background image (SVG format) for X2Go Client's main window. If a directory is given, will randomly pick an SVG file inside of it."));
   ADD_OPT ("--branding=<svg-file>", QT_TRANSLATE_NOOP ("Help", "Use a custom icon (SVG format) for additional branding to replace the default in the lower left corner of X2Go Client's main window."));
-#if defined (Q_OS_WIN)
+  ADD_OPT ("--splash=<pixmap-file>", QT_TRANSLATE_NOOP ("Help", "Show splash screen if starting in hidden mode using specified pixmap file."));
+  #if defined (Q_OS_WIN)
   ADD_OPT ("--xserver-start-limit=<num>", QT_TRANSLATE_NOOP ("Help", "Limit the X.Org Server start count to at most <num> tries. Default: \"3\"." NEWLINE
                                                              "If <num> is zero or a negative number, no limit is imposed." NEWLINE
                                                              "The limits for <num> are platform dependent. If the passed value is out of bounds, X2Go Client falls back to the default value."));

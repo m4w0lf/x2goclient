@@ -40,7 +40,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QFile>
-
+#include <QSplashScreen>
 #include "httpbrokerclient.h"
 #include <QTimer>
 #include <QComboBox>
