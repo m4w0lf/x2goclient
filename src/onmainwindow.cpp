@@ -9043,6 +9043,7 @@ void ONMainWindow::exportDefaultDirs()
                     }
 #endif
 
+                    tails[0].replace("<HOME>",QDir::homePath());
                     if(!QFile::exists(tails[0]))
                     {
                         x2goDebug<<"Path "<<tails[0]<<" not found";
