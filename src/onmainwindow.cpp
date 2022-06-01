@@ -9046,8 +9046,13 @@ void ONMainWindow::exportDefaultDirs()
                     tails[0].replace("<HOME>",QDir::homePath());
                     if(!QFile::exists(tails[0]))
                     {
-                        x2goDebug<<"Path "<<tails[0]<<" not found";
-                        continue;
+                        x2goDebug<<"Path "<<tails[0]<<" not found, trying to create it";
+                        QDir dr;
+                        if(!dr.mkpath(tails[0]))
+                        {
+                            x2goDebug<<"Failed to create "<<tails[0];
+                            continue;
+                        }
                     }
 
 #ifdef Q_OS_WIN

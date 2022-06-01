@@ -42,6 +42,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - Add splash screen option when starting in hidden mode.
     - replace <HOME> with user's home dir in exports directories,
       when exporting session default directories.
+    - create default export directory if not exists.
 
   [ Ryan Schmidt ]
   * New upstream version (4.1.2.3):
