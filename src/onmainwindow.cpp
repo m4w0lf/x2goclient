@@ -4306,6 +4306,13 @@ void ONMainWindow::sendEventToBroker(ONMainWindow::client_events ev)
             break;
         }
     }
+    QString sid=sessionExplorer->getLastSession()->id();
+    X2goSettings st(config.iniFile, QSettings::IniFormat);
+    if(st.setting()->value ( sid+"/command", ( QVariant ) defaultCmd ).toString()=="XDMCP")
+    {
+        resumingSession.command="XDMCP-"+st.setting()->value ( sid+"/xdmcpserver").toString();
+    }
+
     broker->sendEvent(event, resumingSession.sessionId,resumingSession.server, resumingSession.clientIp, getCurrentUname(),
                       resumingSession.command, resumingSession.display, resumingSession.crTime,
                       QDateTime::currentDateTime().toTime_t()-resumingSession.connectedSince);
