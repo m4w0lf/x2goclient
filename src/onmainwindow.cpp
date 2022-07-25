@@ -4260,10 +4260,6 @@ void ONMainWindow::sendEventToBroker(ONMainWindow::client_events ev)
     {
         return;
     }
-    if(ev <= lastBrokerEvent && resumingSession.sessionId == lastBrokerEventSession && ev != ALIVE)
-    {
-        return;
-    }
     if(ev!=ALIVE)
         lastBrokerEvent=ev;
     lastBrokerEventSession=resumingSession.sessionId;
@@ -4281,7 +4277,9 @@ void ONMainWindow::sendEventToBroker(ONMainWindow::client_events ev)
             event="CONNECTED";
             resumingSession.connectedSince=QDateTime::currentDateTime().toTime_t();
             if(config.brokerLiveEventsTimeout)
+            {
                 brokerAliveTimer->start(config.brokerLiveEventsTimeout*1000);
+            }
             break;
         }
         case SUSPENDING:
@@ -6893,14 +6891,14 @@ void ONMainWindow::slotProxyStderr()
 
     stInfo->insertPlainText ( reserr );
     stInfo->ensureCursorVisible();
-    if ( stInfo->toPlainText().indexOf (
+    if ( reserr.indexOf (
         "Connecting to remote host 'localhost:"+
         /*resumingSession.grPort*/ localGraphicPort ) !=-1 )
     {
         setStatStatus ( tr ( "connecting" ) );
     }
 
-    if ( stInfo->toPlainText().indexOf (
+    if ( reserr.indexOf (
                 "Connection to remote proxy 'localhost:"+
                 /*resumingSession.grPort*/
                 localGraphicPort+"' established" ) !=-1 )
@@ -6915,7 +6913,7 @@ void ONMainWindow::slotProxyStderr()
         }
     }
 
-    if ( stInfo->toPlainText().indexOf (
+    if ( reserr.indexOf (
                 "Established X server connection" ) !=-1 )
     {
         if(brokerMode)
@@ -6985,7 +6983,7 @@ void ONMainWindow::slotProxyStderr()
         }
 #endif
     }
-    if ( stInfo->toPlainText().indexOf (
+    if ( reserr.indexOf (
                 tr ( "Connection timeout, aborting" ) ) !=-1 )
         setStatStatus ( tr ( "aborting" ) );
 }
@@ -7321,7 +7319,7 @@ void ONMainWindow::slotRestartProxy()
 {
     if ( !sessionStatusDlg->isVisible() )
         return;
-    if ( stInfo->toPlainText().indexOf (
+    if ( proxyErrString.indexOf (
                 "Established X server connection" ) ==-1 )
     {
         stInfo->insertPlainText (
@@ -7340,7 +7338,7 @@ void ONMainWindow::slotTestSessionStatus()
 
     if ( !sessionStatusDlg->isVisible() )
         return;
-    if ( stInfo->toPlainText().indexOf (
+    if ( proxyErrString.indexOf (
                 "Established X server connection" ) ==-1 )
     {
         stInfo->insertPlainText (

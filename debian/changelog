@@ -44,6 +44,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       when exporting session default directories.
     - create default export directory if not exists.
     - send to broker xdmcpserver in command option when starting xdmcp session.
+    - improve processing stderr from nxproxy.
 
   [ Ryan Schmidt ]
   * New upstream version (4.1.2.3):
