@@ -61,7 +61,7 @@ bool wapiMoveWindow ( HWND wnd, int x, int y, int width, int height,
 bool wapiGetBorders ( HWND wnd, int& vBorder, int& hBorder, int& barHeight );
 void wapiSetCallBackProc ( void ( *prc ) ( wapiBtnEvent, QPoint ) );
 void wapiHideFromTaskBar ( HWND wnd );
-HWND wapiFindWindow ( const ushort * className, const ushort * text );
+HWND wapiFindWindow ( const QString& text);
 QString wapiShortFileName ( const QString& longName );
 bool wapiAccountInfo ( QString* retSid, QString* retUname,
                        QString* primaryGroupSID, QString* primaryGroupName,

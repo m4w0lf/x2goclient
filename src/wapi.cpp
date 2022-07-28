@@ -206,9 +206,23 @@ bool wapiMoveWindow ( HWND wnd, int x, int y, int width, int height,
     return MoveWindow ( wnd, x, y, width, height, repaint );
 }
 
-HWND wapiFindWindow ( const ushort * className, const ushort * text )
+HWND wapiFindWindow (const QString& text )
 {
-    return FindWindowEx ( 0,0, ( LPCTSTR ) className, ( LPCTSTR ) text );
+    HWND w=GetTopWindow(NULL);
+    char caption[512];
+    while (w)
+    {
+        if(GetWindowTextA(w, caption, 512))
+        {
+            QString c(caption);
+            if(c.indexOf(text)!=-1)
+            {
+                return w;
+            }
+        }
+        w=GetNextWindow(w,GW_HWNDNEXT);
+    }
+    return 0;
 }
 
 bool wapiSetWindowText( HWND wnd, const QString& text)

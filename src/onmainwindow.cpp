@@ -6297,10 +6297,11 @@ void ONMainWindow::slotTunnelOk(int)
               SLOT ( slotProxyStderr() ) );
     connect ( nxproxy,SIGNAL ( readyReadStandardOutput() ),this,
               SLOT ( slotProxyStdout() ) );
-
     QString proxyCmd="nxproxy -S nx/nx,options="+dirpath+"/options:"+
                      resumingSession.display;
-
+#ifdef Q_OS_WIN
+    proxyCmd="bin\\"+proxyCmd;
+#endif
 #ifdef Q_OS_DARWIN
     //run nxproxy from bundle
     QDir dir ( appDir );
@@ -11147,15 +11148,11 @@ void ONMainWindow::generateEtcFiles()
 #endif /* defined (Q_OS_WIN) */
     QTextStream out ( &file );
     out<<"StrictModes no\n"<<
-#ifdef Q_OS_WIN
-         "StrictKeyModes no\n" <<
-#endif
-         "UsePrivilegeSeparation no\n"<<
          "PidFile \"" + varDir + "/sshd.pid\"\n" <<
          "AuthorizedKeysFile \"" << authKeyPath << "\"\n";
 #ifdef Q_OS_WIN
-    out << "Subsystem shell "<< wapiShortFileName ( appDir) +"/sh"+"\n"<<
-           "Subsystem sftp "<< wapiShortFileName ( appDir) +"/sftp-server"+"\n";
+    out << "Subsystem shell "<< wapiShortFileName ( appDir) +"/bin/bash"+"\n"<<
+           "Subsystem sftp "<< wapiShortFileName ( appDir) +"/bin/sftp-server"+"\n";
 #else
     /*
      * We need to find the sftp-server binary.
@@ -11403,7 +11400,11 @@ QString ONMainWindow::generateKey (ONMainWindow::key_types key_type, bool host_k
          << "-f"
          << private_key_file;
 
+#ifdef Q_OS_WIN
+    const int keygen_ret = QProcess::execute ("bin\\ssh-keygen", args);
+#else
     const int keygen_ret = QProcess::execute ("ssh-keygen", args);
+#endif
 
     if (-2 == keygen_ret) {
       QMessageBox::critical (this, tr ("ssh-keygen launching error"),
@@ -11585,7 +11586,7 @@ bool ONMainWindow::startSshd(ONMainWindow::key_types key_type)
         x2goDebug<<"Logging cygwin sshd to: "<<sshLog;
     }
 
-    strm<<clientdir<<"\\sshd.exe -D -p "<<clientSshPort.toInt()<<" -f "<< config <<" -h "<<key;
+    strm<<clientdir<<"\\bin\\sshd.exe -D -p "<<clientSshPort.toInt()<<" -f "<< config <<" -h "<<key;
     if (debugging){
         strm<<" -E "<<"\""<<sshLog.toStdString()<<"\"";
     }
@@ -13619,7 +13620,7 @@ long ONMainWindow::findWindow ( QString text )
     return X11FindWindow ( text );
 #endif
 #ifdef Q_OS_WIN
-    return ( long ) wapiFindWindow ( 0,text.utf16() );
+    return ( long ) wapiFindWindow (text);
 #endif
     return 0;
 }
