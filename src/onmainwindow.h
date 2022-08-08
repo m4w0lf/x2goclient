@@ -1004,7 +1004,6 @@ private:
     void plugAppsInTray();
     QMenu* initTrayAppMenu(QString text, QPixmap icon);
     void setTrayIconToSessionIcon(QString info);
-
     /*
      * Tries to get the most suitable translator for the running system.
      *
@@ -1023,6 +1022,7 @@ private:
      * translation.
      */
     static bool get_translator (const QString file_name_start, QTranslator **translator);
+    void getClientKeyboardConfig(QString& layout, QString& model, QString& variant);
 
 
 protected:

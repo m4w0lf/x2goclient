@@ -48,6 +48,9 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - support for recent cygwin binaries and nxproxy 3.5.99.x
       all cygwin binaries and DLLs should be moved into the
       INSTDIR/bin directory by Windows installer.
+    - for x2gokdrive sessions, when auto kbd layout is chosen,
+      x2goclient will try to set the same kbd layout on server as on the
+      client.
 
   [ Ryan Schmidt ]
   * New upstream version (4.1.2.3):

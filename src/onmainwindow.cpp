@@ -18,7 +18,6 @@
 #include "onmainwindow_privat.h"
 #include "help.h"
 
-
 #include <QStyleFactory>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 2, 0)
@@ -4700,6 +4699,16 @@ void ONMainWindow::startNewSession()
       xinerama_env += "no";
     }
 
+    if(usekbd && kdrive && type=="auto")
+    {
+        QString kbdl, kbdm, kbdv;
+        getClientKeyboardConfig(kbdl,kbdm,kbdv);
+        type=kbdm+"/"+kbdl;
+        if(kbdv.length()>0)
+        {
+            type+="\\("+kbdv+"\\)";
+        }
+    }
     QString cmd=dpiEnv+xdmcpEnv+ xinerama_env + " x2gostartagent "+
                 geometry+" "+link+" "+pack+
                 " unix-kde-depth_"+depth+" "+layout+" "+type+" ";
@@ -4984,6 +4993,16 @@ void ONMainWindow::resumeSession ( const x2goSession& s )
             slotCloseSelectDlg();
         else
             selectSessionDlg->hide();
+    }
+    if(usekbd && (s.sessionType == x2goSession::KDRIVE || s.sessionType == x2goSession::ROOTLESSKDRIVE) && type=="auto")
+    {
+        QString kbdl, kbdm, kbdv;
+        getClientKeyboardConfig(kbdl,kbdm,kbdv);
+        type=kbdm+"/"+kbdl;
+        if(kbdv.length()>0)
+        {
+            type+="\\("+kbdv+"\\)";
+        }
     }
     QString cmd="x2goresume-session "+s.sessionId+" "+geometry+
                 " "+link+" "+pack+" "+layout+
@@ -13735,4 +13754,54 @@ bool ONMainWindow::parseResourceUrl(const QString& url)
         x2goDebug<<"Using alternative resource directory:"<<resourceDir;
     }
     return true;
+}
+
+void ONMainWindow::getClientKeyboardConfig(QString& layout, QString& model, QString& variant)
+{
+    layout = "us";
+    model = "pc105";
+    variant = "";
+#ifdef Q_OS_DARWIN
+    //TODO:implement this for Mac
+    return;
+#endif
+#ifdef Q_OS_WIN
+    layout = wapiGetKeyboardLayout();
+#else
+    QProcess proc;
+    proc.start("setxkbmap",QStringList() << "-query");
+    if (!proc.waitForStarted())
+    {
+        x2goDebug<<"Failed to start xkbcomp"<<proc.error();
+        return;
+    }
+    if (!proc.waitForFinished())
+    {
+        x2goDebug<<"Failed to execute xkbcomp"<<proc.error();
+        return;
+    }
+    QStringList lines=QString(proc.readAllStandardOutput()).split("\n");
+    QString line;
+    foreach (line, lines)
+    {
+        line.replace(" ","");
+        line.replace("\t","");
+        if(line.indexOf("model:")!=-1)
+        {
+            model=line;
+            model.replace("model:","");
+        }
+        if(line.indexOf("layout:")!=-1)
+        {
+            layout=line;
+            layout.replace("layout:","");
+        }
+        if(line.indexOf("variant:")!=-1)
+        {
+            variant=line;
+            variant.replace("variant:","");
+        }
+    }
+    x2goDebug<<"xkbcomp keyboard config - model:"<<model<<" layout: "<<layout<<" variant: "<<variant;
+#endif
 }

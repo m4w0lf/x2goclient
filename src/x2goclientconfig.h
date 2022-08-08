@@ -18,6 +18,9 @@
 #if !defined(_X2GOCLIENT_CONFIG_H_)
 #define _X2GOCLIENT_CONFIG_H_
 
+//min supported windows version is windows vista
+#define WINVER 0x0601
+
 #include <stdio.h>
 #include <qconfig.h>
 #include <qglobal.h>

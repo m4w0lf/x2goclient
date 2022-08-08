@@ -15,17 +15,13 @@
 *   along with this program.  If not, see <https://www.gnu.org/licenses/>. *
 ***************************************************************************/
 
-#ifndef _WIN32_WINDOWS
-#define _WIN32_WINDOWS 0x0500
-#define _WIN32_WINNT 0x0500
-#define WINVER 0x0500
-#endif
 #include "x2goclientconfig.h"
 #ifdef Q_OS_WIN
 #include <winsock2.h>
 #include <windows.h>
 #include <winerror.h>
 #include <sddl.h>
+#include <winnls.h>
 #include <AccCtrl.h>
 #include <aclapi.h>
 #include "wapi.h"
@@ -607,6 +603,16 @@ void wapiSetFilePermissions(const QString& path)
         ACCESS_SYSTEM_SECURITY | READ_CONTROL | WRITE_DAC | GENERIC_ALL,
         GRANT_ACCESS,
         CONTAINER_INHERIT_ACE);
+}
+
+QString wapiGetKeyboardLayout()
+{
+    wchar_t nm[LOCALE_NAME_MAX_LENGTH];
+    LCIDToLocaleName(HIWORD(GetKeyboardLayout(0)),nm,LOCALE_NAME_MAX_LENGTH,0);
+    QStringList l=QString::fromUtf16((char16_t*)nm).split("-");
+    if(l.count()==2)
+        return l[1].toLower();
+    return QString::null;
 }
 
 #endif
