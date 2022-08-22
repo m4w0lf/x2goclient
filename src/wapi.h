@@ -77,6 +77,8 @@ QString wapiGetDriveByLabel(const QString& label);
 QString wapiGetUserName();
 void wapiSetFilePermissions(const QString& path);
 QString wapiGetKeyboardLayout();
+void wapiSetWinNotResizable(HWND wnd);
+short wapiIsWinResizeable(HWND wnd);
 
 #endif
 #endif

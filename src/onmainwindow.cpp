@@ -4542,11 +4542,11 @@ void ONMainWindow::startNewSession()
         {
             runRemoteCommand=false;
         }
+        proxyWinWidth=width;
+        proxyWinHeight=height;
 #ifdef Q_OS_WIN
         x2goDebug<<"Fullscreen: "<<fullscreen;
         maximizeProxyWin=false;
-        proxyWinWidth=width;
-        proxyWinHeight=height;
         xorgMode=WIN;
         if (fullscreen)
             xorgMode=FS;
@@ -4892,10 +4892,11 @@ void ONMainWindow::resumeSession ( const x2goSession& s )
         layout=cbLayout->currentText();
 
     QString geometry;
-#ifdef Q_OS_WIN
-    maximizeProxyWin=false;
     proxyWinWidth=width;
     proxyWinHeight=height;
+
+#ifdef Q_OS_WIN
+    maximizeProxyWin=false;
 // #ifdef CFGCLIENT
     xorgMode=WIN;
     if (fullscreen)
@@ -6339,7 +6340,7 @@ void ONMainWindow::slotTunnelOk(int)
         bool multidisp=false;
         QString dispNumber="1";
         QString clipboard="both";
-
+        bool noresize=false;
         if (!embedMode )
         {
             if (!useLdap)
@@ -6368,8 +6369,7 @@ void ONMainWindow::slotTunnelOk(int)
                 width=st->setting()->value ( sid+"/width", ( QVariant ) "800").toString();
                 height=st->setting()->value ( sid+"/height", ( QVariant ) "600").toString();
                 clipboard=st->setting()->value ( sid+"/clipboard", ( QVariant ) "both").toString();
-
-
+                noresize=st->setting()->value ( sid+"/noresize",   ( QVariant ) false).toBool();
 
 
                 if (st->setting()->value ( sid+"/multidisp", ( QVariant ) false ).toBool())
@@ -6394,6 +6394,8 @@ void ONMainWindow::slotTunnelOk(int)
         }
         options<<"--connect"<<"localhost"<<"--port"<<localGraphicPort<<"--title"<<resumingSession.sessionId<<"-S"<<"nx/nx,options="+dirpath+
         "/options:"+resumingSession.display<<"--selection"<<clipboard;
+        if(noresize)
+            options<<"--noresize";
         if(resumingSession.sessionType==x2goSession::ROOTLESSKDRIVE)
         {
             options << "--rootless";
@@ -11970,6 +11972,62 @@ void ONMainWindow::slotXineramaConfigured()
     xineramaTimer->start(500);
 }
 
+void ONMainWindow::setProxyWinNotResizable()
+{
+#ifdef Q_OS_WIN
+    switch(wapiIsWinResizeable((HWND)proxyWinId))
+    {
+        case -1:
+            x2goDebug<<"Proxy window is closed, stop checking properties";
+            return;
+        case 1:
+            wapiSetWinNotResizable((HWND)proxyWinId);
+        default:
+            QTimer::singleShot(1000, this, SLOT(setProxyWinNotResizable()));
+    }
+#endif
+#ifdef Q_OS_LINUX
+    XWindowAttributes wattr;
+    if(! XGetWindowAttributes(QX11Info::display(), proxyWinId, &wattr))
+    {
+        x2goDebug<<"Proxy window is closed, stop checking properties";
+        return;
+    }
+    if(wattr.map_state != IsViewable)
+    {
+        QTimer::singleShot(1000, this, SLOT(setProxyWinNotResizable()));
+        return;
+    }
+
+    XSizeHints rhints;
+    long rflags;
+    if(!XGetWMNormalHints(QX11Info::display(), proxyWinId, &rhints, &rflags))
+    {
+        x2goDebug<<"Failed to get hints for proxy window, stop checking properties";
+        return;
+    }
+    if(rhints.min_width==proxyWinWidth && rhints.max_width==proxyWinWidth && rhints.min_height==proxyWinHeight && rhints.max_height==proxyWinHeight)
+    {
+        QTimer::singleShot(1000, this, SLOT(setProxyWinNotResizable()));
+        return;
+    }
+
+    XSizeHints* hints;
+    XSync(QX11Info::display(),false);
+    hints=XAllocSizeHints();
+    hints->flags= PMinSize|PMaxSize;
+    hints->base_width=hints->max_width=hints->min_width=proxyWinWidth;
+    hints->base_height=hints->max_height=hints->min_height=proxyWinHeight;
+//     x2goDebug<<"Setting X11 hints on proxy window";
+    XSetWMNormalHints(QX11Info::display(), proxyWinId, hints);
+    XSync(QX11Info::display(),false);
+    XFlush(QX11Info::display());
+    XFree(hints);
+    QTimer::singleShot(1000, this, SLOT(setProxyWinNotResizable()));
+#endif
+}
+
+
 void ONMainWindow::slotFindProxyWin()
 {
 #ifndef Q_OS_DARWIN
@@ -12023,6 +12081,13 @@ void ONMainWindow::slotFindProxyWin()
                     return;
                 }
 #endif
+                if (st->setting()->value ( sid+"/noresize",
+                               ( QVariant ) false ).toBool())
+                {
+                    x2goDebug<<"making proxy window not resizable";
+                    setProxyWinNotResizable();
+                }
+
                 delete st;
             }
             if (xinerama)

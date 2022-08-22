@@ -71,6 +71,7 @@ private:
     QLineEdit* leVariant;
     QCheckBox* cbSetDPI;
     QCheckBox* cbXinerama;
+    QCheckBox* cbNoresize;
     QSpinBox* DPI;
     QLabel* widthLabel;
     QLabel* heightLabel;

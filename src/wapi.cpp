@@ -615,4 +615,18 @@ QString wapiGetKeyboardLayout()
     return QString::null;
 }
 
+void wapiSetWinNotResizable(HWND wnd)
+{
+    SetWindowLong ( wnd, GWL_STYLE, GetWindowLong(wnd, GWL_STYLE)&~WS_SIZEBOX&~WS_MAXIMIZEBOX);
+}
+
+short wapiIsWinResizeable(HWND wnd)
+{
+    LONG flags=GetWindowLong(wnd, GWL_STYLE);
+    if(!flags)
+        return -1;
+    if((flags & WS_SIZEBOX) || (flags & WS_MAXIMIZEBOX))
+        return 1;
+    return 0;
+}
 #endif

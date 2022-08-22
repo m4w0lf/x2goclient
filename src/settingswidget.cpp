@@ -66,6 +66,7 @@ SettingsWidget::SettingsWidget ( QString id, ONMainWindow * mw,
     custom=new QRadioButton ( tr ( "Window" ),dgb );
 #endif
     display=new QRadioButton ( tr ( "Use whole display" ),dgb );
+    cbNoresize=new QCheckBox ( tr ( "Not resizable" ),dgb );
     maxRes=new QRadioButton ( tr ( "Maximum available" ),dgb );
     radio->addButton ( fs );
     radio->addButton ( custom );
@@ -129,6 +130,7 @@ SettingsWidget::SettingsWidget ( QString id, ONMainWindow * mw,
     dbLay->addLayout ( dgLay );
     dbLay->addLayout ( dwLay );
     dbLay->addLayout(dispLay);
+    dbLay->addWidget(cbNoresize);
     QFrame* dhl=new QFrame ( dgb );
     hLine1=dhl;
     dhl->setFrameStyle ( QFrame::HLine | QFrame::Sunken );
@@ -391,6 +393,10 @@ void SettingsWidget::readConfig()
         st.setting()->value ( sessionId+"/fullscreen",
                               ( QVariant ) mainWindow->getDefaultFullscreen() ).toBool() );
 
+    cbNoresize->setChecked (
+        st.setting()->value ( sessionId+"/noresize",
+                              ( QVariant ) false ).toBool() );
+
     custom->setChecked ( ! st.setting()->value (
                              sessionId+"/fullscreen",
                              ( QVariant ) mainWindow->getDefaultFullscreen()
@@ -523,6 +529,7 @@ void SettingsWidget::setDefaults()
     custom->setChecked ( true );
     width->setValue ( 800 );
     height->setValue ( 600 );
+    cbNoresize->setChecked( false );
 
     cbSetDPI->setChecked ( mainWindow->getDefaultSetDPI() );
     DPI->setValue ( mainWindow->getDefaultDPI() );
@@ -548,6 +555,8 @@ void SettingsWidget::saveSettings()
 
     st.setting()->setValue ( sessionId+"/fullscreen",
                              ( QVariant ) fs->isChecked() );
+    st.setting()->setValue ( sessionId+"/noresize",
+                             ( QVariant ) cbNoresize->isChecked() );
     st.setting()->setValue ( sessionId+"/multidisp",
                              ( QVariant ) display->isChecked() );
     st.setting()->setValue ( sessionId+"/display",

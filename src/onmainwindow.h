@@ -838,6 +838,8 @@ private:
     QAction *act_new;
     QAction *act_sessicon;
     QProcess *nxproxy;
+    int proxyWinWidth;
+    int proxyWinHeight;
 #ifndef Q_OS_WIN
     QProcess *sshd;
 #else
@@ -856,8 +858,6 @@ private:
     bool cyEntry;
 
     bool maximizeProxyWin;
-    int proxyWinWidth;
-    int proxyWinHeight;
     QTimer* xorgLogTimer;
     QString xorgLogFile;
     QMutex xorgLogMutex;
@@ -1080,6 +1080,7 @@ private slots:
     void slotBrokerLogoutButton ();
     void slotReadApplications(bool result, QString output, int pid );
     void slotResLoadRequestFinished( QNetworkReply*  reply );
+    void setProxyWinNotResizable();
 
 public slots:
     void slotConfig();
