@@ -192,6 +192,10 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     + Install x-x2go.xml into bin:pkg and run update-mime-database during
       postinst.
 
+  [ Ulrich Sibiller ]
+  * New upstream version (4.1.2.3):
+     - desktop/x2goclient.desktop: drop Maemo support.
+
  -- X2Go Release Manager <git-admin@x2go.org>  Thu, 13 Feb 2020 12:31:20 +0100
 
 x2goclient (4.1.2.2-0x2go1) unstable; urgency=medium
