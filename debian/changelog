@@ -196,6 +196,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
   * New upstream version (4.1.2.3):
      - desktop/x2goclient.desktop: drop Maemo support.
      - res/img/icons: drop Maemo support, remove hildon subdirectory.
+     - res/img/svg: drop Maemo support, remove bg_hildon.svg.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Thu, 13 Feb 2020 12:31:20 +0100
 
