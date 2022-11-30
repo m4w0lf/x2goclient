@@ -1,7 +1,6 @@
 <RCC>
    <qresource>
        <file>img/svg/bg.svg</file>
-       <file>img/svg/bg_hildon.svg</file>
        <file>img/svg/line.svg</file>
        <file>img/svg/onlogo.svg</file>
        <file>img/svg/x2gologo.svg</file>
