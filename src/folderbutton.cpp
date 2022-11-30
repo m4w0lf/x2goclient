@@ -52,11 +52,7 @@ FolderButton::FolderButton ( ONMainWindow* mw,QWidget *parent, QString folderPat
 
     QFont fnt=font();
     if ( mw->retMiniMode() )
-#ifdef Q_WS_HILDON
-        fnt.setPointSize ( 10 );
-#else
         fnt.setPointSize ( 9 );
-#endif
     setFont ( fnt );
     setFocusPolicy ( Qt::NoFocus );
     bool miniMode=mw->retMiniMode();

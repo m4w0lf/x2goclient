@@ -36,8 +36,4 @@
 #undef USELDAP
 #endif
 
-#if defined Q_WS_HILDON
-#undef USELDAP
-#endif
-
 #endif

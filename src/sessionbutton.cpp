@@ -63,11 +63,7 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
 
     QFont fnt=font();
     if ( mw->retMiniMode() )
-#ifdef Q_WS_HILDON
-        fnt.setPointSize ( 10 );
-#else
         fnt.setPointSize ( 9 );
-#endif
     setFont ( fnt );
     setFocusPolicy ( Qt::NoFocus );
     bool miniMode=mw->retMiniMode();
@@ -169,7 +165,7 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
                  QIcon (
                      mw->iconsPath ( "/16x16/edit.png" ) ),
                  tr ( "Session preferences ..." ) );
-#if (!defined Q_WS_HILDON) && (!defined Q_OS_DARWIN)
+#if (!defined Q_OS_DARWIN)
     act_createIcon=sessMenu->addAction (
                        QIcon ( mw->iconsPath ( "/16x16/create_file.png" ) ),
                        tr (
@@ -185,7 +181,7 @@ SessionButton::SessionButton ( ONMainWindow* mw,QWidget *parent, QString id )
 
     connect ( act_remove,SIGNAL ( triggered ( bool ) ),this,
               SLOT ( slotRemove() ) );
-#if (!defined Q_WS_HILDON) && (!defined Q_OS_DARWIN)
+#if (!defined Q_OS_DARWIN)
     connect ( act_createIcon,SIGNAL ( triggered ( bool ) ),this,
               SLOT ( slotCreateSessionIcon() ) );
 #endif
@@ -637,16 +633,12 @@ void SessionButton::redraw()
 
 
         }
-#ifndef Q_WS_HILDON
 
 
     geomBox->addItem ( "1440x900" );
     geomBox->addItem ( "1280x1024" );
     geomBox->addItem ( "1024x768" );
     geomBox->addItem ( "800x600" );
-#else
-    geomBox->addItem ( tr ( "window" ) );
-#endif
     if ( st->setting()->value ( sid+"/fullscreen",
                                 ( QVariant ) false ).toBool() )
     {
@@ -674,7 +666,6 @@ void SessionButton::redraw()
     }
     else
     {
-#ifndef	Q_WS_HILDON
         QString g=QString::number ( st->setting()->value (
                                         sid+"/width" ).toInt() );
         g+="x"+QString::number ( st->setting()->value (
@@ -683,10 +674,6 @@ void SessionButton::redraw()
         if ( geomBox->findText ( g ) ==-1 )
             geomBox->addItem ( g );
         geomBox->setCurrentIndex ( geomBox->findText ( g ) );
-#else
-        geom->setText ( tr ( "window" ) );
-        geomBox->setCurrentIndex ( 1 );
-#endif
     }
 
     if (directRDP)
@@ -1086,9 +1073,6 @@ void SessionButton::slot_geom_change ( const QString& new_g )
     else
     {
         QString new_geom=new_g;
-#ifdef Q_WS_HILDON
-        new_geom="800x600";
-#endif
         st.setting()->setValue ( sid+"/fullscreen", ( QVariant ) false );
         st.setting()->setValue ( sid+"/multidisp", ( QVariant ) false );
         st.setting()->setValue ( sid+"/maxdim", ( QVariant ) false );

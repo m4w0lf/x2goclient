@@ -308,23 +308,6 @@ ConfigDialog::ConfigDialog ( QWidget * parent,  Qt::WindowFlags f )
                                 "/32x32/edit_settings.png" ) ) );
     setWindowTitle ( tr ( "Settings" ) );
 
-#ifdef Q_WS_HILDON
-    QFont fnt=font();
-    fnt.setPointSize ( 10 );
-    setFont ( fnt );
-    QSize sz=ok->sizeHint();
-    sz.setWidth ( ( int ) ( sz.width() /1.5 ) );
-    sz.setHeight ( ( int ) ( sz.height() /1.5 ) );
-    ok->setFixedSize ( sz );
-    sz=cancel->sizeHint();
-    sz.setWidth ( ( int ) ( sz.width() ) );
-    sz.setHeight ( ( int ) ( sz.height() /1.5 ) );
-    cancel->setFixedSize ( sz );
-    clientSshPort->setFixedHeight (
-        int ( clientSshPort->sizeHint().height() *1.5 ) );
-    defaults->hide();
-#endif
-
     pwid=new PrintWidget ( this );
     tabWidg->addTab ( pwid,tr ( "Printing" ) );
 

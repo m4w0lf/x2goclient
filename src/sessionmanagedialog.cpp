@@ -53,7 +53,7 @@ SessionManageDialog::SessionManageDialog ( QWidget * parent,
     QPushButton* newSession=new QPushButton ( tr ( "&New session" ),fr );
     editSession=new QPushButton ( tr ( "&Session preferences" ),fr );
     removeSession=new QPushButton ( tr ( "&Delete session" ),fr );
-#if (!defined Q_WS_HILDON) && (!defined Q_OS_DARWIN)
+#if (!defined Q_OS_DARWIN)
     if ( !ONMainWindow::getPortable() )
         createSessionIcon=new QPushButton (
             tr ( "&Create session icon on desktop ..." ),fr );
@@ -63,7 +63,7 @@ SessionManageDialog::SessionManageDialog ( QWidget * parent,
                               par->iconsPath ( "/16x16/new_file.png" ) ) );
     editSession->setIcon ( QIcon (
                                par->iconsPath ( "/16x16/edit.png" ) ) );
-#if (!defined Q_WS_HILDON) && (!defined Q_OS_DARWIN)
+#if (!defined Q_OS_DARWIN)
     if ( !ONMainWindow::getPortable() )
         createSessionIcon->setIcon (
             QIcon ( par->iconsPath ( "/16x16/create_file.png" ) ) );
@@ -75,7 +75,7 @@ SessionManageDialog::SessionManageDialog ( QWidget * parent,
     actLay->addWidget ( newSession );
     actLay->addWidget ( editSession );
     actLay->addWidget ( removeSession );
-#if (!defined Q_WS_HILDON) && (!defined Q_OS_DARWIN)
+#if (!defined Q_OS_DARWIN)
     if ( !ONMainWindow::getPortable() )
         actLay->addWidget ( createSessionIcon );
 #endif
@@ -97,7 +97,7 @@ SessionManageDialog::SessionManageDialog ( QWidget * parent,
     connect (
         removeSession,SIGNAL ( clicked() ),this,SLOT ( slot_delete() ) );
     connect ( editSession,SIGNAL ( clicked() ),this,SLOT ( slot_edit() ) );
-#if (!defined Q_WS_HILDON) && (!defined Q_OS_DARWIN)
+#if (!defined Q_OS_DARWIN)
     if ( !ONMainWindow::getPortable() )
         connect ( createSessionIcon,SIGNAL ( clicked() ),
                   this,SLOT ( slot_createSessionIcon() ) );
@@ -146,7 +146,7 @@ void SessionManageDialog::loadSessions()
 
     removeSession->setEnabled ( false );
     editSession->setEnabled ( false );
-#if (!defined Q_WS_HILDON) && (!defined Q_OS_DARWIN)
+#if (!defined Q_OS_DARWIN)
     if ( !ONMainWindow::getPortable() )
         createSessionIcon->setEnabled ( false );
 #endif
@@ -216,7 +216,7 @@ void SessionManageDialog::slot_endisable ( QTreeWidgetItem* item, int col)
 
     removeSession->setEnabled ( isSess );
     editSession->setEnabled ( isSess );
-#if (!defined Q_WS_HILDON) && (!defined Q_OS_DARWIN)
+#if (!defined Q_OS_DARWIN)
     if ( !ONMainWindow::getPortable() )
         createSessionIcon->setEnabled ( isSess );
 #endif

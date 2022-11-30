@@ -16,7 +16,7 @@
 ***************************************************************************/
 
 #include "printwidget.h"
-#if (!defined Q_OS_WIN) && (!defined Q_WS_HILDON)
+#if (!defined Q_OS_WIN)
 #include "cupsprintwidget.h"
 #endif
 #include "printercmddialog.h"
@@ -34,16 +34,7 @@ PrintWidget::PrintWidget ( QWidget* parent )
 	ui.rbPrint->setChecked ( true );
 	ui.gbView->setVisible ( false );
 	QVBoxLayout* lay= ( QVBoxLayout* ) ui.gbPrint->layout();
-#if (!defined Q_OS_WIN) && (!defined Q_WS_HILDON)
-	ui.cbWinPrinter->hide();
-	ui.lWinPrinter->hide();
-	ui.lWinInfo->hide();
-	pwid=new CUPSPrintWidget ( ui.gbPrint );
-	lay->insertWidget ( 0,pwid );
-	connect ( ui.cbPrintCmd,SIGNAL ( toggled ( bool ) ),pwid,
-	          SLOT ( setDisabled ( bool ) ) );
-#else
-#ifdef Q_OS_WIN
+#if defined (Q_OS_WIN)
 	connect ( ui.cbPrintCmd,SIGNAL ( toggled ( bool ) ),ui.cbWinPrinter,
 	          SLOT ( setDisabled ( bool ) ) );
 	connect ( ui.cbPrintCmd,SIGNAL ( toggled ( bool ) ),ui.lWinPrinter,
@@ -70,7 +61,14 @@ PrintWidget::PrintWidget ( QWidget* parent )
 	rtfm->setWordWrap ( true );
 	rtfm->setOpenExternalLinks ( true );
 	lay->insertWidget ( 6,rtfm );
-#endif
+#else
+	ui.cbWinPrinter->hide();
+	ui.lWinPrinter->hide();
+	ui.lWinInfo->hide();
+	pwid=new CUPSPrintWidget ( ui.gbPrint );
+	lay->insertWidget ( 0,pwid );
+	connect ( ui.cbPrintCmd,SIGNAL ( toggled ( bool ) ),pwid,
+	          SLOT ( setDisabled ( bool ) ) );
 #endif
 	connect ( ui.pbPrintCmd,SIGNAL ( clicked() ),this,
 	          SLOT ( slot_editPrintCmd() ) );
@@ -82,13 +80,6 @@ PrintWidget::PrintWidget ( QWidget* parent )
 	connect ( ui.cbShowDialog,SIGNAL ( toggled ( bool ) ),
 	          this, SIGNAL ( dialogShowEnabled ( bool ) ) );
 #if (defined Q_OS_WIN)
-	ui.label->hide();
-	ui.leOpenCmd->hide();
-#endif
-#ifdef Q_WS_HILDON
-	ui.rbView->setChecked ( true );
-	ui.rbPrint->hide();
-	ui.rbView->hide();
 	ui.label->hide();
 	ui.leOpenCmd->hide();
 #endif
@@ -190,8 +181,7 @@ void PrintWidget::saveSettings()
 #ifdef Q_OS_WIN
 	st.setting()->setValue ( "print/defaultprinter",
 	              QVariant ( ui.cbWinPrinter->currentText()) );	
-#endif
-#if (!defined Q_OS_WIN) && (!defined Q_WS_HILDON)
+#else
 	pwid->savePrinter();
 #endif
 }

@@ -198,6 +198,11 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
      - res/img/icons: drop Maemo support, remove hildon subdirectory.
      - res/img/svg: drop Maemo support, remove bg_hildon.svg.
      - res/resources.qrc: drop Maemo support, remove bg_hildon.svg entry.
+     - src/{{InteractionDialog,configdialog,connectionwidget,
+             editconnectiondialog,folderbutton,mediawidget,ongetpass,
+             onmainwindow,printprocess,printwidget,sessionbutton,
+             sessionmanagedialog,sessionwidget,settingswidget,
+             sharewidget}.cpp,x2goclientconfig.h}: drop Maemo support.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Thu, 13 Feb 2020 12:31:20 +0100
 

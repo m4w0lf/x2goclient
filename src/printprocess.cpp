@@ -22,7 +22,7 @@
 #include "x2gosettings.h"
 #include <QDir>
 #include "printdialog.h"
-#if (!defined Q_OS_WIN) && (!defined Q_WS_HILDON)
+#if (!defined Q_OS_WIN)
 #include "cupsprint.h"
 #else
 #include "printwidget.h"
@@ -124,13 +124,6 @@ bool PrintProcess::loadSettings()
 	    st.setting()->value ( "print/defaultprinter",
 	               wapiGetDefaultPrinter() ).toString();
 #endif
-#ifdef Q_WS_HILDON
-	pdfOpenCmd="run-standalone.sh dbus-send --print-reply"
-	           " --dest=com.nokia.osso_pdfviewer "
-	           "/com/nokia/osso_pdfviewer "
-	           "com.nokia.osso_pdfviewer.mime_open string:file://";
-	viewPdf=true;
-#endif
 	return true;
 
 }
@@ -142,11 +135,7 @@ void PrintProcess::openPdf()
 	if ( pdfOpen )
 	{
 #ifndef Q_OS_WIN
-#ifndef Q_WS_HILDON
 		QString cmd=pdfOpenCmd+" \""+pdfFile+"\"";
-#else
-		QString cmd=pdfOpenCmd+"\""+pdfFile+"\"";
-#endif
 		x2goDebug<<"Using PDF viewer command: "<<cmd;
 		if ( ! QProcess::startDetached ( cmd ) )
 			slot_error ( QProcess::FailedToStart );
@@ -178,7 +167,6 @@ void PrintProcess::openPdf()
 
 void PrintProcess::print()
 {
-#ifndef Q_WS_HILDON
 	if ( !customPrintCmd )
 	{
 #ifndef Q_OS_WIN
@@ -194,7 +182,6 @@ void PrintProcess::print()
 #endif
 	}
 	else
-#endif //Q_WS_HILDON
 	{
 		if ( !printPs )
 		{

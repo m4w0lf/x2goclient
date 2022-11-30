@@ -62,11 +62,7 @@ InteractionDialog::InteractionDialog(ONMainWindow* mainw, QWidget* parent): SVGF
 
     QFont fnt=this->font();
     if ( mw->retMiniMode() )
-#ifdef Q_WS_HILDON
-        fnt.setPointSize ( 10 );
-#else
         fnt.setPointSize ( 9 );
-#endif
     this->setFont ( fnt );
     this->hide();
 

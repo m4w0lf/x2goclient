@@ -34,20 +34,13 @@ EditConnectionDialog::EditConnectionDialog ( bool newSession, QString id, QWidge
         : QDialog ( par,f )
 {
     QVBoxLayout* ml=new QVBoxLayout ( this );
-#ifdef Q_WS_HILDON
-    ml->setMargin ( 2 );
-#endif
     fr=new QTabWidget ( this );
     ml->addWidget ( fr );
     ONMainWindow* parent= ( ONMainWindow* ) par;
 
     QFont fnt=font();
     if ( parent->retMiniMode() )
-#ifdef Q_WS_HILDON
-        fnt.setPointSize ( 10 );
-#else
         fnt.setPointSize ( 9 );
-#endif
     setFont ( fnt );
 
     sessSet=new SessionWidget ( newSession, id,parent );
@@ -73,9 +66,6 @@ EditConnectionDialog::EditConnectionDialog ( bool newSession, QString id, QWidge
     bLay->addWidget ( cancel );
     bLay->addWidget ( def );
     ml->addLayout ( bLay );
-#ifdef Q_WS_HILDON
-    bLay->setMargin ( 2 );
-#endif
 
     setSizeGripEnabled ( true );
     setWindowIcon ( QIcon ( parent->iconsPath ( "/32x32/edit.png" ) ) );
@@ -94,20 +84,6 @@ EditConnectionDialog::EditConnectionDialog ( bool newSession, QString id, QWidge
 #endif
 
     ok->setDefault ( true );
-#ifdef Q_WS_HILDON
-    QSize sz=ok->sizeHint();
-    sz.setWidth ( ( int ) ( sz.width() /1.5 ) );
-    sz.setHeight ( ( int ) ( sz.height() /1.5 ) );
-    ok->setFixedSize ( sz );
-    sz=cancel->sizeHint();
-    sz.setWidth ( ( int ) ( sz.width() ) );
-    sz.setHeight ( ( int ) ( sz.height() /1.5 ) );
-    cancel->setFixedSize ( sz );
-    sz=def->sizeHint();
-    sz.setWidth ( ( int ) ( sz.width() ) );
-    sz.setHeight ( ( int ) ( sz.height() /1.5 ) );
-    def->setFixedSize ( sz );
-#endif
     if ( parent->retMiniMode() )
         setContentsMargins ( 3,3,3,3 );
     fr->setCurrentIndex ( ind );

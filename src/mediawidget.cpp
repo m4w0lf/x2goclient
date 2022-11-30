@@ -38,13 +38,7 @@ MediaWidget::MediaWidget ( QString id, ONMainWindow * mw,
                            QWidget * parent, Qt::WindowFlags f )
     : ConfigWidget ( id,mw,parent,f )
 {
-#ifdef Q_WS_HILDON
-    QTabWidget* tabSettings=new QTabWidget ( this );
-    QFrame* sbgr=new QFrame();
-    tabSettings->addTab ( sbgr,tr ( "Sound" ) );
-#else
     sbgr=new QGroupBox ( tr ( "Sound" ),this );
-#endif
     QVBoxLayout *sndLay=new QVBoxLayout ( sbgr );
     QHBoxLayout* sLay=new QHBoxLayout ( );
     QVBoxLayout* sLay_sys=new QVBoxLayout ( );

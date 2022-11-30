@@ -63,14 +63,6 @@ ShareWidget::ShareWidget ( QString id, ONMainWindow * mw,
 
     QPushButton* addDir=new QPushButton ( tr ( "Add" ),egb );
     QPushButton* delDir=new QPushButton ( tr ( "Delete" ),egb );
-#ifdef Q_WS_HILDON
-    QSize sz=addDir->sizeHint();
-    sz.setHeight ( ( int ) ( sz.height() /1.5 ) );
-    addDir->setFixedSize ( sz );
-    sz=delDir->sizeHint();
-    sz.setHeight ( ( int ) ( sz.height() /1.5 ) );
-    delDir->setFixedSize ( sz );
-#endif
 
     QLabel *dirPrompt=new QLabel ( tr ( "Path:" ),egb );
     dirPrompt->setFixedSize ( dirPrompt->sizeHint() );

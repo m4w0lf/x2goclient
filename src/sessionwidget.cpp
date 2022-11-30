@@ -43,9 +43,6 @@ SessionWidget::SessionWidget ( bool newSession, QString id, ONMainWindow * mw,
     : ConfigWidget ( id,mw,parent,f )
 {
     QVBoxLayout* sessLay=new QVBoxLayout ( this );
-#ifdef Q_WS_HILDON
-    sessLay->setMargin ( 2 );
-#endif
     this->parent=mw;
     this->newSession=newSession;
 
@@ -79,11 +76,7 @@ SessionWidget::SessionWidget ( bool newSession, QString id, ONMainWindow * mw,
     pathLay->addWidget(lPath,1);
     pathLay->addWidget(pathButton,0);
 
-#ifndef Q_WS_HILDON
     QGroupBox *sgb=new QGroupBox ( tr ( "&Server" ),this );
-#else
-    QFrame* sgb=this;
-#endif
     const QString ssh_port_tooltip_text = tr ("Values ranging from <b>0</b> to <b>65535</b> are allowed."
                                               "<br />A value of <b>0</b> will either use the port specified in the "
                                               "SSH configuration file belonging to a host or shortname, "
@@ -104,18 +97,11 @@ SessionWidget::SessionWidget ( bool newSession, QString id, ONMainWindow * mw,
 #endif
     key=new QLineEdit ( sgb );
 
-#ifndef Q_WS_HILDON
     openKey=new QPushButton (
         QIcon ( mainWindow->iconsPath (
                     "/32x32/file-open.png" ) ),
         QString::null,sgb );
     QVBoxLayout *sgbLay = new QVBoxLayout ( sgb );
-#else
-    QPushButton* openKey=new QPushButton (
-        QIcon ( mainWindow->iconsPath ( "/16x16/file-open.png" ) ),
-        QString::null,sgb );
-    QVBoxLayout *sgbLay = new QVBoxLayout ();
-#endif
     QHBoxLayout *suLay =new QHBoxLayout();
     QVBoxLayout *slLay =new QVBoxLayout();
     QVBoxLayout *elLay =new QVBoxLayout();
@@ -132,9 +118,6 @@ SessionWidget::SessionWidget ( bool newSession, QString id, ONMainWindow * mw,
 #endif
     suLay->addLayout ( slLay );
     suLay->addLayout ( elLay );
-#ifdef Q_WS_HILDON
-    sshPort->setFixedHeight ( int ( sshPort->sizeHint().height() *1.5 ) );
-#endif
 
     QHBoxLayout *keyLay =new QHBoxLayout();
     lKey=new QLabel ( tr ( "Use RSA/DSA key for ssh connection:" ),sgb );
@@ -199,14 +182,8 @@ SessionWidget::SessionWidget ( bool newSession, QString id, ONMainWindow * mw,
     proxyLaout->addWidget(cbProxyKrbLogin,5,3,1,3);
 
 
-#ifndef Q_WS_HILDON
     QGroupBox *deskSess=new QGroupBox ( tr ( "&Session type" ),this );
     QGridLayout* cmdLay=new QGridLayout ( deskSess );
-#else
-    QFrame* deskSess=this;
-    QHBoxLayout* cmdLay=new QHBoxLayout ();
-    cmdLay->addWidget ( new QLabel ( tr ( "Session type:" ),this ) );
-#endif
     cbKdrive=new QCheckBox(tr("Run in X2GoKDrive (experimental)"));
     sessBox=new QComboBox ( deskSess );
     cmd=new QLineEdit ( deskSess );
@@ -246,7 +223,6 @@ SessionWidget::SessionWidget ( bool newSession, QString id, ONMainWindow * mw,
     cmdCombo->addItems ( mainWindow->transApplicationsNames() );
     cmdCombo->lineEdit()->setText ( tr ( "Path to executable" ) );
     cmdCombo->lineEdit()->selectAll();
-#ifndef Q_WS_HILDON
     sessLay->addLayout ( slay );
     sessLay->addLayout ( ilay );
     sessLay->addLayout ( pathLay );
@@ -261,24 +237,6 @@ SessionWidget::SessionWidget ( bool newSession, QString id, ONMainWindow * mw,
     connect(cbDirectRDP,SIGNAL(clicked()), this, SLOT(slot_rdpDirectClicked()));
 #endif
 
-#else
-    QVBoxLayout* sHildILay = new QVBoxLayout();
-    sHildILay->addLayout ( slay );
-    sHildILay->addLayout ( ilay );
-    sHildILay->addStretch();
-    QHBoxLayout* sHildLay = new QHBoxLayout();
-    sHildLay->addLayout ( sHildILay );
-
-    QFrame* vl=new QFrame;
-    vl->setLineWidth ( 0 );
-    vl->setFrameStyle ( QFrame::VLine|QFrame::Plain );
-    sHildLay->addWidget ( vl );
-    sHildLay->setSpacing ( 6 );
-    sHildLay->addLayout ( sgbLay );
-    sessLay->addLayout ( sHildLay );
-    sessLay->addStretch();
-    sessLay->addLayout ( cmdLay );
-#endif
     sessLay->addStretch();
 
     connect ( icon,SIGNAL ( clicked() ),this,SLOT ( slot_getIcon() ) );

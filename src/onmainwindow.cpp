@@ -401,7 +401,6 @@ void ONMainWindow::initUI()
     setCentralWidget ( fr );
 
 
-#ifndef Q_WS_HILDON
 
     // See if BGFile is a directory and retrieve an SVG file randomly from within
     QFileInfo bg_dir(BGFile);
@@ -431,9 +430,6 @@ void ONMainWindow::initUI()
             bgFrame=new SVGFrame ( ( QString ) images_resource_path("/svg/bg.svg"),true,fr );
         }
     }
-#else
-    bgFrame=new SVGFrame ( ( QString ) images_resource_path("/svg/bg_hildon.svg"),true,fr );
-#endif
     //bgFrame=new SVGFrame((QString)"/home/admin/test.svg",false,fr);
 
     QString x2gologopath=images_resource_path("/svg/x2gologo.svg");
@@ -838,12 +834,10 @@ void ONMainWindow::initWidgetsNormal()
     u->hide();
     QFont fnt=u->font();
     fnt.setPointSize ( 16 );
-#ifndef Q_WS_HILDON
     if ( miniMode )
     {
         fnt.setPointSize ( 12 );
     }
-#endif
 
     u->setFont ( fnt );
 
@@ -978,7 +972,7 @@ void ONMainWindow::initWidgetsNormal()
         {
             menu_sess->addAction ( act_new );
             menu_sess->addAction ( act_edit );
-#if (!defined Q_WS_HILDON) && (!defined Q_OS_DARWIN)
+#if (!defined Q_OS_DARWIN)
             if ( !portable )
                 menu_sess->addAction ( act_sessicon );
 #endif
@@ -1005,7 +999,7 @@ void ONMainWindow::initWidgetsNormal()
         {
             stb->addAction ( act_new );
             stb->addAction ( act_edit );
-#if (!defined Q_WS_HILDON) && (!defined Q_OS_DARWIN)
+#if (!defined Q_OS_DARWIN)
             if ( !portable )
                 stb->addAction ( act_sessicon );
 #endif
@@ -6992,18 +6986,6 @@ void ONMainWindow::slotProxyStderr()
             runCommand();
             newSession=false;
         }
-#ifdef 	Q_WS_HILDON
-        else
-        {
-            if ( !xmodExecuted )
-            {
-                xmodExecuted=true;
-                QTimer::singleShot (
-                    2000, this,
-                    SLOT ( slotExecXmodmap() ) );
-            }
-        }
-#endif
     }
     if ( reserr.indexOf (
                 tr ( "Connection timeout, aborting" ) ) !=-1 )
@@ -7448,10 +7430,6 @@ void ONMainWindow::runCommand()
                                         QString,
                                         int )), true);
     }
-#ifdef Q_WS_HILDON
-    //wait 5 seconds and execute xkbcomp
-    QTimer::singleShot ( 5000, this, SLOT ( slotExecXmodmap() ) );
-#endif
 }
 
 
@@ -10188,51 +10166,6 @@ void ONMainWindow::addToAppNames ( QString intName, QString transName )
 
 void ONMainWindow::slotExecXmodmap()
 {
-#ifdef Q_WS_HILDON
-    QString passwd=getCurrentPass();
-    QString user=getCurrentUname();
-    QString host=resumingSession.server;
-    QString cmd;
-
-    cmd="(xmodmap -pke ;"
-        "echo keycode 73= ;"
-// 	    "echo clear shift ;"
-// 	    "echo clear lock ;"
-// 	    "echo clear control ;"
-// 	    "echo clear mod1 ;"
-// 	    "echo clear mod2 ;"
-// 	    "echo clear mod3 ;"
-// 	    "echo clear mod4 ;"
-// 	    "echo clear mod5 ;"
-//  	    "echo add shift = Shift_L ;"
-        "echo add control = Control_R "
-//  	    "echo add mod5 = ISO_Level3_Shift"
-        ")| DISPLAY=:"
-        +resumingSession.display+" xmodmap - ";
-
-    x2goDebug<<"Executing xmodmap with cmd: "<<cmd;
-
-    SshProcess* xmodProc;
-    try
-    {
-        xmodProc=new SshProcess ( this,user,host,sshPort,
-                                  cmd,
-                                  passwd,currentKey,acceptRsa );
-    }
-    catch ( QString message )
-    {
-        return;
-    }
-
-    if ( cardReady /*|| useSshAgent*/ )
-    {
-        QStringList env=xmodProc->environment();
-        env+=sshEnv;
-        xmodProc->setEnvironment ( env );
-    }
-    xmodProc->setFwX ( true );
-    xmodProc->startNormal();
-#endif
 }
 
 void ONMainWindow::check_cmd_status()
@@ -10461,9 +10394,7 @@ void ONMainWindow::startX2goMount()
 
 
     QString cuser;
-#ifdef Q_WS_HILDON
-    cuser="user";
-#elif defined (Q_OS_WIN)
+#if defined (Q_OS_WIN)
     cuser=wapiGetUserName();
 #else
     for ( int i=0; i<env.size(); ++i )
@@ -12611,11 +12542,7 @@ void ONMainWindow::initPassDlg()
 
     QFont fnt=passForm->font();
     if ( miniMode )
-#ifdef Q_WS_HILDON
-        fnt.setPointSize ( 10 );
-#else
         fnt.setPointSize ( 9 );
-#endif
     passForm->setFont ( fnt );
 
     fotoLabel=new QLabel ( passForm );
@@ -12696,19 +12623,8 @@ void ONMainWindow::initPassDlg()
 
 
 
-#ifndef Q_WS_HILDON
     ok->setFixedSize ( ok->sizeHint() );
     cancel->setFixedSize ( cancel->sizeHint() );
-#else
-    QSize sz=cancel->sizeHint();
-    sz.setWidth ( ( int ) ( sz.width() /1.5 ) );
-    sz.setHeight ( ( int ) ( sz.height() /1.5 ) );
-    cancel->setFixedSize ( sz );
-    sz=ok->sizeHint();
-    sz.setWidth ( ( int ) ( sz.width() /1.5 ) );
-    sz.setHeight ( ( int ) ( sz.height() /1.5 ) );
-    ok->setFixedSize ( sz );
-#endif
 
     QVBoxLayout *layout=new QVBoxLayout ( passForm );
     QHBoxLayout *labelLay=new QHBoxLayout();
@@ -12798,11 +12714,7 @@ void ONMainWindow::initStatusDlg()
         sessionStatusDlg->setFixedSize ( 310,200 );
     QFont fnt=sessionStatusDlg->font();
     if ( miniMode )
-#ifdef Q_WS_HILDON
-        fnt.setPointSize ( 10 );
-#else
         fnt.setPointSize ( 9 );
-#endif
     sessionStatusDlg->setFont ( fnt );
     username->addWidget ( sessionStatusDlg );
     QPalette pal=sessionStatusDlg->palette();
@@ -13000,11 +12912,7 @@ void ONMainWindow::initSelectSessDlg()
 
     QFont fnt=selectSessionDlg->font();
     if ( miniMode )
-#ifdef Q_WS_HILDON
-        fnt.setPointSize ( 10 );
-#else
         fnt.setPointSize ( 9 );
-#endif
     selectSessionDlg->setFont ( fnt );
     selectSessionLabel=new QLabel ( tr ( "Select session:" ),
                                     selectSessionDlg );
@@ -13057,29 +12965,8 @@ void ONMainWindow::initSelectSessDlg()
               SLOT ( slotCloseSelectDlg() ) );
 
     selectSessionDlg->show();
-#ifndef Q_WS_HILDON
     sOk->setFixedSize ( ok->sizeHint() );
     sCancel->setFixedSize ( cancel->sizeHint() );
-#else
-    QSize sz=sCancel->sizeHint();
-    sz.setWidth ( ( int ) ( sz.width() /1.5 ) );
-    sz.setHeight ( ( int ) ( sz.height() /1.5 ) );
-    sCancel->setFixedSize ( sz );
-    sz=sOk->sizeHint();
-    sz.setWidth ( ( int ) ( sz.width() /1.5 ) );
-    sz.setHeight ( ( int ) ( sz.height() /1.5 ) );
-    sOk->setFixedSize ( sz );
-    sz=bSusp->sizeHint();
-    if ( bTerm->sizeHint().width() > sz.width() )
-        sz=bTerm->sizeHint();
-    if ( bNew->sizeHint().width() > sz.width() )
-        sz=bNew->sizeHint();
-    sz.setWidth ( ( int ) ( sz.width() /1.5 ) );
-    sz.setHeight ( ( int ) ( sz.height() /1.5 ) );
-    bSusp->setFixedSize ( sz );
-    bTerm->setFixedSize ( sz );
-    bNew->setFixedSize ( sz );
-#endif
     int bmaxw=bNew->size().width();
     if ( bSusp->size().width() >bmaxw )
         bmaxw=bSusp->size().width();

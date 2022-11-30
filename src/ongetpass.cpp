@@ -51,13 +51,11 @@ int x2goMain ( int argc, char *argv[] )
 {
     QApplication app ( argc,argv );
 
-#ifndef Q_WS_HILDON
 #ifdef Q_OS_LINUX
 #if QT_VERSION < 0x050000
     app.setStyle ( new QPlastiqueStyle() );
 #else
     app.setStyle ("fusion");
-#endif
 #endif
 #endif
     QStringList args;

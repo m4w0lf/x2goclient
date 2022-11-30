@@ -39,17 +39,9 @@ SettingsWidget::SettingsWidget ( QString id, ONMainWindow * mw,
     : ConfigWidget ( id,mw,parent,f )
 {
     multiDisp=(QApplication::desktop()->screenCount()>1);
-#ifdef Q_WS_HILDON
-    QTabWidget* tabSettings=new QTabWidget ( this );
-    QFrame* dgb=new QFrame();
-    QFrame* kgb=new QFrame();
-    tabSettings->addTab ( dgb, tr ( "&Display" ) );
-    tabSettings->addTab ( kgb,tr ( "&Keyboard" ) );
-#else
     QGroupBox *dgb=new QGroupBox ( tr ( "&Display" ),this );
     clipGr=new QGroupBox ( tr ( "&Clipboard mode" ),this );
     kgb=new QGroupBox ( tr ( "&Keyboard" ),this );
-#endif
     QVBoxLayout *dbLay = new QVBoxLayout ( dgb );
     QVBoxLayout *cbLay=new QVBoxLayout ( clipGr );
     QHBoxLayout* sLay=new QHBoxLayout ( );
@@ -60,11 +52,7 @@ SettingsWidget::SettingsWidget ( QString id, ONMainWindow * mw,
     QVBoxLayout* setLay=new QVBoxLayout ( this );
     QButtonGroup* radio = new QButtonGroup ( dgb );
     fs=new QRadioButton ( tr ( "Fullscreen" ),dgb );
-#ifndef Q_WS_HILDON
     custom=new QRadioButton ( tr ( "Custom" ),dgb );
-#else
-    custom=new QRadioButton ( tr ( "Window" ),dgb );
-#endif
     display=new QRadioButton ( tr ( "Use whole display" ),dgb );
     cbNoresize=new QCheckBox ( tr ( "Not resizable" ),dgb );
     maxRes=new QRadioButton ( tr ( "Maximum available" ),dgb );
@@ -142,12 +130,6 @@ SettingsWidget::SettingsWidget ( QString id, ONMainWindow * mw,
     dbLay->addWidget ( dhl );
     dbLay->addWidget ( cbXinerama );
 
-#ifdef Q_WS_HILDON
-    width->hide();
-    height->hide();
-    widthLabel->hide();
-    heightLabel->hide();
-#endif
 
 #ifdef Q_OS_DARWIN
     kgb->hide();
@@ -197,7 +179,6 @@ SettingsWidget::SettingsWidget ( QString id, ONMainWindow * mw,
     kbLay->addWidget ( rbKbdSet);
     kbLay->addWidget( gbKbdString );
 
-#ifndef Q_WS_HILDON
     setLay->addWidget ( dgb );
     setLay->addWidget ( clipGr );
     setLay->addWidget ( kgb );
@@ -258,10 +239,6 @@ SettingsWidget::SettingsWidget ( QString id, ONMainWindow * mw,
     connect (xdmcpParams, SIGNAL(textChanged(QString)), this, SLOT(updateCmdLine()));
 #endif //CFGCLIENT
 #endif //Q_OS_LINUX
-#else
-    setLay->addWidget ( tabSettings );
-// 	cbClientPrint->hide();
-#endif //Q_WS_HILDON
     setLay->addStretch();
 
     connect ( custom,SIGNAL ( toggled ( bool ) ),width,
