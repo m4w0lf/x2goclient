@@ -1,4 +1,4 @@
 all:
-	${MXE_BASE}/bin/${MXE_TARGET}-g++ -I ${MXE_BASE}/${MXE_TARGET}/include -o ../${BUILD_DIR}/${BUILD_CONFIG}/x2gohelper.exe x2gohelper.cpp
+	"${MXE_BASE}/bin/${MXE_TARGET}-g++" -I "${MXE_BASE}/${MXE_TARGET}/include" -o "../${BUILD_DIR}/${BUILD_CONFIG}/x2gohelper.exe" 'x2gohelper.cpp'
 clean:
-	rm -f ../${BUILD_DIR}/${BUILD_CONFIG}/x2gohelper.exe
+	rm -f "../${BUILD_DIR}/${BUILD_CONFIG}/x2gohelper.exe"

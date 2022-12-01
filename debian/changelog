@@ -144,6 +144,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       and prepare selector in x2goclient.pro.
     - x2goclient.pro: also select on win32 and not just win32-*, fix
       whitespace.
+    - x2gohelper/Makefile.mxe: more quoting.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:
