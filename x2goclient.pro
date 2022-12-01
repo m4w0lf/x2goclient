@@ -158,6 +158,8 @@ unix {
 }
 else:win32 {
   mxe {
+    QMAKE_CXXFLAGS += -DLIBSSH_STATIC=1
+    LIBS += -lssh -lgcrypt -lgpg-error
   }
   else {
     # pkgconfig is... tricky on Windows. Additionally, libssh 0.7.x stopped
@@ -283,5 +285,6 @@ win32-* {
 greaterThan(QT_MAJOR_VERSION, 4): QT += winextras
 }
 
+mxe:QMAKE_CXXFLAGS += -std=c++11 -Wno-deprecated-declarations
 QMAKE_CXXFLAGS_DEBUG -= -g
 QMAKE_CXXFLAGS_DEBUG += -O2 -g3 -ggdb3 -gdwarf-4
