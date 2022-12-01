@@ -139,6 +139,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       comparison etc.
     - macbuild.sh: qmake never supported -config, it was always
       CONFIG(+)='something'.
+    - config_linux_static.sh: also switch from -config to CONFIG+='...'.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:
