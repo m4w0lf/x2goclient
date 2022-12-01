@@ -204,6 +204,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
              sessionmanagedialog,sessionwidget,settingswidget,
              sharewidget}.cpp,x2goclientconfig.h}: drop Maemo support.
      - /: drop Maemo support, remove x2goclient.pro.maemo.
+     - /: add README.mxe, describing MXE builds.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Thu, 13 Feb 2020 12:31:20 +0100
 

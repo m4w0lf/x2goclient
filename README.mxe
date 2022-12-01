@@ -1,0 +1,103 @@
+To build Windows binaries you can use the MXE cross build environment
+(https://mxe.cc). Currently only 32bit static builds are working.
+
+Install MXE as described on the MXE site (I suggest to use the system
+wide installation). Next, adjust the MXE_BASE variable in
+handle_mxe.sh. Then run ./handle_mxe.sh prepare &&
+handle_mxe.sh. That's it.
+
+Following is the list of packages on Debian Buster that will be
+sufficient to make the magic happen (many of these seem unrelated but
+have to be installed due to depencies). In addition you need GNU make.
+
+ii  mxe-i686-w64-mingw32.static-assimp               3.2-buster-build-2021-01-10                  amd64        MXE package assimp for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-binutils             2.28-buster-build-2021-01-10                 amd64        MXE package binutils for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-boost                1.60.0-buster-build-2021-01-10               amd64        MXE package boost for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-bzip2                1.0.6-buster-build-2021-01-10                amd64        MXE package bzip2 for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-cairo                1.16.0-buster-build-2021-01-10               amd64        MXE package cairo for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-cc                   1-buster-build-2021-01-10                    amd64        MXE package cc for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-ccache               3.6-buster-build-2021-01-10                  amd64        MXE package ccache for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-cmake-conf           1-buster-build-2021-01-10                    amd64        MXE package cmake-conf for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-dbus                 1.13.18-buster-build-2021-01-10              amd64        MXE package dbus for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-expat                2.2.10-buster-build-2021-01-10               amd64        MXE package expat for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-fontconfig           2.13.1-buster-build-2021-01-10               amd64        MXE package fontconfig for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-freetds              1.2.18-buster-build-2021-01-10               amd64        MXE package freetds for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-freetype             2.10.4-buster-build-2021-01-10               amd64        MXE package freetype for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-freetype-bootstrap   2.10.4-buster-build-2021-01-10               amd64        MXE package freetype-bootstrap for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-gcc                  5.5.0-buster-build-2021-01-10                amd64        MXE package gcc for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-gettext              0.21-buster-build-2021-01-10                 amd64        MXE package gettext for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-glib                 2.50.2-buster-build-2021-01-10               amd64        MXE package glib for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-gpgme                1.14.0-buster-build-2021-01-10               amd64        MXE package gpgme for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-harfbuzz             2.7.4-buster-build-2021-01-10                amd64        MXE package harfbuzz for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-icu4c                66.1-buster-build-2021-01-10                 amd64        MXE package icu4c for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-jasper               2.0.23-buster-build-2021-01-10               amd64        MXE package jasper for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-jpeg                 9d-buster-build-2021-01-10                   amd64        MXE package jpeg for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-lcms                 2.11-buster-build-2021-01-10                 amd64        MXE package lcms for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-libassuan            2.5.3-buster-build-2021-01-10                amd64        MXE package libassuan for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-libffi               3.2.1-buster-build-2021-01-10                amd64        MXE package libffi for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-libgcrypt            1.8.7-buster-build-2021-01-10                amd64        MXE package libgcrypt for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-libgpg-error         1.41-buster-build-2021-01-10                 amd64        MXE package libgpg_error for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-libiconv             1.16-buster-build-2021-01-10                 amd64        MXE package libiconv for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-libidn2              2.3.0-buster-build-2021-01-10                amd64        MXE package libidn2 for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-libmng               2.0.3-buster-build-2021-01-10                amd64        MXE package libmng for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-libmysqlclient       6.1.6-buster-build-2021-01-10                amd64        MXE package libmysqlclient for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-libpng               1.6.37-buster-build-2021-01-10               amd64        MXE package libpng for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-libssh               0.9.1-buster-build-2021-01-10                amd64        MXE package libssh for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-libunistring         0.9.10-buster-build-2021-01-10               amd64        MXE package libunistring for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-libwebp              1.0.3-buster-build-2021-01-10                amd64        MXE package libwebp for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-lzo                  2.10-buster-build-2021-01-10                 amd64        MXE package lzo for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-mesa                 20.3.0-buster-build-2021-01-10               amd64        MXE package mesa for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-mingw-w64            8.0.0-buster-build-2021-01-10                amd64        MXE package mingw-w64 for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-minizip              2aa369c-buster-build-2021-01-10              amd64        MXE package minizip for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-mxe-conf             1-buster-build-2021-01-10                    amd64        MXE package mxe-conf for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-openssl              1.1.1i-buster-build-2021-01-10               amd64        MXE package openssl for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-pcre                 8.44-buster-build-2021-01-10                 amd64        MXE package pcre for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-pcre2                10.36-buster-build-2021-01-10                amd64        MXE package pcre2 for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-pe-parse             64989f6-buster-build-2021-01-10              amd64        MXE package pe-parse for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-pe-util              5b07cb3-buster-build-2021-01-10              amd64        MXE package pe-util for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-pixman               0.33.6-buster-build-2021-01-10               amd64        MXE package pixman for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-pkgconf              0.da179fd-buster-build-2021-01-10            amd64        MXE package pkgconf for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-postgresql           9.2.4-buster-build-2021-01-10                amd64        MXE package postgresql for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-pthreads             0.POSIX-1003.1-2001-buster-build-2021-01-10  amd64        MXE package pthreads for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qt3d                 5.15.2-buster-build-2021-01-10               amd64        MXE package qt3d for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qt5                  5.15.2-buster-build-2021-01-10               amd64        MXE package qt5 for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtactiveqt           5.15.2-buster-build-2021-01-10               amd64        MXE package qtactiveqt for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtbase               5.15.2-buster-build-2021-01-10               amd64        MXE package qtbase for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtcharts             5.15.2-buster-build-2021-01-10               amd64        MXE package qtcharts for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtconnectivity       5.15.2-buster-build-2021-01-10               amd64        MXE package qtconnectivity for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtdatavis3d          5.15.2-buster-build-2021-01-10               amd64        MXE package qtdatavis3d for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtdeclarative        5.15.2-buster-build-2021-01-10               amd64        MXE package qtdeclarative for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtgamepad            5.15.2-buster-build-2021-01-10               amd64        MXE package qtgamepad for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtgraphicaleffects   5.15.2-buster-build-2021-01-10               amd64        MXE package qtgraphicaleffects for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtimageformats       5.15.2-buster-build-2021-01-10               amd64        MXE package qtimageformats for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtlocation           5.15.2-buster-build-2021-01-10               amd64        MXE package qtlocation for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtlottie             5.15.2-buster-build-2021-01-10               amd64        MXE package qtlottie for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtmultimedia         5.15.2-buster-build-2021-01-10               amd64        MXE package qtmultimedia for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtnetworkauth        5.15.2-buster-build-2021-01-10               amd64        MXE package qtnetworkauth for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtpurchasing         5.15.2-buster-build-2021-01-10               amd64        MXE package qtpurchasing for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtquick3d            5.15.2-buster-build-2021-01-10               amd64        MXE package qtquick3d for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtquickcontrols      5.15.2-buster-build-2021-01-10               amd64        MXE package qtquickcontrols for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtquickcontrols2     5.15.2-buster-build-2021-01-10               amd64        MXE package qtquickcontrols2 for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtremoteobjects      5.15.2-buster-build-2021-01-10               amd64        MXE package qtremoteobjects for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtscript             5.15.2-buster-build-2021-01-10               amd64        MXE package qtscript for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtscxml              5.15.2-buster-build-2021-01-10               amd64        MXE package qtscxml for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtsensors            5.15.2-buster-build-2021-01-10               amd64        MXE package qtsensors for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtserialbus          5.15.2-buster-build-2021-01-10               amd64        MXE package qtserialbus for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtserialport         5.15.2-buster-build-2021-01-10               amd64        MXE package qtserialport for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtspeech             5.15.2-buster-build-2021-01-10               amd64        MXE package qtspeech for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtsvg                5.15.2-buster-build-2021-01-10               amd64        MXE package qtsvg for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qttools              5.15.2-buster-build-2021-01-10               amd64        MXE package qttools for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qttranslations       5.15.2-buster-build-2021-01-10               amd64        MXE package qttranslations for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtvirtualkeyboard    5.15.2-buster-build-2021-01-10               amd64        MXE package qtvirtualkeyboard for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtwebchannel         5.15.2-buster-build-2021-01-10               amd64        MXE package qtwebchannel for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtwebsockets         5.15.2-buster-build-2021-01-10               amd64        MXE package qtwebsockets for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtwebview            5.15.2-buster-build-2021-01-10               amd64        MXE package qtwebview for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtwinextras          5.15.2-buster-build-2021-01-10               amd64        MXE package qtwinextras for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-qtxmlpatterns        5.15.2-buster-build-2021-01-10               amd64        MXE package qtxmlpatterns for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-sqlite               3340000-buster-build-2021-01-10              amd64        MXE package sqlite for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-tiff                 4.2.0-buster-build-2021-01-10                amd64        MXE package tiff for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-xz                   5.2.5-buster-build-2021-01-10                amd64        MXE package xz for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-zlib                 1.2.11-buster-build-2021-01-10               amd64        MXE package zlib for i686-w64-mingw32.static
+ii  mxe-i686-w64-mingw32.static-zstd                 1.4.8-buster-build-2021-01-10                amd64        MXE package zstd for i686-w64-mingw32.static
+ii  mxe-requirements                                 2.23-buster-build-2021-01-10                 amd64        MXE requirements package
+ii  mxe-source                                       2.23-buster-build-2021-01-10                 amd64        MXE source
