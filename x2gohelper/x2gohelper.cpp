@@ -15,7 +15,7 @@
 *   along with this program.  If not, see <https://www.gnu.org/licenses/>. *
 ***************************************************************************/
 #include <windows.h>
-#include <TlHelp32.h>
+#include <tlhelp32.h>
 void killProcess(DWORD pid)
 {
     HANDLE handle=OpenProcess(PROCESS_TERMINATE,0,pid);
