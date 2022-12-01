@@ -134,6 +134,9 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       dates for more than 10 years and nobody noticed. Go figure.
     - src/onmainwindow.cpp: convert server-reported time to human readable
       time in Qt's standard format in session list view.
+    - handle_mxe.sh: rework, make most variables lowercase, change spacing,
+      use proper if-else blocks, do not use special bash features for string
+      comparison etc.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:
