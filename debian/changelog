@@ -180,6 +180,9 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       allowing passed-in values through the environment.
     + Utilize new version switching in main Makefile by overriding the
       QT_VERSION make variable.
+    + Fix version detection on testing and unstable. lsb_release -r currently
+      only outputs n/a on these suites, so fall back to a rather fragile
+      detection via apt-cache policy instead.
   * debian/:
     + New file "watch". We won't need this per se (since we're upstream and
       there cannot be a newer version of the Debian package without releasing
