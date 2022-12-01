@@ -157,18 +157,24 @@ unix {
   }
 }
 else:win32 {
-  # pkgconfig is... tricky on Windows. Additionally, libssh 0.7.x stopped
-  # distributing pkgconfig files on non-UNIX platforms, including Windows.
-  # We'll hardcode stuff here. Make sure that it's consistent with the
-  # libraries we use on Windows.
-  LIBS += -lssh
+  mxe {
+  }
+  else {
+    # pkgconfig is... tricky on Windows. Additionally, libssh 0.7.x stopped
+    # distributing pkgconfig files on non-UNIX platforms, including Windows.
+    # We'll hardcode stuff here. Make sure that it's consistent with the
+    # libraries we use on Windows.
+    LIBS += -lssh
+  }
 }
 else {
   # For backwards-compatibility.
   LIBS += -lssh -lssh_threads
 }
 
-win32:LIBS += -lAdvAPI32 -lshell32 -lUser32
+win32:!mxe {
+  LIBS += -lAdvAPI32 -lshell32 -lUser32
+}
 
 RC_FILE = res/x2goclient.rc
 SOURCES += src/x2goclient.cpp

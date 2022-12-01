@@ -59,7 +59,7 @@ if [ 'prepare' = "${mode}" ]; then
   "${mxe_path}/qt5/bin/lrelease" '../x2goclient.pro'
 
   # no special Makefile required as qmake will create that
-  "${mxe_path}/qt5/bin/qmake" '../x2goclient.pro' -config "${BUILD_CONFIG}"
+  "${mxe_path}/qt5/bin/qmake" '../x2goclient.pro' CONFIG+="${BUILD_CONFIG} mxe"
 
   popd
 else

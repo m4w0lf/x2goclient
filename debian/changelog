@@ -140,6 +140,8 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - macbuild.sh: qmake never supported -config, it was always
       CONFIG(+)='something'.
     - config_linux_static.sh: also switch from -config to CONFIG+='...'.
+    - {handle_mxe.sh,x2goclient.pro}: make mxe selectable via CONFIG option
+      and prepare selector in x2goclient.pro.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:
