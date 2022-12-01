@@ -316,8 +316,7 @@ phase "Running lrelease"
 lrelease "${PROJECT}"
 
 phase "Running qmake"
-qmake -config "${BUILD_MODE}" -spec macx-g++ "${PROJECT}" \
-      CONFIG+="${BUILD_ARCH}" \
+qmake CONFIG+="${BUILD_MODE} ${BUILD_ARCH}" -spec macx-g++ "${PROJECT}" \
       QMAKE_MAC_SDK="${SDK}" \
       QMAKE_MACOSX_DEPLOYMENT_TARGET="${MACOSX_DEPLOYMENT_TARGET}" \
       OSX_STDLIB="${STDLIB}" \
