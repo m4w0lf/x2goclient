@@ -142,6 +142,8 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - config_linux_static.sh: also switch from -config to CONFIG+='...'.
     - {handle_mxe.sh,x2goclient.pro}: make mxe selectable via CONFIG option
       and prepare selector in x2goclient.pro.
+    - x2goclient.pro: also select on win32 and not just win32-*, fix
+      whitespace.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:

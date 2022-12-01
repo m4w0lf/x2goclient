@@ -272,17 +272,17 @@ macx {
   PRE_TARGETDEPS += $${TARGET}.app/Contents/Info.plist
   QMAKE_POST_LINK += $${PWD}/res/osxbundle/postbuild.sh \"$${TARGET}\" \"$${VERSION}\" \"$${QMAKE_INFO_PLIST_OUT}\" \"$${QMAKE_COPY}\" \"$${ICON}\" \"$${OUT_PWD}/$${TARGET}.app/Contents/Resources/\"
 }
-win32-* {
+win32|win32-* {
   message("building $$TARGET for windows without ldap and cups")
   LIBS += -lwinspool -lws2_32
   CONFIG += static release
 }
 QT += svg network
 linux|linux-* {
-greaterThan(QT_MAJOR_VERSION, 4): QT += x11extras
+  greaterThan(QT_MAJOR_VERSION, 4): QT += x11extras
 }
-win32-* {
-greaterThan(QT_MAJOR_VERSION, 4): QT += winextras
+win32|win32-* {
+  greaterThan(QT_MAJOR_VERSION, 4): QT += winextras
 }
 
 mxe:QMAKE_CXXFLAGS += -std=c++11 -Wno-deprecated-declarations
