@@ -39,7 +39,7 @@ else
     # Newer Debian versions might report "n/a" for testing and unstable.
     ifeq ($(RELEASE_VER),n/a)
       # On these platforms, the best way to determine the system version is by
-      # going through apt-cache policy.
+      # going through "apt-cache policy".
       # Note that this should only be the case for either testing or unstable.
       # Other systems should have a proper version number.
       # This is also why we can just drop any suites/archive names (this is
