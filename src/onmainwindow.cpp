@@ -11104,6 +11104,7 @@ void ONMainWindow::generateEtcFiles()
          "AuthorizedKeysFile \"" << authKeyPath << "\"\n";
 #ifdef Q_OS_WIN
     out << "Subsystem shell "<< wapiShortFileName ( appDir) +"/bin/bash"+"\n"<<
+           "ListenAddress 127.0.0.1\n" <<
            "Subsystem sftp "<< wapiShortFileName ( appDir) +"/bin/sftp-server"+"\n";
 #else
     /*
