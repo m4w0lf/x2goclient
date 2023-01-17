@@ -6314,7 +6314,14 @@ void ONMainWindow::slotTunnelOk(int)
     QString proxyCmd="nxproxy -S nx/nx,options="+dirpath+"/options:"+
                      resumingSession.display;
 #ifdef Q_OS_WIN
-    proxyCmd="bin\\"+proxyCmd;
+    if(! QFile::exists(appDir+"/nxproxy.exe"))
+    {
+        if(QFile::exists(appDir+"/bin/nxproxy.exe"))
+        {
+            proxyCmd="bin\\"+proxyCmd;
+        }
+    }
+    x2goDebug<<"NX proxy: "<<proxyCmd;
 #endif
 #ifdef Q_OS_DARWIN
     //run nxproxy from bundle
@@ -11103,9 +11110,38 @@ void ONMainWindow::generateEtcFiles()
          "PidFile \"" + varDir + "/sshd.pid\"\n" <<
          "AuthorizedKeysFile \"" << authKeyPath << "\"\n";
 #ifdef Q_OS_WIN
-    out << "Subsystem shell "<< wapiShortFileName ( appDir) +"/bin/bash"+"\n"<<
+    QString shell="/bash";
+    if(QFile::exists(appDir+"/bash.exe"))
+    {
+        shell="/bash";
+    }
+    else if(QFile::exists(appDir+"/sh.exe"))
+    {
+        shell="/sh";
+    }
+    else if(QFile::exists(appDir+"/bin/bash.exe"))
+    {
+        shell="/bin/bash";
+    }
+    else if(QFile::exists(appDir+"/bin/sh.exe"))
+    {
+        shell="/bin/sh";
+    }
+    x2goDebug<<"Subsystem shell: "<<shell;
+
+    QString sftp="/sftp-server";
+    if(QFile::exists(appDir+"/sftp-server.exe"))
+    {
+        sftp="/sftp-server";
+    }
+    else if(QFile::exists(appDir+"/bin/sftp-server.exe"))
+    {
+        shell="/bin/sftp-server";
+    }
+    x2goDebug<<"Subsystem sftp: "<<sftp;
+    out << "Subsystem shell "<< wapiShortFileName ( appDir) +shell+"\n"<<
            "ListenAddress 127.0.0.1\n" <<
-           "Subsystem sftp "<< wapiShortFileName ( appDir) +"/bin/sftp-server"+"\n";
+           "Subsystem sftp "<< wapiShortFileName ( appDir) +sftp+"\n";
 #else
     /*
      * We need to find the sftp-server binary.
@@ -11354,7 +11390,17 @@ QString ONMainWindow::generateKey (ONMainWindow::key_types key_type, bool host_k
          << private_key_file;
 
 #ifdef Q_OS_WIN
-    const int keygen_ret = QProcess::execute ("bin\\ssh-keygen", args);
+    QString keygen="ssh-keygen";
+    if(QFile::exists(appDir+"/ssh-keygen.exe"))
+    {
+        keygen="ssh-keygen";
+    }
+    else if(QFile::exists(appDir+"/bin/ssh-keygen.exe"))
+    {
+        keygen="bin\\ssh-keygen";
+    }
+    x2goDebug<<"ssh-keygen: "<<keygen;
+    const int keygen_ret = QProcess::execute (keygen, args);
 #else
     const int keygen_ret = QProcess::execute ("ssh-keygen", args);
 #endif
@@ -11517,6 +11563,16 @@ bool ONMainWindow::startSshd(ONMainWindow::key_types key_type)
         ++port;
     clientSshPort=QString::number ( port );
 #ifdef Q_OS_WIN
+    std::string sshdExec="\\sshd.exe";
+    if(QFile::exists(appDir+"/sshd.exe"))
+    {
+        sshdExec="\\sshd.exe";
+    }
+    else if(QFile::exists(appDir+"/bin/sshd.exe"))
+    {
+        sshdExec="\\bin\\sshd.exe";
+    }
+    x2goDebug<<"SSHD executable: "<<sshdExec.c_str();
     std::string clientdir=wapiShortFileName ( appDir ).toStdString();
     std::stringstream strm;
     std::string config="\""+cygwinPath(etcDir+"/sshd_config").toStdString()+"\"";
@@ -11539,7 +11595,7 @@ bool ONMainWindow::startSshd(ONMainWindow::key_types key_type)
         x2goDebug<<"Logging cygwin sshd to: "<<sshLog;
     }
 
-    strm<<clientdir<<"\\bin\\sshd.exe -D -p "<<clientSshPort.toInt()<<" -f "<< config <<" -h "<<key;
+    strm<<clientdir<<sshdExec<<" -D -p "<<clientSshPort.toInt()<<" -f "<< config <<" -h "<<key;
     if (debugging){
         strm<<" -E "<<"\""<<sshLog.toStdString()<<"\"";
     }

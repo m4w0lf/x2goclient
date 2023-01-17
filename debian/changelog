@@ -54,6 +54,8 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - add "noresize" setting, which makes the proxy window not resizable
       for user.
     - on Windows SSHD will only listen 127.0.0.1 to avoid FW warnings.
+    - on Windows check the location of cgwin binaries in <APPDIR> and
+      in <APPDIR>/bin.
 
   [ Ryan Schmidt ]
   * New upstream version (4.1.2.3):
