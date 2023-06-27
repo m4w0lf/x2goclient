@@ -128,7 +128,7 @@ sub trim {
 #
 # Takes a string as its only parameter.
 #
-# Returns the deitected token as an offset/index in the tokens array.
+# Returns the detected token as an offset/index in the tokens array.
 #
 # On error, returns undef.
 sub fetch_token {
@@ -162,7 +162,7 @@ sub fetch_token {
 # Takes the (probable) condition as a string, and a boolean value denoting
 # whether debugging is requested or not as its parameters.
 #
-# Returns a boolean value .
+# Returns a boolean value.
 #
 # On error, returns undef.
 sub parse_condition {

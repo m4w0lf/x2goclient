@@ -149,6 +149,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
       whitespace.
     - x2gohelper/Makefile.mxe: more quoting.
     - Windows: Update PuTTY from 0.73 to 0.78.
+    - debian/preprocessor.pl: typo fixes only.
   * debian/control:
     + Move to debian/control.in.
   * debian/control.in:
