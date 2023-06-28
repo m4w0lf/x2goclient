@@ -1,4 +1,4 @@
-x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
+x2goclient (4.1.2.3-0x2go1) unstable; urgency=medium
 
   [ Oleksandr Shneyder ]
   * New upstream version (4.1.2.3):
@@ -232,7 +232,7 @@ x2goclient (4.1.2.3-0x2go1) UNRELEASED; urgency=medium
     - x2gohelper/x2gohelper.cpp: use lower-case header files.
     - x2gohelper/: add Makefile.mxe.
 
- -- X2Go Release Manager <git-admin@x2go.org>  Thu, 13 Feb 2020 12:31:20 +0100
+ -- X2Go Release Manager <git-admin@x2go.org>  Wed, 28 Jun 2023 22:00:51 +0200
 
 x2goclient (4.1.2.2-0x2go1) unstable; urgency=medium
 
