@@ -2164,13 +2164,13 @@ Tallentamattomat tiedot katoavat.</translation>
     </message>
     <message>
         <location filename="../../src/onmainwindow.cpp" line="9174"/>
-        <source>&lt;br&gt;(C) 2005-2020 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</source>
+        <source>&lt;br&gt;(C) 2005-2023 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;</source>
         <extracomment>Translators, feel free to add a localized version of your translation including a copyright notice and your name(s). Remember to keep a &lt;br&gt; at the end, though.
 
 English example for a potential translation:
 
-&lt;br&gt;(C) 2005-2020 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;English version: (C) 20AB-20CD Trans Lator &lt;trans@la.tor&gt;&lt;br&gt;</extracomment>
-        <translation>&lt;br&gt;(C) 2005-2020 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;
+&lt;br&gt;(C) 2005-2023 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;English version: (C) 20AB-20CD Trans Lator &lt;trans@la.tor&gt;&lt;br&gt;</extracomment>
+        <translation>&lt;br&gt;(C) 2005-2023 by &lt;b&gt;obviously nice&lt;/b&gt;: Oleksandr Shneyder, Heinz-Markus Graesing&lt;br&gt;
 Suomenkielinen versio: Martti Pitkänen, martti@aplcomp.fi&lt;br&gt;</translation>
     </message>
     <message>

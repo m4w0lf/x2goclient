@@ -1,5 +1,5 @@
 /**************************************************************************
-*   Copyright (C) 2005-2020 by Oleksandr Shneyder                         *
+*   Copyright (C) 2005-2023 by Oleksandr Shneyder                         *
 *                              <o.shneyder@phoca-gmbh.de>                 *
 *                                                                         *
 *   This program is free software; you can redistribute it and/or modify  *
@@ -9471,11 +9471,11 @@ at the end, though.\n\n\
 \
 English example for a potential translation:\n\n\
 \
-<br>(C) 2005-2020 by <b>obviously nice</b>: \
+<br>(C) 2005-2023 by <b>obviously nice</b>: \
 Oleksandr Shneyder, Heinz-Markus Graesing<br>\
 English version: (C) 20AB-20CD Trans Lator <trans@la.tor><br>
      */
-    QString aboutStr=tr ("<br>(C) 2005-2020 by <b>obviously nice</b>: "
+    QString aboutStr=tr ("<br>(C) 2005-2023 by <b>obviously nice</b>: "
                          "Oleksandr Shneyder, Heinz-Markus Graesing<br>" );
     aboutStr+=
         tr (

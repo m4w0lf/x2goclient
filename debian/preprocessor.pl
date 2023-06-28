@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# Copyright (C) 2021 X2Go Project - https://wiki.x2go.org
+# Copyright (C) 2021-2023 X2Go Project - https://wiki.x2go.org
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
