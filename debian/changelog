@@ -1,12 +1,14 @@
 x2goclient (4.1.2.4-0x2go1) UNRELEASED; urgency=medium
 
-  [ X2Go Release Manager ]
-  * Continue development
-
   [ Oleksandr Shneyder ]
   * Fix crashes when syn reply arriving after the session is started, when using broker
   * In direct RDP mode, when using broker, forward username and password to the RDP client
     if user enetered any.
+
+  [ Mihai Moldovan ]
+  * New upstream version (4.1.2.4):
+  * x2goclient.spec:
+    + Add Recommends: x2gokdriveclient for FC30+, RH 8+, *SuSE 15.4+.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Thu, 29 Jun 2023 20:54:03 +0200
 
