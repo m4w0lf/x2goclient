@@ -78,6 +78,7 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
 
     setFocusPolicy ( Qt::NoFocus );
     installTranslator();
+    ignoreBrokerSessions=false;
     autoresume=true;
     cleanAllFiles=false;
     drawMenu=true;
@@ -2349,6 +2350,11 @@ void ONMainWindow::slotConfig()
 void ONMainWindow::slotReadSessions()
 {
 
+    if(brokerMode&&ignoreBrokerSessions)
+    {
+        x2goDebug<<"Looks like session is already started, not reading sessions";
+        return;
+    }
     users->show();
     ln->show();
 
@@ -3313,6 +3319,11 @@ void ONMainWindow::slotSshServerAuthError ( int error, QString sshMessage, SshMa
         activateWindow();
         raise();
     }
+    if(brokerMode)
+    {
+        ignoreBrokerSessions=false;
+    }
+
     if(brokerMode && config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
     {
             brokerSyncTimer->start();
@@ -3452,6 +3463,11 @@ void ONMainWindow::slotSshUserAuthError ( QString error )
     pass->setFocus();
     pass->selectAll();
     passForm->setEnabled ( true );
+    if(brokerMode)
+    {
+        ignoreBrokerSessions=false;
+    }
+
     if(brokerMode && config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
     {
             brokerSyncTimer->start();
@@ -3830,7 +3846,10 @@ bool ONMainWindow::startSession ( const QString& sid, CONTYPE conType )
     bool proxyKrbLogin=false;
 
     if(brokerMode)
+    {
         brokerSyncTimer->stop();
+        ignoreBrokerSessions=true;
+    }
 
     user=getCurrentUname();
     runRemoteCommand=true;
@@ -3869,6 +3888,10 @@ bool ONMainWindow::startSession ( const QString& sid, CONTYPE conType )
 
             setEnabled(true);
             passForm->setEnabled(true);
+            if(brokerMode)
+            {
+                ignoreBrokerSessions=false;
+            }
             if(config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
             {
                 brokerSyncTimer->start();
@@ -5564,6 +5587,10 @@ void ONMainWindow::slotRetSuspSess ( bool result, QString output,
     }
     else
     {
+        if(brokerMode)
+        {
+            ignoreBrokerSessions=false;
+        }
         if(brokerMode && config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
         {
             brokerSyncTimer->start();
@@ -5665,6 +5692,11 @@ void ONMainWindow::slotRetTermSess ( bool result,  QString output,
     }
     if ( selectSessionDlg->isVisible() )
         selectSessionDlg->setEnabled ( true );
+    if(brokerMode)
+    {
+        ignoreBrokerSessions=false;
+    }
+
     if(brokerMode && config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
     {
             brokerSyncTimer->start();
@@ -6713,6 +6745,7 @@ void ONMainWindow::slotProxyFinished ( int,QProcess::ExitStatus )
 {
     if(brokerMode)
     {
+        ignoreBrokerSessions=false;
         sendEventToBroker(FINISHED);
     }
 #ifdef Q_OS_DARWIN

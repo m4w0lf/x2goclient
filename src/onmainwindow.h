@@ -594,6 +594,8 @@ private:
     QStringList _transApplicationsNames;
     QString portableDataPath;
     QString proxyErrString;
+/* don't sync sessions from broker if the session already started */
+    bool ignoreBrokerSessions;
     bool haveTerminal;
     bool proxyRunning;
     bool drawMenu;
