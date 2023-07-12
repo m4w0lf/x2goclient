@@ -3633,6 +3633,14 @@ void ONMainWindow::startDirectRDP()
     {
         user=st->setting()->value ( sid+"/user",
                                        ( QVariant ) "").toString();
+        if(getCurrentUname().length()>0)
+        {
+            user=getCurrentUname();
+        }
+        if(getCurrentPass().length()>0)
+        {
+            password=getCurrentPass();
+        }
     }
 
     nxproxy=new QProcess;
