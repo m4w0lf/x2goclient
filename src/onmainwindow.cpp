@@ -3306,6 +3306,18 @@ void ONMainWindow::slotSshServerAuthChallengeResponse(SshMasterConnection* conne
     }
 }
 
+void ONMainWindow::startBrokerSyncTimer()
+{
+    if(brokerMode)
+    {
+        ignoreBrokerSessions=false;
+    }
+
+    if(brokerMode && config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
+    {
+            brokerSyncTimer->start();
+    }
+}
 
 void ONMainWindow::slotSshServerAuthError ( int error, QString sshMessage, SshMasterConnection* connection )
 {
@@ -3318,15 +3330,6 @@ void ONMainWindow::slotSshServerAuthError ( int error, QString sshMessage, SshMa
         show();
         activateWindow();
         raise();
-    }
-    if(brokerMode)
-    {
-        ignoreBrokerSessions=false;
-    }
-
-    if(brokerMode && config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
-    {
-            brokerSyncTimer->start();
     }
     QString errMsg;
     switch ( error )
@@ -3350,6 +3353,7 @@ void ONMainWindow::slotSshServerAuthError ( int error, QString sshMessage, SshMa
             }
             slotSshUserAuthError ( tr ( "Host key verification failed." ) );
             sshConnection=0;
+            startBrokerSyncTimer();
             return;
         }
         else
@@ -3378,6 +3382,7 @@ void ONMainWindow::slotSshServerAuthError ( int error, QString sshMessage, SshMa
             }
             slotSshUserAuthError ( tr ( "Host key verification failed." ) );
             sshConnection=0;
+            startBrokerSyncTimer();
             return;
         }
         else
@@ -3397,6 +3402,7 @@ void ONMainWindow::slotSshServerAuthError ( int error, QString sshMessage, SshMa
         }
         sshConnection=0;
         slotSshUserAuthError ( sshMessage );
+        startBrokerSyncTimer();
         return ;
     case SSH_SERVER_FILE_NOT_FOUND:
         errMsg=tr ( "Could not find known hosts file. "
@@ -3421,6 +3427,7 @@ void ONMainWindow::slotSshServerAuthError ( int error, QString sshMessage, SshMa
         }
         sshConnection=0;
         slotSshUserAuthError ( tr ( "Host key verification failed." ) );
+        startBrokerSyncTimer();
         return;
     }
     connection->writeKnownHosts(true);
@@ -3463,15 +3470,7 @@ void ONMainWindow::slotSshUserAuthError ( QString error )
     pass->setFocus();
     pass->selectAll();
     passForm->setEnabled ( true );
-    if(brokerMode)
-    {
-        ignoreBrokerSessions=false;
-    }
-
-    if(brokerMode && config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
-    {
-            brokerSyncTimer->start();
-    }
+    startBrokerSyncTimer();
 }
 
 void ONMainWindow::slotSessEnter()
@@ -3896,14 +3895,7 @@ bool ONMainWindow::startSession ( const QString& sid, CONTYPE conType )
 
             setEnabled(true);
             passForm->setEnabled(true);
-            if(brokerMode)
-            {
-                ignoreBrokerSessions=false;
-            }
-            if(config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
-            {
-                brokerSyncTimer->start();
-            }
+            startBrokerSyncTimer();
             return false;
         }
     }
@@ -5595,14 +5587,7 @@ void ONMainWindow::slotRetSuspSess ( bool result, QString output,
     }
     else
     {
-        if(brokerMode)
-        {
-            ignoreBrokerSessions=false;
-        }
-        if(brokerMode && config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
-        {
-            brokerSyncTimer->start();
-        }
+        startBrokerSyncTimer();
     }
 }
 
@@ -5700,16 +5685,7 @@ void ONMainWindow::slotRetTermSess ( bool result,  QString output,
     }
     if ( selectSessionDlg->isVisible() )
         selectSessionDlg->setEnabled ( true );
-    if(brokerMode)
-    {
-        ignoreBrokerSessions=false;
-    }
-
-    if(brokerMode && config.brokerSyncTimeout && !(brokerSyncTimer->isActive()))
-    {
-            brokerSyncTimer->start();
-    }
-
+    startBrokerSyncTimer();
 }
 
 void ONMainWindow::slotRetResumeSess ( bool result,

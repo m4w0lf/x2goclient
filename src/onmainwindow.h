@@ -1025,7 +1025,7 @@ private:
      */
     static bool get_translator (const QString file_name_start, QTranslator **translator);
     void getClientKeyboardConfig(QString& layout, QString& model, QString& variant);
-
+    void startBrokerSyncTimer();
 
 protected:
     virtual void closeEvent ( QCloseEvent* event );
