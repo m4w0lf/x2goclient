@@ -1,0 +1,6 @@
+@Library('jenkins-ci-tools') _
+buildDebianPackage(
+    /* isArchIndependent */ false,
+    /* ignoredArchs */ [],
+    /* isHeavyPackage */ true
+)
