@@ -840,7 +840,14 @@ void HttpBrokerClient::parseSession(QString sinfo)
         config->key=sinfo.mid(keyStartPos, keyEndPos+endStr.length()-keyStartPos);
     }
     QString serverLine=(lst[1].split("\n"))[0];
-    QStringList words=serverLine.split(":",QString::SkipEmptyParts);
+    QStringList words=serverLine.split(":",QString::KeepEmptyParts);
+    if ((words.isEmpty ()) || (words[0].isEmpty ())) {
+        QString msg = tr ("Broker passed no server name or address.");
+        x2goDebug << msg;
+        QMessageBox::critical (0, tr ("Error"), msg);
+        emit (fatalHttpError ());
+        return;
+    }
     config->serverIp=words[0];
     if (words.count()>1)
         config->sshport=words[1];
