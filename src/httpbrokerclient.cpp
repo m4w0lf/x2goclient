@@ -849,8 +849,25 @@ void HttpBrokerClient::parseSession(QString sinfo)
         return;
     }
     config->serverIp=words[0];
-    if (words.count()>1)
+    /*
+     * Note that it's legal for the port to be empty - the default port will
+     * be used in this case.
+     */
+    if ((1 < words.count ()) && (!(words[1].isEmpty ()))) {
+        /*
+         * Sanity check, must be in the [1,65535] range.
+         */
+        bool conv_res = false;
+        qulonglong conv = words[1].toULongLong (&conv_res, 10);
+        if ((!(conv_res)) || (conv == 0) || (65535 < conv)) {
+            QString msg = tr ("Broker passed invalid server port: %1").arg (words[1]);
+            x2goDebug << msg;
+            QMessageBox::critical (0, tr ("Error"), msg);
+            emit (fatalHttpError ());
+            return;
+        }
         config->sshport=words[1];
+    }
     x2goDebug<<"Server IP address: "<<config->serverIp;
     x2goDebug<<"Server port: "<<config->sshport;
     if (sinfo.indexOf("SESSION_INFO")!=-1)
