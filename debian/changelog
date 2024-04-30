@@ -3,10 +3,10 @@ x2goclient (4.1.2.4-0x2go1) UNRELEASED; urgency=medium
   [ Oleksandr Shneyder ]
   * New upstream version (4.1.2.4):
     - Fix crashes when syn reply arriving after the session is started, when
-      using broker
+      using broker.
     - In direct RDP mode, when using broker, forward username and password to
       the RDP client if user entered any.
-  * Fix crashes in broker mode when server key check has failed
+    - Fix crashes in broker mode when server key check has failed.
 
   [ Mihai Moldovan ]
   * New upstream version (4.1.2.4):
