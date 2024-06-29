@@ -71,7 +71,7 @@ void SshMasterConnection::parseKnownHosts()
     while (!fl.atEnd())
     {
         QString line=fl.readLine();
-        QStringList parts=line.split(' ',QString::SkipEmptyParts);
+        QStringList parts=line.split(' ',Qt::SkipEmptyParts);
         if (parts.count()!=3)
             continue;
 
@@ -88,7 +88,7 @@ void SshMasterConnection::parseKnownHosts()
             type="rsa2";
 
 
-        QStringList hostParts=parts[0].split(":",QString::SkipEmptyParts);
+        QStringList hostParts=parts[0].split(":",Qt::SkipEmptyParts);
         if (hostParts.count()>1)
             port=hostParts[1];
         hostParts[0].replace("[","");
@@ -1108,7 +1108,7 @@ bool SshMasterConnection::userChallengeAuth()
                 x2goDebug << "Checking against known prompt #" << i << ": " << challenge_auth_code_prompts_[i] << endl;
 
                 /* Ignore "garbage" at the start of the string, but require at least one line to start with a known prompt. */
-                QStringList tmp_str_list = pr.split ("\n", QString::SkipEmptyParts);
+                QStringList tmp_str_list = pr.split ("\n", Qt::SkipEmptyParts);
 
                 for (QStringList::const_iterator cit = tmp_str_list.constBegin (); cit != tmp_str_list.constEnd (); ++cit) {
                   if ((*cit).startsWith (challenge_auth_code_prompts_[i])) {

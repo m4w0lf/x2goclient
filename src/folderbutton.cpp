@@ -104,7 +104,7 @@ void FolderButton::loadIcon()
 
     QPixmap* pix=new QPixmap();
 
-    QString normPath=(path+"/"+name).split("/",QString::SkipEmptyParts).join("::");
+    QString normPath=(path+"/"+name).split("/",Qt::SkipEmptyParts).join("::");
     QString picURL=st->setting()->value ( "icon_"+normPath, ( QVariant )QString()).toString();
     if(picURL.indexOf("file://")!=-1)
     {
