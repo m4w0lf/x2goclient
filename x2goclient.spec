@@ -208,6 +208,7 @@ fi
 %defattr(-,root,root)
 %doc AUTHORS COPYING LICENSE
 %{_bindir}/%{name}
+%{_libexecdir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/mime/packages/x-x2go.xml
 %dir %{_datadir}/icons/hicolor
