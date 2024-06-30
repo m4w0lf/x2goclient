@@ -713,7 +713,7 @@ void HttpBrokerClient::slotPassChanged(bool success, QString answer, int)
     }
     if(!checkAccess(answer))
         return;
-
+    parsePwdChangedResult(answer);
 }
 
 void HttpBrokerClient::slotSelectSession(bool success, QString answer, int)
@@ -809,6 +809,19 @@ void HttpBrokerClient::slotRequestFinished ( QNetworkReply*  reply )
     // We receive ownership of the reply object
     // and therefore need to handle deletion.
     reply->deleteLater();
+}
+
+void HttpBrokerClient::parsePwdChangedResult(QString pwdchres)
+{
+    x2goDebug<<"Starting parser.";
+    QStringList lst=pwdchres.split("PASSWORD CHANGED: ",Qt::SkipEmptyParts);
+    QString result = (lst[1].split("\n"))[0];
+    x2goDebug<<"Password change result is: "<<result;
+    x2goDebug<<"Parsing has finished.";
+    if (result == "OK" )
+        emit passwordChanged(config->brokerPass);
+    else
+        emit passwordChanged(QString::null);
 }
 
 void HttpBrokerClient::parseSession(QString sinfo)

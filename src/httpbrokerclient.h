@@ -71,6 +71,7 @@ private:
     void createIniFile(const QString& raw_content);
     void processClientConfig(const QString& raw_content);
     void parseSession(QString sInfo);
+    void parsePwdChangedResult(QString pwdchres);
     void createSshConnection();
     bool checkAccess(QString answer);
     QString scramblePwd(const QString& req);
