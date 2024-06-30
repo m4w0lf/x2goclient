@@ -36,4 +36,9 @@ char *strndup (const char *s, size_t n);
 #endif /* MAC_OS_X_VERSION_MIN_REQUIRED */
 #endif /* defined (Q_OS_DARWIN) */
 
+#if QT_VERSION < QT_VERSION_CHECK (5, 14, 0)
+#define Qt::SkipEmptyParts QString::SkipEmptyParts
+#define Qt::KeepEmptyParts QString::KeepEmptyParts
+#endif
+
 #endif /* !defined (COMPAT_H) */
