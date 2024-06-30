@@ -18,6 +18,7 @@
 #include "folderbutton.h"
 #include "x2goclientconfig.h"
 #include "x2goutils.h"
+#include "compat.h"
 
 #include <QFont>
 #include <QPixmap>

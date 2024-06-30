@@ -23,6 +23,7 @@
 #include <QFileDialog>
 #include <QInputDialog>
 #include <QMessageBox>
+#include "compat.h"
 
 FolderExplorer::FolderExplorer(QString path, SessionExplorer* explorer, ONMainWindow* mainw):QDialog((QWidget*)mainw)
 {

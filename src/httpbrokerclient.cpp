@@ -40,6 +40,7 @@
 #include "InteractionDialog.h"
 #include <QStatusBar>
 #include "version.h"
+#include "compat.h"
 
 
 HttpBrokerClient::HttpBrokerClient ( ONMainWindow* wnd, ConfigFile* cfg )

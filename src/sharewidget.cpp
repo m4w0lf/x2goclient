@@ -35,6 +35,7 @@
 #include <QFileDialog>
 #include <QDir>
 #include "x2gosettings.h"
+#include "compat.h"
 
 ShareWidget::ShareWidget ( QString id, ONMainWindow * mw,
                            QWidget * parent, Qt::WindowFlags f )
