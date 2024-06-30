@@ -100,7 +100,7 @@ void FolderExplorer::slotChangeIcon()
                       tr ( "Open picture" ),
                       QDir::homePath(),
                       tr ( "Pictures" ) +" (*.png *.xpm *.jpg)" );
-    if ( path!=QString::null )
+    if ( path!=QString() )
     {
         explorer->setFolderIcon(menuItem->data(0, Qt::UserRole).toString(), path);
         menuItem->setIcon(0, QIcon(path));

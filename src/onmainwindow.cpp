@@ -213,7 +213,7 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
     bBrokerLogout = NULL;
     restartResume=false;
     isPassShown=true;
-    readExportsFrom=QString::null;
+    readExportsFrom=QString();
     spoolTimer=0l;
     brokerAliveTimer=0l;
     brokerSyncTimer=0l;
@@ -362,7 +362,7 @@ void ONMainWindow::initUI()
         useLdap=false;
     }
 
-    if ( readExportsFrom!=QString::null )
+    if ( readExportsFrom!=QString() )
     {
         exportTimer=new QTimer ( this );
         connect ( exportTimer,SIGNAL ( timeout() ),this,
@@ -398,7 +398,7 @@ void ONMainWindow::initUI()
     }
 
 
-    //fr=new SVGFrame(QString::null,true,this);
+    //fr=new SVGFrame(QString(),true,this);
     fr=new IMGFrame ( ( QImage* ) 0l,this );
     setCentralWidget ( fr );
 
@@ -506,7 +506,7 @@ void ONMainWindow::initUI()
         QIcon ( iconsPath ( "/32x32/edit_settings.png" ) ),
         tr ( "&Settings ..." ),this );
 
-    if (supportMenuFile!=QString::null)
+    if (supportMenuFile!=QString())
     {
         act_support=new QAction ( tr ( "Support ..." ),this );
         connect ( act_support,SIGNAL ( triggered ( bool ) ),this,
@@ -992,7 +992,7 @@ void ONMainWindow::initWidgetsNormal()
         }
 
         QMenu* menu_help=menuBar()->addMenu ( tr ( "&Help" ) );
-        if (supportMenuFile!=QString::null)
+        if (supportMenuFile!=QString())
             menu_help->addAction ( act_support );
         menu_help->addAction ( act_abclient );
         menu_help->addAction ( act_abqt );
@@ -1050,7 +1050,7 @@ void ONMainWindow::initWidgetsNormal()
 void ONMainWindow::slotPassChanged(const QString& result)
 {
 
-    if (result==QString::null)
+    if (result==QString())
     {
         QMessageBox::critical(this, tr("Error"),tr("Operation failed"));
     }
@@ -1108,7 +1108,7 @@ void ONMainWindow::slotGetBrokerAuth()
     pass->clear();
     login->clear();
     QString pixFile=iconsPath("/128x128/x2gosession.png");
-    if (SPixFile!=QString::null)
+    if (SPixFile!=QString())
         pixFile=SPixFile;
     QPixmap pix(pixFile);
     if ( !miniMode )
@@ -1354,7 +1354,7 @@ void ONMainWindow::removeAppsFromTray()
 
 QString ONMainWindow::findTheme ( QString /*theme*/ )
 {
-    return QString::null;
+    return QString();
 }
 
 QString ONMainWindow::getKdeIconsPath()
@@ -1728,13 +1728,13 @@ void ONMainWindow::loadSettings()
         ldapPort=st1.setting()->value ( "LDAP/port",
                                         ( QVariant ) 389 ).toInt();
         ldapDn=st1.setting()->value ( "LDAP/basedn",
-                                      ( QVariant ) QString::null ).toString();
+                                      ( QVariant ) QString() ).toString();
         ldapServer1=st1.setting()->value ( "LDAP/server1",
-                                           ( QVariant ) QString::null ).toString();
+                                           ( QVariant ) QString() ).toString();
         ldapPort1=st1.setting()->value ( "LDAP/port1",
                                          ( QVariant ) 0 ).toInt();
         ldapServer2=st1.setting()->value ( "LDAP/server2",
-                                           ( QVariant ) QString::null ).toString();
+                                           ( QVariant ) QString() ).toString();
         ldapPort2=st1.setting()->value ( "LDAP/port2",
                                          ( QVariant ) 0 ).toInt();
     }
@@ -1953,7 +1953,7 @@ void ONMainWindow::slotPassEnter()
         shadowSession=false;
 #if defined ( Q_OS_WIN ) || defined (Q_OS_DARWIN )
     QString disp=getXDisplay();
-    if ( disp==QString::null )
+    if ( disp==QString() )
         return;
 #endif
 #ifdef USELDAP
@@ -2057,7 +2057,7 @@ void ONMainWindow::slotPassEnter()
 
     QString passwd;
     if ( !extLogin )
-        currentKey=QString::null;
+        currentKey=QString();
     QString user=getCurrentUname();
 //      get x2gogetservers not from ldap server, but from first x2goserver
 // 	QString host=ldapServer;
@@ -2371,9 +2371,9 @@ void ONMainWindow::slotReadSessions()
     {
         if (changeBrokerPass)
             act_changeBrokerPass->setEnabled(true);
-        config.key=QString::null;
-        config.user=QString::null;
-        config.sessiondata=QString::null;
+        config.key=QString();
+        config.user=QString();
+        config.sessiondata=QString();
 
         st=new X2goSettings(config.iniFile,QSettings::IniFormat);
         sessionStatusDlg->hide();
@@ -2835,11 +2835,11 @@ void ONMainWindow::slotSelectedFromList ( SessionButton* session )
                     ( QVariant ) tr ( "KDE" ) ).toString();
 
         server=st->setting()->value ( sid+"/host",
-                                      ( QVariant ) QString::null
+                                      ( QVariant ) QString()
                                     ).toString();
         userName=st->setting()->value (
                      sid+"/user",
-                     ( QVariant ) QString::null ).toString();
+                     ( QVariant ) QString() ).toString();
         if (defaultUser && userName.length()<1)
             userName=defaultUserName;
 
@@ -2854,7 +2854,7 @@ void ONMainWindow::slotSelectedFromList ( SessionButton* session )
                     ( QVariant ) defaultSshPort ).toString();
         currentKey=st->setting()->value (
                        sid+"/key",
-                       ( QVariant ) QString::null ).toString();
+                       ( QVariant ) QString() ).toString();
         currentKey=expandHome(currentKey);
 
         autologin=st->setting()->value (
@@ -2973,7 +2973,7 @@ void ONMainWindow::slotSelectedFromList ( SessionButton* session )
         pass->setText(config.brokerPass);
         slotSessEnter();
     }
-    else if ( currentKey != QString::null && currentKey != "" && nopass )
+    else if ( currentKey != QString() && currentKey != "" && nopass )
     {
         x2goDebug<<"Starting session with key.";
         slotSessEnter();
@@ -3289,12 +3289,12 @@ void ONMainWindow::slotSshServerAuthChallengeResponse(SshMasterConnection* conne
     message = challenge;
 
     QString phrase = QInputDialog::getText (0, connection->getUser () + "@" + connection->getHost () + ":" + QString::number (connection->getPort ()),
-                                            message, QLineEdit::Password, QString::null, &ok);
+                                            message, QLineEdit::Password, QString(), &ok);
     if (!ok) {
-        phrase = QString::null;
+        phrase = QString();
     }
     else {
-        if (phrase == QString::null) {
+        if (phrase == QString()) {
             phrase = "";
         }
     }
@@ -3498,9 +3498,9 @@ void ONMainWindow::slotSessEnter()
         return;
     }
 
-    resumingSession.sessionId=QString::null;
-    resumingSession.server=QString::null;
-    resumingSession.display=QString::null;
+    resumingSession.sessionId=QString();
+    resumingSession.server=QString();
+    resumingSession.display=QString();
     setStatStatus ( tr ( "connecting" ) );
 
     if(brokerMode)
@@ -3512,7 +3512,7 @@ void ONMainWindow::slotSessEnter()
         X2goSettings* st=new X2goSettings(config.iniFile, QSettings::IniFormat);
         QString sid=sessionExplorer->getLastSession()->id();
         QString cmd=st->setting()->value ( sid+"/command",
-                                           ( QVariant ) QString::null ).toString();
+                                           ( QVariant ) QString() ).toString();
         directRDP=(st->setting()->value ( sid+"/directrdp",
                                                ( QVariant ) false ).toBool() && cmd == "RDP");
 
@@ -3555,7 +3555,7 @@ void ONMainWindow::continueNormalSession()
 
     if (brokerMode && !shadowSession)
     {
-        slotListSessions(true,QString::null,0);
+        slotListSessions(true,QString(),0);
         return;
     }
     if ( !shadowSession )
@@ -3825,7 +3825,7 @@ QString ONMainWindow::findSshKeyForServer(QString user, QString server, QString 
         if(key.server.length()<=0 && key.user.length()<=0 && key.port.length()<=0)
             return key.key;
     }
-    return QString::null;
+    return QString();
 }
 
 
@@ -3868,7 +3868,7 @@ bool ONMainWindow::startSession ( const QString& sid, CONTYPE conType )
 
     if ( managedMode )
     {
-        slotListSessions ( true, QString::null,0 );
+        slotListSessions ( true, QString(),0 );
         return true;
     }
 
@@ -3907,11 +3907,11 @@ bool ONMainWindow::startSession ( const QString& sid, CONTYPE conType )
     else
     {
         host=st->setting()->value ( sid+"/host",
-                                    ( QVariant ) QString::null ).toString();
+                                    ( QVariant ) QString() ).toString();
     }
 
     QString cmd=st->setting()->value ( sid+"/command",
-                                       ( QVariant ) QString::null ).toString();
+                                       ( QVariant ) QString() ).toString();
     autologin=st->setting()->value ( sid+"/autologin",
                                      ( QVariant ) false ).toBool();
     krblogin=st->setting()->value ( sid+"/krblogin",
@@ -4047,7 +4047,7 @@ bool ONMainWindow::startSession ( const QString& sid, CONTYPE conType )
                 proxypassword=config.brokerPass;
             else
                 proxypassword=QInputDialog::getText(0,proxylogin+"@"+proxyserver+":"+QString::number(proxyport),
-                                                    tr("Enter password for SSH proxy"),QLineEdit::Password,QString::null, &ok);
+                                                    tr("Enter password for SSH proxy"),QLineEdit::Password,QString(), &ok);
         }
     }
 
@@ -4094,7 +4094,7 @@ void ONMainWindow::slotListSessions ( bool result,QString output,
         }
 
 
-// 		currentKey=QString::null;
+// 		currentKey=QString();
         setEnabled ( true );
         passForm->setEnabled ( true );
         slotShowPassForm();
@@ -4359,7 +4359,7 @@ void ONMainWindow::startNewSession()
     QString clipMode=defaultClipboardMode;
     QString xdmcpServer;
     runRemoteCommand=true;
-    QString host=QString::null;
+    QString host=QString();
     runStartApp=true;
     removeAppsFromTray();
     if ( useLdap )
@@ -4384,7 +4384,7 @@ void ONMainWindow::startNewSession()
                 break;
             }
         }
-        if ( host==QString::null )
+        if ( host==QString() )
         {
             QMessageBox::critical ( 0l,tr ( "Error" ),
                                     tr ( "No server available." ),
@@ -5253,13 +5253,13 @@ void ONMainWindow::selectSession ( QStringList& sessions )
                 st=new X2goSettings( "sessions" );
 
                 QString sid=sessionExplorer->getLastSession()->id();
-                QString suser = st->setting()->value(sid + "/shadowuser", (QVariant) QString::null).toString();
-                QString sdisplay = st->setting()->value(sid + "/shadowdisplay", (QVariant) QString::null).toString();
+                QString suser = st->setting()->value(sid + "/shadowuser", (QVariant) QString()).toString();
+                QString sdisplay = st->setting()->value(sid + "/shadowdisplay", (QVariant) QString()).toString();
                 bool fullAccess= st->setting()->value(sid + "/shadowfullaccess", (QVariant) false).toBool();
 
                 delete (st);
 
-                if(suser != QString::null && sdisplay != QString::null)
+                if(suser != QString() && sdisplay != QString())
                 {
                     shadowUser=suser;
                     shadowDisplay=sdisplay;
@@ -5316,7 +5316,7 @@ void ONMainWindow::slotActivated ( const QModelIndex& index )
             running_label->hide ();
         }
         bTerm->setEnabled ( true );
-        if ( status==QString::null )
+        if ( status==QString() )
         {
             sOk->setEnabled ( false );
             bTerm->setEnabled ( false );
@@ -6273,7 +6273,7 @@ void ONMainWindow::slotTunnelOk(int)
     if(resumingSession.sessionType!= x2goSession::KDRIVE && resumingSession.sessionType!= x2goSession::ROOTLESSKDRIVE)
     {
         disp=getXDisplay();
-        if ( disp==QString::null )
+        if ( disp==QString() )
         {
             //slotProxyerror ( QProcess::FailedToStart );
             return;
@@ -6867,12 +6867,12 @@ void ONMainWindow::slotProxyFinished ( int,QProcess::ExitStatus )
         }
     }
 
-    if ( readExportsFrom!=QString::null )
+    if ( readExportsFrom!=QString() )
     {
         exportTimer->stop();
         if ( extLogin )
         {
-            currentKey=QString::null;
+            currentKey=QString();
         }
     }
     if ( printSupport )
@@ -6991,7 +6991,7 @@ void ONMainWindow::slotProxyStderr()
               SLOT ( slot_exportDirectory() ) );*/
             sbExp->setEnabled ( true );
             exportDefaultDirs();
-            if ( readExportsFrom!=QString::null )
+            if ( readExportsFrom!=QString() )
             {
                 exportTimer->start ( 2000 );
             }
@@ -7259,14 +7259,14 @@ void ONMainWindow::setStatStatus ( QString status )
     setEnabled ( true );
     passForm->hide();
     selectSessionDlg->hide();
-    if ( status == QString::null )
+    if ( status == QString() )
         status=statusString;
     else
         statusString=status;
     QString tstr;
     if ( statusLabel )
-        statusLabel->setText ( QString::null );
-    if ( resumingSession.sessionId!=QString::null )
+        statusLabel->setText ( QString() );
+    if ( resumingSession.sessionId!=QString() )
     {
         QDateTime dt=QDateTime::fromString ( resumingSession.crTime, Qt::ISODate );
         tstr=dt.toString();
@@ -8924,7 +8924,7 @@ void ONMainWindow::slotExportDirectory()
     else
 
         path= QFileDialog::getExistingDirectory (
-                  this,QString::null,
+                  this,QString(),
                   homeDir );
     if (hide_after)
         hide();
@@ -8937,7 +8937,7 @@ void ONMainWindow::slotExportDirectory()
 
     path=cygwinPath ( wapiShortFileName ( path ) );
 #endif
-    if ( path!=QString::null )
+    if ( path!=QString() )
         exportDirs ( path );
 }
 
@@ -9041,7 +9041,7 @@ void ONMainWindow::exportDefaultDirs()
 
             QString exd=st->setting()->value (
                             sessionExplorer->getLastSession()->id() +"/export",
-                            ( QVariant ) QString::null ).toString();
+                            ( QVariant ) QString() ).toString();
             QStringList lst=exd.split ( ";",
                                         Qt::SkipEmptyParts );
             for ( int i=0; i<lst.size(); ++i )
@@ -9352,7 +9352,7 @@ void ONMainWindow::slotExtTimer()
     }
     if ( exportTimer->isActive() ) //running session
     {
-        if ( logoutDir != QString::null )
+        if ( logoutDir != QString() )
         {
             x2goDebug<<"External logout received";
             externalLogout ( logoutDir );
@@ -9360,7 +9360,7 @@ void ONMainWindow::slotExtTimer()
     }
     else
     {
-        if ( loginDir != QString::null )
+        if ( loginDir != QString() )
         {
             x2goDebug<<"External login.";
             externalLogin ( loginDir );
@@ -9697,7 +9697,7 @@ void ONMainWindow::externalLogout ( const QString& )
     if ( extStarted )
     {
         extStarted=false;
-        currentKey=QString::null;
+        currentKey=QString();
         if ( nxproxy )
             if ( nxproxy->state() ==QProcess::Running )
                 nxproxy->terminate();
@@ -10102,7 +10102,7 @@ QString ONMainWindow::getXDisplay()
     // And if not, error out.
     show_XQuartz_start_error ();
     slotConfig();
-    return QString::null;
+    return QString();
 }
 #endif
 
@@ -10112,7 +10112,7 @@ QString ONMainWindow::getXDisplay()
     if ( !isServerRunning ( 6000+xDisplay ) )
     {
         QMessageBox::critical (
-            this,QString::null,
+            this,QString(),
             tr (
                 "Can't start X.Org Server.\nPlease check your installation." )
         );
@@ -10821,7 +10821,7 @@ void ONMainWindow::startXOrg (std::size_t start_offset)
     if ( !xorg->waitForStarted ( 3000 ) )
     {
         QMessageBox::critical (
-            0,QString::null,
+            0,QString(),
             tr ( "Can't start X.Org Server." )
             + "\n"
             + tr ( "Please check your installation." ) );
@@ -10852,7 +10852,7 @@ void ONMainWindow::slotCheckXOrgConnection()
         if ((x_start_limit_) && (x_start_limit_ < x_start_tries_)) {
             x2goDebug << "Unable to start X.Org Server for " << x_start_limit_ << " times, terminating.";
 
-            QMessageBox::critical (NULL, QString::null,
+            QMessageBox::critical (NULL, QString(),
                                    tr ("X.Org Server did not launch correctly after %n tries.", "%n will be substituted with the current number of tries", x_start_tries_)
                                    + "\n"
                                    + tr ("Please check your installation."));
@@ -10904,7 +10904,7 @@ void ONMainWindow::slotCheckXOrgConnection()
                 return;
             }
             else {
-                QMessageBox::critical (NULL, QString::null,
+                QMessageBox::critical (NULL, QString(),
                                        tr ("Can't start X.Org Server.")
                                        + "\n"
                                        + tr ("Please check your installation."));
@@ -11503,17 +11503,17 @@ QString ONMainWindow::createKeyBundle (key_types key_type) {
     rsa.setFileName (tmp_file_name + ".pub");
     if (!(rsa.open (QIODevice::ReadOnly | QIODevice::Text))) {
       x2goErrorf (9) << tr ("Unable to open newly generated %1 public host key file.").arg (stringified_key_type.toUpper ());
-      return (QString::null);
+      return (QString());
     }
 #else
     printSshDError_noHostPubKey ();
-    return (QString::null);
+    return (QString());
 #endif
   }
 
   if (!(startSshd (key_type))) {
     x2goDebug << "Failed to start OpenSSH Server pro-actively.";
-    return (QString::null);
+    return (QString());
   }
 
   QByteArray rsa_pub;
@@ -11523,7 +11523,7 @@ QString ONMainWindow::createKeyBundle (key_types key_type) {
   }
   else {
     x2goErrorf (9) << tr ("%1 public host key file empty.").arg (stringified_key_type.toUpper ());
-    return (QString::null);
+    return (QString());
   }
 
   QFile file (user_key);
@@ -13582,7 +13582,7 @@ QString ONMainWindow::u3DataPath()
         portableDataPath=dpath;
         return dpath;
     }
-    return QString::null;
+    return QString();
 }
 
 #endif
@@ -13773,7 +13773,7 @@ bool ONMainWindow::parseResourceUrl(const QString& url)
     QDir d(resourceDir);
     if(!d.exists())
     {
-        resourceDir=QString::null;
+        resourceDir=QString();
         printError(tr("Directory not exists:")+" "+url+". "+tr("Using built in resources"));
     }
     else

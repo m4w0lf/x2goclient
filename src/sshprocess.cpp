@@ -403,7 +403,7 @@ void SshProcess::startTunnel(const QString& forwardHost, uint forwardPort, const
 #ifdef Q_OS_WIN
         QString sshString="plink -batch -P "+
 #else
-        QString sshString=QString::null+"ssh"+ KEEPALIVE_OPTION +"-o GSSApiAuthentication=yes -o PasswordAuthentication=no -o PubkeyAuthentication=no -p "+
+        QString sshString=QString()+"ssh"+ KEEPALIVE_OPTION +"-o GSSApiAuthentication=yes -o PasswordAuthentication=no -o PubkeyAuthentication=no -p "+
 #endif
                           QString::number(masterCon->getPort())+" "+
                           masterCon->getUser()+"@"+

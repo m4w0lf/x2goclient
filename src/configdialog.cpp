@@ -208,7 +208,7 @@ ConfigDialog::ConfigDialog ( QWidget * parent,  Qt::WindowFlags f )
     pbOpenExec=new QPushButton (
         QIcon ( ( ( ONMainWindow* ) parent )->iconsPath (
                     "/32x32/file-open.png" ) ),
-        QString::null,xgb );
+        QString(),xgb );
     xLay->addWidget ( new QLabel ( tr ( "X11 application:" ) ),0,0 );
 
     leCmdOpt=new QLineEdit ( xgb );
@@ -259,11 +259,11 @@ ConfigDialog::ConfigDialog ( QWidget * parent,  Qt::WindowFlags f )
                                           ( ONMainWindow* ) parent )->
                                       getShowAdvOption() );
         advOptionsShown=false;
-        conWidg=new ConnectionWidget ( QString::null,
+        conWidg=new ConnectionWidget ( QString(),
                                        ( ONMainWindow* ) parent,this );
-        setWidg=new SettingsWidget ( QString::null,
+        setWidg=new SettingsWidget ( QString(),
                                      ( ONMainWindow* ) parent,this );
-        mediaWidget=new MediaWidget ( QString::null,
+        mediaWidget=new MediaWidget ( QString(),
                                      ( ONMainWindow* ) parent,this );
         conWidg->hide();
         setWidg->hide();
@@ -421,17 +421,17 @@ void ConfigDialog::slot_checkOkStat()
 #ifdef Q_OS_WIN
 QString ConfigDialog::getCygwinDir ( const QString& dir )
 {
-    QString cygdir=QString::null;
+    QString cygdir=QString();
     QSettings lu_st ( "HKEY_CURRENT_USER\\Software"
                       "\\Cygnus Solutions\\Cygwin\\mounts v2\\"+
                       dir,QSettings::NativeFormat );
-    cygdir=lu_st.value ( "native", ( QVariant ) QString::null ).toString();
-    if ( cygdir!= QString::null )
+    cygdir=lu_st.value ( "native", ( QVariant ) QString() ).toString();
+    if ( cygdir!= QString() )
         return cygdir;
     QSettings lm_st ( "HKEY_LOCAL_MACHINE\\SOFTWARE"
                       "\\Cygnus Solutions\\Cygwin\\mounts v2\\"+
                       dir,QSettings::NativeFormat );
-    return lm_st.value ( "native", ( QVariant ) QString::null ).toString();
+    return lm_st.value ( "native", ( QVariant ) QString() ).toString();
 }
 #endif
 

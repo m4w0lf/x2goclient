@@ -109,7 +109,7 @@ void ExportDialog::loadSessions()
 
 
     QString exports=st.setting()->value ( sessionId+"/export",
-                                          ( QVariant ) QString::null ).toString();
+                                          ( QVariant ) QString() ).toString();
 
     QStringList lst=exports.split ( ";",Qt::SkipEmptyParts );
     for ( int i=0; i<lst.size(); ++i )
@@ -146,13 +146,13 @@ void ExportDialog::slot_dclicked ( const QModelIndex& )
 
 void ExportDialog::slotNew()
 {
-    directory=QString::null;
+    directory=QString();
     directory= QFileDialog::getExistingDirectory (
                    this,
                    tr ( "Select folder" ),
                    QDir::homePath() );
 
-    if ( directory!=QString::null )
+    if ( directory!=QString() )
         accept();
 
 }

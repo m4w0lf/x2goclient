@@ -197,7 +197,7 @@ SshMasterConnection::SshMasterConnection (QObject* parent, QString host, int por
     this->proxyKrbLogin=proxyKrbLogin;
     mainWnd=(ONMainWindow*) parent;
     kerberos=krblogin;
-    challengeAuthVerificationCode=QString::null;
+    challengeAuthVerificationCode=QString();
 
 #if LIBSSH_VERSION_INT >= SSH_VERSION_INT (0, 6, 0)
     if (this->user.isEmpty ()) {
@@ -987,7 +987,7 @@ bool SshMasterConnection::userAuthKeyboardInteractive(QString prompt)
     x2goDebug<<"Open Interaction dialog to complete authentication";
     emit startInteraction(this, prompt);
     interactionInterrupt=false;
-    interactionInputText=QString::null;
+    interactionInputText=QString();
     int rez=SSH_AUTH_INFO;
     bool firstLoop=true;
     int prompts=1;
@@ -1019,7 +1019,7 @@ bool SshMasterConnection::userAuthKeyboardInteractive(QString prompt)
                 interactionInputMutex.lock();
                 interrupt=interactionInterrupt;
                 QString textToSend=interactionInputText;
-                interactionInputText=QString::null;
+                interactionInputText=QString();
                 interactionInputMutex.unlock();
                 if(textToSend.length()>0)
                 {
@@ -1129,7 +1129,7 @@ bool SshMasterConnection::userChallengeAuth()
                 x2goDebug<<"Verification code request"<<endl;
 
                 challengeAuthPasswordAccepted=true;
-                if(challengeAuthVerificationCode == QString::null)
+                if(challengeAuthVerificationCode == QString())
                 {
                     keyPhraseReady=false;
                     if (need_to_display_auth_code_prompt) {
@@ -1149,7 +1149,7 @@ bool SshMasterConnection::userChallengeAuth()
                             break;
                     }
                     challengeAuthVerificationCode=keyPhrase;
-                    if(challengeAuthVerificationCode==QString::null)
+                    if(challengeAuthVerificationCode==QString())
                     {
                         authErrors<<tr("Authentication failed.");
                         return false;
@@ -1179,7 +1179,7 @@ bool SshMasterConnection::userChallengeAuth()
         }
         else
         {
-            challengeAuthVerificationCode=QString::null;
+            challengeAuthVerificationCode=QString();
             //try with another verification code
             return userChallengeAuth();
         }
@@ -1291,7 +1291,7 @@ bool SshMasterConnection::userAuthAuto()
             if(ready)
                 break;
         }
-        if(keyPhrase==QString::null)
+        if(keyPhrase==QString())
             break;
         rc = ssh_userauth_autopubkey ( my_ssh_session, keyPhrase.toLatin1() );
         if(i++==2)
@@ -1406,7 +1406,7 @@ bool SshMasterConnection::userAuthWithKey()
             if(ready)
                 break;
         }
-        if(keyPhrase==QString::null)
+        if(keyPhrase==QString())
             break;
 
         QByteArray tmp_ba_passphrase = keyPhrase.toLocal8Bit ();
@@ -1644,7 +1644,7 @@ void SshMasterConnection::interactionInterruptSlot()
 bool SshMasterConnection::checkLogin()
 {
     interactionInterrupt=false;
-    interactionInputText=QString::null;
+    interactionInputText=QString();
 
 
     ssh_channel channel = ssh_channel_new ( my_ssh_session );
@@ -1728,7 +1728,7 @@ bool SshMasterConnection::checkLogin()
             interactionInputMutex.lock();
 	    interrupt=interactionInterrupt;
 	    QString textToSend=interactionInputText;
-	    interactionInputText=QString::null;
+	    interactionInputText=QString();
 	    interactionInputMutex.unlock();
 	    if(textToSend.length()>0)
 	    {

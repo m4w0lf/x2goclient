@@ -295,7 +295,7 @@ void HttpBrokerClient::getUserSessions()
     x2goDebug<<"Called getUserSessions: brokeruser: "<<brokerUser<<" authid: "<<nextAuthId;
     if(mainWindow->getUsePGPCard())
         brokerUser=mainWindow->getCardLogin();
-    config->sessiondata=QString::null;
+    config->sessiondata=QString();
     if(!sshBroker)
     {
         QString req;
@@ -945,7 +945,7 @@ void HttpBrokerClient::slotSslErrors ( QNetworkReply* netReply, const QList<QSsl
                "not used to seeing a warning for this server.</p>" );
     QMessageBox mb ( QMessageBox::Warning,tr ( "Secure connection failed." ),
                      text );
-    text=QString::null;
+    text=QString();
     QTextStream ( &text ) <<err.join ( "\n" ) <<"\n"<<
                           "------------\n"<<
                           tr ( "Issued to:\n" ) <<

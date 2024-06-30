@@ -33,7 +33,7 @@ SVGFrame::SVGFrame ( QString fname,bool st,QWidget* parent,
 #ifdef Q_OS_WIN
 	parentWidget=0;
 #endif
-	if ( fname==QString::null )
+	if ( fname==QString() )
 		empty=true;
 	if ( !empty )
 	{
