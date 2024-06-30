@@ -1,4 +1,5 @@
-client_build/x2goclient       usr/bin
+debian/scripts/x2goclient     usr/bin/
+client_build/x2goclient       usr/libexec/
 desktop/x2goclient.desktop    usr/share/applications/
 mime/x-x2go.xml                       usr/share/mime/packages/
 res/img/icons/x2goclient.xpm          usr/share/x2goclient/icons/
