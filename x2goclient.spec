@@ -103,7 +103,7 @@ BuildRequires:  xorg-x11-libX11-devel
 
 Requires:       hicolor-icon-theme
 Requires:       nxproxy
-%if 0%{?rhel} > 7 || 0{?fedora} > 29 || 0%{?suse_version} > 1500 || 0%{?sle_version} >= 150400
+%if 0%{?rhel} > 7 || 0%{?fedora} > 29 || 0%{?suse_version} > 1500 || 0%{?sle_version} >= 150400
 Recommends:     x2gokdriveclient
 %endif
 %if 0%{?suse_version}
