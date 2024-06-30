@@ -247,10 +247,10 @@ void wapiSetWindowIcon ( HWND wnd, const QPixmap& icon)
     x2goDebug<<"Small icon: "<<smallIcon<<smallx<<"x"<<smally;
     int rez=SetClassLong(wnd,GCL_HICON, (LONG)largeIcon);
     if (!rez)
-        x2goDebug<<"ERROR: "<<GetLastError()<<endl;
+        x2goDebug<<"ERROR: "<<GetLastError()<<Qt::endl;
     rez=SetClassLong(wnd,GCL_HICONSM,(LONG)smallIcon);
     if (!rez)
-        x2goDebug<<"ERROR: "<<GetLastError()<<endl;
+        x2goDebug<<"ERROR: "<<GetLastError()<<Qt::endl;
     /*    ShowWindow(wnd, SW_HIDE);
         ShowWindow(wnd, SW_SHOW);*/
 }

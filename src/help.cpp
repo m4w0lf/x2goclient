@@ -242,11 +242,11 @@ QString help::pretty_print (help::data_t data, bool terminal_output) {
 #endif
   }
 
-  x2goDebug << "Terminal cols: " << terminal_cols << endl;
+  x2goDebug << "Terminal cols: " << terminal_cols << Qt::endl;
 
   for (help::params_t::const_iterator it = data.second.constBegin (); it != data.second.constEnd (); ++it) {
     std::size_t indent = (max_len - (*it).first.size ()) + 4;
-    x2goDebug << "Indent: " << indent << "; max_len: " << max_len << "; param size: " << (*it).first.size () << endl;
+    x2goDebug << "Indent: " << indent << "; max_len: " << max_len << "; param size: " << (*it).first.size () << Qt::endl;
     out << "  ";
     out << (*it).first;
     out << QString (" ").repeated (indent);
@@ -260,7 +260,7 @@ QString help::pretty_print (help::data_t data, bool terminal_output) {
 
     for (QStringList::const_iterator desc_split_it = desc_split.constBegin (); desc_split_it != desc_split.constEnd (); ++desc_split_it) {
       std::size_t cur_len = (*desc_split_it).size ();
-      x2goDebug << "Going to output a description " << (*desc_split_it).size () << " chars wide." << endl;
+      x2goDebug << "Going to output a description " << (*desc_split_it).size () << " chars wide." << Qt::endl;
       if (0 != terminal_cols) {
         /*
          * Only set this the first time right after having written the parameter and indent spaces.
@@ -269,11 +269,11 @@ QString help::pretty_print (help::data_t data, bool terminal_output) {
         if (desc_split_it == desc_split.constBegin ()) {
           remaining = terminal_cols - (indent + (*it).first.size ());
         }
-        x2goDebug << "Still have " << remaining << " characters left on this line." << endl;
+        x2goDebug << "Still have " << remaining << " characters left on this line." << Qt::endl;
 
         /* Ran out of space? That's bad... print a newline and don't use any indentation level. */
         if (0 > remaining) {
-          x2goDebug << "Ran out of space! Will break line and start the description on a new one." << endl;
+          x2goDebug << "Ran out of space! Will break line and start the description on a new one." << Qt::endl;
           out << "\n";
           remaining = terminal_cols;
           indent = 0;
@@ -284,7 +284,7 @@ QString help::pretty_print (help::data_t data, bool terminal_output) {
 
       while (!working_copy.isEmpty ()) {
         cur_len = working_copy.size ();
-        x2goDebug << "Trying to fit a (remaining) description " << cur_len << " characters wide." << endl;
+        x2goDebug << "Trying to fit a (remaining) description " << cur_len << " characters wide." << Qt::endl;
 
         string_split_t string_split;
 

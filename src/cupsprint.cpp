@@ -130,7 +130,7 @@ bool CUPSPrint::setCurrentPrinter ( QString prn )
 	if ( ppdConflicts ( ppd ) !=0 )
 	{
 		x2goDebug<<"There are conflicting options in user settings,\n"
-		"loading defaults"<<endl;
+		"loading defaults"<<Qt::endl;
 		setDefaults();
 	}
 	return true;
@@ -153,7 +153,7 @@ bool CUPSPrint::getOptionValue ( const QString& option,
 	}
 	value=QString::fromLocal8Bit ( choice->choice );
 	valueText=QString::fromLocal8Bit ( choice->text );
-// 	x2goDebug<<"getValue:"<<value<<endl;
+// 	x2goDebug<<"getValue:"<<value<<Qt::endl;
 	return true;
 }
 

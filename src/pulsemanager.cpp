@@ -366,7 +366,7 @@ void PulseManager::fetch_pulseaudio_version () {
     QString stdout_data (ba.constData ());
     QStringList stdout_list (stdout_data.split ("\n"));
 
-    x2goDebug << "pulseaudio --version returned:" << stdout_data << endl;
+    x2goDebug << "pulseaudio --version returned:" << stdout_data << Qt::endl;
 
     bool found = false;
     for (QStringList::const_iterator cit = stdout_list.begin (); (cit != stdout_list.end ()) && (!stop_processing); ++cit) {
@@ -632,16 +632,16 @@ bool PulseManager::generate_server_config () {
       config_tmp_file_stream << " auth-cookie=" + tmp_auth_cookie;
     }
 
-    config_tmp_file_stream << endl;
+    config_tmp_file_stream << Qt::endl;
 
 #ifdef Q_OS_UNIX
-    config_tmp_file_stream << "load-module module-native-protocol-unix" << endl;
-    config_tmp_file_stream << "load-module module-esound-protocol-unix" << endl;
+    config_tmp_file_stream << "load-module module-native-protocol-unix" << Qt::endl;
+    config_tmp_file_stream << "load-module module-esound-protocol-unix" << Qt::endl;
 #endif // defined(Q_OS_UNIX)
 
     config_tmp_file_stream << "load-module module-esound-protocol-tcp port="
                            << QString::number (esd_port_)
-                           << endl;
+                           << Qt::endl;
 
 #ifdef Q_OS_DARWIN
     config_tmp_file_stream << "load-module module-coreaudio-detect";
@@ -665,7 +665,7 @@ bool PulseManager::generate_server_config () {
     else {
       config_tmp_file_stream << "1";
     }
-    config_tmp_file_stream << endl;
+    config_tmp_file_stream << Qt::endl;
 
     QFile config_file (config_file_name);
     if (QFile::exists (config_file_name))
@@ -690,13 +690,13 @@ bool PulseManager::generate_client_config () {
   if (client_config_tmp_file.open ()) {
     QTextStream config_tmp_file_stream (&client_config_tmp_file);
 
-    config_tmp_file_stream << "autospawn=no" << endl;
+    config_tmp_file_stream << "autospawn=no" << Qt::endl;
 #ifdef Q_OS_WIN
-    config_tmp_file_stream << "default-server=localhost:" << pulse_port_ << endl;
+    config_tmp_file_stream << "default-server=localhost:" << pulse_port_ << Qt::endl;
 #endif // defined (Q_OS_WIN)
     config_tmp_file_stream << "daemon-binary="
                            << QDir::toNativeSeparators (QDir (server_binary_).absolutePath ())
-                           << endl;
+                           << Qt::endl;
 
     if (QFile::exists (client_config_file_name))
       QFile::remove (client_config_file_name);
