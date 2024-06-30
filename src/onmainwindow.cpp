@@ -258,7 +258,7 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
         X2goSettings st ( "settings" );
         QString cmdLine=st.setting()->value ( "commandline", "" ).toString();
 //         x2goErrorf(100)<<"cmd line:"<<cmdLine;
-        args=cmdLine.split(";",QString::SkipEmptyParts);
+        args=cmdLine.split(";",Qt::SkipEmptyParts);
         args.push_front(QCoreApplication::arguments()[0]);
     }
 
@@ -2454,11 +2454,11 @@ void ONMainWindow::slotReadSessions()
         }
         else if(defaultSessionName.length() > 0)
         {
-            QString normalDefaultSName=defaultSessionName.split("/",QString::SkipEmptyParts).join("/");
+            QString normalDefaultSName=defaultSessionName.split("/",Qt::SkipEmptyParts).join("/");
             for ( int i=0; i<sessionExplorer->getSessionsList()->size(); ++i )
             {
                 QString normalName=(sessionExplorer->getSessionsList()->at(i)->getPath()+"/"+sessionExplorer->getSessionsList()->at(i)->name());
-                normalName=normalName.split("/",QString::SkipEmptyParts).join("/");
+                normalName=normalName.split("/",Qt::SkipEmptyParts).join("/");
                 if ( normalName == normalDefaultSName )
                 {
                     sessionExplorer->setCurrrentPath(sessionExplorer->getSessionsList()->at(i)->getPath());
@@ -4137,12 +4137,12 @@ void ONMainWindow::slotListSessions ( bool result,QString output,
     if(!brokerMode || shadowSession)
     {
         sessions=output.trimmed().split ( '\n',
-                                          QString::SkipEmptyParts );
+                                          Qt::SkipEmptyParts );
     }
     else
     {
         sessions=config.sessiondata.trimmed().split ( '\n',
-                 QString::SkipEmptyParts );
+                 Qt::SkipEmptyParts );
     }
     if ( shadowSession )
     {
@@ -5910,7 +5910,7 @@ void ONMainWindow::slotRetResumeSess ( bool result,
             qDebug()<<"resuming normal session";
         }
         host=resumingSession.server;
-        QStringList outputLines=output.split("\n",QString::SkipEmptyParts);
+        QStringList outputLines=output.split("\n",Qt::SkipEmptyParts);
         foreach(QString line,outputLines)
         {
             if (line.indexOf("gr_port=")!=-1)
@@ -6610,9 +6610,9 @@ void ONMainWindow::slotSetModMap()
                 kbMap += "clear shift\nclear lock\nclear control\nclear mod1\nclear mod2\nclear mod3\nclear mod4\nclear mod5\n";
 
                 /* And set them back again. */
-                QStringList lines = modifiers.split ("\n", QString::SkipEmptyParts);
+                QStringList lines = modifiers.split ("\n", Qt::SkipEmptyParts);
                 for (int i = 0; i < lines.count (); ++i) {
-                    QStringList parts = lines[i].split (" ", QString::SkipEmptyParts);
+                    QStringList parts = lines[i].split (" ", Qt::SkipEmptyParts);
                     if (parts.count () < 2) {
                         continue;
                     }
@@ -7726,13 +7726,13 @@ void ONMainWindow::slotReadApplications(bool result, QString output,
     QString localshort=QLocale::system().name().split("_")[0];
     QStringList startAppsFound;
 
-    foreach(QString appstr, output.split("</desktop>",QString::SkipEmptyParts))
+    foreach(QString appstr, output.split("</desktop>",Qt::SkipEmptyParts))
     {
         bool localcomment=false;
         bool localname=false;
         Application app;
         app.category=Application::OTHER;
-        QStringList lines=appstr.split("\n", QString::SkipEmptyParts);
+        QStringList lines=appstr.split("\n", Qt::SkipEmptyParts);
         for (int i=0; i<lines.count(); ++i)
         {
             QString line=lines[i];
@@ -8134,7 +8134,7 @@ bool ONMainWindow::parseParameter ( QString param )
     }
     if ( setting=="--kbd-layout" )
     {
-        defaultLayout=value.split(",",QString::SkipEmptyParts);
+        defaultLayout=value.split(",",Qt::SkipEmptyParts);
         if (defaultLayout.size()==0)
             defaultLayout<<tr("us");
         return true;
@@ -8521,7 +8521,7 @@ bool ONMainWindow::ldapParameter ( QString val )
     QString ldapstring=val;
     useLdap=true;
     ldapstring.replace ( "\"","" );
-    QStringList lst=ldapstring.split ( ':',QString::SkipEmptyParts );
+    QStringList lst=ldapstring.split ( ':',Qt::SkipEmptyParts );
     if ( lst.size() !=3 )
     {
         printError( tr (
@@ -8542,7 +8542,7 @@ bool ONMainWindow::ldap1Parameter ( QString val )
 {
     QString ldapstring=val;
     ldapstring.replace ( "\"","" );
-    QStringList lst=ldapstring.split ( ':',QString::SkipEmptyParts );
+    QStringList lst=ldapstring.split ( ':',Qt::SkipEmptyParts );
     if ( lst.size() !=2 )
     {
         printError( tr (
@@ -8560,7 +8560,7 @@ bool ONMainWindow::ldap2Parameter ( QString val )
 {
     QString ldapstring=val;
     ldapstring.replace ( "\"","" );
-    QStringList lst=ldapstring.split ( ':',QString::SkipEmptyParts );
+    QStringList lst=ldapstring.split ( ':',Qt::SkipEmptyParts );
     if ( lst.size() !=2 )
     {
         printError(
@@ -8844,7 +8844,7 @@ void ONMainWindow::slotListAllSessions ( bool result,QString output,
     else
     {
         listedSessions+=output.trimmed().split ( '\n',
-                        QString::SkipEmptyParts );
+                        Qt::SkipEmptyParts );
     }
     if ( last )
     {
@@ -9042,7 +9042,7 @@ void ONMainWindow::exportDefaultDirs()
                             sessionExplorer->getLastSession()->id() +"/export",
                             ( QVariant ) QString::null ).toString();
             QStringList lst=exd.split ( ";",
-                                        QString::SkipEmptyParts );
+                                        Qt::SkipEmptyParts );
             for ( int i=0; i<lst.size(); ++i )
             {
                 //check if directory is in Windows client format
@@ -9054,7 +9054,7 @@ void ONMainWindow::exportDefaultDirs()
                 }
                 QStringList tails=lst[i].split (
                                       splitChar,
-                                      QString::SkipEmptyParts );
+                                      Qt::SkipEmptyParts );
                 if(tails.length()!=2)
                 {
                     //wrong format
@@ -9326,7 +9326,7 @@ void ONMainWindow::slotExtTimer()
             QByteArray line = file.readLine();
             QString ln ( line );
             QStringList args=ln.split ( "=",
-                                        QString::SkipEmptyParts );
+                                        Qt::SkipEmptyParts );
             if ( args.size() >1 )
             {
                 if ( args[0]=="login" )
@@ -9405,7 +9405,7 @@ void ONMainWindow::slotExportTimer()
             QByteArray line = file.readLine();
             QString ln ( line );
             QStringList args=ln.split ( "=",
-                                        QString::SkipEmptyParts );
+                                        Qt::SkipEmptyParts );
             if ( args.size() >1 )
             {
                 if ( args[0]=="export" )
@@ -9425,14 +9425,14 @@ void ONMainWindow::slotExportTimer()
         file.close();
         file.remove();
     }
-    QStringList args=expList.split ( ":",QString::SkipEmptyParts );
+    QStringList args=expList.split ( ":",Qt::SkipEmptyParts );
     expList=args.join ( ":" );
     if ( expList.size() >0 )
     {
         exportDirs ( expList,true );
     }
     args.clear();
-    args=unexpList.split ( ":",QString::SkipEmptyParts );
+    args=unexpList.split ( ":",Qt::SkipEmptyParts );
 
     QString passwd=getCurrentPass();
     QString user=getCurrentUname();
@@ -10740,7 +10740,7 @@ void ONMainWindow::startXOrg (std::size_t start_offset)
                 break;
             }
         }
-        QStringList options=cmdLine.split(" ",QString::SkipEmptyParts);
+        QStringList options=cmdLine.split(" ",Qt::SkipEmptyParts);
         QString option;
         foreach(option,options)
         {
@@ -13724,7 +13724,7 @@ void ONMainWindow::slotResLoadRequestFinished(QNetworkReply* reply)
         else
         {
             QString fpath=resourceDir+reply->url().toString().replace(resourceURL,"");
-            QStringList parts=fpath.split("/",QString::SkipEmptyParts);
+            QStringList parts=fpath.split("/",Qt::SkipEmptyParts);
             QString fname=parts.takeLast();
             QString path="/"+parts.join("/");
             resourceTmpDir->mkpath(path);

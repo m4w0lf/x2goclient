@@ -51,7 +51,7 @@ void FolderExplorer::initFolders(QTreeWidgetItem* parent, QString path)
             QTreeWidgetItem* it=new QTreeWidgetItem(parent);
             it->setText(0,b->getName());
             it->setIcon(0, QIcon(*(b->folderIcon())));
-            QString normPath=(b->getPath()+"/"+b->getName()).split("/",QString::SkipEmptyParts).join("/");
+            QString normPath=(b->getPath()+"/"+b->getName()).split("/",Qt::SkipEmptyParts).join("/");
             it->setData(0,Qt::UserRole, normPath+"/");
             if(normPath+"/"==currentPath)
             {
@@ -110,7 +110,7 @@ void FolderExplorer::slotChangeName()
 {
     bool ok;
     QString oldPath=menuItem->data(0,Qt::UserRole).toString();
-    QStringList parts=oldPath.split("/",QString::SkipEmptyParts);
+    QStringList parts=oldPath.split("/",Qt::SkipEmptyParts);
     QString text = QInputDialog::getText(this, tr("X2Go Client"),
                                          tr("Folder Name:"), QLineEdit::Normal,
                                          parts.last(), &ok);
@@ -147,7 +147,7 @@ void FolderExplorer::slotNewFolder()
     QString name=tr("New Folder");
     it->setText(0,name);
     it->setIcon(0, QIcon(mw->iconsPath("/128x128/folder.png")));
-    QString normPath=(menuItem->data(0,Qt::UserRole).toString()+"/"+name).split("/",QString::SkipEmptyParts).join("/");
+    QString normPath=(menuItem->data(0,Qt::UserRole).toString()+"/"+name).split("/",Qt::SkipEmptyParts).join("/");
     it->setData(0,Qt::UserRole, normPath+"/");
     treeWidget->clearSelection();
     it->setSelected(true);

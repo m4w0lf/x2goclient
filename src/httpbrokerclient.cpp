@@ -816,7 +816,7 @@ void HttpBrokerClient::parseSession(QString sinfo)
     config->sessiondata="";
     suspendedSession.clear();
     x2goDebug<<"Starting parser.";
-    QStringList lst=sinfo.split("SERVER:",QString::SkipEmptyParts);
+    QStringList lst=sinfo.split("SERVER:",Qt::SkipEmptyParts);
     int keyStartPos=sinfo.indexOf("-----BEGIN DSA PRIVATE KEY-----");
     if(keyStartPos==-1)
         keyStartPos=sinfo.indexOf("-----BEGIN RSA PRIVATE KEY-----");
@@ -872,10 +872,10 @@ void HttpBrokerClient::parseSession(QString sinfo)
     x2goDebug<<"Server port: "<<config->sshport;
     if (sinfo.indexOf("SESSION_INFO")!=-1)
     {
-        QStringList lst=sinfo.split("SESSION_INFO:",QString::SkipEmptyParts);
+        QStringList lst=sinfo.split("SESSION_INFO:",Qt::SkipEmptyParts);
         //config->sessiondata=lst[1];
         x2goDebug<<"Session data: "<<lst[1]<<"\n";
-        suspendedSession=lst[1].trimmed().split ( '\n', QString::SkipEmptyParts );
+        suspendedSession=lst[1].trimmed().split ( '\n', Qt::SkipEmptyParts );
         mainWindow->selectSession(suspendedSession);
     }
     else
