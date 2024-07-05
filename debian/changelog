@@ -13,6 +13,12 @@ x2goclient (4.1.2.4-0x2go1) UNRELEASED; urgency=medium
     - src/httpbrokerclient.cpp: handle missing server name/address gracefully.
     - src/httpbrokerclient.cpp: parse port value (if provided) and handle
       errors gracefully.
+    - src/compat.h: keep using QString::SkipEmptyParts/KeepEmptyParts for Qt <
+      5.14.0.
+    - src/{exportdialog,folder{button,explorer},httpbrokerclient,
+           onmainwindow.cpp,session{button,explorer,managedialog,widget},
+           sharewidget,sshmasterconnection}.cpp: use compat.h to select
+      compatible Qt::SkipEmptyParts/KeepEmptyParts.
   * x2goclient.spec:
     + Add Recommends: x2gokdriveclient for FC30+, RH 8+, *SuSE 15.4+.
     + Fix typo leading to FTBFS in Fedora macro.

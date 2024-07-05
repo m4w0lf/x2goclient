@@ -45,6 +45,7 @@
 
 
 #include "onmainwindow.h"
+#include "compat.h"
 
 
 #define PROXYTUNNELPORT 44444

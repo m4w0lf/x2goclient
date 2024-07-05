@@ -37,6 +37,7 @@
 #include <QRadioButton>
 #include "folderexplorer.h"
 #include "sessionexplorer.h"
+#include "compat.h"
 
 SessionWidget::SessionWidget ( bool newSession, QString id, ONMainWindow * mw,
                                QWidget * parent, Qt::WindowFlags f )

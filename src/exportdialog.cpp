@@ -31,6 +31,7 @@
 #include "onmainwindow.h"
 #include <QFileDialog>
 #include "sessionexplorer.h"
+#include "compat.h"
 
 ExportDialog::ExportDialog ( QString sid,QWidget * par, Qt::WindowFlags f )
     : QDialog ( par,f )

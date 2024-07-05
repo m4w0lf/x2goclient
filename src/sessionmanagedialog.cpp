@@ -30,6 +30,7 @@
 #include "sessionbutton.h"
 #include "folderbutton.h"
 #include "sessionexplorer.h"
+#include "compat.h"
 
 #define SESSIONROLE Qt::UserRole+1
 #define SESSIONIDROLE Qt::UserRole+2

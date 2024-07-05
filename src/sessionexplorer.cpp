@@ -34,6 +34,7 @@
 #include <QBuffer>
 #include <QDir>
 #include <QPushButton>
+#include "compat.h"
 
 SessionExplorer::SessionExplorer(ONMainWindow* p):QObject(p)
 {

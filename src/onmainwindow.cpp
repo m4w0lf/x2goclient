@@ -17,6 +17,7 @@
 
 #include "onmainwindow_privat.h"
 #include "help.h"
+#include "compat.h"
 
 #include <QStyleFactory>
 
