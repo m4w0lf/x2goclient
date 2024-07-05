@@ -404,7 +404,7 @@ void SessionButton::redraw()
 
     sessStatus->setText("");
     QString status=st->setting()->value ( sid+"/status",
-                                          ( QVariant ) QString::null ).toString();
+                                          ( QVariant ) QString() ).toString();
     if (status == "R")
     {
         sessStatus->setText("("+tr("running")+")");
@@ -415,10 +415,10 @@ void SessionButton::redraw()
     }
 
     suspended=st->setting()->value ( sid+"/suspended",
-                                         ( QVariant ) QString::null ).toUInt();
+                                         ( QVariant ) QString() ).toUInt();
 
     running=st->setting()->value ( sid+"/running",
-                                         ( QVariant ) QString::null ).toUInt();
+                                         ( QVariant ) QString() ).toUInt();
     if(suspended || running)
     {
         QStringList parts;
@@ -471,9 +471,9 @@ void SessionButton::redraw()
 
     delete pix;
     QString sv=st->setting()->value ( sid+"/host", ( QVariant )
-                                      QString::null ).toString();
+                                      QString() ).toString();
     QString uname=st->setting()->value ( sid+"/user", ( QVariant )
-                                         QString::null ).toString();
+                                         QString() ).toString();
     server->setText ( uname+"@"+sv );
 
     QString command=st->setting()->value ( sid+"/command",

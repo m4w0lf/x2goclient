@@ -60,7 +60,7 @@ ShareWidget::ShareWidget ( QString id, ONMainWindow * mw,
 
     QPushButton* openDir=new QPushButton (
         QIcon ( mainWindow->iconsPath ( "/16x16/file-open.png" ) ),
-        QString::null,egb );
+        QString(),egb );
 
     QPushButton* addDir=new QPushButton ( tr ( "Add" ),egb );
     QPushButton* delDir=new QPushButton ( tr ( "Delete" ),egb );
@@ -156,7 +156,7 @@ void ShareWidget::slot_openDir()
                       this,
                       tr ( "Select folder" ),
                       startDir );
-    if ( path!=QString::null )
+    if ( path!=QString() )
     {
 #ifdef Q_OS_WIN
         if ( ONMainWindow::getPortable() &&
@@ -198,7 +198,7 @@ void ShareWidget::slot_addDir()
     item= new QStandardItem();
     item->setCheckable ( true );
     model->setItem ( model->rowCount()-1,1,item );
-    ldir->setText ( QString::null );
+    ldir->setText ( QString() );
 }
 
 
@@ -214,7 +214,7 @@ void ShareWidget::readConfig()
     X2goSettings st ( "sessions" );
 
     QString exportDir=st.setting()->value ( sessionId+"/export",
-                                            ( QVariant ) QString::null ).toString();
+                                            ( QVariant ) QString() ).toString();
 
     cbFsSshTun->setChecked ( st.setting()->value ( sessionId+"/fstunnel",
                              true ).toBool() );

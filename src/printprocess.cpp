@@ -143,7 +143,7 @@ void PrintProcess::openPdf()
 #else
 		wapiShellExecute ( "open",
 		                   wapiShortFileName ( pdfFile ),
-		                   QString::null,
+		                   QString(),
 		                   wapiShortFileName ( QDir::homePath() ) );
 #endif
 	}

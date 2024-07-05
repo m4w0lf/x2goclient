@@ -118,7 +118,7 @@ void PrintWidget::loadSettings()
 	bool isGsViewInstalled=gsViewInfo ( ver,gsvpath );
 	if ( prcmd=="" && ! ( isGsInstalled && isGsViewInstalled ) )
 	{
-// 		x2goDebug<<"fallback to view"<<endl;
+// 		x2goDebug<<"fallback to view"<<Qt::endl;
 // 		pdfView=true;
 	}
 	else if ( prcmd=="" )

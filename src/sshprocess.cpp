@@ -125,7 +125,7 @@ void SshProcess::tunnelLoop()
     if (serverSocket<=0)
     {
         QString err=tr("Error creating socket.");
-        x2goDebug<<err<<endl;
+        x2goDebug<<err<<Qt::endl;
         emit sshFinished(false,err,pid);
         return;
     }
@@ -143,7 +143,7 @@ void SshProcess::tunnelLoop()
     if (bind(serverSocket,(struct sockaddr*) &address,sizeof(address))!=0)
     {
         QString err=tr("Error binding ")+localHost+":"+QString::number(localPort);
-        x2goDebug<<err<<endl;
+        x2goDebug<<err<<Qt::endl;
         emit sshFinished(false,err,pid);
         return;
     }
@@ -292,7 +292,7 @@ void SshProcess::startNormal(const QString& cmd, bool overridePath)
         {
             stdErrString=proc->errorString();
 #ifdef DEBUG
-            //x2goDebug<<"ssh start failed:" <<stdErrString<<endl;
+            //x2goDebug<<"ssh start failed:" <<stdErrString<<Qt::endl;
 #endif
             slotChannelClosed(this, uuidStr);
             return;
@@ -384,7 +384,7 @@ void SshProcess::start_cp(QString src, QString dst)
 void SshProcess::startTunnel(const QString& forwardHost, uint forwardPort, const QString& localHost,
                              uint localPort, bool reverse)
 {
-    x2goDebug<<"Starting tunnel via SshProcess object "<<pid<<": "<<forwardHost<<":"<<forwardPort<<" -> "<<localHost<<":"<<localPort<<endl;
+    x2goDebug<<"Starting tunnel via SshProcess object "<<pid<<": "<<forwardHost<<":"<<forwardPort<<" -> "<<localHost<<":"<<localPort<<Qt::endl;
 
     tunnel=true;
     tunnelOkEmited=false;
@@ -403,7 +403,7 @@ void SshProcess::startTunnel(const QString& forwardHost, uint forwardPort, const
 #ifdef Q_OS_WIN
         QString sshString="plink -batch -P "+
 #else
-        QString sshString=QString::null+"ssh"+ KEEPALIVE_OPTION +"-o GSSApiAuthentication=yes -o PasswordAuthentication=no -o PubkeyAuthentication=no -p "+
+        QString sshString=QString()+"ssh"+ KEEPALIVE_OPTION +"-o GSSApiAuthentication=yes -o PasswordAuthentication=no -o PubkeyAuthentication=no -p "+
 #endif
                           QString::number(masterCon->getPort())+" "+
                           masterCon->getUser()+"@"+
@@ -439,7 +439,7 @@ void SshProcess::slotStdErr(SshProcess* creator, QByteArray data)
     if (creator!=this)
         return;
 #ifdef DEBUG
-//     x2goDebug<<"new err data:"<<data<<endl;
+//     x2goDebug<<"new err data:"<<data<<Qt::endl;
 #endif
     stdErrString+=data;
 
@@ -464,7 +464,7 @@ void SshProcess::slotStdOut(SshProcess* creator, QByteArray data)
 {
     if (creator!=this)
         return;
-//     x2goDebug<<"new data"<<data<<endl;
+//     x2goDebug<<"new data"<<data<<Qt::endl;
     stdOutString+=data;
 }
 
