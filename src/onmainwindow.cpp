@@ -6435,6 +6435,9 @@ void ONMainWindow::slotTunnelOk(int)
             {
                 options<<"--width"<<width<<"--height"<<height;
             }
+        if (thinMode) {
+          options << "--disable-menubar";
+        }
 
         x2goDebug<<"Starting NX proxy, command: " + proxyCmd<<options;
         nxproxy->start ( proxyCmd, options );
