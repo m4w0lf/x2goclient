@@ -23,6 +23,10 @@ x2goclient (4.1.2.4-0x2go1) UNRELEASED; urgency=medium
       namespace and add the SplitBehavior enum with values taken from
       QString::SplitBehavior. Should fix the build issues on Ubuntu 20.04 and
       below.
+    - src/onmainwindow.cpp: use --disable-menubar for X2Go KDrive Client if
+      X2Go Client is running in thinclient mode.
+    - src/onmainwindow.cpp: output "KDrive Client" instead of "NX proxy" if
+      we're handling a KDrive session.
   * x2goclient.spec:
     + Add Recommends: x2gokdriveclient for FC30+, RH 8+, *SuSE 15.4+.
     + Fix typo leading to FTBFS in Fedora macro.
@@ -30,6 +34,8 @@ x2goclient (4.1.2.4-0x2go1) UNRELEASED; urgency=medium
   [ Juri Grabowski ]
   * New usptream version (4.1.2.4):
     - Replace QString::SkipEmptyParts with Qt::SkipEmptyParts.
+    - Remove QString::null deprecation warnings.
+    - Remove endl deprecation warnings.
 
  -- X2Go Release Manager <git-admin@x2go.org>  Thu, 29 Jun 2023 20:54:03 +0200
 
