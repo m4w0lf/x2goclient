@@ -6439,7 +6439,7 @@ void ONMainWindow::slotTunnelOk(int)
           options << "--disable-menubar";
         }
 
-        x2goDebug<<"Starting NX proxy, command: " + proxyCmd<<options;
+        x2goDebug<<"Starting KDrive Client, command: " + proxyCmd<<options;
         nxproxy->start ( proxyCmd, options );
     }
     else
