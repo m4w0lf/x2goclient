@@ -21,6 +21,7 @@
 #define COMPAT_H
 
 #include <QtCore/qglobal.h>
+#include <QtCore/qflags.h>
 
 #ifdef Q_OS_DARWIN
 /*
@@ -37,8 +38,12 @@ char *strndup (const char *s, size_t n);
 #endif /* defined (Q_OS_DARWIN) */
 
 #if QT_VERSION < QT_VERSION_CHECK (5, 14, 0)
-#define Qt::SkipEmptyParts QString::SkipEmptyParts
-#define Qt::KeepEmptyParts QString::KeepEmptyParts
+namespace Qt {
+  enum SplitBehaviorFlags {
+    SkipEmptyParts = QString::SkipEmptyParts,
+    KeepEmptyParts = QString::KeepEmptyParts,
+  }
+}
 #endif
 
 #endif /* !defined (COMPAT_H) */
