@@ -19,6 +19,10 @@ x2goclient (4.1.2.4-0x2go1) UNRELEASED; urgency=medium
            onmainwindow.cpp,session{button,explorer,managedialog,widget},
            sharewidget,sshmasterconnection}.cpp: use compat.h to select
       compatible Qt::SkipEmptyParts/KeepEmptyParts.
+    - src/compat.h: instead of using preprocessor defines, extend the Qt
+      namespace and add the SplitBehavior enum with values taken from
+      QString::SplitBehavior. Should fix the build issues on Ubuntu 20.04 and
+      below.
   * x2goclient.spec:
     + Add Recommends: x2gokdriveclient for FC30+, RH 8+, *SuSE 15.4+.
     + Fix typo leading to FTBFS in Fedora macro.
