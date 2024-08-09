@@ -43,7 +43,60 @@ namespace Qt {
     SkipEmptyParts = QString::SkipEmptyParts,
     KeepEmptyParts = QString::KeepEmptyParts,
   }
+  Q_DECLARE_FLAGS (SplitBehavior, SplitBehaviorFlags)
+  Q_DECLARE_OPERATORS_FOR_FLAGS (SplitBehavior)
 }
+
+class QStringCompatWrapper : public QString {
+  public:
+    Q_REQUIRED_RESULT
+    QStringList split(const QString &sep, Qt::SplitBehavior behavior = Qt::KeepEmptyParts,
+                      Qt::CaseSensitivity cs = Qt::CaseSensitive) const {
+      return (QString::split (sep, static_cast<QString::SplitBehavior> (behavior), cs));
+    }
+    Q_REQUIRED_RESULT
+    QVector<QStringRef> splitRef(const QString &sep,
+                                 Qt::SplitBehavior behavior = Qt::KeepEmptyParts,
+                                 Qt::CaseSensitivity cs = Qt::CaseSensitive) const {
+      return (QString::splitRef (sep, static_cast<QString::SplitBehavior> (behavior), cs));
+    }
+    Q_REQUIRED_RESULT
+    QStringList split(QChar sep, Qt::SplitBehavior behavior = Qt::KeepEmptyParts,
+                      Qt::CaseSensitivity cs = Qt::CaseSensitive) const {
+      return (QString::split (sep, static_cast<QString::SplitBehavior> (behavior), cs));
+    }
+    Q_REQUIRED_RESULT
+    QVector<QStringRef> splitRef(QChar sep, Qt::SplitBehavior behavior = Qt::KeepEmptyParts,
+                                 Qt::CaseSensitivity cs = Qt::CaseSensitive) const {
+      return (QString::splitRef (sep, static_cast<QString::SplitBehavior> (behavior), cs));
+    }
+#ifndef QT_NO_REGEXP
+    Q_REQUIRED_RESULT
+    QStringList split(const QRegExp &sep,
+                      Qt::SplitBehavior behavior = Qt::KeepEmptyParts) const {
+      return (QString::split (sep, static_cast<QString::SplitBehavior> (behavior)));
+    }
+    Q_REQUIRED_RESULT
+    QVector<QStringRef> splitRef(const QRegExp &sep,
+                                 Qt::SplitBehavior behavior = Qt::KeepEmptyParts) const {
+      return (QString::splitRef (sep, static_cast<QString::SplitBehavior> (behavior)));
+    }
+#endif
+#ifndef QT_NO_REGULAREXPRESSION
+    Q_REQUIRED_RESULT
+    QStringList split(const QRegularExpression &sep,
+                      Qt::SplitBehavior behavior = Qt::KeepEmptyParts) const {
+      return (QString::split (sep, static_cast<QString::SplitBehavior> (behavior)));
+    }
+    Q_REQUIRED_RESULT
+    QVector<QStringRef> splitRef(const QRegularExpression &sep,
+                                 Qt::SplitBehavior behavior = Qt::KeepEmptyParts) const {
+      return (QString::splitRef (sep, static_cast<QString::SplitBehavior> (behavior)));
+    }
+#endif
+};
+
+#define QString QStringCompatWrapper
 #endif
 
 #endif /* !defined (COMPAT_H) */
