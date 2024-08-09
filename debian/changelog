@@ -27,6 +27,12 @@ x2goclient (4.1.2.4-0x2go1) UNRELEASED; urgency=medium
       X2Go Client is running in thinclient mode.
     - src/onmainwindow.cpp: output "KDrive Client" instead of "NX proxy" if
       we're handling a KDrive session.
+    - src/compat.h: add more compat code for SplitBehavior. This whole thing
+      is getting really unwieldy, but there's no easy to do it otherwise.
+      We can't create implicit conversions for enums and macro magic doesn't
+      help either, so subclassing QString, adding compat wrappers and using a
+      macro to change all occurrences of QString to QStringCompatWrapper seems
+      to be the only way to pull this off. In a rather ugly way.
   * x2goclient.spec:
     + Add Recommends: x2gokdriveclient for FC30+, RH 8+, *SuSE 15.4+.
     + Fix typo leading to FTBFS in Fedora macro.
