@@ -11652,7 +11652,7 @@ bool ONMainWindow::startSshd(ONMainWindow::key_types key_type)
                                       NULL,           // Process handle not inheritable
                                       NULL,           // Thread handle not inheritable
                                       TRUE,          // Set handle inheritance to FALSE
-                                      0/*CREATE_NO_WINDOW|CREATE_NEW_PROCESS_GROUP*/,
+                                      CREATE_NO_WINDOW/*|CREATE_NEW_PROCESS_GROUP*/,
                                       //creation flags
                                       NULL,           // Use parent's environment block
                                       clientdir.c_str(), // Starting directory
