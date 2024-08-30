@@ -42,10 +42,11 @@ Depends:
 Recommends:
  openssh-server,
  freerdp2-x11 | rdesktop | freerdp-x11,
-@?@@QT_VERSION@@ == 4
 Suggests:
+@?@@QT_VERSION@@ == 4
  pinentry-x2go,
 @/
+ xwayland,
 Conflicts:
  x2goclient-gtk,
 Replaces:
