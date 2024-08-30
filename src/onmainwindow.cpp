@@ -1085,6 +1085,7 @@ void ONMainWindow::slotChangeBrokerPass()
         return;
     }
     broker->changePassword(passDlg.newPass());
+    config.brokerPass = passDlg.newPass();
     setStatStatus ( tr ( "Connecting to broker" ) );
     stInfo->insertPlainText ( "broker url: "+config.brokerurl );
     setEnabled ( false );
