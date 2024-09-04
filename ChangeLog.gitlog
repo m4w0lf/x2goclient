@@ -1,0 +1,291 @@
+2023-06-28 22:02:21 +0200 X2Go Release Manager (dc05d84) 
+
+	* release 4.1.2.3 (HEAD -> build-main, tag: 4.1.2.3,
+          origin/build-main, origin/HEAD)
+
+2023-06-28 03:36:53 +0200 Mihai Moldovan (06c528c) 
+
+	* man/man1/x2goclient.1: pre-release date update.
+
+2023-06-28 03:35:15 +0200 Mihai Moldovan (c3420e3) 
+
+	* misc: pre-release copyright update.
+
+2023-06-27 23:01:48 +0200 Mihai Moldovan (cbc27b8) 
+
+	* debian/preprocessor.pl: typo fixes only.
+
+2023-06-27 21:57:52 +0200 Mihai Moldovan (e932dec) 
+
+	* Windows: Update PuTTY from 0.73 to 0.78.
+
+2023-01-17 11:02:13 +0100 Oleksandr Shneyder (1ca4381) 
+
+	* on Windows check the location of cgwin binaries in <APPDIR> and in
+          <APPDIR>/bin.
+
+2023-01-11 09:23:58 -0600 Oleksandr Shneyder (e1e71a7) 
+
+	* on Windows SSHD will only listen 127.0.0.1 to avoid FW warnings.
+
+2022-12-03 04:49:35 +0100 Mihai Moldovan (0803f2a) 
+
+	* debian/rules; fix version detection on testing and unstable V2.
+
+2022-12-03 04:17:16 +0100 Mihai Moldovan (10a9019) 
+
+	* debian/rules: force another Jenkins rebuild.
+
+2022-12-03 04:11:46 +0100 Mihai Moldovan (72b079c) 
+
+	* debian/rules: add quotes to comment to force new commit and Jenkins
+          build.
+
+2022-12-02 00:36:50 +0100 Mihai Moldovan (b029658) 
+
+	* debian/rules: fix version detection on testing and unstable.
+
+2022-12-01 21:54:20 +0100 Mihai Moldovan (7aba7e4) 
+
+	* debian/changelog: whitespace only.
+
+2022-12-01 21:53:37 +0100 Mihai Moldovan (672e1d9) 
+
+	* x2gohelper/Makefile.mxe: more quoting.
+
+2022-12-01 21:45:06 +0100 Ulrich Sibiller (c4a7627) 
+
+	* x2gohelper/: add Makefile.mxe.
+
+2022-12-01 21:07:15 +0100 Ulrich Sibiller (f752399) 
+
+	* x2gohelper/x2gohelper.cpp: use lower-case header files.
+
+2022-12-01 20:57:39 +0100 Mihai Moldovan (41673c1) 
+
+	* x2goclient.pro: also select on win32 and not just win32-*, fix
+          whitespace.
+
+2022-12-01 20:54:45 +0100 Ulrich Sibiller (8eb96d9) 
+
+	* x2goclient.pro: use different parameters for MXE builds.
+
+2022-12-01 20:44:31 +0100 Mihai Moldovan (a62c2bd) 
+
+	* {handle_mxe.sh,x2goclient.pro}: make mxe selectable via CONFIG
+          option and prepare selector in x2goclient.pro.
+
+2022-12-01 20:24:52 +0100 Mihai Moldovan (5833e69) 
+
+	* config_linux_static.sh: also switch from -config to CONFIG+='...'.
+
+2022-12-01 20:20:05 +0100 Mihai Moldovan (847cfe7) 
+
+	* macbuild.sh: qmake never supported -config, it was always
+          CONFIG(+)='something'.
+
+2022-12-01 01:36:15 +0100 Mihai Moldovan (6f88182) 
+
+	* handle_mxe.sh: rework, make most variables lowercase, change
+          spacing, use proper if-else blocks, do not use special
+          bash features for string comparison etc.
+
+2022-12-01 01:13:23 +0100 Ulrich Sibiller (4e590d3) 
+
+	* /: add handle_mxe.sh, MXE control script.
+
+2022-12-01 01:04:06 +0100 Ulrich Sibiller (6b794fc) 
+
+	* /: add README.mxe, describing MXE builds.
+
+2022-11-30 23:32:24 +0100 Ulrich Sibiller (e1a4886) 
+
+	* /: drop Maemo support, remove x2goclient.pro.maemo.
+
+2022-11-30 23:29:10 +0100 Ulrich Sibiller (54e530d) 
+
+	*
+          src/{{InteractionDialog,configdialog,connectionwidget,editconnectiondialog,folderbutton,mediawidget,ongetpass,onmainwindow,printprocess,printwidget,sessionbutton,sessionmanagedialog,sessionwidget,settingswidget,sharewidget}.cpp,x2goclientconfig.h}:
+          drop Maemo support.
+
+2022-11-30 22:01:35 +0100 Ulrich Sibiller (fe1b41e) 
+
+	* res/resources.qrc: drop Maemo support, remove bg_hildon.svg entry.
+
+2022-11-30 22:00:43 +0100 Ulrich Sibiller (fbf1576) 
+
+	* res/img/svg: drop Maemo support, remove bg_hildon.svg.
+
+2022-11-30 21:59:21 +0100 Ulrich Sibiller (e68f675) 
+
+	* res/img/icons: drop Maemo support, remove hildon subdirectory.
+
+2022-11-30 21:55:19 +0100 Ulrich Sibiller (26333b4) 
+
+	* desktop/x2goclient.desktop: drop Maemo support.
+
+2022-08-22 11:56:38 -0500 Oleksandr Shneyder (ba65703) 
+
+	* add "noresize" setting, which makes the proxy window not resizable
+          for user.
+
+2022-08-08 11:00:37 -0500 Oleksandr Shneyder (34c121f) 
+
+	* for x2gokdrive sessions, when auto kbd layout is chosen, x2goclient
+          will try to set the same kbd layout on server as on the
+          client.
+
+2022-07-28 11:27:37 -0500 Oleksandr Shneyder (5f5b49c) 
+
+	* support for recent cygwin binaries and nxproxy 3.5.99.x all cygwin
+          binaries and DLLs should be moved into the INSTDIR/bin
+          directory by Windows installer.
+
+2022-07-25 11:28:17 -0500 Oleksandr Shneyder (4962b42) 
+
+	* improve processing stderr from nxproxy.
+
+2022-07-22 11:51:50 -0500 Oleksandr Shneyder (11110ba) 
+
+	* send to broker xdmcpserver in command option when starting xdmcp
+          session.
+
+2022-06-01 15:23:26 -0500 Oleksandr Shneyder (abc384d) 
+
+	* create default export directory if not exists.
+
+2022-05-27 09:12:51 -0500 Oleksandr Shneyder (2f79e69) 
+
+	* replace <HOME> with user's home dir in exports directories, when
+          exporting session default directories.
+
+2022-04-21 11:43:24 +0200 Oleksandr Shneyder (b60fa91) 
+
+	* Add splash screen option when starting in hidden mode.
+
+2022-04-05 08:38:11 +0200 Oleksandr Shneyder (71b05ca) 
+
+	* Enable/Disable session view buttons inside of sessions explorer.
+
+2022-04-01 12:34:47 -0600 Oleksandr Shneyder (ac6547b) 
+
+	*   - Support for OPENSSH PRIVATE KEY format sent from broker. - Do
+          not show client in broker mode if startet in "hidden"
+          mode.
+
+2022-03-03 09:59:43 -0600 Oleksandr Shneyder (b4b8e6b) 
+
+	* Do not show empty folders in session explorer.
+
+2022-02-17 13:31:46 -0600 Oleksandr Shneyder (7459a9a) 
+
+	* Fixed build with Qt5 on Windows.
+
+2022-02-17 12:44:22 -0600 Oleksandr Shneyder (4eed9dc) 
+
+	* Support for rootless X2GoKdrive sessions.
+
+2021-11-28 05:00:37 +0100 Mihai Moldovan (bd4ea00) 
+
+	* src/onmainwindow.cpp: convert server-reported time to human
+          readable time in Qt's standard format in session list
+          view.
+
+2021-11-28 04:52:08 +0100 Mihai Moldovan (95c3c7f) 
+
+	* src/onmainwindow.cpp: fix session creation date/time display.
+
+2021-11-27 08:22:11 +0100 Mihai Moldovan (82beb12) 
+
+	* src/onmainwindow.cpp: unbreak more and make sure that the code
+          actually works on older systems.
+
+2021-11-27 01:54:12 +0100 Mihai Moldovan (6b49bcc) 
+
+	* src/onmainwindow.cpp: unbreak on Qt 4 by emulating
+          QKeySequence::Cancel.
+
+2021-11-27 01:31:49 +0100 Mihai Moldovan (51b0f4f) 
+
+	* src/onmainwindow.cpp: increase fixed height of session selection
+          dialog in normal mode and also set as minimum height.
+
+2021-11-27 00:57:14 +0100 Mihai Moldovan (bbcf865) 
+
+	* src/onmainwindow.cpp: increase height of session selection dialog
+          in mini mode.
+
+2021-11-27 00:39:21 +0100 Mihai Moldovan (733eb50) 
+
+	* src/onmainwindow.cpp: set word wrapping on running label.
+
+2021-11-27 00:10:16 +0100 Mihai Moldovan (c1ea418) 
+
+	* src/onmainwindow.cpp: add Cancel standard shortcut to cancel button
+          in session selection view.
+
+2021-11-27 00:04:49 +0100 Mihai Moldovan (54149af) 
+
+	* src/onmainwindow.{cpp,h}: add notice explaining how to resume
+          running sessions.
+
+2021-11-22 23:51:20 +0100 Mihai Moldovan (c3fd1f3) 
+
+	* src/onmainwindow.cpp: consolidate Resume button enabling state in
+          ONMainWindow::initSelectSessDlg ().
+
+2021-11-22 23:36:10 +0100 Mihai Moldovan (8d4edda) 
+
+	* src/onmainwindow.cpp: add Cancel standard shortcut to cancel button
+          in login window.
+
+2021-11-23 11:17:57 -0600 Oleksandr Shneyder (d8a34ff) 
+
+	* Add special ACL for exported directories in Windows client.
+
+2021-11-05 10:08:01 -0600 Oleksandr Shneyder (4c08e04) 
+
+	* Replace QFont::Thin with 0 to keep compatibility with Qt4.
+
+2021-11-05 09:53:15 -0600 Oleksandr Shneyder (2537043) 
+
+	* Fix loading HTTP icon in pass dialog in broker mode.
+
+2021-11-05 09:35:15 -0600 Oleksandr Shneyder (c29e3db) 
+
+	* Improve synchronisation in broker mode.
+
+2021-11-04 13:02:14 -0600 Oleksandr Shneyder (0b71505) 
+
+	* Show session path in session button in Favorite and Running views.
+
+2021-11-04 11:34:10 -0600 Oleksandr Shneyder (b7e538a) 
+
+	* Set toolTip with detailed information for session button.
+
+2021-11-04 11:17:52 -0600 Oleksandr Shneyder (87166b8) 
+
+	* Improve view modes in broker mode.
+
+2021-11-04 10:15:37 -0600 Oleksandr Shneyder (94872d2) 
+
+	* Implement different view modes for sessions explorer: Favorite
+          sessions, running sessions, all sessions.
+
+2021-09-17 13:49:45 +0200 Oleksandr Shneyder (94b150b) 
+
+	* Setting debug filter rules for QT>=5.2
+
+2021-09-17 13:41:05 +0200 Oleksandr Shneyder (755feb8) 
+
+	* Add --debug argument to x2gokdriveclient in debug mode.
+
+2021-09-16 15:49:22 +0200 Oleksandr Shneyder (456a43f) 
+
+	* Fix loading session icon to system tray when using broker.
+
+2021-07-13 10:50:31 +0200 Oleksandr Shneyder (df4a8ec) 
+
+	* Support for HTTP(S) urls in the session icons when using http
+          broker.
+

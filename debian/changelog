@@ -1,3 +1,10 @@
+x2goclient (4.1.2.3-0x2go1+git20230629.2065+12.main.1) bookworm; urgency=medium
+
+  * Auto-built Debian bookworm (12) package for packages.x2go.org
+    repository (Git commit: dc05d84e3870f648fcd7b335b1b2be4a227857f5).
+
+ -- Jenkins <jenkins@japsand.x2go.org>  Thu, 29 Jun 2023 20:55:29 +0200
+
 x2goclient (4.1.2.3-0x2go1) unstable; urgency=medium
 
   [ Oleksandr Shneyder ]

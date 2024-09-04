@@ -331,6 +331,8 @@ public:
     void suspendBrokerSession ( const QString& sessId, const QString& host );
     bool termSession ( QString sessId,
                        bool warn=true );
+    bool cleanupSession ( QString sessId,
+                       bool warn=true );
     void termBrokerSession ( const QString& sessId, const QString& host );
     InteractionDialog* getInteractionDialog()
     {
@@ -788,6 +790,7 @@ private:
     static QString sessionCfg;
     QProcess* ssh;
     QProcess* soundServer;
+    QProcess* pcscSocat;
     QProcess* scDaemon;
     QProcess* gpg;
     LDAPSession* ld;
@@ -879,6 +882,7 @@ private:
     int tunnel;
     int sndTunnel;
     int fsTunnel;
+    int pcscTunnel;
     QList<x2goSession> selectedSessions;
     QStringList selectedDesktops;
     x2goSession resumingSession;
@@ -1123,6 +1127,8 @@ private slots:
     void slotFsTunnelFailed ( bool result,QString output,
                               int );
     void slotSndTunnelFailed ( bool result,QString output,
+                               int );
+    void slotPcscTunnelFailed ( bool result,QString output,
                                int );
     void slotCopyKey ( bool result,QString output,int );
     void slotTunnelOk(int = 0);

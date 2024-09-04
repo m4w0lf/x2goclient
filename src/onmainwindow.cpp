@@ -205,6 +205,7 @@ ONMainWindow::ONMainWindow ( QWidget *parent ) :QMainWindow ( parent )
     fsTunnel=0l;
     nxproxy=0l;
     soundServer=0l;
+    pcscSocat=0l;
     scDaemon=0l;
     statusLabel=0;
     gpg=0l;
@@ -1513,6 +1514,12 @@ void ONMainWindow::closeClient()
         x2goDebug<<"Deleting the sound server ...";
         delete soundServer;
         x2goDebug<<"Deleted the sound server.";
+    }
+    if ( pcscSocat )
+    {
+        x2goDebug<<"Deleting the pcsc socat server ...";
+        delete pcscSocat;
+        x2goDebug<<"Deleted the pcsc socat server.";
     }
 #ifdef Q_OS_WIN
     if ( xorg )
@@ -5721,6 +5728,8 @@ void ONMainWindow::slotRetResumeSess ( bool result,
 #endif /* !defined (Q_OS_WIN) && !defined (Q_OS_DARWIN) */
     bool startSoundServer=true;
     bool sshSndTunnel=true;
+    bool startPcscSocat=true;
+    bool sshPcscTunnel=true;
 
     if ( useLdap )
     {
@@ -5966,6 +5975,16 @@ void ONMainWindow::slotRetResumeSess ( bool result,
     if ( shadowSession )
         return;
 
+    pcscTunnel=0l;
+
+    if( sshPcscTunnel ){
+        QString pscmd;
+
+        pscmd="cat ${HOME}/.x2go/C-"+resumingSession.sessionId+"/pcsc.pid | xargs kill || true ; socat UNIX-LISTEN:${HOME}/.x2go/C-"+resumingSession.sessionId+"/pcsc.comm,reuseaddr,fork TCP:127.0.0.1:"+QString::number(resumingSession.sndPort.toInt()+1010) + "& echo $! > ${HOME}/.x2go/C-"+resumingSession.sessionId+"/pcsc.pid";
+
+        sshConnection->executeCommand (pscmd);
+    }
+
     sndTunnel=0l;
     if ( sound )
     {
@@ -6118,6 +6137,12 @@ void ONMainWindow::slotRetResumeSess ( bool result,
                                      resumingSession.sndPort );
             sndPort=resumingSession.sndPort;
         }
+
+        if ( startPcscSocat )
+        {
+            pcscSocat=new QProcess ( this );
+            pcscSocat->start ( "socat TCP-LISTEN:"+QString::number(resumingSession.sndPort.toInt()+1010)+",bind=127.0.0.1,reuseaddr,fork UNIX-CONNECT:/var/run/pcscd/pcscd.comm");
+        }
 #endif /* !defined (Q_OS_WIN) && !defined (Q_OS_DARWIN) */
         if ( sshSndTunnel )
         {
@@ -6126,6 +6151,17 @@ void ONMainWindow::slotRetResumeSess ( bool result,
                           resumingSession.sndPort.toInt(),"127.0.0.1",
                           sndPort.toInt(),true,this,NULL, SLOT (
                               slotSndTunnelFailed ( bool,
+                                                    QString,
+                                                    int ) ));
+        }
+
+        if ( sshPcscTunnel )
+        {
+            pcscTunnel=sshConnection->startTunnel (
+                          "localhost",
+                          resumingSession.sndPort.toInt()+1010,"127.0.0.1",
+                          resumingSession.sndPort.toInt()+1010,true,this,NULL, SLOT (
+                              slotPcscTunnelFailed ( bool,
                                                     QString,
                                                     int ) ));
         }
@@ -6189,6 +6225,7 @@ void ONMainWindow::slotTunnelOk(int)
 //                 delete soundServer;
             tunnel=sndTunnel=fsTunnel=0l;
             soundServer=0l;
+            pcscSocat=0l;
             nxproxy=0l;
             return;
         }
@@ -6516,6 +6553,22 @@ void ONMainWindow::slotSndTunnelFailed ( bool result,  QString output,
     }
 }
 
+void ONMainWindow::slotPcscTunnelFailed ( bool result,  QString output,
+        int )
+{
+    if ( result==false )
+    {
+        if ( !managedMode )
+        {
+            QString message=tr ( "Unable to create SSH tunnel for PCSC data:\n" )
+                            +output;
+            QMessageBox::warning ( 0l,tr ( "Warning" ),message,
+                                   QMessageBox::Ok,
+                                   QMessageBox::NoButton );
+        }
+        pcscTunnel=0l;
+    }
+}
 
 #ifdef Q_OS_DARWIN
 void ONMainWindow::slotSetModMap()
@@ -6756,6 +6809,8 @@ void ONMainWindow::slotProxyFinished ( int,QProcess::ExitStatus )
         return;
     if ( soundServer )
         delete soundServer;
+    if ( pcscSocat )
+        delete pcscSocat;
     if ( spoolTimer )
         delete spoolTimer;
 
@@ -6809,6 +6864,7 @@ void ONMainWindow::slotProxyFinished ( int,QProcess::ExitStatus )
     spoolTimer=0l;
     tunnel=sndTunnel=fsTunnel=0l;
     soundServer=0l;
+    pcscSocat=0l;
     nxproxy=0l;
     proxyWinId=0;
 
@@ -7189,6 +7245,9 @@ void ONMainWindow::termBrokerSession(const QString& sessId, const QString& host)
 void ONMainWindow::suspendSession ( QString sessId )
 {
 
+    sshConnection->executeCommand ( "cat ${HOME}/.x2go/C-"+sessId+"/pcsc.pid | xargs kill || true", this,  SLOT ( slotRetSuspSess ( bool,  QString,
+                                    int ) ) );
+
     sshConnection->executeCommand ( "x2gosuspend-session "+sessId, this,  SLOT ( slotRetSuspSess ( bool,  QString,
                                     int ) ) );
 }
@@ -7230,10 +7289,26 @@ bool ONMainWindow::termSession ( QString sessId, bool warn )
     x2goDebug<<"Terminating session.";
     sshConnection->executeCommand ( "x2goterminate-session "+sessId, this, SLOT ( slotRetTermSess ( bool,
                                     QString,int) )  );
+    
+
+    cleanupSession(sessId, warn);
+
     proxyRunning=false;
     return true;
 }
 
+bool ONMainWindow::cleanupSession ( QString sessId, bool warn )
+{
+    
+    x2goDebug<<"Cleaning up session.";
+
+    QString cleanupCmd = "cat ${HOME}/.x2go/C-"+sessId+"/pcsc.pid | xargs kill || true; rm ${HOME}/.x2go/C-"+sessId;
+
+    sshConnection->executeCommand ( cleanupCmd, this, SLOT ( slotRetTermSess ( bool,
+                                    QString,int) )  );
+    
+    return true;
+}
 
 
 void ONMainWindow::setStatStatus ( QString status )
