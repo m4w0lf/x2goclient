@@ -5980,7 +5980,7 @@ void ONMainWindow::slotRetResumeSess ( bool result,
     if( sshPcscTunnel ){
         QString pscmd;
 
-        pscmd="cat ${HOME}/.x2go/C-"+resumingSession.sessionId+"/pcsc.pid | xargs kill || true ; socat UNIX-LISTEN:${HOME}/.x2go/C-"+resumingSession.sessionId+"/pcsc.comm,reuseaddr,fork TCP:127.0.0.1:"+QString::number(resumingSession.sndPort.toInt()+1010) + "& echo $! > ${HOME}/.x2go/C-"+resumingSession.sessionId+"/pcsc.pid";
+        pscmd="cat ${HOME}/.x2go/C-"+resumingSession.sessionId+"/pcsc.pid | xargs kill || true ; socat UNIX-LISTEN:${HOME}/.x2go/C-"+resumingSession.sessionId+"/.pcsc.comm,reuseaddr,fork TCP:127.0.0.1:"+QString::number(resumingSession.sndPort.toInt()+1010) + "& echo $! > ${HOME}/.x2go/C-"+resumingSession.sessionId+"/pcsc.pid";
 
         sshConnection->executeCommand (pscmd);
     }
@@ -7730,7 +7730,7 @@ void ONMainWindow::SlotRunCommand(bool, QString output, int)
     if(true){
         cmd="export PCSCLITE_CSOCK_NAME=\"${HOME}/.x2go/C-"+
             resumingSession.sessionId+
-            "/pcsc.comm\";"+cmd;
+            "/.pcsc.comm\";"+cmd;
     }
 
     sshConnection->executeCommand ( cmd, this,
