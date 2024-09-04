@@ -7726,6 +7726,12 @@ void ONMainWindow::SlotRunCommand(bool, QString output, int)
         }
     }
 
+    if(sshPcscTunnel){
+        cmd="export PCSCLITE_CSOCK_NAME=\"${HOME}/.x2go/C-"+
+            resumingSession.sessionId+
+            "/pcsc.comm\";"+cmd;
+    }
+
     sshConnection->executeCommand ( cmd, this,
                                     SLOT ( slotRetRunCommand ( bool,
                                     QString,
