@@ -7726,7 +7726,8 @@ void ONMainWindow::SlotRunCommand(bool, QString output, int)
         }
     }
 
-    if(sshPcscTunnel){
+// TO CHECK
+    if(true){
         cmd="export PCSCLITE_CSOCK_NAME=\"${HOME}/.x2go/C-"+
             resumingSession.sessionId+
             "/pcsc.comm\";"+cmd;
